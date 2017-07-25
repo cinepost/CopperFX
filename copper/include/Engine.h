@@ -13,7 +13,7 @@
 using namespace CopperEngine;
 
 // Engine class is a singleton
-class Engine: public Node {
+class Engine {
     public:
     	static Engine& Instance() {
     		// this is a lazy and thread safe code
@@ -22,7 +22,15 @@ class Engine: public Node {
     	}
 		
 		Node *node(std::string node_path);
-		Node *rootNode();
+
+		float time();
+		void setTime(float time);
+
+		float frame();
+		void setFrame(float frame);
+
+		float fps();
+		void setFps(float fps);
 
 	private:
 		Engine(); // constructor is protected
@@ -36,6 +44,9 @@ class Engine: public Node {
 
 		Node *_root_node;
 		std::map<std::string, Node *> _nodes_map;
+
+		// animation related
+		float _time, _frame, _fps;
 
 };
 

@@ -1,0 +1,13 @@
+#!/bin/bash
+CWD='$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )'
+
+BUILD_DIRECTORY="build"
+
+if [ ! -d "$BUILD_DIRECTORY" ]; then
+  mkdir $BUILD_DIRECTORY
+fi
+
+cd $BUILD_DIRECTORY
+cmake ..
+make
+make install

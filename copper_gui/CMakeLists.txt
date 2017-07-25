@@ -12,3 +12,5 @@ include_directories( ${CMAKE_BINARY_DIR} )
 add_executable (copper ${SOURCES} ${MOC_SRCS} ${RES_SOURCES})
  
 target_link_libraries (copper ${QT_LIBRARIES} copper_lib)
+
+install(TARGETS copper DESTINATION bin)

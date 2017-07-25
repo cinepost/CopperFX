@@ -22,3 +22,5 @@ target_link_libraries( hou ${Boost_LIBRARIES} ${PYTHON_LIBRARIES}  ${OpenCL_LIBR
 # don't prepend wrapper library name with lib
 set_target_properties( hou PROPERTIES PREFIX "" )
 set_target_properties( hou PROPERTIES SUFFIX ".so" )
+
+install(TARGETS hou DESTINATION copper/python2.7libs)
