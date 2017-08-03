@@ -1,4 +1,4 @@
-#include "../include/GPU_Manager.h"
+#include "GPU/GPU_Manager.h"
 
 GPU_Manager::GPU_Manager() {
 	std::cout << "Initializing GPU Manager..." << std::endl;

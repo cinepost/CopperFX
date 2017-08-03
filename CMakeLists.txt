@@ -1,4 +1,4 @@
-SET(CMAKE_INSTALL_PREFIX /opt/cfs0.0.001)
+SET( CMAKE_INSTALL_PREFIX /opt/cfs0.0.001 )
 
 PROJECT( CopperFX )
 CMAKE_MINIMUM_REQUIRED( VERSION 3.5 )
@@ -25,8 +25,9 @@ else ()
 	MESSAGE(FATAL_ERROR "CMakeLists.txt has not been tested/written for your compiler.")
 endif ()
 
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR} )
+#include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/include )
+SET( COPPER_INCLUDE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/copper )
 
-add_subdirectory( copper )
-add_subdirectory( copper_gui )
-add_subdirectory( copper_pymodule )
+add_subdirectory( src/copper_lib )
+add_subdirectory( src/copper_gui )
+add_subdirectory( src/copper_pymodule )

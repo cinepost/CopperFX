@@ -1,8 +1,8 @@
-#ifndef __NodeNetworkItem__
-#define __NodeNetworkItem__
+#ifndef __OP_NetworkBoxItem__
+#define __OP_NetworkBoxItem__
 
 
-class NodeNetworkItem {
+class OP_NetworkBoxItem {
 	public:
 		float	getX();
 		float	getY();

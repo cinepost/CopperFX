@@ -15,8 +15,8 @@ include_directories( ${OpenCL_INCLUDE_DIRS} )
 link_directories( ${OpenCL_LIBRARY} )
 
 # define wrapper library
-add_library( hou SHARED src/copper_pymodule.cpp )
-target_include_directories ( hou PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} )
+add_library( hou SHARED ./copper_pymodule.cpp )
+target_include_directories ( hou PUBLIC ${COPPER_INCLUDE_DIRECTORY} )
 target_link_libraries( hou ${Boost_LIBRARIES} ${PYTHON_LIBRARIES}  ${OpenCL_LIBRARY} copper_lib )
 
 # don't prepend wrapper library name with lib
