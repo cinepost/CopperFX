@@ -31,3 +31,9 @@ SET( COPPER_INCLUDE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/copper )
 add_subdirectory( src/copper_lib )
 add_subdirectory( src/copper_gui )
 add_subdirectory( src/copper_pymodule )
+
+add_custom_command(TARGET copper POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    ${CMAKE_CURRENT_SOURCE_DIR}/cfs/*
+    ${CMAKE_INSTALL_PREFIX}/
+)
