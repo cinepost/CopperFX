@@ -1,7 +1,10 @@
 #include <boost/python.hpp>
+#include <boost/python/suite/indexing/vector_indexing_suite.hpp>
+
 #include <string>
 
 #include "OP/OP_Node.h"
+#include "Geometry/Geometry.h"
 #include "Engine.h"
 
 namespace python = boost::python;
@@ -25,26 +28,33 @@ OP_Node 	*(OP_Node::*createNode)(std::string) = &OP_Node::createNode;
 OP_Node 	*(OP_Node::*createNamedNode)(std::string, std::string) = &OP_Node::createNode;
 
 BOOST_PYTHON_MODULE(hou){
-    //python::def("init", &initEngine,
-    //    python::return_value_policy<python::manage_new_object>());
-    python::def("node", engine_interface::OP_Node, python::return_value_policy<python::reference_existing_object>());
-    
-    python::def("time", engine_interface::time);
-    python::def("setTime", engine_interface::setTime);
+  //python::def("init", &initEngine,
+  //    python::return_value_policy<python::manage_new_object>());
+  python::def("node", engine_interface::OP_Node, python::return_value_policy<python::reference_existing_object>());
+  
+  python::def("time", engine_interface::time);
+  python::def("setTime", engine_interface::setTime);
 
-    python::def("frame", engine_interface::frame);
-    python::def("setFrame", engine_interface::setFrame);
+  python::def("frame", engine_interface::frame);
+  python::def("setFrame", engine_interface::setFrame);
 
-    python::def("fps", engine_interface::fps);
-    python::def("setFps", engine_interface::setFps);
+  python::def("fps", engine_interface::fps);
+  python::def("setFps", engine_interface::setFps);
 
 
-    python::class_<OP_Node>("OP_Node", python::no_init)
-        .def("createOP_Node", createNode, python::return_value_policy<python::manage_new_object>())
-       	.def("createOP_Node", createNamedNode, python::return_value_policy<python::manage_new_object>())
-       	.def("node", &OP_Node::node, python::return_value_policy<python::reference_existing_object>())
-        .def("parent", &OP_Node::parent, python::return_value_policy<python::reference_existing_object>())
-        .def("name", &OP_Node::getName)
-        .def("setName", &OP_Node::setName)
-        .def("cook", &OP_Node::cook);
+  python::class_<OP_Node>("Node", python::no_init)
+    .def("createNode", createNode, python::return_value_policy<python::manage_new_object>())
+   	.def("createNode", createNamedNode, python::return_value_policy<python::manage_new_object>())
+   	.def("node", &OP_Node::node, python::return_value_policy<python::reference_existing_object>())
+    .def("parent", &OP_Node::parent, python::return_value_policy<python::reference_existing_object>())
+    .def("name", &OP_Node::getName)
+    .def("setName", &OP_Node::setName)
+    .def("cook", &OP_Node::cook);
+
+  python::class_<PointsList>("PointsList")
+    .def(python::vector_indexing_suite<PointsList>());
+
+  python::class_<Geometry>("Geometry", python::no_init)
+    .def("freeze", &Geometry::freeze, python::return_value_policy<python::manage_new_object>())
+    .def("points", &Geometry::points, python::return_value_policy<python::reference_existing_object>());
 }

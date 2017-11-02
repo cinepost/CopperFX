@@ -2,6 +2,7 @@ file( GLOB SOURCES
 	./*.cpp 
 	./OP/*.cpp
 	./UT/*.cpp
+	./Geometry/*.cpp
 )
 
 include_directories( ${COPPER_INCLUDE_DIRECTORY} )

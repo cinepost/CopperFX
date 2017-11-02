@@ -19,7 +19,7 @@ set( CMAKE_CXX_STANDARD_REQUIRED ON )
 
 if (MSVC)
 	ADD_DEFINITIONS(/W3)
-elseif (CMAKE_COMPILER_IS_GNUCXX)
+elseif (UNIX) #(CMAKE_COMPILER_IS_GNUCXX)
 	ADD_DEFINITIONS(-Wall -fPIC -pedantic)
 else ()
 	MESSAGE(FATAL_ERROR "CMakeLists.txt has not been tested/written for your compiler.")
@@ -32,8 +32,14 @@ add_subdirectory( src/copper_lib )
 add_subdirectory( src/copper_gui )
 add_subdirectory( src/copper_pymodule )
 
-add_custom_command(TARGET copper POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different
-    ${CMAKE_CURRENT_SOURCE_DIR}/cfs/*
-    ${CMAKE_INSTALL_PREFIX}/
-)
+#add_custom_command(
+#  TARGET copper
+#  POST_BUILD
+#  COMMAND rsync
+#  ARGS -r
+#    "${CMAKE_CURRENT_SOURCE_DIR}/cfs/*"
+#    "${CMAKE_INSTALL_PREFIX}/"
+#  COMMENT "Copying Bundle Stuff"
+#)
+
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/cfs/* DESTINATION ${CMAKE_INSTALL_PREFIX}/)
