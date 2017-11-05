@@ -23,6 +23,7 @@ namespace hou {
   float fps(){ return engine.fps(); }
   void setFps(float fps){ engine.setFps(fps); }
 
+  void export_Vector2();
   void export_Vector3();
   void export_Point();
   void export_Geometry();
@@ -42,7 +43,8 @@ BOOST_PYTHON_MODULE(hou){
 
   boost::python::def("node", hou::getNode, boost::python::return_value_policy<boost::python::reference_existing_object>());
 
-  // Vector3
+  // Vectors
+  hou::export_Vector2();
   hou::export_Vector3();
 
   // Point
