@@ -1,7 +1,9 @@
 file( GLOB SOURCES
-	./*.cpp 
-	./OP/*.cpp
+	./*.cpp
 	./UT/*.cpp
+	./Math/*.cpp
+	./Parameters/*.cpp
+	./Node/*.cpp
 	./Geometry/*.cpp
 )
 

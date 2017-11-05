@@ -8,7 +8,7 @@
 
 #include "Kernel.h"
 //#include "GPU_Manager.h"
-#include "OP/OP_Node.h"
+#include "Node/Node.h"
 
 using namespace CopperEngine;
 
@@ -21,7 +21,7 @@ class Engine {
     		return e;
     	}
 		
-		OP_Node *node(std::string node_path);
+		Node *node(std::string node_path);
 
 		float time();
 		void setTime(float time);
@@ -42,8 +42,8 @@ class Engine {
 
 		Kernel theKernel;
 
-		OP_Node *_root_node;
-		std::map<std::string, OP_Node *> _nodes_map;
+		Node *_root_node;
+		std::map<std::string, Node *> _nodes_map;
 
 		// animation related
 		float _time, _frame, _fps;

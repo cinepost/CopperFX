@@ -1,3 +1,7 @@
+file( GLOB SOURCES
+	./*.cpp
+)
+
 # find python libs
 find_package( PythonLibs 2.7 REQUIRED )
 include_directories( ${PYTHON_INCLUDE_DIRS} )
@@ -15,9 +19,9 @@ include_directories( ${OpenCL_INCLUDE_DIRS} )
 link_directories( ${OpenCL_LIBRARY} )
 
 # define wrapper library
-add_library( hou SHARED ./copper_pymodule.cpp )
+add_library( hou SHARED ${SOURCES} )
 target_include_directories ( hou PUBLIC ${COPPER_INCLUDE_DIRECTORY} )
-target_link_libraries( hou ${Boost_LIBRARIES} ${PYTHON_LIBRARIES}  ${OpenCL_LIBRARY} copper_lib )
+target_link_libraries( hou ${Boost_LIBRARIES} ${PYTHON_LIBRARIES} ${OpenCL_LIBRARY} copper_lib )
 
 # don't prepend wrapper library name with lib
 set_target_properties( hou PROPERTIES PREFIX "" )
