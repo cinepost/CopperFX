@@ -4,14 +4,14 @@
 #include <string>
 #include <iostream>
 
+#include "copper_pymodule.h"
 #include "Math/Vector3.h"
 #include "Geometry/Point.h"
 #include "Node/Node.h"
 #include "Engine.h"
 
-Engine& engine = Engine::Instance();
-
 namespace hou {
+  Engine& engine = Engine::Instance();
 
   Node* getNode(std::string path){ return engine.node(path); }
   float time(){ return engine.time(); }

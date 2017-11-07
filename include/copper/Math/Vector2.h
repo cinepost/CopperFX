@@ -7,6 +7,7 @@
 
 class Vector2 {
 	public:
+		Vector2(const Vector2 &vec); // copy constructor
 		Vector2():_comps{0.0, 0.0} {};
 		Vector2(double x, double y):_comps{x, y} {};
 		Vector2(std::vector<double> &comps);
@@ -26,8 +27,10 @@ class Vector2 {
 		//calculate and return distance between two vectors
 		double distance(Vector2 &vec);
 
+		//overloaded operators
 		double &operator[](int index);
 		const double &operator[](int index) const;
+		bool operator==(const Vector2& vec);
 
 	private:
 		double _comps[2];

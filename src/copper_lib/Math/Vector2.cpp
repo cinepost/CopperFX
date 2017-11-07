@@ -1,5 +1,9 @@
 #include "Math/Vector2.h"
 
+Vector2::Vector2(const Vector2 &vec) {
+	_comps[0] = vec._comps[0]; _comps[1] = vec._comps[1];
+}
+
 Vector2::Vector2(std::vector<double> &comps){
 	set(comps);
 }
@@ -38,4 +42,8 @@ double &Vector2::operator[](int index) {
 
 const double &Vector2::operator[](int index) const {
 	return _comps[index];
+}
+
+bool Vector2::operator==(const Vector2& vec) {
+	return _comps[0] == vec._comps[0] && _comps[1] == vec._comps[1];
 }

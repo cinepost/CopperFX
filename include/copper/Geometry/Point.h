@@ -3,6 +3,7 @@
 
 #include <stdexcept>
 #include <vector>
+#include <iostream>
 
 #include "Math/Vector3.h"
 #include "Geometry/Geometry.h"
@@ -11,7 +12,9 @@ class Geometry;
 
 class Point {
 	public:
+		Point();
 		Point(Geometry *geo);
+		Point(const Point &pt);  // copy constructor
 
 		Geometry *geometry();
 		double weight();

@@ -1,5 +1,9 @@
 #include "Math/Vector3.h"
 
+Vector3::Vector3(const Vector3 &vec) {
+	_comps[0] = vec._comps[0]; _comps[1] = vec._comps[1]; _comps[2] = vec._comps[2];
+}
+
 Vector3::Vector3(std::vector<double> &comps){
 	set(comps);
 }
@@ -39,4 +43,8 @@ double &Vector3::operator[](int index) {
 
 const double &Vector3::operator[](int index) const {
 	return _comps[index];
+}
+
+bool Vector3::operator==(const Vector3& vec) {
+	return _comps[0] == vec._comps[0] && _comps[1] == vec._comps[1] && _comps[2] == vec._comps[2];
 }

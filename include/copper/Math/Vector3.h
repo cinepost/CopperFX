@@ -7,6 +7,7 @@
 
 class Vector3 {
 	public:
+		Vector3(const Vector3 &vec);  // copy constructor
 		Vector3():_comps{0.0, 0.0, 0.0} {};
 		Vector3(double x):_comps{x, x, x} {};
 		Vector3(double x, double y, double z):_comps{x, y, z} {};
@@ -27,8 +28,10 @@ class Vector3 {
 		//calculate and return distance between two vectors
 		double distance(Vector3 &vec);
 
+		//overloaded operators
 		double &operator[](int index);
 		const double &operator[](int index) const;
+		bool operator==(const Vector3& vec);
 
 	private:
 		double _comps[3];
