@@ -1,6 +1,6 @@
 #include "Geometry/Geometry.h"
 
-Geometry::Geometry(): _name{"no name"}, _sop_node{NULL} {
+Geometry::Geometry(): _sop_node{NULL} {
 	std::cout << "Geometry constructed" << std::endl;
 }
 
@@ -19,12 +19,12 @@ Geometry *Geometry::freeze(){
 	return frozen_geo;
 }
 
-std::vector<Point> *Geometry::points() {
+std::vector<Point*> *Geometry::points() {
 	return &(this)->_points;
 }
 
-std::vector<Point> *Geometry::points() const {
-	return const_cast<std::vector<Point> *>(&(this)->_points);
+std::vector<Point*> *Geometry::points() const {
+	return const_cast<std::vector<Point*> *>(&(this)->_points);
 }
 
 Node *Geometry::sopNode(){
@@ -32,18 +32,6 @@ Node *Geometry::sopNode(){
 }
 
 Point *Geometry::createPoint() {
-	_points.push_back(Point(this));
-	return &_points.back();
-}
-
-int Geometry::numPoints() {
-	return _points.size();
-}
-
-std::string Geometry::name() {
-	return _name;
-}
-
-void Geometry::setName(std::string name) {
-	_name = name;
+	_points.push_back(new Point());
+	return this->_points.back();
 }

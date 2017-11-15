@@ -1,47 +1,46 @@
 #include "Node/Node.h"
 
-Node::Node() {
-	// This constructor is called only once, when root Node created. //
-	name = "/";
-	parent_node = NULL;
-	child_nodes.empty();
+Node::Node(): _parent{NULL}, _name{"/"} {
+	std::cout << "Node constructed" << std::endl;
 }
 
 
-Node::Node( Node *parent ) {
-	Node();
-	parent_node = parent;
+Node::Node( Node *parent ): Node() {
+	_parent = parent;
 }
 
+Node::Node(const Node &node){
+	std::cout << "Node copied" << std::endl;
+}
 
 const std::string Node::getName() {
-	return name;
+	return _name;
 }
 
 
 void Node::setName( std::string name ) {
-	this->name = name;
+	_name = name;
 }
 
 
 const std::string Node::path() {
-	return name;
+	return _name;
 }
 
 
 Node *Node::parent() {
-	return parent_node;
+	return _parent;
 }
 
 
 Node *Node::rootNode() {
-	if (!parent_node) return this;
-	return parent_node->rootNode();
+	if (!_parent) return this;
+	return _parent->rootNode();
 }
 
 
 std::string Node::buildBase1NodeName(std::string name){
-	if ( child_nodes.find(name) != child_nodes.end() ) {
+	if ( _children.find(name) != _children.end() ) {
 		// this Node name already taken by child Node, let's rename it by Base1 rule
 		return buildBase1NodeName(makeBase1String(name)); // TODO: some speedup instead of dumb recursion
 	}
@@ -59,7 +58,7 @@ Node *Node::createNode( std::string node_type_name, std::string node_name ) {
 
 	Node *new_node = new Node(this);
 	new_node->setName(new_node_name);
-	child_nodes[new_node_name] = new_node;
+	_children[new_node_name] = new_node;
 	return new_node;
 }
 
@@ -81,13 +80,13 @@ Node *Node::node( std::string node_path ) {
 	std::map<std::string, Node *>::iterator it;
 	if (found == std::string::npos) {
 		// no "/" in path name, search for child with this name
-		it = child_nodes.find(node_path);
-		if ( it != child_nodes.end() ) return it->second;
+		it = _children.find(node_path);
+		if ( it != _children.end() ) return it->second;
 	}else{
 		std::string node_name = node_path.substr(0, found + 1);
 		std::string path = node_path.substr(found + 2);
-		it = child_nodes.find(node_name);
-		if ( it != child_nodes.end() ) return it->second->node(path);
+		it = _children.find(node_name);
+		if ( it != _children.end() ) return it->second->node(path);
 	}
 
 	return NULL;
