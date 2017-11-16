@@ -5,10 +5,10 @@
 #include <boost/shared_ptr.hpp>
 
 #include "copper_pymodule.h"
-#include "Geometry/Point.h"
-#include "Geometry/Geometry.h"
-#include "HOU_Point.h"
+#include "copper/Geometry/Point.h"
+#include "copper/Geometry/Geometry.h"
 
+#include "HOU_Point.h"
 
 
 #endif

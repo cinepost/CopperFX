@@ -4,9 +4,9 @@
 ///////////////////////////////////////////////////////////////////////////////
 #define COPPER_ENGINE_SOURCE 1
 
-#include "Plugin.h"
-
 #include <stdexcept>
+
+#include "copper/Plugin.h"
 
 using namespace std;
 

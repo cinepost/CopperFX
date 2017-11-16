@@ -1,4 +1,4 @@
-#include "Math/Vector2.h"
+#include "copper/Math/Vector2.h"
 
 Vector2::Vector2(const Vector2 &vec) {
 	_comps[0] = vec._comps[0]; _comps[1] = vec._comps[1];

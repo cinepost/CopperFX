@@ -5,10 +5,10 @@
 #ifndef COPPER_ENGINE_KERNEL_H
 #define COPPER_ENGINE_KERNEL_H
 
-#include "CopperEngineAPI.h"
-#include "OpsServer.h"
-#include "PanelsServer.h"
-#include "Plugin.h"
+#include "copper/CopperEngineAPI.h"
+#include "copper/OpsServer.h"
+#include "copper/PanelsServer.h"
+#include "copper/Plugin.h"
 
 #include <string>
 #include <map>

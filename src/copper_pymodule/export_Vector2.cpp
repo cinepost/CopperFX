@@ -1,7 +1,7 @@
 #include <boost/python.hpp>
 #include <boost/format.hpp>
 
-#include "Math/Vector2.h"
+#include "copper/Math/Vector2.h"
 
 double Vector2_x(Vector2 const &self) {
 	return self[0];

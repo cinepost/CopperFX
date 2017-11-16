@@ -1,4 +1,4 @@
-#include "Node/Node.h"
+#include "copper/Node/Node.h"
 
 Node::Node(): _parent{NULL}, _name{"/"} {
 	std::cout << "Node constructed" << std::endl;

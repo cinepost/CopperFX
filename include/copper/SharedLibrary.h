@@ -5,7 +5,7 @@
 #ifndef COPPER_ENGINE_SHAREDLIBRARY_H
 #define COPPER_ENGINE_SHAREDLIBRARY_H
 
-#include "CopperEngineAPI.h"
+#include "copper/CopperEngineAPI.h"
 
 #include <string>
 #include <stdexcept>

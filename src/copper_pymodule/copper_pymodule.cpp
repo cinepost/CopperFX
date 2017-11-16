@@ -5,11 +5,12 @@
 #include <string>
 #include <iostream>
 
+#include "copper/Math/Vector3.h"
+#include "copper/Geometry/Point.h"
+#include "copper/Node/Node.h"
+#include "copper/Engine.h"
+
 #include "copper_pymodule.h"
-#include "Math/Vector3.h"
-#include "Geometry/Point.h"
-#include "Node/Node.h"
-#include "Engine.h"
 
 namespace hou {
   Engine& engine = Engine::Instance();

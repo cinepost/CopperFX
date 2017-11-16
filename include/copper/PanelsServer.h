@@ -7,7 +7,7 @@
 #ifndef COPPER_ENGINE_PANELS_SERVER_H
 #define COPPER_ENGINE_PANELS_SERVER_H
 
-#include "CopperEngineAPI.h"
+#include "copper/CopperEngineAPI.h"
 
 #include <vector>
 #include <string>

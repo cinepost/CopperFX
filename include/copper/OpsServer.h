@@ -7,7 +7,7 @@
 #ifndef COPPER_ENGINE_OPS_SERVER_H
 #define COPPER_ENGINE_OPS_SERVER_H
 
-#include "CopperEngineAPI.h"
+#include "copper/CopperEngineAPI.h"
 
 #include <list>
 #include <string>

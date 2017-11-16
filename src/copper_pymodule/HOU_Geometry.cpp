@@ -5,15 +5,16 @@ PyObject* HOU_Geometry_points(Geometry &geo) {
 	boost::python::tuple* l = new boost::python::tuple();
 
 	std::vector<Point *>::iterator it;
-	for(it = points->begin(); it != points->end(); it++ ) {
-		(*l) += boost::python::make_tuple(boost::shared_ptr<HOU_Point>(new HOU_Point(*it, &geo)));
+	int i = 0;
+	for(it = points->begin(); it != points->end(); it++, i++ ) {
+		(*l) += boost::python::make_tuple(boost::shared_ptr<HOU_Point>(new HOU_Point(i, *it, &geo)));
 	}
 
     return l->ptr();
 };
 
 boost::shared_ptr<HOU_Point> HOU_Geometry_createPoint(Geometry & geo) {
-	return boost::shared_ptr<HOU_Point>(new HOU_Point(geo.createPoint(), &geo));
+	return boost::shared_ptr<HOU_Point>(new HOU_Point(geo.points()->size(), geo.createPoint(), &geo));
 }
 
 namespace hou {

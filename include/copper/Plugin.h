@@ -7,10 +7,10 @@
 #ifndef COPPER_ENGINE_PLUGIN_H
 #define COPPER_ENGINE_PLUGIN_H
 
-#include "CopperEngineAPI.h"
-#include "SharedLibrary.h"
-
 #include <string>
+
+#include "copper/CopperEngineAPI.h"
+#include "copper/SharedLibrary.h"
 
 namespace CopperEngine {
 

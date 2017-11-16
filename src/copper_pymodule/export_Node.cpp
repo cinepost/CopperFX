@@ -1,6 +1,6 @@
 #include <boost/python.hpp>
 
-#include "Node/Node.h"
+#include "copper/Node/Node.h"
 
 Node *(Node::*createNode)(std::string) = &Node::createNode;
 Node *(Node::*createNamedNode)(std::string, std::string) = &Node::createNode;

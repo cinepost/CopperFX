@@ -1,4 +1,4 @@
-#include "Node/NetworkBoxItem.h"
+#include "copper/Node/NetworkBoxItem.h"
 
 float NetworkBoxItem::getX() {
 	return this->x;
