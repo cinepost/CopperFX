@@ -10,9 +10,9 @@
 #include "copper/Node/Node.h"
 #include "copper/Engine.h"
 
-#include "copper_pymodule.h"
+#include "HOM_Module.h"
 
-namespace hou {
+namespace HOM {
   Engine& engine = Engine::Instance();
 
   Node* getNode(std::string path){ return engine.node(path); }
@@ -32,31 +32,31 @@ namespace hou {
   void export_Node();
 }
 
-BOOST_PYTHON_MODULE(hou){
+BOOST_PYTHON_MODULE(HOM){
   
-  boost::python::def("time", hou::time);
-  boost::python::def("setTime", hou::setTime);
+  boost::python::def("time", HOM::time);
+  boost::python::def("setTime", HOM::setTime);
 
-  boost::python::def("frame", hou::frame);
-  boost::python::def("setFrame", hou::setFrame);
+  boost::python::def("frame", HOM::frame);
+  boost::python::def("setFrame", HOM::setFrame);
 
-  boost::python::def("fps", hou::fps);
-  boost::python::def("setFps", hou::setFps);
+  boost::python::def("fps", HOM::fps);
+  boost::python::def("setFps", HOM::setFps);
 
-  boost::python::def("node", hou::getNode, boost::python::return_value_policy<boost::python::reference_existing_object>());
+  boost::python::def("node", HOM::getNode, boost::python::return_value_policy<boost::python::reference_existing_object>());
 
   // Vectors
-  hou::export_Vector2();
-  hou::export_Vector3();
+  HOM::export_Vector2();
+  HOM::export_Vector3();
 
   // Point
-  hou::export_Point();
+  HOM::export_Point();
 
   // Geometry
-  hou::export_Geometry();
+  HOM::export_Geometry();
 
   // Node
-  hou::export_Node();
+  HOM::export_Node();
 
 }
 

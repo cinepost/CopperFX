@@ -8,7 +8,7 @@
 #include "copper/Geometry/Point.h"
 #include "copper/Geometry/Geometry.h"
 
-#include "HOU_Point.h"
+#include "HOM_Point.h"
 
 
 #endif

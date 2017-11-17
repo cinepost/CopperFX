@@ -25,8 +25,7 @@ else ()
 	MESSAGE(FATAL_ERROR "CMakeLists.txt has not been tested/written for your compiler.")
 endif ()
 
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/include )
-#SET( COPPER_INCLUDE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/copper )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/include/copper )
 
 add_subdirectory( src/copper_lib )
 add_subdirectory( src/copper_gui )

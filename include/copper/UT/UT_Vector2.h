@@ -1,11 +1,11 @@
-#ifndef __Vector2_h__
-#define __Vector2_h__
+#ifndef __UT_Vector2_h__
+#define __UT_Vector2_h__
 
 #include <vector>
 #include <stdexcept>
 #include <math.h>
 
-class Vector2 {
+class UT_Vector2 {
 	public:
 		Vector2(const Vector2 &vec); // copy constructor
 		Vector2():_comps{0.0, 0.0} {};

@@ -1,10 +1,10 @@
-#include "HOU_Vector3.h"
+#include "HOM_Vector3.h"
 
-HOU_Vector3::HOU_Vector3(boost::python::list& list) {
+HOM_Vector3::HOM_Vector3(boost::python::list& list) {
 	setToFromList(list);
 }
 
-void HOU_Vector3::setToFromList(boost::python::list& list) {
+void HOM_Vector3::setToFromList(boost::python::list& list) {
 	if ( boost::python::len(list) == 3 ) {
 		this->x = boost::python::extract<double>(list[0]);
 		this->y = boost::python::extract<double>(list[1]);
@@ -14,32 +14,32 @@ void HOU_Vector3::setToFromList(boost::python::list& list) {
 	}
 }
 
-static std::string HOU_Vector3__str__(HOU_Vector3 const &self) {
+static std::string HOM_Vector3__str__(HOM_Vector3 const &self) {
 	boost::format formater("[%f, %f, %f]");
 	formater % self[0] % self[1] % self[2];
 	return formater.str();
 }
 
-static std::string HOU_Vector3__repr__(HOU_Vector3 const &self) {
-	boost::format formater("<hou.Vector3 %s>");
-    formater % HOU_Vector3__str__(self);
+static std::string HOM_Vector3__repr__(HOM_Vector3 const &self) {
+	boost::format formater("<HOM.Vector3 %s>");
+    formater % HOM_Vector3__str__(self);
     return formater.str();
 }
 
 
-namespace hou {
+namespace HOM {
 	void export_Vector3() {
-		boost::python::class_<HOU_Vector3, boost::shared_ptr<HOU_Vector3>>("Vector3")
+		boost::python::class_<HOM_Vector3, boost::shared_ptr<HOM_Vector3>>("Vector3")
 			.def(boost::python::init<double>())
 			.def(boost::python::init<double, double, double>())
 			.def(boost::python::init<boost::python::list&>())
-			.def("setTo", &HOU_Vector3::setToFromList)
+			.def("setTo", &HOM_Vector3::setToFromList)
 			//.def("length", &Vector3::length)
 			//.def("lengthSquared", &Vector3::lengthSquared)
 			//.def("normalized", &Vector3::normalized)
 			//.def("distanceTo", &Vector3::distance)
-			.def("__str__", &HOU_Vector3__str__)
-			.def("__repr__", &HOU_Vector3__repr__)
+			.def("__str__", &HOM_Vector3__str__)
+			.def("__repr__", &HOM_Vector3__repr__)
 			//.def( "__getitem__", &Vector3::operator[], boost::python::arg( "index" ), boost::python::return_internal_reference<>())
 			;
 	}

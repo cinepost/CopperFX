@@ -10,7 +10,7 @@
 #include "copper/Geometry/Geometry.h"
 #include "copper/Geometry/Point.h"
 
-#include "HOU_Vector3.h"
+#include "HOM_Vector3.h"
 
 class HOU_Point {
 	public:
