@@ -1,4 +1,4 @@
-#include "HOM_Geometry.h"
+#include "HOM/HOM_Geometry.h"
 
 PyObject* HOM_Geometry_points(Geometry &geo) {
 	std::vector<Point *> *points = geo.points();

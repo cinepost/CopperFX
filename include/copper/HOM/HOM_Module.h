@@ -2,7 +2,11 @@
 #define __Copper_PyModule_h__
 
 #include <boost/python.hpp>
-#include <boost/python/suite/indexing/vector_indexing_suite.hpp> 
+#include <boost/python/suite/indexing/vector_indexing_suite.hpp>
+
+#include "OP/Node.h"
+#include "Engine.h"
+
 
 template<class T>
 struct vector_to_python_list {

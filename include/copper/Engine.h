@@ -6,9 +6,9 @@
 #include <map>
 #include <vector>
 
-#include "copper/Kernel.h"
-//#include "copper/GPU_Manager.h"
-#include "copper/Node/Node.h"
+#include "Kernel.h"
+//#include "GPU/GPU_Manager.h"
+#include "OP/Node.h"
 
 using namespace CopperEngine;
 

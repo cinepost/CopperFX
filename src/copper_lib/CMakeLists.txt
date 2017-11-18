@@ -1,10 +1,9 @@
 file( GLOB SOURCES
 	./*.cpp
 	./UT/*.cpp
-	./Math/*.cpp
 	./Parameters/*.cpp
-	./Node/*.cpp
-	./Geometry/*.cpp
+	./OP/*.cpp
+	./GEO/*.cpp
 )
 
 #include_directories( ${COPPER_INCLUDE_DIRECTORY} )

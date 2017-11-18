@@ -1,4 +1,4 @@
-#include "copper/include/GUI_MainWindow.h"
+#include "GUI/GUI_MainWindow.h"
 
 GUI_MainWindow::GUI_MainWindow(){
     QWidget *widget = new QWidget;

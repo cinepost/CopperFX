@@ -7,18 +7,18 @@
 
 #include <vector>
 
-#include "copper/Geometry/Geometry.h"
-#include "copper/Geometry/Point.h"
+#include "GEO/Geometry.h"
+#include "GEO/Point.h"
 
 #include "HOM_Vector3.h"
 
-class HOU_Point {
+class HOM_Point {
 	public:
-		HOU_Point(int index, Point * pt, Geometry *geo);
+		HOM_Point(int index, Point * pt, Geometry *geo);
 
-		HOU_Vector3 position();
+		HOM_Vector3 position();
 		void setPosition_from_list(boost::python::list& list);
-		void setPosition_from_HOU_Vector3(HOU_Vector3 &vec);
+		void setPosition_from_HOM_Vector3(HOM_Vector3 &vec);
 		boost::shared_ptr<Geometry> geometry();
 
 		std::string __str__();

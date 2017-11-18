@@ -6,8 +6,8 @@
 
 #include <boost/shared_ptr.hpp>
 
-#include "copper/Geometry/Point.h"
-#include "copper/Node/Node.h"
+#include "GEO/Point.h"
+#include "OP/Node.h"
 
 class Point;
 

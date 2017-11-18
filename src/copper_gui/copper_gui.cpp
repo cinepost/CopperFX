@@ -3,8 +3,8 @@
 #include <QPushButton>
 #include <QMenuBar>
 
-//#include "copper/GUI/GUI_MainWindow.h"
-#include "copper/Engine.h"
+//#include "GUI/GUI_MainWindow.h"
+#include "Engine.h"
 
 int main(int argc, char *argv[])
 {

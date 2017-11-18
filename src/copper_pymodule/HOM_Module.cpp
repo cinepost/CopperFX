@@ -5,19 +5,16 @@
 #include <string>
 #include <iostream>
 
-#include "copper/Math/Vector3.h"
-#include "copper/Geometry/Point.h"
-#include "copper/Node/Node.h"
-#include "copper/Engine.h"
+#include "Engine.h"
 
-#include "HOM_Module.h"
+#include "HOM/HOM_Node.h"
+#include "HOM/HOM_Module.h"
 
 namespace HOM {
   Engine& engine = Engine::Instance();
 
-  Node* getNode(std::string path){ return engine.node(path); }
-  float time(){ return engine.time(); }
-  void setTime(float time){ engine.setTime(time); }
+  float time() { return engine.time(); }
+  void setTime(float time) { engine.setTime(time); }
 
   float frame(){ return engine.frame(); }
   void setFrame(float frame){ engine.setFrame(frame); }
@@ -25,12 +22,17 @@ namespace HOM {
   float fps(){ return engine.fps(); }
   void setFps(float fps){ engine.setFps(fps); }
 
+  boost::shared_ptr<HOM_Node> getNode(std::string node_path) {
+    return boost::shared_ptr<HOM_Node>(engine.node(node_path));
+  }
+
   void export_Vector2();
   void export_Vector3();
   void export_Point();
   void export_Geometry();
   void export_Node();
 }
+
 
 BOOST_PYTHON_MODULE(HOM){
   

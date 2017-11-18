@@ -7,7 +7,9 @@
 
 //#include "wykobi/wykobi.hpp"
 
-class Prim: { 
+#include "GEO/Vertex.h"
+
+class Prim { 
 	public:
 		std::vector<Vertex*> *vertices();
 

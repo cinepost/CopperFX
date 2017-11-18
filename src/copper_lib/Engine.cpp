@@ -1,4 +1,4 @@
-#include "copper/Engine.h"
+#include "Engine.h"
 
 Engine::Engine() {
 	std::cout << "Initializing CopperFX engine..." << std::endl;

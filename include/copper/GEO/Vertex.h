@@ -5,10 +5,10 @@
 #include <stdexcept>
 #include <math.h>
 
-#include "copper/Geometry/Point.h"
+#include "GEO/Point.h"
 //#include "wykobi/wykobi.hpp"
 
-class Vertex: { 
+class Vertex { 
 	public:
 		Vertex(Point *pt);
 

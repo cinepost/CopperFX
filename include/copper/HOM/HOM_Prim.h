@@ -4,8 +4,8 @@
 #include <boost/python.hpp>
 #include <boost/format.hpp>
 
-#include "copper/Geometry/Geometry.h"
-#include "copper/Geometry/Prim.h"
+#include "GEO/Geometry.h"
+#include "GEO/Prim.h"
 
 class HOM_Prim: public Prim {
 	public:
