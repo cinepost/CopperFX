@@ -1,4 +1,4 @@
-#include "HOM_Vector3.h"
+#include "HOM/HOM_Vector3.h"
 
 HOM_Vector3::HOM_Vector3(boost::python::list& list) {
 	setToFromList(list);
@@ -27,7 +27,7 @@ static std::string HOM_Vector3__repr__(HOM_Vector3 const &self) {
 }
 
 
-namespace HOM {
+namespace hou {
 	void export_Vector3() {
 		boost::python::class_<HOM_Vector3, boost::shared_ptr<HOM_Vector3>>("Vector3")
 			.def(boost::python::init<double>())

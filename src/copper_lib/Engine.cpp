@@ -4,7 +4,7 @@ Engine::Engine() {
 	std::cout << "Initializing CopperFX engine..." << std::endl;
 
     // Create root node
-    _root_node = new Node();
+    _root_node = new OP_Node();
     _root_node->setName("/");
     _nodes_map["/"] = _root_node;
 
@@ -31,7 +31,7 @@ Engine::Engine() {
     }
 }
 
-Node *Engine::node(std::string node_path) {
+OP_Node *Engine::node(std::string node_path) {
 	return _root_node->node(node_path);
 }
 

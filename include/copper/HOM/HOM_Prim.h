@@ -4,15 +4,18 @@
 #include <boost/python.hpp>
 #include <boost/format.hpp>
 
-#include "GEO/Geometry.h"
+#include "GEO/GEO_Geometry.h"
 #include "GEO/Prim.h"
+#include "HOM/HOM_Prim.h"
+#include "HOM/HOM_Point.h"
+#include "HOM/HOM_Vertex.h"
 
 class HOM_Prim: public Prim {
 	public:
 		HOM_Vertex *addVertex(HOM_Point *pt);
 
 	private:
-		Geometry *geo;
+		GEO_Geometry *_geo;
 };
 
 #endif

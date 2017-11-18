@@ -4,7 +4,7 @@
 #include <boost/python.hpp>
 #include <boost/python/suite/indexing/vector_indexing_suite.hpp>
 
-#include "OP/Node.h"
+#include "OP/OP_Node.h"
 #include "Engine.h"
 
 

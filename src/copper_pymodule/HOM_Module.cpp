@@ -10,7 +10,7 @@
 #include "HOM/HOM_Node.h"
 #include "HOM/HOM_Module.h"
 
-namespace HOM {
+namespace hou {
   Engine& engine = Engine::Instance();
 
   float time() { return engine.time(); }
@@ -23,7 +23,7 @@ namespace HOM {
   void setFps(float fps){ engine.setFps(fps); }
 
   boost::shared_ptr<HOM_Node> getNode(std::string node_path) {
-    return boost::shared_ptr<HOM_Node>(engine.node(node_path));
+    return boost::shared_ptr<HOM_Node>(new HOM_Node(engine.node(node_path)));
   }
 
   void export_Vector2();
@@ -34,31 +34,31 @@ namespace HOM {
 }
 
 
-BOOST_PYTHON_MODULE(HOM){
+BOOST_PYTHON_MODULE(hou){
   
-  boost::python::def("time", HOM::time);
-  boost::python::def("setTime", HOM::setTime);
+  boost::python::def("time", &hou::time);
+  boost::python::def("setTime", &hou::setTime);
 
-  boost::python::def("frame", HOM::frame);
-  boost::python::def("setFrame", HOM::setFrame);
+  boost::python::def("frame", &hou::frame);
+  boost::python::def("setFrame", &hou::setFrame);
 
-  boost::python::def("fps", HOM::fps);
-  boost::python::def("setFps", HOM::setFps);
+  boost::python::def("fps", &hou::fps);
+  boost::python::def("setFps", &hou::setFps);
 
-  boost::python::def("node", HOM::getNode, boost::python::return_value_policy<boost::python::reference_existing_object>());
+  boost::python::def("node", &hou::getNode);
 
   // Vectors
-  HOM::export_Vector2();
-  HOM::export_Vector3();
+  //HOM::export_Vector2();
+  hou::export_Vector3();
 
   // Point
-  HOM::export_Point();
+  hou::export_Point();
 
   // Geometry
-  HOM::export_Geometry();
+  hou::export_Geometry();
 
   // Node
-  HOM::export_Node();
+  hou::export_Node();
 
 }
 

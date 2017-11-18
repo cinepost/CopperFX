@@ -7,13 +7,17 @@
 
 #include <vector>
 
-#include "OP/Node.h"
+#include "OP/OP_Node.h"
 
 
-class HOM_Node: public Node {
+class HOM_Node: public OP_Node {
 	public:
-		boost::shared_ptr<HOM_Node> createNode(std::string type_name);// = &Node::createNode;
-		boost::shared_ptr<HOM_Node> createNamedNode(std::string type_name, std::string name);// = &Node::createNode;
+		HOM_Node(OP_Node *node);
+		boost::shared_ptr<HOM_Node> createNode(std::string type_name);
+		boost::shared_ptr<HOM_Node> createNamedNode(std::string type_name, std::string name);
+		boost::shared_ptr<HOM_Node> node(std::string path);
+	private:
+		OP_Node *_node;
 };
 
 #endif
