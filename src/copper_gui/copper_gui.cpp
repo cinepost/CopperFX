@@ -1,36 +1,22 @@
 #include <QApplication>
-#include <QMainWindow>
-#include <QPushButton>
-#include <QMenuBar>
+#include <QCommandLineParser>
+#include <QCommandLineOption>
 
 #include "GUI/GUI_MainWindow.h"
 #include "Engine.h"
 
 int main(int argc, char *argv[])
 {
+	Q_INIT_RESOURCE(application);
+
 	QApplication app(argc, argv);
+	QCoreApplication::setOrganizationName("QtProject");
+    QCoreApplication::setApplicationName("Application Example");
+    QCoreApplication::setApplicationVersion(QT_VERSION_STR);
 
 	Engine& engine = Engine::Instance();
 
-	GUI_MainWindow *window = new GUI_MainWindow();
-    window->setWindowTitle(QString::fromUtf8("Copper FX"));
-    window->resize(1200, 900);
-
-    //QWidget *centralWidget = new QWidget(window);
-	//QMenuBar *menu = new QMenuBar(centralWidget);
-
-    //QMenu* menu1 = new QMenu("File");
-	//menu1->addMenu(new QMenu("menu1_SubMenu"));	
-	
-	//QMenu* menu2 = new QMenu("Edit");
-	//menu2->addMenu(new QMenu("menu2_SubMenu"));
-
-	//menu->addMenu(menu1);
-	//menu->addMenu(menu2);
-	
-	//window->setCentralWidget(centralWidget);
-
-
-    window->show();
-	return app.exec();
+	GUI_MainWindow mainWin;
+    mainWin.show();
+    return app.exec();
 }
