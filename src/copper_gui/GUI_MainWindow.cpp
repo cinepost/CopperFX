@@ -7,7 +7,7 @@ GUI_MainWindow::GUI_MainWindow(){
      QWidget *topFiller = new QWidget;
      topFiller->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-     infoLabel = new QLabel(tr("<i>Choose a menu option, or right-click to invoke a context menu</i>"));
+     infoLabel = new QLabel("<i>Choose a menu option, or right-click to invoke a context menu</i>");
      infoLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
      infoLabel->setAlignment(Qt::AlignCenter);
 
@@ -24,19 +24,23 @@ GUI_MainWindow::GUI_MainWindow(){
      createActions();
      createMenus();
 
-     QString message = tr("A context menu is available by right-clicking");
+     QString message = "A context menu is available by right-clicking";
      statusBar()->showMessage(message);
 
-     setWindowTitle(tr("Menus"));
+     setWindowTitle("Menus");
      setMinimumSize(160, 160);
      resize(480, 320);
 }
 
+GUI_MainWindow::~GUI_MainWindow() {
+
+}
+
 void GUI_MainWindow::createActions() {
 
-     newAct = new QAction(tr("&New"), this);
+     newAct = new QAction("New", this);
      newAct->setShortcuts(QKeySequence::New);
-     newAct->setStatusTip(tr("Create a new file"));
+     newAct->setStatusTip("Create a new file");
      connect(newAct, SIGNAL(triggered()), this, SLOT(newFile()));
 
      alignmentGroup = new QActionGroup(this);
@@ -48,7 +52,7 @@ void GUI_MainWindow::createActions() {
 }
 
 void GUI_MainWindow::createMenus() {
-     fileMenu = menuBar()->addMenu(tr("&File"));
+     fileMenu = menuBar()->addMenu("File");
      fileMenu->addAction(newAct);
      fileMenu->addAction(openAct);
      fileMenu->addAction(saveAct);
@@ -56,7 +60,7 @@ void GUI_MainWindow::createMenus() {
      fileMenu->addSeparator();
      fileMenu->addAction(exitAct);
 
-     editMenu = menuBar()->addMenu(tr("&Edit"));
+     editMenu = menuBar()->addMenu("Edit");
      editMenu->addAction(undoAct);
      editMenu->addAction(redoAct);
      editMenu->addSeparator();
@@ -65,14 +69,14 @@ void GUI_MainWindow::createMenus() {
      editMenu->addAction(pasteAct);
      editMenu->addSeparator();
 
-     helpMenu = menuBar()->addMenu(tr("&Help"));
+     helpMenu = menuBar()->addMenu("Help");
      helpMenu->addAction(aboutAct);
      helpMenu->addAction(aboutQtAct);
 
-     formatMenu = editMenu->addMenu(tr("&Format"));
+     formatMenu = editMenu->addMenu("Format");
      formatMenu->addAction(boldAct);
      formatMenu->addAction(italicAct);
-     formatMenu->addSeparator()->setText(tr("Alignment"));
+     formatMenu->addSeparator()->setText("Alignment");
      formatMenu->addAction(leftAlignAct);
      formatMenu->addAction(rightAlignAct);
      formatMenu->addAction(justifyAct);

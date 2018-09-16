@@ -1,18 +1,20 @@
-set (SOURCES 
-	./copper_gui.cpp
-	./GUI_MainWindow.cpp
+file(GLOB SOURCES 
+	./*.cpp
 )
 
+set( CMAKE_PREFIX_PATH "/Users/max/Qt/5.11.1/clang_64" )
 
-# find Qt4 libs
-find_package( Qt4 REQUIRED )
-include( ${QT_USE_FILE} )
-add_definitions( ${QT_DEFINITIONS} )
+# find Qt5 libs
+find_package( Qt5Core REQUIRED )
+find_package( Qt5Gui REQUIRED )
+find_package( Qt5Widgets REQUIRED )
 
-include_directories( ${COPPER_INCLUDE_DIRECTORY} )
+include_directories( ${COPPER_INCLUDE_DIRECTORY} ${QT_INCLUDES} )
 
-add_executable (copper ${SOURCES} ${MOC_SRCS} ${RES_SOURCES})
- 
-target_link_libraries (copper ${QT_LIBRARIES} copper_lib)
+set(CMAKE_CXX_FLAGS "${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
 
-install(TARGETS copper DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+add_executable ( copper ${SOURCES} )
+
+target_link_libraries ( copper ${QT_LIBRARIES} Qt5::Core Qt5::Gui Qt5::Widgets copper_lib )
+
+install( TARGETS copper DESTINATION ${CMAKE_INSTALL_PREFIX}/bin )
