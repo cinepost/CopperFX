@@ -71,4 +71,4 @@ namespace CopperEngine {
     }
   }
 
-} // namespace MyEngine
+} // namespace CopperEngine

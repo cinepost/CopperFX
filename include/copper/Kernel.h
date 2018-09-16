@@ -50,6 +50,6 @@ namespace CopperEngine {
 
   };
 
-} // namespace MyEngine
+} // namespace CopperEngine
 
 #endif // COPPER_ENGINE_KERNEL_H

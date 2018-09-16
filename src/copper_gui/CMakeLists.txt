@@ -1,5 +1,7 @@
 set (SOURCES 
-	./copper_gui.cpp)
+	./copper_gui.cpp
+	./GUI_MainWindow.cpp
+)
 
 
 # find Qt4 libs

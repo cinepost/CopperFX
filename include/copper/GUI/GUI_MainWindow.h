@@ -1,6 +1,16 @@
 #ifndef __GUI_MainWindow_h__
 #define __GUI_MainWindow_h__
 
+#include <QMainWindow>
+#include <QPushButton>
+#include <QMenuBar>
+#include <QLabel>
+#include <QVBoxLayout>
+#include <QStatusBar>
+#include <QContextMenuEvent>
+
+#define tr(str) str
+
 class GUI_MainWindow : public QMainWindow
  {
      Q_OBJECT
@@ -65,3 +75,5 @@ class GUI_MainWindow : public QMainWindow
      QAction *aboutQtAct;
      QLabel *infoLabel;
  };
+
+ #endif

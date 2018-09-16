@@ -1,8 +1,8 @@
 #include "GUI/GUI_MainWindow.h"
 
 GUI_MainWindow::GUI_MainWindow(){
-    QWidget *widget = new QWidget;
-    setCentralWidget(widget);
+     QWidget *widget = new QWidget;
+     setCentralWidget(widget);
 
      QWidget *topFiller = new QWidget;
      topFiller->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -48,7 +48,7 @@ void GUI_MainWindow::createActions() {
 }
 
 void GUI_MainWindow::createMenus() {
-    fileMenu = menuBar()->addMenu(tr("&File"));
+     fileMenu = menuBar()->addMenu(tr("&File"));
      fileMenu->addAction(newAct);
      fileMenu->addAction(openAct);
      fileMenu->addAction(saveAct);
@@ -83,9 +83,9 @@ void GUI_MainWindow::createMenus() {
 }
 
 void GUI_MainWindow::contextMenuEvent(QContextMenuEvent *event) {
-QMenu menu(this);
-menu.addAction(cutAct);
-menu.addAction(copyAct);
-menu.addAction(pasteAct);
-menu.exec(event->globalPos());
+     QMenu menu(this);
+     menu.addAction(cutAct);
+     menu.addAction(copyAct);
+     menu.addAction(pasteAct);
+     menu.exec(event->globalPos());
  }

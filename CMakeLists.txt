@@ -31,14 +31,4 @@ add_subdirectory( src/copper_lib )
 add_subdirectory( src/copper_gui )
 add_subdirectory( src/copper_pymodule )
 
-#add_custom_command(
-#  TARGET copper
-#  POST_BUILD
-#  COMMAND rsync
-#  ARGS -r
-#    "${CMAKE_CURRENT_SOURCE_DIR}/cfs/*"
-#    "${CMAKE_INSTALL_PREFIX}/"
-#  COMMENT "Copying Bundle Stuff"
-#)
-
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/cfs/* DESTINATION ${CMAKE_INSTALL_PREFIX}/)
+#install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/cfs/* DESTINATION ${CMAKE_INSTALL_PREFIX}/)

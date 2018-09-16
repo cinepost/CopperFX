@@ -7,7 +7,7 @@ find_package( PythonLibs 2.7 REQUIRED )
 include_directories( ${PYTHON_INCLUDE_DIRS} )
 
 # find boost libs
-find_package( Boost COMPONENTS python REQUIRED )
+find_package( Boost COMPONENTS python27 REQUIRED )
 include_directories( ${Boost_INCLUDE_DIRS} )
 
 SET(Boost_USE_STATIC_LIBS OFF)
@@ -25,6 +25,8 @@ target_link_libraries( hou ${Boost_LIBRARIES} ${PYTHON_LIBRARIES} ${OpenCL_LIBRA
 
 # don't prepend wrapper library name with lib
 set_target_properties( hou PROPERTIES PREFIX "" )
-set_target_properties( hou PROPERTIES SUFFIX ".so" )
+if (APPLE)
+    set_target_properties( hou PROPERTIES SUFFIX ".so" )
+endif (APPLE)
 
-install(TARGETS hou DESTINATION copper/python2.7libs)
+install(TARGETS hou DESTINATION lib/python2.7libs)
