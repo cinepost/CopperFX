@@ -1,7 +1,25 @@
-SET( CMAKE_INSTALL_PREFIX /opt/cfs0.0.001 )
+cmake_minimum_required( VERSION 3.5 )
 
-PROJECT( CopperFX )
-CMAKE_MINIMUM_REQUIRED( VERSION 3.5 )
+set( CMAKE_INSTALL_PREFIX /opt/cfs0.0.001 )
+
+
+# Add folder where are supportive functions
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+# Include Qt basic functions
+include(QtCommon)
+
+# Basic information about project
+project( CopperFX VERSION 0.0 )
+
+# Set PROJECT_VERSION_PATCH and PROJECT_VERSION_TWEAK to 0 if not present, needed by add_project_meta
+fix_project_version()
+
+# Set additional project information
+set(COMPANY "Huyompany")
+set(COPYRIGHT "Copyright (c) 20184 Max. All rights reserved.")
+set(IDENTIFIER "com.example.Example")
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)

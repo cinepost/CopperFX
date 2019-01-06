@@ -1,20 +1,30 @@
-file(GLOB SOURCES 
-	./*.cpp
+set(SOURCE_FILES
+    ./copper_gui.cpp
+    ./GUI_MainWindow.cpp
 )
 
-set( CMAKE_PREFIX_PATH "/Users/max/Qt/5.11.1/clang_64" )
+set(HEADER_FILES
+	${CMAKE_CURRENT_SOURCE_DIR}/../../include/copper/GUI/GUI_MainWindow.h
+)
 
-# find Qt5 libs
-find_package( Qt5Core REQUIRED )
-find_package( Qt5Gui REQUIRED )
-find_package( Qt5Widgets REQUIRED )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../include/copper/GUI )
 
-include_directories( ${COPPER_INCLUDE_DIRECTORY} ${QT_INCLUDES} )
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-set(CMAKE_CXX_FLAGS "${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
+add_project_meta(META_FILES_TO_INCLUDE)
 
-add_executable ( copper ${SOURCES} )
+find_package( Qt5Widgets CONFIG REQUIRED )
 
-target_link_libraries ( copper ${QT_LIBRARIES} Qt5::Core Qt5::Gui Qt5::Widgets copper_lib )
+add_executable(
+	copper 
+	${OS_BUNDLE} # Expands to WIN32 or MACOS_BUNDLE depending on OS
+    ${SOURCE_FILES}
+    ${HEADER_FILES}
+    #${META_FILES_TO_INCLUDE}
+)
+qt5_use_modules( copper Widgets)
+
+target_link_libraries ( copper copper_lib )
 
 install( TARGETS copper DESTINATION ${CMAKE_INSTALL_PREFIX}/bin )

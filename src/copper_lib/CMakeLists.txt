@@ -9,7 +9,7 @@ file( GLOB SOURCES
 #include_directories( ${COPPER_INCLUDE_DIRECTORY} )
 
 add_library( copper_lib STATIC ${SOURCES} )
-target_link_libraries( copper_lib ${OpenCL_LIBRARY} dl)
+target_link_libraries( copper_lib ${OpenCL_LIBRARY} dl )
 
 #add_custom_command(
 #  TARGET copper_lib

@@ -1,78 +1,49 @@
-#ifndef __GUI_MainWindow_h__
-#define __GUI_MainWindow_h__
+#ifndef GUI_MAINWINDOW_H
+#define GUI_MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QPushButton>
-#include <QMenuBar>
-#include <QLabel>
-#include <QVBoxLayout>
-#include <QStatusBar>
-#include <QContextMenuEvent>
 
+class QAction;
+class QMenu;
+class QPlainTextEdit;
+class QSessionManager;
 
-class GUI_MainWindow : public QMainWindow {
-     Q_OBJECT
+class MainWindow : public QMainWindow
+{
+    Q_OBJECT
 
-     public:
-          GUI_MainWindow();
-          virtual ~GUI_MainWindow();
+public:
+    MainWindow(QWidget *parent = 0);
+    virtual ~MainWindow();
 
-     protected:
-          void contextMenuEvent(QContextMenuEvent *event);
+    void loadFile(const QString &fileName);
 
+protected:
+    void closeEvent(QCloseEvent *event) override;
 
-     private slots:
-          void newFile();
-          void open();
-          void save();
-          void print();
-          void undo();
-          void redo();
-          void cut();
-          void copy();
-          void paste();
-          void bold();
-          void italic();
-          void leftAlign();
-          void rightAlign();
-          void justify();
-          void center();
-          void setLineSpacing();
-          void setParagraphSpacing();
-          void about();
-          void aboutQt();
+private slots:
+    void newFile();
+    void open();
+    bool save();
+    bool saveAs();
+    void about();
+    void documentWasModified();
+#ifndef QT_NO_SESSIONMANAGER
+    void commitData(QSessionManager &);
+#endif
 
-     private:
-          void createActions();
-          void createMenus();
+private:
+    void createActions();
+    void createStatusBar();
+    void readSettings();
+    void writeSettings();
+    bool maybeSave();
+    bool saveFile(const QString &fileName);
+    void setCurrentFile(const QString &fileName);
+    QString strippedName(const QString &fullFileName);
 
+    QPlainTextEdit *textEdit;
+    QString curFile;
+};
 
-          QMenu *fileMenu;
-          QMenu *editMenu;
-          QMenu *formatMenu;
-          QMenu *helpMenu;
-          QActionGroup *alignmentGroup;
-          QAction *newAct;
-          QAction *openAct;
-          QAction *saveAct;
-          QAction *printAct;
-          QAction *exitAct;
-          QAction *undoAct;
-          QAction *redoAct;
-          QAction *cutAct;
-          QAction *copyAct;
-          QAction *pasteAct;
-          QAction *boldAct;
-          QAction *italicAct;
-          QAction *leftAlignAct;
-          QAction *rightAlignAct;
-          QAction *justifyAct;
-          QAction *centerAct;
-          QAction *setLineSpacingAct;
-          QAction *setParagraphSpacingAct;
-          QAction *aboutAct;
-          QAction *aboutQtAct;
-          QLabel *infoLabel;
- };
-
- #endif
+#endif

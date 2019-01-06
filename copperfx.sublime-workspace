@@ -540,7 +540,7 @@
 			"file": "CMakeLists.txt",
 			"settings":
 			{
-				"buffer_size": 1056,
+				"buffer_size": 1577,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -549,7 +549,7 @@
 			"file": "src/copper_lib/CMakeLists.txt",
 			"settings":
 			{
-				"buffer_size": 532,
+				"buffer_size": 543,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -567,7 +567,7 @@
 			"file": "src/copper_gui/GUI_MainWindow.cpp",
 			"settings":
 			{
-				"buffer_size": 2987,
+				"buffer_size": 9701,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -576,7 +576,7 @@
 			"file": "include/copper/GUI/GUI_MainWindow.h",
 			"settings":
 			{
-				"buffer_size": 1542,
+				"buffer_size": 945,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -585,8 +585,33 @@
 			"file": "src/copper_gui/copper_gui.cpp",
 			"settings":
 			{
-				"buffer_size": 806,
+				"buffer_size": 1050,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/copper/OP/OP_Network.h",
+			"settings":
+			{
+				"buffer_size": 508,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "include/copper/OP/OP_Node.h",
+			"settings":
+			{
+				"buffer_size": 908,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/max/dev/mini-cmake-qt/src/main.cc",
+			"settings":
+			{
+				"buffer_size": 668,
 				"line_ending": "Unix"
 			}
 		},
@@ -594,9 +619,19 @@
 			"file": "src/copper_gui/CMakeLists.txt",
 			"settings":
 			{
-				"buffer_size": 405,
+				"buffer_size": 682,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 170 files for \"tr(\"\n\n/Users/max/dev/CopperFX/include/copper/HOM/HOM_Module.h:\n   16        (*l).append(&vec[i]);\n   17  \n   18:     return l->ptr();\n   19    }\n   20  };\n   ..\n   27        (*l) += boost::python::make_tuple(&vec[i]);\n   28  \n   29:     return l->ptr();\n   30    }\n   31  };\n\n/Users/max/dev/CopperFX/include/copper/SharedLibrary.h:\n   44        std::string pathWithExtension = path + \".dll\";\n   45  \n   46:       HMODULE moduleHandle = ::LoadLibraryA(pathWithExtension.c_str());\n   47        if(moduleHandle == NULL) {\n   48          throw std::runtime_error(\"Could not load DLL\");\n   ..\n   74      ) {\n   75        FARPROC functionAddress = ::GetProcAddress(\n   76:         sharedLibraryHandle, functionName.c_str()\n   77        );\n   78        if(functionAddress == NULL) {\n   ..\n  104        std::string pathWithExtension = std::string(\"./lib\") + path + \".so\";\n  105  \n  106:       void *sharedObject = ::dlopen(pathWithExtension.c_str(), RTLD_NOW);\n  107        if(sharedObject == NULL) {\n  108          throw std::runtime_error(\n  ...\n  138  \n  139        void *functionAddress = ::dlsym(\n  140:         sharedLibraryHandle, functionName.c_str()\n  141        );\n  142  \n\n/Users/max/dev/CopperFX/include/wykobi/wykobi_graphics_vcl.hpp:\n   67        inline void draw_text(const T& x, const T& y, std::string text)\n   68        {\n   69:          AnsiString s = text.c_str();\n   70           canvas->TextOut(static_cast<int>(x),static_cast<int>(y),s);\n   71        }\n\n/Users/max/dev/CopperFX/include/wykobi/wykobi_gui.hpp:\n   50        glutInitWindowPosition(window_position_x(),window_position_y());\n   51        glutInit(&argc,argv);\n   52:       glutCreateWindow(window_title().c_str()  );\n   53        glutKeyboardFunc(glut_keyboard_handler   );\n   54        glutSpecialFunc (glut_special_key_handler);\n\n/Users/max/dev/CopperFX/include/wykobi/wykobi_matrix.hpp:\n   40  \n   41        matrix()\n   42:       : dptr(reinterpret_cast<T*>(&data))\n   43        {\n   44           zero();\n\n/Users/max/dev/CopperFX/include/wykobi/wykobi_matrix.inl:\n   29     template <typename T, std::size_t M, std::size_t N>\n   30     inline matrix<T,M,N>::matrix(const matrix<T,M,N>& m)\n   31:    : dptr(reinterpret_cast<T*>(&data))\n   32     {\n   33        std::copy(m.dptr,m.dptr + (M * N), dptr);\n\n/Users/max/dev/CopperFX/src/copper_gui/GUI_MainWindow.cpp:\n   28       statusBar()->showMessage(message);\n   29  \n   30:      setWindowTitle(tr(\"Menus\"));\n   31       setMinimumSize(160, 160);\n   32       resize(480, 320);\n\n/Users/max/dev/CopperFX/src/copper_lib/OP/OP_Node.cpp:\n   67  \t// if path starts with \"/\" return OP_Node with path from root\n   68  \tif (found == 0) {\n   69: \t\treturn rootNode()->node(node_path.substr(1));\n   70  \t}\n   71  \n   ..\n   76  \t\tif ( it != _children.end() ) return it->second;\n   77  \t}else{\n   78: \t\tstd::string node_name = node_path.substr(0, found + 1);\n   79: \t\tstd::string path = node_path.substr(found + 2);\n   80  \t\tit = _children.find(node_name);\n   81  \t\tif ( it != _children.end() ) return it->second->node(path);\n\n/Users/max/dev/CopperFX/src/copper_lib/UT/UT_StringUtils.cpp:\n    7  \tif ( found != (s.length() - 1) ) {\n    8  \t\t// there is digits in the end\n    9: \t\tstd::string name_string = s.substr( 0, found + 1);\n   10:     \tint i = std::stoi( s.substr(found + 1) );\n   11      \treturn name_string.append(std::to_string( i + 1 ));\n   12  \t}\n\n/Users/max/dev/CopperFX/src/copper_pymodule/HOM_Geometry.cpp:\n   21  \t}\n   22  \n   23:     return l->ptr();\n   24  };\n   25  \n\n/Users/max/dev/CopperFX/src/copper_pymodule/HOM_Point.cpp:\n   36  \tboost::format formater(\"<hou.Point #%d of geometry %s>\");\n   37  \tformater % _index % _hom_geo;\n   38: \treturn formater.str();\n   39  }\n   40  \n\n/Users/max/dev/CopperFX/src/copper_pymodule/HOM_Vector3.cpp:\n   18  \tboost::format formater(\"[%f, %f, %f]\");\n   19  \tformater % self[0] % self[1] % self[2];\n   20: \treturn formater.str();\n   21  }\n   22  \n   ..\n   24  \tboost::format formater(\"<HOM.Vector3 %s>\");\n   25      formater % HOM_Vector3__str__(self);\n   26:     return formater.str();\n   27  }\n   28  \n\n20 matches across 12 files\n",
+			"settings":
+			{
+				"buffer_size": 4129,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
 			}
 		},
 		{
@@ -649,6 +684,7 @@
 		"/Users/max/dev/CopperFX/include",
 		"/Users/max/dev/CopperFX/include/copper",
 		"/Users/max/dev/CopperFX/include/copper/GUI",
+		"/Users/max/dev/CopperFX/include/copper/OP",
 		"/Users/max/dev/CopperFX/src",
 		"/Users/max/dev/CopperFX/src/copper_gui",
 		"/Users/max/dev/CopperFX/src/copper_lib",
@@ -794,6 +830,7 @@
 		"height": 101.0,
 		"where_history":
 		[
+			"/Users/max/dev/CopperFX"
 		]
 	},
 	"find_state":
@@ -801,6 +838,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"tr(",
 			")\n"
 		],
 		"highlight": true,
@@ -819,7 +857,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 9,
 			"sheets":
 			[
 				{
@@ -835,8 +873,8 @@
 						"selection":
 						[
 							[
-								791,
-								793
+								874,
+								874
 							]
 						],
 						"settings":
@@ -847,7 +885,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -877,7 +915,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -886,15 +924,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1056,
+						"buffer_size": 1577,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								964,
-								964
+								1330,
+								1372
 							]
 						],
 						"settings":
@@ -905,7 +943,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -914,26 +952,28 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 532,
+						"buffer_size": 543,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								333,
-								333
+								240,
+								240
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -963,7 +1003,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
@@ -972,15 +1012,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2987,
+						"buffer_size": 9701,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2766,
-								1622
+								36,
+								36
 							]
 						],
 						"settings":
@@ -993,7 +1033,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1002,15 +1042,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1542,
+						"buffer_size": 945,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								237,
-								237
+								245,
+								245
 							]
 						],
 						"settings":
@@ -1020,10 +1060,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 119.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1032,15 +1072,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 806,
+						"buffer_size": 1050,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								142,
-								142
+								174,
+								174
 							]
 						],
 						"settings":
@@ -1051,24 +1091,112 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 8,
-					"file": "src/copper_gui/CMakeLists.txt",
+					"file": "include/copper/OP/OP_Network.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 405,
+						"buffer_size": 508,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								53,
-								53
+								221,
+								221
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "include/copper/OP/OP_Node.h",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 908,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/Users/max/dev/mini-cmake-qt/src/main.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 668,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								88,
+								665
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "src/copper_gui/CMakeLists.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 682,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								402,
+								402
 							]
 						],
 						"settings":
@@ -1079,11 +1207,133 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 12,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4129,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										153,
+										156
+									],
+									[
+										273,
+										276
+									],
+									[
+										497,
+										500
+									],
+									[
+										737,
+										740
+									],
+									[
+										961,
+										964
+									],
+									[
+										1171,
+										1174
+									],
+									[
+										1396,
+										1399
+									],
+									[
+										1710,
+										1713
+									],
+									[
+										1939,
+										1942
+									],
+									[
+										2208,
+										2211
+									],
+									[
+										2449,
+										2452
+									],
+									[
+										2730,
+										2733
+									],
+									[
+										2881,
+										2884
+									],
+									[
+										2941,
+										2944
+									],
+									[
+										3252,
+										3255
+									],
+									[
+										3308,
+										3311
+									],
+									[
+										3502,
+										3505
+									],
+									[
+										3715,
+										3718
+									],
+									[
+										3921,
+										3924
+									],
+									[
+										4078,
+										4081
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								2454,
+								2454
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 545.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
 					"file": "src/copper_lib/Plugin.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1109,7 +1359,7 @@
 						"translation.y": 74.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 13,
 					"type": "text"
 				}
 			]
