@@ -7,17 +7,14 @@
 
 int main(int argc, char *argv[])
 {
-	Q_INIT_RESOURCE(application);
-	/*
-	QApplication app(argc, argv);
-	QCoreApplication::setOrganizationName("QtProject");
-    QCoreApplication::setApplicationName("Application Example");
-    QCoreApplication::setApplicationVersion(QT_VERSION_STR);
-	*/
+	//Q_INIT_RESOURCE(application);
+
 	Engine& engine = Engine::Instance();
 
-
 	QApplication app(argc, argv);
+    QCoreApplication::setOrganizationName("RedSoft");
+    QCoreApplication::setApplicationName("CopperFX");
+    QCoreApplication::setApplicationVersion("0.0.001");
 
     // Retina display support for Mac OS, iOS and X11:
     // http://blog.qt.io/blog/2013/04/25/retina-display-support-for-mac-os-ios-and-x11/

@@ -281,8 +281,8 @@ void MainWindow::setCurrentFile(const QString &fileName)
 
     QString shownName = curFile;
     if (curFile.isEmpty())
-        shownName = "untitled.txt";
-    setWindowFilePath(shownName);
+        shownName = "untitled.cfs";
+    setWindowFilePath(shownName + " - Copper FX");
 }
 
 QString MainWindow::strippedName(const QString &fullFileName)

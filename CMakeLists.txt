@@ -17,8 +17,8 @@ project( CopperFX VERSION 0.0 )
 fix_project_version()
 
 # Set additional project information
-set(COMPANY "Huyompany")
-set(COPYRIGHT "Copyright (c) 20184 Max. All rights reserved.")
+set(COMPANY "Red Soft")
+set(COPYRIGHT "Copyright (c) 2019 Max. All rights reserved.")
 set(IDENTIFIER "com.example.Example")
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)

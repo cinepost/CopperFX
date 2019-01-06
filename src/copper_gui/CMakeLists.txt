@@ -9,22 +9,55 @@ set(HEADER_FILES
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../include/copper/GUI )
 
-set(CMAKE_AUTOMOC ON)
+# Find includes in corresponding build directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
+# Instruct CMake to run moc automatically when needed
+set(CMAKE_AUTOMOC ON)
+# Create code from a list of Qt designer ui files
+set(CMAKE_AUTOUIC ON)
+
+set(CMAKE_AUTORCC ON)
 
 add_project_meta(META_FILES_TO_INCLUDE)
 
+find_package( Qt5Core REQUIRED )
 find_package( Qt5Widgets CONFIG REQUIRED )
 
+get_target_property(QtCore_location Qt5::Core LOCATION)
+get_target_property(QtWidgets_location Qt5::Widgets LOCATION)
+
+include_directories(${QtCore_location} ${QtWidgets_location})
+
+if(APPLE)
+  set( APP_ICON_NAME copperfx_icon.icns )
+  set( APP_ICON_PATH ./media/icons/${APP_ICON_NAME} )
+  set( MACOSX_BUNDLE_ICON_FILE ${APP_ICON_NAME} )
+  set_source_files_properties( ${APP_ICON_PATH} PROPERTIES MACOSX_PACKAGE_LOCATION Resources )
+  set( MACOSX_BUNDLE_BUNDLE_NAME “CopperFX”)
+endif()
+
 add_executable(
-	copper 
+	copperfx
 	${OS_BUNDLE} # Expands to WIN32 or MACOS_BUNDLE depending on OS
+    ${APP_ICON_PATH} 
     ${SOURCE_FILES}
     ${HEADER_FILES}
     #${META_FILES_TO_INCLUDE}
 )
-qt5_use_modules( copper Widgets)
 
-target_link_libraries ( copper copper_lib )
+qt5_use_modules( copperfx Core Gui Widgets)
 
-install( TARGETS copper DESTINATION ${CMAKE_INSTALL_PREFIX}/bin )
+target_link_libraries ( 
+	copperfx
+	copper_lib 
+    Qt5::Core
+    Qt5::Widgets
+    Qt5::Gui
+)
+
+
+if(APPLE)
+  install( TARGETS copperfx DESTINATION /Applications/RedSoft )
+elseif(UNIX)
+  install( TARGETS copperfx DESTINATION ${CMAKE_INSTALL_PREFIX}/bin )
+endif()
