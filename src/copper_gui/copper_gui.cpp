@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     //appIcon.addFile(":/Icons/AppIcon128");
     //app.setWindowIcon(appIcon);
 
-    MainWindow mainWindow;
+    GUI_MainWindow mainWindow;
     mainWindow.show();
     return app.exec();
 }

@@ -1,20 +1,22 @@
-#ifndef GUI_MAINWINDOW_H
-#define GUI_MAINWINDOW_H
+#ifndef GUI_MainWindow_H
+#define GUI_MainWindow_H
 
 #include <QMainWindow>
+
+#include "GUI/GUI_Workspace.h"
 
 class QAction;
 class QMenu;
 class QPlainTextEdit;
 class QSessionManager;
 
-class MainWindow : public QMainWindow
+class GUI_MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = 0);
-    virtual ~MainWindow();
+    GUI_MainWindow(QWidget *parent = 0);
+    virtual ~GUI_MainWindow();
 
     void loadFile(const QString &fileName);
 
@@ -44,6 +46,8 @@ private:
 
     QPlainTextEdit *textEdit;
     QString curFile;
+
+    GUI_Workspace *workspace;
 };
 
 #endif

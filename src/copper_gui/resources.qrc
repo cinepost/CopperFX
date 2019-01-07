@@ -1,0 +1,12 @@
+<!DOCTYPE RCC><RCC version="1.0">
+	<qresource prefix="/icons">
+		<file alias="open">resources/images/scalable/document-open.svg</file>
+		<file alias="save">resources/images/scalable/document-save.svg</file>
+		<file alias="save-as">resources/images/scalable/document-save-as.svg</file>
+		<file alias="new">resources/images/scalable/document-new.svg</file>
+
+		<file alias="copy">resources/images/scalable/edit-copy.svg</file>
+		<file alias="paste">resources/images/scalable/edit-paste.svg</file>
+		<file alias="cut">resources/images/scalable/edit-cut.svg</file>
+	</qresource>
+</RCC>
