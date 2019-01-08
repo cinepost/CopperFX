@@ -1,11 +1,19 @@
 #include <QtWidgets>
 
+#include "GUI/GUI_SceneViewPanel.h"
+#include "GUI/GUI_PanelRegistry.h"
 #include "GUI/GUI_Workspace.h"
 #include "GUI/GUI_MainWindow.h"
 
 GUI_MainWindow::GUI_MainWindow(QWidget *parent)
     : workspace(new GUI_Workspace)
 {
+    // Register all internally defined and pluggalble panel types
+    // Populate IO_Registry with internal and external scene translators
+        
+    registerSceneViewPanelType(&GUI_PanelRegistry::getInstance()); // "SceneViewer" panel used to display 3d scene data
+
+    // Continue main window initialization
     textEdit = new QPlainTextEdit();
     setCentralWidget(workspace);
 

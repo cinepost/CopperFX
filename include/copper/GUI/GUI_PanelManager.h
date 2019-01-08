@@ -1,5 +1,5 @@
-#ifndef GUI_PANEL_MANAGER_H
-#define GUI_PANEL_MANAGER_H
+#ifndef __GUI_PanelManager_H__
+#define __GUI_PanelManager_H__
 
 #include <QFrame>
 #include <QTabWidget>
@@ -17,4 +17,4 @@ private:
 
 };
 
-#endif
+#endif // __GUI_Panel_Manager_H___

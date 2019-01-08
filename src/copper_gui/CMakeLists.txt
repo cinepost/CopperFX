@@ -1,20 +1,40 @@
-set(SOURCE_FILES
+set( SOURCE_FILES
     ./copper_gui.cpp
+    ./GUI_Panel.cpp
+    ./GUI_SceneViewPanel.cpp
+    ./GUI_PanelRegistry.cpp
     ./GUI_PanelManager.cpp
     ./GUI_Workspace.cpp
     ./GUI_MainWindow.cpp
 )
 
-set(HEADER_FILES
-	${CMAKE_CURRENT_SOURCE_DIR}/../../include/copper/GUI/GUI_PanelManager.h
-  ${CMAKE_CURRENT_SOURCE_DIR}/../../include/copper/GUI/GUI_Workspace.h
-  ${CMAKE_CURRENT_SOURCE_DIR}/../../include/copper/GUI/GUI_MainWindow.h
+set( PROJECT_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/../.. )
+
+set( HEADER_FILES
+  ${PROJECT_ROOT}/include/copper/GUI/GUI_Panel.h
+  ${PROJECT_ROOT}/include/copper/GUI/GUI_SceneViewPanel.h
+  ${PROJECT_ROOT}/include/copper/GUI/GUI_PanelRegistry.h
+  ${PROJECT_ROOT}/include/copper/GUI/GUI_PanelManager.h
+  ${PROJECT_ROOT}/include/copper/GUI/GUI_Workspace.h
+  ${PROJECT_ROOT}/include/copper/GUI/GUI_MainWindow.h
 )
 
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../include/copper/GUI )
 
 # Find includes in corresponding build directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+# Boost
+
+find_package( Boost COMPONENTS log REQUIRED )
+include_directories( 
+  ${Boost_INCLUDE_DIRS} 
+)
+
+# we will use static libs
+add_definitions(-DBOOST_LOG_DYN_LINK)
+
+# Qt5
+
 # Instruct CMake to run moc automatically when needed
 set(CMAKE_AUTOMOC ON)
 # Create code from a list of Qt designer ui files
@@ -54,7 +74,11 @@ if(APPLE)
   set( MACOSX_BUNDLE_BUNDLE_NAME “CopperFX”)
 endif()
 
-qt5_add_resources(RCC_SOURCES ./resources.qrc)
+qt5_add_resources( RCC_SOURCES 
+  ./resources.qrc 
+  ${PROJECT_ROOT}/third_party/QDarkStyleSheet/qdarkstyle/style.qrc
+)
+
 add_executable(
 	copperfx
 	${OS_BUNDLE} # Expands to WIN32 or MACOS_BUNDLE depending on OS
@@ -62,18 +86,22 @@ add_executable(
     ${SOURCE_FILES}
     ${HEADER_FILES}
     ${RCC_SOURCES}
-    #${META_FILES_TO_INCLUDE}
+)
+
+target_include_directories( copperfx PRIVATE
+   ${PROJECT_ROOT}/include/copper/GUI
 )
 
 qt5_use_modules( copperfx Core Gui Widgets Svg )
 
 target_link_libraries ( 
 	copperfx
-	copper_lib 
-    Qt5::Core
-    Qt5::Widgets
-    Qt5::Gui
-    Qt5::Svg
+	copper_lib
+  Boost::log
+  Qt5::Core
+  Qt5::Widgets
+  Qt5::Gui
+  Qt5::Svg
 )
 
 

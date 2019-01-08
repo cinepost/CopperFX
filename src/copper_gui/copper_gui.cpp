@@ -1,3 +1,5 @@
+#include <QFile>
+#include <QTextStream>
 #include <QApplication>
 #include <QCommandLineParser>
 #include <QCommandLineOption>
@@ -27,6 +29,19 @@ int main(int argc, char *argv[])
     //appIcon.addFile(":/Icons/AppIcon32");
     //appIcon.addFile(":/Icons/AppIcon128");
     //app.setWindowIcon(appIcon);
+
+    // Load stylesheet
+    QFile f(":qdarkstyle/style.qss");
+    if (!f.exists())
+    {
+        printf("Unable to set stylesheet, file not found\n");
+    }
+    else
+    {
+        f.open(QFile::ReadOnly | QFile::Text);
+        QTextStream ts(&f);
+        app.setStyleSheet(ts.readAll());
+    }
 
     GUI_MainWindow mainWindow;
     mainWindow.show();
