@@ -9,8 +9,6 @@
 
 int main(int argc, char *argv[])
 {
-	//Q_INIT_RESOURCE(application);
-
 	Engine& engine = Engine::Instance();
 
 	QApplication app(argc, argv);

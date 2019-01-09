@@ -1,5 +1,7 @@
 set( SOURCE_FILES
-    ./copper_gui.cpp
+    ./copperfx.cpp
+    ./FS_DynamicLibrary.cpp
+    ./FS_PluginManager.cpp
     ./GUI_Panel.cpp
     ./GUI_SceneViewPanel.cpp
     ./GUI_PanelRegistry.cpp
@@ -11,6 +13,9 @@ set( SOURCE_FILES
 set( PROJECT_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/../.. )
 
 set( HEADER_FILES
+  ${PROJECT_ROOT}/include/copper/UT/UT_Singleton.h
+  ${PROJECT_ROOT}/include/copper/FS/FS_DynamicLibrary.h
+  ${PROJECT_ROOT}/include/copper/FS/FS_PluginManager.h
   ${PROJECT_ROOT}/include/copper/GUI/GUI_Panel.h
   ${PROJECT_ROOT}/include/copper/GUI/GUI_SceneViewPanel.h
   ${PROJECT_ROOT}/include/copper/GUI/GUI_PanelRegistry.h

@@ -49,8 +49,13 @@ endif ()
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/include/copper )
 
-add_subdirectory( src/copper_lib )
-add_subdirectory( src/copper_gui )
+# copper libs
+add_subdirectory( src/copper_lib ) # copper library
 add_subdirectory( src/copper_pymodule )
+
+# copper bins
+add_subdirectory( src/copperfx )   # gui application
+add_subdirectory( src/copperpy )   # commandline / embedded python interpreter
+
 
 #install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/cfs/* DESTINATION ${CMAKE_INSTALL_PREFIX}/)
