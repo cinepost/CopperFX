@@ -111,7 +111,7 @@ target_link_libraries (
 
 
 if(APPLE)
-  install( TARGETS copperfx DESTINATION "/Applications/Copper " )
+  install( TARGETS copperfx DESTINATION "/Applications/Copper ${PROJECT_VERSION}" )
 elseif(UNIX)
   install( TARGETS copperfx DESTINATION ${CMAKE_INSTALL_PREFIX}/bin )
 endif()
