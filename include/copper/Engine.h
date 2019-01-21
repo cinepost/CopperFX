@@ -6,21 +6,20 @@
 #include <map>
 #include <vector>
 
-#include "Kernel.h"
+#include <boost/log/core.hpp>
+#include <boost/log/trivial.hpp>
+	
 //#include "GPU/GPU_Manager.h"
-#include "OP/OP_Node.h"
+#include "copper/UT/UT_Singleton.h"
+#include "copper/OP/OP_Node.h"
 
-using namespace CopperEngine;
+// Engine class is a singleton, but we might need more than one engine so 
+// things may change in the future...
+class Engine: public UT_Singleton<Engine> {
+  public:
+		Engine();
+		~Engine() {};
 
-// Engine class is a singleton
-class Engine {
-    public:
-    	static Engine& Instance() {
-    		// this is a lazy and thread safe code
-    		static Engine e;
-    		return e;
-    	}
-		
 		OP_Node *node(std::string node_path);
 
 		float time();
@@ -33,15 +32,6 @@ class Engine {
 		void setFps(float fps);
 
 	private:
-		Engine(); // constructor is protected
-		~Engine() {}; // so as destructor
-
-		// need to forbid copying
-		Engine(Engine const&) = delete;
-		Engine& operator= (Engine const&) = delete;
-
-		Kernel theKernel;
-
 		OP_Node *_root_node;
 		std::map<std::string, OP_Node *> _nodes_map;
 

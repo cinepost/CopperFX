@@ -1,5 +1,5 @@
-#ifndef __export_Point_h__
-#define __export_Point_h__
+#ifndef COM_NODE_H
+#define COM_NODE_H
 
 #include <boost/python.hpp>
 #include <boost/shared_ptr.hpp>
@@ -10,26 +10,26 @@
 #include "GEO/GEO_Geometry.h"
 #include "GEO/Point.h"
 
-#include "HOM/HOM_Geometry.h"
-#include "HOM_Vector3.h"
+#include "COM/COM_Geometry.h"
+#include "COM_Vector.h"
 
-class HOM_Geometry;
+class COM_Geometry;
 
-class HOM_Point {
+class COM_Point {
 	public:
-		HOM_Point(int index, Point * point, HOM_Geometry *hom_geo);
+		COM_Point(int index, Point * point, COM_Geometry *com_geo);
 
-		HOM_Vector3 position();
+		COM_Vector3 position();
 		void setPosition_from_list(boost::python::list& list);
-		void setPosition_from_HOM_Vector3(HOM_Vector3 &vec);
-		HOM_Geometry *geometry();
+		void setPosition_from_COM_Vector3(COM_Vector3 &vec);
+		COM_Geometry *geometry();
 
 		std::string __str__();
 
 	private:
 		int _index;
 		Point *_point;
-		HOM_Geometry *_hom_geo;
+		COM_Geometry *_com_geo;
 };
 
 #endif

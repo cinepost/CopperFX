@@ -1,20 +1,67 @@
+#include <boost/log/core.hpp>
+#include <boost/log/trivial.hpp>
+#include <boost/log/expressions.hpp>
+
 #include <QFile>
 #include <QTextStream>
 #include <QApplication>
 #include <QCommandLineParser>
 #include <QCommandLineOption>
 
+#include "GUI/GUI_LogWindow.h"
 #include "GUI/GUI_MainWindow.h"
 #include "Engine.h"
 
+namespace logging = boost::log;
+namespace sinks = boost::log::sinks;
+
+GUI_LogWindow *logWindow = nullptr;
+
+typedef sinks::synchronous_sink< GUI_LogSink > sink_t;
+
+void initGuiLog(GUI_LogWindow *logwnd) {
+  boost::shared_ptr< logging::core > core = logging::core::get();
+
+  // Construct gui logging backend separately and pass it to the frontend
+  boost::shared_ptr< GUI_LogSink > backend(new GUI_LogSink(logwnd));
+  boost::shared_ptr< sink_t > gui_sink(new sink_t(backend));
+  core->add_sink(gui_sink);
+
+  // We can manage filtering through the sink interface
+  //gui_sink->set_filter(expr::attr< severity_level >("Severity") >= warning);
+}
+
+void signalHandler( int signum ){
+    BOOST_LOG_TRIVIAL(debug) << "Interrupt signal (" << signum << ") received !";
+
+    // cleanup and close up stuff here
+    if(logWindow)delete logWindow;  
+    // terminate program  
+    exit(signum);  
+}
+
 int main(int argc, char *argv[])
 {
-	Engine& engine = Engine::Instance();
+    // Set up logging quick 
+    logging::core::get()->set_filter(
+        logging::trivial::severity >= logging::trivial::debug
+    );
+
+    // Basic signal handlers
+    signal(SIGTERM, signalHandler);
+    signal(SIGABRT, signalHandler);
 
 	QApplication app(argc, argv);
     QCoreApplication::setOrganizationName("RedSoft");
     QCoreApplication::setApplicationName("CopperFX");
     QCoreApplication::setApplicationVersion("0.0.001");
+
+    // Show simple QT logging window first so we can see debug messages while everything is
+    // being initialized. Later we'll attach it to main window.
+    
+    logWindow = new GUI_LogWindow();
+    logWindow->show();
+    initGuiLog(logWindow);
 
     // Retina display support for Mac OS, iOS and X11:
     // http://blog.qt.io/blog/2013/04/25/retina-display-support-for-mac-os-ios-and-x11/
@@ -30,18 +77,20 @@ int main(int argc, char *argv[])
 
     // Load stylesheet
     QFile f(":qdarkstyle/style.qss");
-    if (!f.exists())
-    {
-        printf("Unable to set stylesheet, file not found\n");
-    }
-    else
-    {
+    if (!f.exists()) {
+        BOOST_LOG_TRIVIAL(warning) << "Unable to set stylesheet, file not found !";
+    } else {
         f.open(QFile::ReadOnly | QFile::Text);
         QTextStream ts(&f);
         app.setStyleSheet(ts.readAll());
     }
 
+    // Now it's time to init core
+    Engine& engine = Engine::getInstance();
+
     GUI_MainWindow mainWindow;
     mainWindow.show();
+    mainWindow.setCentralWidget( logWindow ); // attach log window
+    
     return app.exec();
 }

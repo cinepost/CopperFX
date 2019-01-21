@@ -5,7 +5,7 @@
 #include <map>
 
 #include "UT/UT_StringUtils.h"
-#include "Parameters/Parameters.h"
+#include "PRM/Parameters.h"
 #include "OP/OP_NetworkBoxItem.h"
 
 class OP_Node : public Parameters, public OP_NetworkBoxItem {

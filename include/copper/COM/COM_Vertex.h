@@ -1,14 +1,14 @@
-#ifndef __HOU_Vertex_h__
-#define __HOU_Vertex_h__
+#ifndef COM_VERTEX_H
+#define COM_VERTEX_H
 
 #include <boost/python.hpp>
 #include <boost/format.hpp>
 
 #include "GEO/Vertex.h"
 
-class HOM_Vertex {
+class COM_Vertex {
 	public:
-		HOM_Vertex(Vertex *vtx);
+		COM_Vertex(Vertex *vtx);
 
 	private:
 		Vertex *vtx;

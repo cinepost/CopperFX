@@ -19,14 +19,14 @@ include_directories( ${OpenCL_INCLUDE_DIRS} )
 link_directories( ${OpenCL_LIBRARY} )
 
 # define wrapper library
-add_library( hou SHARED ${SOURCES} )
-target_include_directories ( hou PUBLIC ${COPPER_INCLUDE_DIRECTORY} )
-target_link_libraries( hou ${Boost_LIBRARIES} ${PYTHON_LIBRARIES} ${OpenCL_LIBRARY} copper_lib )
+add_library( cfx SHARED ${SOURCES} )
+target_include_directories ( cfx PUBLIC ${COPPER_INCLUDE_DIRECTORY} )
+target_link_libraries( cfx ${Boost_LIBRARIES} ${PYTHON_LIBRARIES} ${OpenCL_LIBRARY} copper_lib )
 
 # don't prepend wrapper library name with lib
-set_target_properties( hou PROPERTIES PREFIX "" )
+set_target_properties( cfx PROPERTIES PREFIX "" )
 if (APPLE)
-    set_target_properties( hou PROPERTIES SUFFIX ".so" )
+    set_target_properties( cfx PROPERTIES SUFFIX ".so" )
 endif (APPLE)
 
-install(TARGETS hou DESTINATION lib/python2.7libs)
+install(TARGETS cfx DESTINATION lib/python2.7libs)

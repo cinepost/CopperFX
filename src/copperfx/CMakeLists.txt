@@ -8,6 +8,7 @@ set( SOURCE_FILES
     ./GUI_PanelManager.cpp
     ./GUI_Workspace.cpp
     ./GUI_MainWindow.cpp
+    ./GUI_LogWindow.cpp
 )
 
 set( PROJECT_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/../.. )
@@ -22,6 +23,7 @@ set( HEADER_FILES
   ${PROJECT_ROOT}/include/copper/GUI/GUI_PanelManager.h
   ${PROJECT_ROOT}/include/copper/GUI/GUI_Workspace.h
   ${PROJECT_ROOT}/include/copper/GUI/GUI_MainWindow.h
+  ${PROJECT_ROOT}/include/copper/GUI/GUI_LogWindow.h
 )
 
 
@@ -100,8 +102,8 @@ target_include_directories( copperfx PRIVATE
 qt5_use_modules( copperfx Core Gui Widgets Svg )
 
 target_link_libraries ( 
-	copperfx
-	copper_lib
+  copperfx
+  copper_lib
   Boost::log
   Qt5::Core
   Qt5::Widgets

@@ -1,3 +1,3 @@
-#include "copper/Parameters/Parameters.h"
+#include "copper/PRM/Parameters.h"
 
 Parameters::Parameters() { }

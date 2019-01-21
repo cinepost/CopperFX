@@ -1,7 +1,7 @@
 #include "Engine.h"
 
 Engine::Engine() {
-	std::cout << "Initializing CopperFX engine..." << std::endl;
+    BOOST_LOG_TRIVIAL(debug) << "Initializing CopperFX engine...";
 
     // Create root node
     _root_node = new OP_Node();
@@ -15,6 +15,7 @@ Engine::Engine() {
     _frame = 1.0;
 
     // Load Plugins 
+    /*
     bool allPluginsLoaded = true;
     try {
     	theKernel.loadPlugin("NetworkViewPanel");
@@ -29,6 +30,8 @@ Engine::Engine() {
     } else {
     	std::cout << "CopperFX engine initialized with errors. Not all plugins loaded." << std::endl;
     }
+    */
+    BOOST_LOG_TRIVIAL(debug) << "CopperFX engine initialization done.";
 }
 
 OP_Node *Engine::node(std::string node_path) {

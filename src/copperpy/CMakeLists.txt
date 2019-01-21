@@ -11,7 +11,7 @@ if (PYTHONINTERP_FOUND)
         FIND_PACKAGE(PythonInterp)
         FIND_PACKAGE(PythonLibs REQUIRED)
     endif()
-  else()  
+  else()
     if (PYTHON_VERSION_MAJOR EQUAL 2)
         FIND_PACKAGE(Boost COMPONENTS python${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR})
         FIND_PACKAGE(PythonInterp 2)
@@ -36,4 +36,6 @@ INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS})
 LINK_LIBRARIES(${Boost_LIBRARIES} ${PYTHON_LIBRARIES}) # Deprecated but so convenient!
 
 ADD_EXECUTABLE(copperpy copperpy.cpp) # mymodule.cpp embedding.cpp)
-TARGET_LINK_LIBRARIES(copperpy hou ${Boost_LIBRARIES} ${PYTHON_LIBRARIES})
+TARGET_LINK_LIBRARIES(copperpy cfx ${Boost_LIBRARIES} ${PYTHON_LIBRARIES})
+
+install( TARGETS copperpy DESTINATION ${CMAKE_INSTALL_PREFIX}/bin )
