@@ -6,6 +6,11 @@
 #include <string>
 #include <unordered_map>
 
+#include <boost/mpl/assert.hpp>
+#include <boost/type_traits.hpp>
+
+#include "copper/PL/PL_PluginApi.h"
+
 template <class T>
 class PL_ObjectFactory {
   typedef T *(*objectConstructor)();
@@ -23,5 +28,8 @@ class PL_ObjectFactory {
     HashTableByName _constructors_by_name;
     HashTableByType _constructors_by_type;
 };
+
+typedef PL_ObjectFactory<PL_DataAPI> PL_DataFactory;
+typedef PL_ObjectFactory<PL_OperatorAPI> PL_OperatorsFactory;
 
 #endif // PL_OBJECTFACTORY_H

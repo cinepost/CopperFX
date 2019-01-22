@@ -1,34 +1,10 @@
-set( SOURCE_FILES
-    ./copperfx.cpp
-    ./FS_DynamicLibrary.cpp
-    ./FS_PluginManager.cpp
-    ./GUI_Panel.cpp
-    ./GUI_SceneViewPanel.cpp
-    ./GUI_PanelRegistry.cpp
-    ./GUI_PanelManager.cpp
-    ./GUI_Workspace.cpp
-    ./GUI_MainWindow.cpp
-    ./GUI_LogWindow.cpp
+file( GLOB SOURCES
+  ./*.cpp
+  ./GUI/*.cpp
 )
-
-set( PROJECT_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/../.. )
-
-set( HEADER_FILES
-  ${PROJECT_ROOT}/include/copper/UT/UT_Singleton.h
-  ${PROJECT_ROOT}/include/copper/FS/FS_DynamicLibrary.h
-  ${PROJECT_ROOT}/include/copper/FS/FS_PluginManager.h
-  ${PROJECT_ROOT}/include/copper/GUI/GUI_Panel.h
-  ${PROJECT_ROOT}/include/copper/GUI/GUI_SceneViewPanel.h
-  ${PROJECT_ROOT}/include/copper/GUI/GUI_PanelRegistry.h
-  ${PROJECT_ROOT}/include/copper/GUI/GUI_PanelManager.h
-  ${PROJECT_ROOT}/include/copper/GUI/GUI_Workspace.h
-  ${PROJECT_ROOT}/include/copper/GUI/GUI_MainWindow.h
-  ${PROJECT_ROOT}/include/copper/GUI/GUI_LogWindow.h
-)
-
 
 # Find includes in corresponding build directories
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
+#set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 # Boost
 
@@ -89,15 +65,14 @@ qt5_add_resources( RCC_SOURCES
 add_executable(
 	copperfx
 	${OS_BUNDLE} # Expands to WIN32 or MACOS_BUNDLE depending on OS
-    ${APP_ICON_PATH} 
-    ${SOURCE_FILES}
-    ${HEADER_FILES}
-    ${RCC_SOURCES}
+  ${APP_ICON_PATH} 
+  ${SOURCES}
+  ${RCC_SOURCES}
 )
 
-target_include_directories( copperfx PRIVATE
-   ${PROJECT_ROOT}/include/copper/GUI
-)
+#target_include_directories( copperfx PRIVATE
+#   ${PROJECT_ROOT}/include
+#)
 
 qt5_use_modules( copperfx Core Gui Widgets Svg )
 

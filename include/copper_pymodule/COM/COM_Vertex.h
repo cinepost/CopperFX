@@ -4,7 +4,7 @@
 #include <boost/python.hpp>
 #include <boost/format.hpp>
 
-#include "GEO/Vertex.h"
+#include "copper/GEO/Vertex.h"
 
 class COM_Vertex {
 	public:

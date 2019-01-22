@@ -1,6 +1,6 @@
-#include "COM/COM_Module.h"
-#include "COM/COM_Point.h"
-#include "COM/COM_Geometry.h"
+#include "copper_pymodule/COM/COM_Module.h"
+#include "copper_pymodule/COM/COM_Point.h"
+#include "copper_pymodule/COM/COM_Geometry.h"
 
 COM_Geometry::COM_Geometry() {
 	this->_geo = new GEO_Geometry();

@@ -7,7 +7,7 @@
 
 #include <vector>
 
-#include "OP/OP_Node.h"
+#include "copper/OP/OP_Node.h"
 
 
 class COM_Node: public OP_Node {

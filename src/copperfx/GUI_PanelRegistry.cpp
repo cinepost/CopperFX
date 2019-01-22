@@ -5,7 +5,7 @@
 #include <boost/log/trivial.hpp>
 #include <boost/log/expressions.hpp>
 
-#include "GUI/GUI_PanelRegistry.h"
+#include "copperfx/GUI/GUI_PanelRegistry.h"
 
 void GUI_PanelRegistry::addPanelType(std::string panel_type_name, Panel_Constructor constructor) {
 	panelsByType.insert ( std::pair<std::string, Panel_Constructor>(panel_type_name, constructor) );

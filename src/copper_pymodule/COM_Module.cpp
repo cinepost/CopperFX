@@ -5,10 +5,10 @@
 #include <string>
 #include <iostream>
 
-#include "Engine.h"
+#include "copper/Engine.h"
 
-#include "COM/COM_Node.h"
-#include "COM/COM_Module.h"
+#include "copper_pymodule/COM/COM_Node.h"
+#include "copper_pymodule/COM/COM_Module.h"
 
 namespace copper_pymodule {
   Engine& engine = Engine::getInstance();

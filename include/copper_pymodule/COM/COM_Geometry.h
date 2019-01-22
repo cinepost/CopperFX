@@ -4,10 +4,10 @@
 #include <boost/python.hpp>
 #include <boost/shared_ptr.hpp>
 
-#include "GEO/Point.h"
-#include "GEO/GEO_Geometry.h"
+#include "copper/GEO/Point.h"
+#include "copper/GEO/GEO_Geometry.h"
 
-#include "COM_Point.h"
+#include "copper_pymodule/COM/COM_Point.h"
 
 class COM_Point;
 

@@ -1,4 +1,4 @@
-#include "COM/COM_Node.h"
+#include "copper_pymodule/COM/COM_Node.h"
 
 
 //Node *(Node::*createNode)(std::string) = &Node::createNode;

@@ -2,7 +2,7 @@
 #include <boost/log/trivial.hpp>
 #include <boost/log/expressions.hpp>
 
-#include "GUI_Panel.h"
+#include "copperfx/GUI/GUI_Panel.h"
 
 
 GUI_Panel::GUI_Panel(QWidget *parent) : QWidget(parent) {

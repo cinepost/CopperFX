@@ -6,8 +6,8 @@
 #include <iostream>
 #include <fstream>
 
-#include <GUI/GUI_Panel.h>
-#include <GUI/GUI_PanelRegistry.h>
+#include "copperfx/GUI/GUI_Panel.h"
+#include "copperfx/GUI/GUI_PanelRegistry.h"
 
 
 class GUI_SceneViewPanel : public GUI_Panel {

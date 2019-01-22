@@ -5,7 +5,7 @@
 #include <stdexcept>
 #include <math.h>
 
-#include "GEO/Point.h"
+#include "copper/GEO/Point.h"
 //#include "wykobi/wykobi.hpp"
 
 class Vertex { 

@@ -4,8 +4,8 @@
 #include <boost/python.hpp>
 #include <boost/python/suite/indexing/vector_indexing_suite.hpp>
 
-#include "OP/OP_Node.h"
-#include "Engine.h"
+#include "copper/OP/OP_Node.h"
+#include "copper/Engine.h"
 
 
 template<class T>

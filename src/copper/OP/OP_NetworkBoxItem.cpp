@@ -1,4 +1,4 @@
-#include "OP/OP_NetworkBoxItem.h"
+#include "copper/OP/OP_NetworkBoxItem.h"
 
 float OP_NetworkBoxItem::getX() {
 	return this->x;

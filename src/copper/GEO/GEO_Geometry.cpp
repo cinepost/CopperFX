@@ -1,4 +1,4 @@
-#include "GEO/GEO_Geometry.h"
+#include "copper/GEO/GEO_Geometry.h"
 
 GEO_Geometry::GEO_Geometry(): _sop_node{NULL} {
 	std::cout << "GEO_Geometry constructed" << std::endl;

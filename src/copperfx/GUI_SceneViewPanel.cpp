@@ -6,7 +6,7 @@
 #include <iostream>
 #include <sstream>
 
-#include "GUI_SceneViewPanel.h"
+#include "copperfx/GUI/GUI_SceneViewPanel.h"
 
 
 GUI_SceneViewPanel::GUI_SceneViewPanel(QWidget *parent) : GUI_Panel(parent) {

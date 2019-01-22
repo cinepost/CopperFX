@@ -11,9 +11,9 @@
 #include <QCommandLineParser>
 #include <QCommandLineOption>
 
-#include "GUI/GUI_LogWindow.h"
-#include "GUI/GUI_MainWindow.h"
-#include "Engine.h"
+#include "copperfx/GUI/GUI_LogWindow.h"
+#include "copperfx/GUI/GUI_MainWindow.h"
+#include "copper/Engine.h"
 
 namespace logging = boost::log;
 namespace sinks = boost::log::sinks;

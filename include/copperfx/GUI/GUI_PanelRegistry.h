@@ -1,11 +1,11 @@
-#ifndef __GUI_PanelRegistry_h__
-#define __GUI_PanelRegistry_h__
+#ifndef GUI_PANELREGISTRY_H
+#define GUI_PANELREGISTRY_H
 
 #include <string>
 #include <map>
 
-#include "UT/UT_Singleton.h"
-#include "GUI_Panel.h"
+#include "copper/UT/UT_Singleton.h"
+#include "copperfx/GUI/GUI_Panel.h"
 
 
 typedef GUI_Panel *(*Panel_Constructor)();
@@ -21,4 +21,4 @@ class GUI_PanelRegistry: public UT_Singleton<GUI_PanelRegistry> {
 };
 
 
-#endif // __GUI_PanelRegistry_h__
+#endif // GUI_PANELREGISTRY_H

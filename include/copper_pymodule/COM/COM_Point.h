@@ -7,11 +7,11 @@
 
 #include <vector>
 
-#include "GEO/GEO_Geometry.h"
-#include "GEO/Point.h"
+#include "copper/GEO/GEO_Geometry.h"
+#include "copper/GEO/Point.h"
 
-#include "COM/COM_Geometry.h"
-#include "COM_Vector.h"
+#include "copper_pymodule/COM/COM_Geometry.h"
+#include "copper_pymodule/COM/COM_Vector.h"
 
 class COM_Geometry;
 

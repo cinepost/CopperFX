@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 
-#include "GUI/GUI_Workspace.h"
+#include "copperfx/GUI/GUI_Workspace.h"
 
 class QAction;
 class QMenu;

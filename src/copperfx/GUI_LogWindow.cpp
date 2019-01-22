@@ -1,4 +1,4 @@
-#include "GUI/GUI_LogWindow.h"
+#include "copperfx/GUI/GUI_LogWindow.h"
 
 void GUI_LogWindow::appendMessage(const QString& text) {
     this->appendPlainText(text); // Adds the message to the widget

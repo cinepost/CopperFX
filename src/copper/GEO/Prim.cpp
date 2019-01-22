@@ -1,4 +1,4 @@
-#include "GEO/Prim.h"
+#include "copper/GEO/Prim.h"
 
 std::vector<Vertex*> * Prim::vertices() {
 	return &_vertices;

@@ -1,4 +1,4 @@
-#include "OP/OP_Node.h"
+#include "copper/OP/OP_Node.h"
 
 OP_Node::OP_Node(): _parent{NULL}, _name{"/"} {
 	std::cout << "OP_Node constructed" << std::endl;

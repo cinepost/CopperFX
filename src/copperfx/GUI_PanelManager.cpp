@@ -1,7 +1,7 @@
 #include <QtWidgets>
 #include <QTabWidget>
 
-#include "GUI/GUI_PanelManager.h"
+#include "copperfx/GUI/GUI_PanelManager.h"
 
 GUI_PanelManager::GUI_PanelManager(QWidget *parent) : QFrame (parent) {
     setObjectName("PanelManager");

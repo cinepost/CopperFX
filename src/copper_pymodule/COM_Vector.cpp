@@ -1,4 +1,4 @@
-#include "COM/COM_Vector.h"
+#include "copper_pymodule/COM/COM_Vector.h"
 
 COM_Vector3::COM_Vector3(boost::python::list& list) {
 	setToFromList(list);

@@ -1,9 +1,9 @@
 #include <QtWidgets>
 
-#include "GUI/GUI_SceneViewPanel.h"
-#include "GUI/GUI_PanelRegistry.h"
-#include "GUI/GUI_Workspace.h"
-#include "GUI/GUI_MainWindow.h"
+#include "copperfx/GUI/GUI_SceneViewPanel.h"
+#include "copperfx/GUI/GUI_PanelRegistry.h"
+#include "copperfx/GUI/GUI_Workspace.h"
+#include "copperfx/GUI/GUI_MainWindow.h"
 
 GUI_MainWindow::GUI_MainWindow(QWidget *parent)
     : workspace(new GUI_Workspace)

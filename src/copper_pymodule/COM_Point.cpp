@@ -1,5 +1,5 @@
-#include "COM/COM_Geometry.h"
-#include "COM/COM_Point.h"
+#include "copper_pymodule/COM/COM_Geometry.h"
+#include "copper_pymodule/COM/COM_Point.h"
 
 
 COM_Point::COM_Point(int index, Point *point, COM_Geometry *com_geo){

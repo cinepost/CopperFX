@@ -1,4 +1,4 @@
-#include "Engine.h"
+#include "copper/Engine.h"
 
 Engine::Engine() {
     BOOST_LOG_TRIVIAL(debug) << "Initializing CopperFX engine...";

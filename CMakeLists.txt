@@ -46,7 +46,7 @@ else ()
 	MESSAGE(FATAL_ERROR "CMakeLists.txt has not been tested/written for your compiler.")
 endif ()
 
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/include/copper )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/include )
 
 # Documentation
 
@@ -73,8 +73,8 @@ endif (DOXYGEN_FOUND)
 # Now libs and executables
 
 # copper libs
-add_subdirectory( src/copper_lib ) # copper library
-add_subdirectory( src/copper_pymodule )
+add_subdirectory( src/copper ) # copper library
+add_subdirectory( src/copper_pymodule ) # copper python module
 
 # copper bins
 add_subdirectory( src/copperfx )   # gui application

@@ -7,7 +7,7 @@
 
 //#include "wykobi/wykobi.hpp"
 
-#include "GEO/Vertex.h"
+#include "copper/GEO/Vertex.h"
 
 class Prim { 
 	public:

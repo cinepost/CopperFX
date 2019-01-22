@@ -4,7 +4,7 @@
 #include <boost/python.hpp>
 #include <boost/format.hpp>
 
-#include "UT/UT_Vector3.h"
+#include "copper/UT/UT_Vector3.h"
 
 class COM_Vector3: public UT_Vector3 {
 	public:

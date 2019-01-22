@@ -4,9 +4,9 @@
 #include <string>
 #include <map>
 
-#include "UT/UT_StringUtils.h"
-#include "PRM/Parameters.h"
-#include "OP/OP_NetworkBoxItem.h"
+#include "copper/UT/UT_StringUtils.h"
+#include "copper/PRM/Parameters.h"
+#include "copper/OP/OP_NetworkBoxItem.h"
 
 class OP_Node : public Parameters, public OP_NetworkBoxItem {
 	friend class OP_Engine;

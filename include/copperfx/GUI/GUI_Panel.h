@@ -3,7 +3,8 @@
 
 #include <QWidget>
 
-#include <GUI/GUI_Panel.h>
+#include "copper/PL/PL_ObjectFactory.h"
+#include "copperfx/GUI/GUI_Panel.h"
 
 
 class GUI_Panel : public QWidget {
@@ -16,5 +17,8 @@ class GUI_Panel : public QWidget {
 
     virtual const char  *panelTypeName() const = 0;
 };
+
+
+typedef PL_ObjectFactory<GUI_Panel> GUI_PanelsFactory;
 
 #endif // __GUI_Panel_h__

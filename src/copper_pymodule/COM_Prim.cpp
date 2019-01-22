@@ -1,4 +1,4 @@
-#include "COM/COM_Prim.h"
+#include "copper_pymodule/COM/COM_Prim.h"
 
 
 namespace copper_pymodule {
