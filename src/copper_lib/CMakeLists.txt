@@ -5,6 +5,7 @@ file( GLOB SOURCES
 	./OP/*.cpp
 	./GEO/*.cpp
 	./DT/*.cpp
+	./PL/*.cpp
 )
 
 #include_directories( ${COPPER_INCLUDE_DIRECTORY} )

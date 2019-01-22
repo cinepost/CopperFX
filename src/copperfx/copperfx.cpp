@@ -1,3 +1,6 @@
+#include <cstdio>    // fileno()
+#include <unistd.h>  // isatty()
+
 #include <boost/log/core.hpp>
 #include <boost/log/trivial.hpp>
 #include <boost/log/expressions.hpp>
@@ -57,11 +60,15 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationVersion("0.0.001");
 
     // Show simple QT logging window first so we can see debug messages while everything is
-    // being initialized. Later we'll attach it to main window.
+    // being initialized. Later we'll attach it to main window. This only applies then copper
+    // started from Desktop ( or /Application on macos )
     
-    logWindow = new GUI_LogWindow();
-    logWindow->show();
-    initGuiLog(logWindow);
+    if (! isatty(fileno(stdin))) {
+        // We were launched from inside the desktop
+        logWindow = new GUI_LogWindow();
+        logWindow->show();
+        initGuiLog(logWindow);
+    }
 
     // Retina display support for Mac OS, iOS and X11:
     // http://blog.qt.io/blog/2013/04/25/retina-display-support-for-mac-os-ios-and-x11/
@@ -90,7 +97,7 @@ int main(int argc, char *argv[])
 
     GUI_MainWindow mainWindow;
     mainWindow.show();
-    mainWindow.setCentralWidget( logWindow ); // attach log window
+    if(logWindow)mainWindow.setCentralWidget( logWindow ); // attach log window
     
     return app.exec();
 }

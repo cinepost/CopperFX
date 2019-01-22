@@ -1,7 +1,15 @@
 #ifndef PL_PLUGINMANAGER_H
 #define PL_PLUGINMANAGER_H
 
+#include <boost/dll/runtime_symbol_info.hpp> // for program_location()
+#include <boost/dll/shared_library.hpp>
+#include <boost/make_shared.hpp>
+#include <boost/container/map.hpp>
+#include <boost/filesystem.hpp>
+#include <iostream>
+
 #include "copper/UT/UT_Singleton.h"
+#include "copper/PL/PL_PluginApi.h"
 
 namespace dll = boost::dll;
 
@@ -11,9 +19,9 @@ namespace dll = boost::dll;
 // For gui related plugins we'll use another manager so we can completely skip scanning, registering and loading 
 // them when not needed, like command line processing...
 // And yes it's a singleton. There is no foreseeble need to have two instances. But...
-class PL_PluginManager: public UT_Singleton {
+class PL_PluginManager: public UT_Singleton<PL_PluginManager> {
   public:
-    PL_PluginManager(const boost::dll::fs::path& plugins_directory);
+    PL_PluginManager(const boost::filesystem::path& plugins_directory);
 
     void print_plugins() const;
 
@@ -23,8 +31,8 @@ class PL_PluginManager: public UT_Singleton {
     // Name => plugin
     typedef boost::container::map<std::string, dll::shared_library> plugins_t;
 
-    boost::dll::fs::path            _plugins_directory;
-    plugins_t                       _plugins;
+    boost::filesystem::path _plugins_directory;
+    plugins_t               _plugins;
 
     // loads all plugins in plugins_directory_
     void load_all();
