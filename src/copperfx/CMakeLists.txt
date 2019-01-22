@@ -1,6 +1,15 @@
-file( GLOB SOURCES
+file( GLOB CPP_FILES 
   ./*.cpp
   ./GUI/*.cpp
+) 
+
+file( GLOB H_FILES 
+  ${COPPER_INCLUDE_ROOT}/copperfx/*.h
+  ${COPPER_INCLUDE_ROOT}/copperfx/GUI/*.h
+) 
+
+set( SOURCE_FILES 
+  ${CPP_FILES} ${H_FILES}
 )
 
 # Find includes in corresponding build directories
@@ -66,7 +75,7 @@ add_executable(
 	copperfx
 	${OS_BUNDLE} # Expands to WIN32 or MACOS_BUNDLE depending on OS
   ${APP_ICON_PATH} 
-  ${SOURCES}
+  ${SOURCE_FILES}
   ${RCC_SOURCES}
 )
 

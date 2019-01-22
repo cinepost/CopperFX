@@ -46,7 +46,8 @@ else ()
 	MESSAGE(FATAL_ERROR "CMakeLists.txt has not been tested/written for your compiler.")
 endif ()
 
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/include )
+set ( COPPER_INCLUDE_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/include )
+include_directories( ${COPPER_INCLUDE_ROOT} )
 
 # Documentation
 
