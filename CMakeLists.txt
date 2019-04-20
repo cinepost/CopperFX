@@ -46,8 +46,11 @@ else ()
 	MESSAGE(FATAL_ERROR "CMakeLists.txt has not been tested/written for your compiler.")
 endif ()
 
-set ( COPPER_INCLUDE_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/include )
-include_directories( ${COPPER_INCLUDE_ROOT} )
+set ( COPPER_INCLUDE_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/src )
+include_directories(
+    ${COPPER_INCLUDE_ROOT}
+    ${CMAKE_CURRENT_SOURCE_DIR}/third_party
+)
 
 # Documentation
 
@@ -74,13 +77,14 @@ endif (DOXYGEN_FOUND)
 # Now libs and executables
 
 # copper libs
-add_subdirectory( src/copper ) # copper library
-add_subdirectory( src/copper_pymodule ) # copper python module
+add_subdirectory( src/copper ) # main copper library
 
 # copper bins
 add_subdirectory( src/copperfx )   # gui application
-add_subdirectory( src/copperpy )   # commandline / embedded python interpreter
+#add_subdirectory( src/copperpy )   # commandline / embedded python interpreter
 
+# copper python modules
+#add_subdirectory( src/copper_pymodule ) # copper hstyle python module
 
 install(
 	DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/cfs 

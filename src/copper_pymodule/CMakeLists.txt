@@ -1,5 +1,6 @@
 file( GLOB SOURCES
 	./*.cpp
+	./COM/*.cpp
 )
 
 # find python libs

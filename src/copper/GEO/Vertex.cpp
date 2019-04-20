@@ -1,5 +1,10 @@
 #include "copper/GEO/Vertex.h"
 
-Vertex::Vertex(Point *pt){
-	pt = _pt;
+
+namespace copper {
+
+Vertex::Vertex(Point3d *pt){
+	_pt = pt;
+}
+
 }

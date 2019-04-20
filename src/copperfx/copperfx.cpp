@@ -15,8 +15,11 @@
 #include "copperfx/GUI/GUI_MainWindow.h"
 #include "copper/Engine.h"
 
+
 namespace logging = boost::log;
 namespace sinks = boost::log::sinks;
+
+using namespace copper;
 
 GUI_LogWindow *logWindow = nullptr;
 
@@ -39,16 +42,13 @@ void signalHandler( int signum ){
 
     // cleanup and close up stuff here
     if(logWindow)delete logWindow;  
-    // terminate program  
-    exit(signum);  
+    exit(signum); // terminate program
 }
 
 int main(int argc, char *argv[])
 {
-    // Set up logging quick 
-    logging::core::get()->set_filter(
-        logging::trivial::severity >= logging::trivial::debug
-    );
+    // Set up logging level quick 
+    logging::core::get()->set_filter( logging::trivial::severity >= logging::trivial::debug );
 
     // Basic signal handlers
     signal(SIGTERM, signalHandler);

@@ -3,11 +3,6 @@ file( GLOB CPP_FILES
   ./GUI/*.cpp
 ) 
 
-file( GLOB H_FILES 
-  ${COPPER_INCLUDE_ROOT}/copperfx/*.h
-  ${COPPER_INCLUDE_ROOT}/copperfx/GUI/*.h
-) 
-
 set( SOURCE_FILES 
   ${CPP_FILES} ${H_FILES}
 )
@@ -67,9 +62,10 @@ if(APPLE)
 endif()
 
 qt5_add_resources( RCC_SOURCES 
-  ./resources.qrc 
-  ${PROJECT_ROOT}/third_party/QDarkStyleSheet/qdarkstyle/style.qrc
+  ./resources.qrc
 )
+#  ${PROJECT_ROOT}/third_party/QDarkStyleSheet/qdarkstyle/style.qrc
+#)
 
 add_executable(
 	copperfx
@@ -94,7 +90,6 @@ target_link_libraries (
   Qt5::Gui
   Qt5::Svg
 )
-
 
 if(APPLE)
   install( TARGETS copperfx DESTINATION "/Applications/Copper ${PROJECT_VERSION}" )

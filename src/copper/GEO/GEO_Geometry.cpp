@@ -1,5 +1,8 @@
 #include "copper/GEO/GEO_Geometry.h"
 
+
+namespace copper {
+
 GEO_Geometry::GEO_Geometry(): _sop_node{NULL} {
 	std::cout << "GEO_Geometry constructed" << std::endl;
 }
@@ -19,19 +22,21 @@ GEO_Geometry *GEO_Geometry::freeze(){
 	return frozen_geo;
 }
 
-std::vector<Point*> *GEO_Geometry::points() {
+std::vector<Point3d*> *GEO_Geometry::points() {
 	return &(this)->_points;
 }
 
-std::vector<Point*> *GEO_Geometry::points() const {
-	return const_cast<std::vector<Point*> *>(&(this)->_points);
+std::vector<Point3d*> *GEO_Geometry::points() const {
+	return const_cast<std::vector<Point3d*> *>(&(this)->_points);
 }
 
 OP_Node *GEO_Geometry::sopNode(){
 	return _sop_node;
 }
 
-Point *GEO_Geometry::createPoint() {
-	_points.push_back(new Point());
+Point3d *GEO_Geometry::createPoint() {
+	_points.push_back(new Point3d());
 	return this->_points.back();
+}
+
 }

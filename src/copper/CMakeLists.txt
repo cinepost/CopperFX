@@ -1,14 +1,12 @@
 file( GLOB SOURCES
 	./*.cpp
-	./UT/*.cpp
+	./Util/*.cpp
 	./Parameters/*.cpp
-	./OP/*.cpp
+	./Operator/*.cpp
 	./GEO/*.cpp
-	./DT/*.cpp
-	./PL/*.cpp
+	./OpData/*.cpp
+	./Plugin/*.cpp
 )
-
-#include_directories( ${COPPER_INCLUDE_DIRECTORY} )
 
 # find boost libs
 find_package( Boost COMPONENTS log REQUIRED )
@@ -17,7 +15,8 @@ include_directories( ${Boost_INCLUDE_DIRS} )
 # we will use static libs
 add_definitions(-DBOOST_LOG_DYN_LINK)
 
-add_library( copper_lib STATIC ${SOURCES} )
+add_library( copper_lib SHARED ${SOURCES} ${HEADERS} )
+
 target_link_libraries( copper_lib ${OpenCL_LIBRARY} dl Boost::log)
 
 #add_custom_command(

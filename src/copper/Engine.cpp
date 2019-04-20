@@ -1,5 +1,8 @@
 #include "copper/Engine.h"
 
+
+namespace copper {
+
 Engine::Engine() {
     BOOST_LOG_TRIVIAL(debug) << "Initializing CopperFX engine...";
 
@@ -46,3 +49,5 @@ void Engine::setFrame(float frame){ _frame = frame; }
 
 float Engine::fps() { return _fps; }
 void Engine::setFps(float fps){ _fps = fps; }
+
+}
