@@ -79,12 +79,13 @@ endif (DOXYGEN_FOUND)
 # copper libs
 add_subdirectory( src/copper ) # main copper library
 
+# copper python modules
+add_subdirectory( src/copper_pymodule ) # copper hstyle python module
+
 # copper bins
 add_subdirectory( src/copperfx )   # gui application
-#add_subdirectory( src/copperpy )   # commandline / embedded python interpreter
+add_subdirectory( src/copperpy )   # commandline / embedded python interpreter
 
-# copper python modules
-#add_subdirectory( src/copper_pymodule ) # copper hstyle python module
 
 install(
 	DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/cfs 
