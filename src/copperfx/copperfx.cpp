@@ -1,5 +1,6 @@
 #include <cstdio>    // fileno()
 #include <unistd.h>  // isatty()
+#include <csignal>
 
 #include <boost/log/core.hpp>
 #include <boost/log/trivial.hpp>

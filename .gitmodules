@@ -1,3 +1,7 @@
 [submodule "third_party/QDarkStyleSheet"]
 	path = third_party/QDarkStyleSheet
 	url = git@github.com:ColinDuquesnoy/QDarkStyleSheet.git
+
+[submodule "third_party/wykobi"]
+	path = third_party/wykobi
+	url = https://github.com/ArashPartow/wykobi.git

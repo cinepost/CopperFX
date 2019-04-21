@@ -21,6 +21,11 @@ include_directories(
 add_definitions(-DBOOST_LOG_DYN_LINK)
 
 # Qt5
+list(APPEND CMAKE_PREFIX_PATH "/home/max/Qt5.9.1/5.9.1/gcc_64")
+
+if(POLICY CMP0071)
+  cmake_policy(SET CMP0071 NEW)
+endif()
 
 # Instruct CMake to run moc automatically when needed
 set(CMAKE_AUTOMOC ON)
@@ -68,8 +73,8 @@ qt5_add_resources( RCC_SOURCES
 #)
 
 add_executable(
-	copperfx
-	${OS_BUNDLE} # Expands to WIN32 or MACOS_BUNDLE depending on OS
+  copperfx
+  ${OS_BUNDLE} # Expands to WIN32 or MACOS_BUNDLE depending on OS
   ${APP_ICON_PATH} 
   ${SOURCE_FILES}
   ${RCC_SOURCES}
