@@ -39,6 +39,8 @@ class ObjectFactory { //: public Singleton<ObjectFactory<T>> {
     void registerType(objectTypeName typeName, objectConstructor constructor);
     void registerType(std::string type_name, objectConstructor constructor);
 
+    //const std::string registeredTypes(); // mostly for debugging purposes
+
   private:
     HashTableByTypeName _constructors_by_type_name;
     HashTableByTypeInfo _constructors_by_type_info;
@@ -61,14 +63,11 @@ void ObjectFactory<T>::registerType(objectTypeName typeName, objectConstructor c
 
 template <class T>
 void ObjectFactory<T>::registerType(std::string type_name, objectConstructor constructor){
-  //BOOST_MPL_ASSERT((boost::is_base_of<T, BaseOpData>)); // protection against wrong types registrations
-  //_constructors_by_name[object_type_name] = reinterpret_cast<T*>(constructor);
-  //_constructors_by_name.insert( std::pair<std::string, objectConstructor>(type_name(), reinterpret_cast<T*>(constructor)) );
+  BOOST_MPL_ASSERT((boost::is_base_of<BaseAPI, T>)); // protection against wrong types registrations
 
-  //std::pair<std::string, objectConstructor> *p = new std::pair<std::string, objectConstructor>(type_name, constructor);
-  //_constructors_by_type_name.insert( new std::pair<std::string, objectConstructor>(type_name, constructor) );
   _constructors_by_type_info[typeid(T)] = reinterpret_cast<T*>(constructor);
   _constructors_by_type_name[type_name] = reinterpret_cast<T*>(constructor);
+
   BOOST_LOG_TRIVIAL(debug) << "Registered " << typeid(T).name() << " \"" << type_name << "\"\n";
 }
 

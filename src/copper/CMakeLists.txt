@@ -3,7 +3,7 @@ file( GLOB SOURCES
 	./Util/*.cpp
 	./Parameters/*.cpp
 	./Operator/*.cpp
-	./GEO/*.cpp
+	./Prims/*.cpp
 	./OpData/*.cpp
 	./Plugin/*.cpp
 )

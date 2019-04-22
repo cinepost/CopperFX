@@ -9,7 +9,8 @@
 #include <boost/log/core.hpp>
 #include <boost/log/trivial.hpp>
 	
-//#include "GPU/GPU_Manager.h"
+#include "copper/OpData/BaseOpData.h"
+#include "copper/Operator/BaseOperator.h"
 #include "copper/Plugin/ObjectFactory.h"
 #include "copper/Util/Singleton.h"
 #include "copper/Operator/OP_Node.h"

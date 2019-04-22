@@ -105,7 +105,7 @@ set( COPPER_BUILD_LIBS_AS_FRAMEWORKS true )
 add_subdirectory( src/copper ) # main copper library
 
 # copper python modules
-#add_subdirectory( src/copper_pymodule ) # copper hstyle python module
+add_subdirectory( src/copper_pymodules ) # copper python modules
 
 # copper apps
 add_subdirectory( src/copperfx )   # gui application

@@ -18,6 +18,19 @@ const unsigned int GeometryOpData::version() const {
 void GeometryOpData::saveToFile(std::string filename, const unsigned int version) { }
 void GeometryOpData::loadFromFile(std::string filename, const unsigned int version) { }
 
+std::vector<Point3d> *GeometryOpData::points() {
+	return &_points;
+}
+
+std::vector<Point3d> *GeometryOpData::points() const {
+	return const_cast<std::vector<Point3d> *>(&(this)->_points);
+}
+
+Point3d *GeometryOpData::createPoint() {
+	_points.emplace_back();
+	return &this->_points.back();
+}
+
 // factory methods
 std::string geometryOpDataTypeName() {
     return "geometry";

@@ -14,7 +14,7 @@ class BaseOpData: public BaseAPI {
   	virtual const std::string typeName() const = 0; // plugin instance type name
 
   	virtual void saveToFile(std::string filename, const unsigned int version) = 0;
-  	virtual void loadFromFile(std::string filename, const unsigned int version) = 0;		
+  	virtual void loadFromFile(std::string filename, const unsigned int version) = 0;
 };
 
 }
