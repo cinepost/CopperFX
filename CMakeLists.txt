@@ -32,6 +32,7 @@ if( APPLE )
 endif()
 
 if(APPLE)
+  set(CMAKE_MACOSX_RPATH 1)
   set( CMAKE_INSTALL_PREFIX "/Applications/Copper/Copper${PROJECT_VERSION}" )
 elseif(UNIX)
   set( CMAKE_INSTALL_PREFIX "/opt/cfs${PROJECT_VERSION}" )

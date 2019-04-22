@@ -67,7 +67,6 @@ if(APPLE)
 endif()
 
 qt5_add_resources( RCC_SOURCES ./resources.qrc )
-#qt5_add_resources( RCC_SOURCES ${PROJECT_ROOT}/third_party/QDarkStyleSheet/qdarkstyle/style.qrc )
 
 add_executable(
   copperfx
@@ -83,14 +82,14 @@ add_executable(
 
 qt5_use_modules( copperfx Core Gui Widgets Svg )
 
-#if(APPLE)
-#  set_target_properties(
-#      copperfx
-#      PROPERTIES
-#      INSTALL_NAME_DIR "@rpath/CopperFX.framework/copper"
-#      INSTALL_RPATH "@executable_path/../../Frameworks;@loader_path/Frameworks"
-#  )
-#endif()
+if(APPLE)
+  set_target_properties(
+      copperfx
+      PROPERTIES
+      INSTALL_NAME_DIR "@rpath/CopperFX.framework/copper"
+      INSTALL_RPATH "@executable_path/../../Frameworks;@loader_path/Frameworks"
+  )
+endif()
 
 target_link_libraries ( 
   copperfx
