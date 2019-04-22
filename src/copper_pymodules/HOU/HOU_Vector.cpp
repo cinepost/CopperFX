@@ -26,7 +26,7 @@ static std::string HOU_Vector3__str__(HOU_Vector3 const &self) {
 }
 
 static std::string HOU_Vector3__repr__(HOU_Vector3 const &self) {
-	boost::format formater("<HOU_Vector3 %s>");
+	boost::format formater("<hou.Vector3 %s>");
     formater % HOU_Vector3__str__(self);
     return formater.str();
 }
