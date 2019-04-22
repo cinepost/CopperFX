@@ -1,11 +1,16 @@
 cmake_minimum_required( VERSION 3.5 )
 
-set( PROJECT_VERSION_MAJOR 0)
-set( PROJECT_VERSION_MINOR 0)
-set( PROJECT_VERSION_PATCH 001)
+set( CMAKE_CXX_STANDARD 11 )
+set( CMAKE_CXX_STANDARD_REQUIRED ON )
+set( CMAKE_CXX_EXTENSIONS OFF )
+
+set( PROJECT_VERSION_MAJOR 0 )
+set( PROJECT_VERSION_MINOR 0 )
+set( PROJECT_VERSION_PATCH 001 )
 
 # Basic information about project
-project( CopperFX VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH} )
+set( PROJECT_VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH} )
+project( CopperFX VERSION ${PROJECT_VERSION} )
 
 # Add folder where are supportive functions
 set( CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake )
@@ -16,17 +21,38 @@ set( CMAKE_INCLUDE_CURRENT_DIR ON )
 
 # Set additional project information
 set( COMPANY "Red Max Soft" )
-set( COPYRIGHT "Copyright (c) 2019 Red Max Soft" )
-set( IDENTIFIER "com.scalart.redmaxsoft" )
+set( COPYRIGHT "Copyright (c) 2019 Red Soft" )
+set( IDENTIFIER "com.redsoft" )
 
-set( CMAKE_INSTALL_PREFIX /opt/cfs${PROJECT_VERSION} )
+
+if( APPLE )
+  if(POLICY CMP0068)
+    cmake_policy(SET CMP0068 NEW)  # CMake 3.9+: `RPATH` settings on macOS do not affect `install_name`.
+  endif()
+endif()
+
+if(APPLE)
+  set( CMAKE_INSTALL_PREFIX "/Applications/Copper/Copper${PROJECT_VERSION}" )
+elseif(UNIX)
+  set( CMAKE_INSTALL_PREFIX "/opt/cfs${PROJECT_VERSION}" )
+endif()
 
 # Include Qt basic functions
 include( QtCommon )
 
+# INclude config targets
+include ( CopperConfigTargets )
+
+# Specify build paths
 set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib )
 set( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib )
 set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin )
+if (WIN32 OR APPLE)
+  if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+    # We don't want to install in default system location, install is really for the SDK, so call it that
+    set(CMAKE_INSTALL_PREFIX "${PROJECT_BINARY_DIR}/sdk" CACHE PATH "COPPER install prefix" FORCE )
+  endif (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+endif(WIN32 OR APPLE)
 
 if( NOT CMAKE_BUILD_TYPE )
   set( CMAKE_BUILD_TYPE "DEBUG" )
@@ -34,9 +60,6 @@ if( NOT CMAKE_BUILD_TYPE )
   #SET(CMAKE_BUILD_TYPE "RELWITHDEBINFO")
   #SET(CMAKE_BUILD_TYPE "MINSIZEREL")
 endif()
-
-set( CMAKE_CXX_STANDARD 11 )
-set( CMAKE_CXX_STANDARD_REQUIRED ON )
 
 if ( MSVC )
 	ADD_DEFINITIONS(/W3)
@@ -74,17 +97,19 @@ else (DOXYGEN_FOUND)
   message("Doxygen need to be installed to generate the doxygen documentation")
 endif (DOXYGEN_FOUND)
 
-# Now libs and executables
+set( COPPER_BUILD_LIBS_AS_FRAMEWORKS true )
+
+# Now setup targets
 
 # copper libs
 add_subdirectory( src/copper ) # main copper library
 
 # copper python modules
-add_subdirectory( src/copper_pymodule ) # copper hstyle python module
+#add_subdirectory( src/copper_pymodule ) # copper hstyle python module
 
-# copper bins
+# copper apps
 add_subdirectory( src/copperfx )   # gui application
-add_subdirectory( src/copperpy )   # commandline / embedded python interpreter
+#add_subdirectory( src/copperpy )   # commandline / embedded python interpreter
 
 
 install(

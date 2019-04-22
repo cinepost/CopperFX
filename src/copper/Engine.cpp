@@ -1,5 +1,6 @@
 #include "copper/Engine.h"
 
+#include "copper/OpData/GeometryOpData.h"
 
 namespace copper {
 
@@ -35,6 +36,11 @@ Engine::Engine() {
     }
     */
     BOOST_LOG_TRIVIAL(debug) << "CopperFX engine initialization done.";
+}
+
+void Engine::init() {
+    // Init internally defined opdata and operators
+    _opdata_factory.registerType( "geometry", geometryOpDataConstructor );
 }
 
 OP_Node *Engine::node(std::string node_path) {

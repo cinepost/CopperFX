@@ -19,13 +19,17 @@ add_library( copper_lib SHARED ${SOURCES} ${HEADERS} )
 
 target_link_libraries( copper_lib ${OpenCL_LIBRARY} dl Boost::log)
 
-#add_custom_command(
-#  TARGET copper_lib
-#  POST_BUILD
-#  COMMAND echo ${CMAKE_INSTALL_PREFIX}
-#  COMMAND mkdir ARGS -p ${CMAKE_INSTALL_PREFIX}/lib/python2.7libs
-#  COMMAND rsync ARGS -r
-#    "${CMAKE_CURRENT_SOURCE_DIR}/../cfs/*"
-#    "${CMAKE_INSTALL_PREFIX}/"
-#  COMMENT "Copying Bundle Stuff"
-#)
+if(APPLE)
+	if( COPPER_BUILD_LIBS_AS_FRAMEWORKS )
+		copper_config_framework( copper_lib )
+
+    # Framework is called 'Copper'
+    set_target_properties( copper_lib PROPERTIES OUTPUT_NAME Copper )
+    install( TARGETS copper_lib DESTINATION "Frameworks" )
+  else()
+    install( TARGETS copper_lib DESTINATION "lib" )
+  endif()
+
+elseif(UNIX)
+	install( TARGETS copper_lib DESTINATION "lib" )
+endif()

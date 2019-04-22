@@ -11,15 +11,22 @@ namespace copper {
 
 class GeometryOpData: public BaseOpData {
 	public:
-		GeometryOpData();
+		GeometryOpData(){};
 
 		virtual const std::string name() const;
 		virtual const std::string typeName() const;
 		virtual const unsigned int version() const;
+
+		virtual void saveToFile(std::string filename, const unsigned int version);
+    virtual void loadFromFile(std::string filename, const unsigned int version);
 		
 	private:
 		
 };
+
+// factory methods
+BaseOpData   *geometryOpDataConstructor();
+std::string	geometryOpDataTypeName();
 
 }
 

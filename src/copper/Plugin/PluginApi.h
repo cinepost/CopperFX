@@ -1,5 +1,5 @@
-#ifndef PLUGIN_PLUGINAPI_H
-#define PLUGIN_PLUGINAPI_H
+#ifndef PLUGINAPI_H
+#define PLUGINAPI_H
 
 #include <boost/config.hpp>
 #include <string>
@@ -16,4 +16,4 @@ class BOOST_SYMBOL_VISIBLE BaseAPI {
 
 }
 
-#endif // PL_PLUGINAPI_H
+#endif // PLUGINAPI_H

@@ -10,11 +10,15 @@
 #include <boost/log/trivial.hpp>
 	
 //#include "GPU/GPU_Manager.h"
+#include "copper/Plugin/ObjectFactory.h"
 #include "copper/Util/Singleton.h"
 #include "copper/Operator/OP_Node.h"
 
 
 namespace copper {
+
+typedef ObjectFactory<BaseOpData> OpDataFactory;
+typedef ObjectFactory<BaseOperator> OperatorFactory;
 
 // Engine class is a singleton, but we might need more than one engine so 
 // things may change in the future...
@@ -22,6 +26,8 @@ class Engine: public Singleton<Engine> {
   public:
 		Engine();
 		~Engine() {};
+
+		void init();
 
 		OP_Node *node(std::string node_path);
 
@@ -40,6 +46,10 @@ class Engine: public Singleton<Engine> {
 
 		// animation related
 		float _time, _frame, _fps;
+
+		// Factories 
+		OpDataFactory _opdata_factory;
+		OperatorFactory _operator_factory;
 
 };
 

@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
     //app.setWindowIcon(appIcon);
 
     // Load stylesheet
-    QFile f(":qdarkstyle/style.qss");
+    QFile f(":/styles/dark");
     if (!f.exists()) {
         BOOST_LOG_TRIVIAL(warning) << "Unable to set stylesheet, file not found !";
     } else {
@@ -93,8 +93,8 @@ int main(int argc, char *argv[])
         app.setStyleSheet(ts.readAll());
     }
 
-    // Now it's time to init core
-    Engine& engine = Engine::getInstance();
+    // Now it's time to init engine core
+    Engine::getInstance().init();
 
     GUI_MainWindow mainWindow;
     mainWindow.show();

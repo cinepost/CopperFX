@@ -63,14 +63,11 @@ if(APPLE)
   set( APP_ICON_PATH ./media/icons/${APP_ICON_NAME} )
   set( MACOSX_BUNDLE_ICON_FILE ${APP_ICON_NAME} )
   set_source_files_properties( ${APP_ICON_PATH} PROPERTIES MACOSX_PACKAGE_LOCATION Resources )
-  set( MACOSX_BUNDLE_BUNDLE_NAME “CopperFX”)
+  set( MACOSX_BUNDLE_BUNDLE_NAME “Copper FX ${PROJECT_VERSION}”)
 endif()
 
-qt5_add_resources( RCC_SOURCES 
-  ./resources.qrc
-)
-#  ${PROJECT_ROOT}/third_party/QDarkStyleSheet/qdarkstyle/style.qrc
-#)
+qt5_add_resources( RCC_SOURCES ./resources.qrc )
+#qt5_add_resources( RCC_SOURCES ${PROJECT_ROOT}/third_party/QDarkStyleSheet/qdarkstyle/style.qrc )
 
 add_executable(
   copperfx
@@ -86,6 +83,15 @@ add_executable(
 
 qt5_use_modules( copperfx Core Gui Widgets Svg )
 
+#if(APPLE)
+#  set_target_properties(
+#      copperfx
+#      PROPERTIES
+#      INSTALL_NAME_DIR "@rpath/CopperFX.framework/copper"
+#      INSTALL_RPATH "@executable_path/../../Frameworks;@loader_path/Frameworks"
+#  )
+#endif()
+
 target_link_libraries ( 
   copperfx
   copper_lib
@@ -97,7 +103,7 @@ target_link_libraries (
 )
 
 if(APPLE)
-  install( TARGETS copperfx DESTINATION "/Applications/Copper ${PROJECT_VERSION}" )
+  install( TARGETS copperfx DESTINATION ${CMAKE_INSTALL_PREFIX} )
 elseif(UNIX)
   install( TARGETS copperfx DESTINATION ${CMAKE_INSTALL_PREFIX}/bin )
 endif()

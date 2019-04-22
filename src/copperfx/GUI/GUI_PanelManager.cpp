@@ -23,7 +23,7 @@ GUI_PanelManager::~GUI_PanelManager() {
 
 void GUI_PanelManager::addPanel(std::string panel_type_name) {
 
-	GUI_Panel *new_panel = _panel_factory->createObjectByName(panel_type_name);
+	GUI_Panel *new_panel = _panel_factory->createObjectByTypeName(panel_type_name);
 	addTab(new_panel, new_panel->name().c_str());
 }
 
