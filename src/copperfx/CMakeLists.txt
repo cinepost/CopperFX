@@ -1,6 +1,6 @@
 file( GLOB CPP_FILES 
+  ./Ui/*.cpp
   ./*.cpp
-  ./GUI/*.cpp
 ) 
 
 set( SOURCE_FILES 

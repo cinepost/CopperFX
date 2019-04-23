@@ -1,8 +1,6 @@
 // MinGW related workaround
 #define BOOST_DLL_FORCE_ALIAS_INSTANTIATION
 
-//#include "../tutorial4/static_plugin.hpp"
-
 #include "copper/Plugin/PluginManager.h"
 
 namespace dll = boost::dll;
@@ -28,13 +26,12 @@ void PluginManager::load_all() {
         if (!fs::is_regular_file(*it)) {
             continue;
         }
-        /*<-*/
-        //if ( !b2_workarounds::is_shared_library((*it).path()) ) {
-        //    continue;
-        //}
-        /*->*/
 
-        // We found a file. Trying to load it
+        if ( !is_shared_library((*it).path()) ) {
+            continue;
+        }
+
+        // We've found a file. Trying to load it
         boost::system::error_code error;
         dll::shared_library plugin(it->path(), error);
         if (error) {

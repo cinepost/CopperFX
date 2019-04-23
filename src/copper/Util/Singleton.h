@@ -10,8 +10,7 @@ class Singleton
           * much that I must write an epic 
           * novel just to describe how much
           * it truly does. */
-        static T& getInstance()
-        {
+        static T& getInstance() {
             static T instance;
             return instance;
         }

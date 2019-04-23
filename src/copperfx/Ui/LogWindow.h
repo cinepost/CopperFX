@@ -1,5 +1,5 @@
-#ifndef GUI_LOGWINDOW_H
-#define GUI_LOGWINDOW_H
+#ifndef LOG_WINDOW_H
+#define LOG_WINDOW_H
 
 #include <boost/log/core.hpp>
 #include <boost/log/utility/setup/common_attributes.hpp>
@@ -14,7 +14,9 @@
 #include <QScrollBar>
 #include <QPlainTextEdit>
 
-class GUI_LogWindow : public QPlainTextEdit {
+namespace copper { namespace ui {
+
+class LogWindow : public QPlainTextEdit {
   Q_OBJECT
   
   public:
@@ -25,19 +27,20 @@ class GUI_LogWindow : public QPlainTextEdit {
 };
 
 
-namespace logging = boost::log;
+namespace log = boost::log;
 namespace sinks = boost::log::sinks;
 
-class GUI_LogSink : public sinks::basic_formatted_sink_backend<char, sinks::concurrent_feeding> {
+class LogSink : public sinks::basic_formatted_sink_backend<char, sinks::concurrent_feeding> {
   public:
-    GUI_LogSink(GUI_LogWindow *logwnd)
+    LogSink(LogWindow *logwnd)
         : _logwnd(logwnd){}
 
-    void consume(const logging::record_view& rec, const string_type& fstring);
+    void consume(const log::record_view& rec, const string_type& fstring);
 
   private:
-    GUI_LogWindow *_logwnd;
+    LogWindow *_logwnd;
 };
 
+}}
 
-#endif // GUI_LOGWINDOW_H
+#endif // LOG_WINDOW_H

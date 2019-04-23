@@ -1,24 +1,15 @@
 #include <QtWidgets>
 
-#include "copperfx/GUI/GUI_SceneViewPanel.h"
-#include "copperfx/GUI/GUI_PanelRegistry.h"
-#include "copperfx/GUI/GUI_Workspace.h"
-#include "copperfx/GUI/GUI_MainWindow.h"
+#include "copperfx/Ui/Workspace.h"
+#include "copperfx/Ui/MainWindow.h"
 
 
-namespace copper {
+namespace copper { namespace ui {
 
-GUI_MainWindow::GUI_MainWindow(QWidget *parent)
-    : workspace(new GUI_Workspace)
-{
-    // Register all internally defined and pluggalble panel types
-    // Populate IO_Registry with internal and external scene translators
-        
-    //registerSceneViewPanelType(&GUI_PanelRegistry::getInstance()); // "SceneViewer" panel used to display 3d scene data
-
-    // Continue main window initialization
+MainWindow::MainWindow(QWidget *parent) : _workspace(new Workspace) {
+    
     textEdit = new QPlainTextEdit();
-    setCentralWidget(workspace);
+    setCentralWidget(_workspace);
 
     createActions();
     createStatusBar();
@@ -26,24 +17,27 @@ GUI_MainWindow::GUI_MainWindow(QWidget *parent)
     readSettings();
 
     connect(textEdit->document(), &QTextDocument::contentsChanged,
-            this, &GUI_MainWindow::documentWasModified);
+            this, &MainWindow::documentWasModified);
 
 #ifndef QT_NO_SESSIONMANAGER
     QGuiApplication::setFallbackSessionManagementEnabled(false);
     connect(qApp, &QGuiApplication::commitDataRequest,
-            this, &GUI_MainWindow::commitData);
+            this, &MainWindow::commitData);
 #endif
 
     setCurrentFile(QString());
     setUnifiedTitleAndToolBarOnMac(true);
 }
 
-GUI_MainWindow::~GUI_MainWindow() {
+MainWindow::~MainWindow() {
 
 }
 
-void GUI_MainWindow::closeEvent(QCloseEvent *event)
-{
+Workspace *MainWindow::workspace() {
+    return _workspace;
+}
+
+void MainWindow::closeEvent(QCloseEvent *event) {
     if (maybeSave()) {
         writeSettings();
         event->accept();
@@ -52,16 +46,14 @@ void GUI_MainWindow::closeEvent(QCloseEvent *event)
     }
 }
 
-void GUI_MainWindow::newFile()
-{
+void MainWindow::newFile() {
     if (maybeSave()) {
         textEdit->clear();
         setCurrentFile(QString());
     }
 }
 
-void GUI_MainWindow::open()
-{
+void MainWindow::open() {
     if (maybeSave()) {
         QString fileName = QFileDialog::getOpenFileName(this);
         if (!fileName.isEmpty())
@@ -69,8 +61,7 @@ void GUI_MainWindow::open()
     }
 }
 
-bool GUI_MainWindow::save()
-{
+bool MainWindow::save() {
     if (curFile.isEmpty()) {
         return saveAs();
     } else {
@@ -78,8 +69,7 @@ bool GUI_MainWindow::save()
     }
 }
 
-bool GUI_MainWindow::saveAs()
-{
+bool MainWindow::saveAs() {
     QFileDialog dialog(this);
     dialog.setWindowModality(Qt::WindowModal);
     dialog.setAcceptMode(QFileDialog::AcceptSave);
@@ -88,29 +78,25 @@ bool GUI_MainWindow::saveAs()
     return saveFile(dialog.selectedFiles().first());
 }
 
-void GUI_MainWindow::about()
-{
-   QMessageBox::about(this, tr("About Application"),
-            tr("The <b>Application</b> example demonstrates how to "
-               "write modern GUI applications using Qt, with a menu bar, "
-               "toolbars, and a status bar."));
+void MainWindow::about() {
+  QMessageBox::about(this, tr("About Application"),
+    tr("The <b>Application</b> example demonstrates how to "
+       "write modern GUI applications using Qt, with a menu bar, "
+       "toolbars, and a status bar."));
 }
 
-void GUI_MainWindow::documentWasModified()
-{
+void MainWindow::documentWasModified() {
     setWindowModified(textEdit->document()->isModified());
 }
 
-void GUI_MainWindow::createActions()
-{
-
+void MainWindow::createActions() {
     QMenu *fileMenu = menuBar()->addMenu(tr("&File"));
     QToolBar *fileToolBar = addToolBar(tr("File"));
     const QIcon newIcon = QIcon::fromTheme("document-new", QIcon(":/icons/new"));
     QAction *newAct = new QAction(newIcon, tr("&New"), this);
     newAct->setShortcuts(QKeySequence::New);
     newAct->setStatusTip(tr("Create a new file"));
-    connect(newAct, &QAction::triggered, this, &GUI_MainWindow::newFile);
+    connect(newAct, &QAction::triggered, this, &MainWindow::newFile);
     fileMenu->addAction(newAct);
     fileToolBar->addAction(newAct);
 
@@ -118,7 +104,7 @@ void GUI_MainWindow::createActions()
     QAction *openAct = new QAction(openIcon, tr("&Open..."), this);
     openAct->setShortcuts(QKeySequence::Open);
     openAct->setStatusTip(tr("Open an existing file"));
-    connect(openAct, &QAction::triggered, this, &GUI_MainWindow::open);
+    connect(openAct, &QAction::triggered, this, &MainWindow::open);
     fileMenu->addAction(openAct);
     fileToolBar->addAction(openAct);
 
@@ -126,12 +112,12 @@ void GUI_MainWindow::createActions()
     QAction *saveAct = new QAction(saveIcon, tr("&Save"), this);
     saveAct->setShortcuts(QKeySequence::Save);
     saveAct->setStatusTip(tr("Save the document to disk"));
-    connect(saveAct, &QAction::triggered, this, &GUI_MainWindow::save);
+    connect(saveAct, &QAction::triggered, this, &MainWindow::save);
     fileMenu->addAction(saveAct);
     fileToolBar->addAction(saveAct);
 
     const QIcon saveAsIcon = QIcon::fromTheme("document-save-as", QIcon(":/icons/save-as"));
-    QAction *saveAsAct = fileMenu->addAction(saveAsIcon, tr("Save &As..."), this, &GUI_MainWindow::saveAs);
+    QAction *saveAsAct = fileMenu->addAction(saveAsIcon, tr("Save &As..."), this, &MainWindow::saveAs);
     saveAsAct->setShortcuts(QKeySequence::SaveAs);
     saveAsAct->setStatusTip(tr("Save the document under a new name"));
 
@@ -178,7 +164,7 @@ void GUI_MainWindow::createActions()
 #endif // !QT_NO_CLIPBOARD
 
     QMenu *helpMenu = menuBar()->addMenu(tr("&Help"));
-    QAction *aboutAct = helpMenu->addAction(tr("&About"), this, &GUI_MainWindow::about);
+    QAction *aboutAct = helpMenu->addAction(tr("&About"), this, &MainWindow::about);
     aboutAct->setStatusTip(tr("Show the application's About box"));
 
 
@@ -193,13 +179,11 @@ void GUI_MainWindow::createActions()
 #endif // !QT_NO_CLIPBOARD
 }
 
-void GUI_MainWindow::createStatusBar()
-{
+void MainWindow::createStatusBar() {
     statusBar()->showMessage(tr("Ready"));
 }
 
-void GUI_MainWindow::readSettings()
-{
+void MainWindow::readSettings() {
     QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
     const QByteArray geometry = settings.value("geometry", QByteArray()).toByteArray();
     if (geometry.isEmpty()) {
@@ -212,14 +196,12 @@ void GUI_MainWindow::readSettings()
     }
 }
 
-void GUI_MainWindow::writeSettings()
-{
+void MainWindow::writeSettings() {
     QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
     settings.setValue("geometry", saveGeometry());
 }
 
-bool GUI_MainWindow::maybeSave()
-{
+bool MainWindow::maybeSave() {
     if (!textEdit->document()->isModified())
         return true;
     const QMessageBox::StandardButton ret
@@ -238,8 +220,7 @@ bool GUI_MainWindow::maybeSave()
     return true;
 }
 
-void GUI_MainWindow::loadFile(const QString &fileName)
-{
+void MainWindow::loadFile(const QString &fileName) {
     QFile file(fileName);
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
         QMessageBox::warning(this, tr("Application"),
@@ -261,8 +242,7 @@ void GUI_MainWindow::loadFile(const QString &fileName)
     statusBar()->showMessage(tr("File loaded"), 2000);
 }
 
-bool GUI_MainWindow::saveFile(const QString &fileName)
-{
+bool MainWindow::saveFile(const QString &fileName) {
     QFile file(fileName);
     if (!file.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(this, tr("Application"),
@@ -286,8 +266,7 @@ bool GUI_MainWindow::saveFile(const QString &fileName)
     return true;
 }
 
-void GUI_MainWindow::setCurrentFile(const QString &fileName)
-{
+void MainWindow::setCurrentFile(const QString &fileName) {
     curFile = fileName;
     textEdit->document()->setModified(false);
     setWindowModified(false);
@@ -298,13 +277,12 @@ void GUI_MainWindow::setCurrentFile(const QString &fileName)
     setWindowFilePath(shownName + " - Copper FX");
 }
 
-QString GUI_MainWindow::strippedName(const QString &fullFileName)
-{
+QString MainWindow::strippedName(const QString &fullFileName) {
     return QFileInfo(fullFileName).fileName();
 }
+
 #ifndef QT_NO_SESSIONMANAGER
-void GUI_MainWindow::commitData(QSessionManager &manager)
-{
+void MainWindow::commitData(QSessionManager &manager) {
     if (manager.allowsInteraction()) {
         if (!maybeSave())
             manager.cancel();
@@ -314,6 +292,6 @@ void GUI_MainWindow::commitData(QSessionManager &manager)
             save();
     }
 }
-
-}
 #endif
+
+}}

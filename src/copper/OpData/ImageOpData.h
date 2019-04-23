@@ -1,5 +1,5 @@
-#ifndef GEOMETRY_OP_DATA_H
-#define GEOMETRY_OP_DATA_H
+#ifndef Image_OP_DATA_H
+#define Image_OP_DATA_H
 
 #include <vector>
 #include <string>
@@ -10,9 +10,9 @@
 
 namespace copper {
 
-class GeometryOpData: public BaseOpData {
+class ImageOpData: public BaseOpData {
 	public:
-		GeometryOpData(){};
+		ImageOpData(){};
 
 		const std::string name() const override;
 		const std::string typeName() const override;
@@ -20,19 +20,18 @@ class GeometryOpData: public BaseOpData {
 
 		void saveToFile(std::string filename, const unsigned int version) override;
     void loadFromFile(std::string filename, const unsigned int version) override;
-
-    std::vector<Point3d>  *points();
-    std::vector<Point3d>  *points() const;
-    Point3d 							*createPoint();
-
+		
     // factory methods
     static std::string myTypeName();
-		static BaseOpData *myConstructor();
-		
+    static BaseOpData *myConstructor();
+
 	private:
-		std::vector<Point3d> _points;
 };
+
+// factory methods
+BaseOpData *imageOpDataConstructor();
+std::string	imageOpDataTypeName();
 
 }
 
-#endif // GEOMETRY_OP_DATA_H
+#endif // Image_OP_DATA_H

@@ -1,11 +1,11 @@
 file( GLOB SOURCES
-	./*.cpp
 	./Util/*.cpp
 	./Parameters/*.cpp
 	./Operator/*.cpp
 	./Prims/*.cpp
 	./OpData/*.cpp
 	./Plugin/*.cpp
+	./*.cpp
 )
 
 # find boost libs

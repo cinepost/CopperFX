@@ -12,8 +12,9 @@
 #include <QCommandLineParser>
 #include <QCommandLineOption>
 
-#include "copperfx/GUI/GUI_LogWindow.h"
-#include "copperfx/GUI/GUI_MainWindow.h"
+#include "copperfx/Ui/Application.h"
+#include "copperfx/Ui/LogWindow.h"
+#include "copperfx/Ui/MainWindow.h"
 #include "copper/Engine.h"
 
 
@@ -21,16 +22,17 @@ namespace logging = boost::log;
 namespace sinks = boost::log::sinks;
 
 using namespace copper;
+namespace ui = copper::ui;
 
-GUI_LogWindow *logWindow = nullptr;
+ui::LogWindow *logWindow = nullptr;
 
-typedef sinks::synchronous_sink< GUI_LogSink > sink_t;
+typedef sinks::synchronous_sink< ui::LogSink > sink_t;
 
-void initGuiLog(GUI_LogWindow *logwnd) {
+void initGuiLog(ui::LogWindow *logwnd) {
   boost::shared_ptr< logging::core > core = logging::core::get();
 
   // Construct gui logging backend separately and pass it to the frontend
-  boost::shared_ptr< GUI_LogSink > backend(new GUI_LogSink(logwnd));
+  boost::shared_ptr< ui::LogSink > backend(new ui::LogSink(logwnd));
   boost::shared_ptr< sink_t > gui_sink(new sink_t(backend));
   core->add_sink(gui_sink);
 
@@ -55,7 +57,7 @@ int main(int argc, char *argv[])
     signal(SIGTERM, signalHandler);
     signal(SIGABRT, signalHandler);
 
-	QApplication app(argc, argv);
+	ui::Application app(argc, argv);
     QCoreApplication::setOrganizationName("RedSoft");
     QCoreApplication::setApplicationName("CopperFX");
     QCoreApplication::setApplicationVersion("0.0.001");
@@ -66,7 +68,7 @@ int main(int argc, char *argv[])
     
     if (! isatty(fileno(stdin))) {
         // We were launched from inside the desktop
-        logWindow = new GUI_LogWindow();
+        logWindow = new ui::LogWindow();
         logWindow->show();
         initGuiLog(logWindow);
     }
@@ -96,9 +98,9 @@ int main(int argc, char *argv[])
     // Now it's time to init engine core
     Engine::getInstance().init();
 
-    GUI_MainWindow mainWindow;
+    ui::MainWindow mainWindow;
     mainWindow.show();
-    if(logWindow)mainWindow.setCentralWidget( logWindow ); // attach log window
+    //if(logWindow)mainWindow.workspace()->setCentralWidget( logWindow ); // attach log window
     
     return app.exec();
 }

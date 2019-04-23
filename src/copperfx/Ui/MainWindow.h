@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 
-#include "copperfx/GUI/GUI_Workspace.h"
+#include "copperfx/Ui/Workspace.h"
 
 class QAction;
 class QMenu;
@@ -11,14 +11,16 @@ class QPlainTextEdit;
 class QSessionManager;
 
 
-namespace copper {
+namespace copper { namespace ui {
 
-class GUI_MainWindow : public QMainWindow {
+class MainWindow : public QMainWindow {
     Q_OBJECT
 
     public:
-        GUI_MainWindow(QWidget *parent = 0);
-        virtual ~GUI_MainWindow();
+        MainWindow(QWidget *parent = 0);
+        virtual ~MainWindow();
+
+        Workspace *workspace();
 
         void loadFile(const QString &fileName);
 
@@ -49,9 +51,9 @@ class GUI_MainWindow : public QMainWindow {
         QPlainTextEdit *textEdit;
         QString curFile;
 
-        GUI_Workspace *workspace;
+        Workspace *_workspace;
 };
 
-}
+}}
 
 #endif // MAIN_WINDOW_H

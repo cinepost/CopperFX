@@ -32,11 +32,11 @@ Point3d *GeometryOpData::createPoint() {
 }
 
 // factory methods
-std::string geometryOpDataTypeName() {
+std::string GeometryOpData::myTypeName() {
     return "geometry";
 }
 
-BaseOpData *geometryOpDataConstructor() {
+BaseOpData *GeometryOpData::myConstructor() {
     return new GeometryOpData();
 }
 

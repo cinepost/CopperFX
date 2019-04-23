@@ -1,5 +1,6 @@
 #include "copper/Engine.h"
 
+#include "copper/OpData/ImageOpData.h"
 #include "copper/OpData/GeometryOpData.h"
 
 namespace copper {
@@ -40,7 +41,8 @@ Engine::Engine() {
 
 void Engine::init() {
     // Init internally defined opdata and operators
-    _opdata_factory.registerType( "geometry", geometryOpDataConstructor );
+    _opdata_factory.registerType( GeometryOpData::myTypeName, GeometryOpData::myConstructor );
+    _opdata_factory.registerType( ImageOpData::myTypeName, ImageOpData::myConstructor );
 }
 
 OP_Node *Engine::node(std::string node_path) {

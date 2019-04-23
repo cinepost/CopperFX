@@ -9,6 +9,10 @@
 		<file alias="paste">resources/images/scalable/edit-paste.svg</file>
 		<file alias="cut">resources/images/scalable/edit-cut.svg</file>
 	</qresource>
+	<qresource prefix="/textures">
+		<file alias="texture_1.png">resources/images/textures/texture_1.png</file>
+		<file alias="texture_2.png">resources/images/textures/texture_2.png</file>
+	</qresource>
 	<qresource prefix="/styles">
     <file alias="dark">resources/style.qss</file>
   </qresource>
