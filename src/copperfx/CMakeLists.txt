@@ -94,6 +94,7 @@ endif()
 target_link_libraries ( 
   copperfx
   copper_lib
+  scene_view
   Boost::log
   Qt5::Core
   Qt5::Widgets
@@ -106,3 +107,6 @@ if(APPLE)
 elseif(UNIX)
   install( TARGETS copperfx DESTINATION ${CMAKE_INSTALL_PREFIX}/bin )
 endif()
+
+# copperfx contrib modules
+add_subdirectory( contrib ) # main copper library

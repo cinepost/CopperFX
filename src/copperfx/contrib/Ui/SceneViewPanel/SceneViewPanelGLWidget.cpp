@@ -1,55 +1,9 @@
-#include <boost/log/core.hpp>
-#include <boost/log/trivial.hpp>
-#include <boost/log/expressions.hpp>
-
-#include <string>
-#include <iostream>
-#include <sstream>
-
-#include "copperfx/Ui/SceneViewPanel.h"
+#include "copperfx/Ui/SceneViewPanelGLWidget.h"
 
 
 namespace copper { namespace ui {
 
-SceneViewPanel::SceneViewPanel() {
-	_widget = new SceneViewPanelWidget();
-  BOOST_LOG_TRIVIAL(debug) << "Scene View panel constructed!";
-}
-
-
-SceneViewPanel::~SceneViewPanel() {
-	delete _widget;
-  BOOST_LOG_TRIVIAL(debug) << "Scene View panel destructed!";
-}
-
-const std::string SceneViewPanel::name() const{
-  return "Scene View";
-}
-
-const std::string SceneViewPanel::typeName() const{
-  return "scene_view";
-}
-
-const unsigned int SceneViewPanel::version() const{
-	return 0;
-}
-
-QWidget *SceneViewPanel::widget() {
-	return _widget;
-}
-
-// factory methods
-std::string SceneViewPanel::myTypeName() {
-  return "scene_view";
-}
-
-PanelBase *SceneViewPanel::myConstructor() {
-	return new SceneViewPanel();
-}
-
-// WIDGET
-
-SceneViewPanelWidget::SceneViewPanelWidget(QWidget *parent)
+SceneViewPanelGLWidget::SceneViewPanelGLWidget(QWidget *parent)
     : QOpenGLWidget(parent),
       clearColor(Qt::black),
       xRot(0),
@@ -60,7 +14,7 @@ SceneViewPanelWidget::SceneViewPanelWidget(QWidget *parent)
     memset(textures, 0, sizeof(textures));
 }
 
-SceneViewPanelWidget::~SceneViewPanelWidget() {
+SceneViewPanelGLWidget::~SceneViewPanelGLWidget() {
     makeCurrent();
     vbo.destroy();
     for (int i = 0; i < 6; ++i)
@@ -69,17 +23,17 @@ SceneViewPanelWidget::~SceneViewPanelWidget() {
     doneCurrent();
 }
 
-QSize SceneViewPanelWidget::minimumSizeHint() const
+QSize SceneViewPanelGLWidget::minimumSizeHint() const
 {
     return QSize(50, 50);
 }
 
-QSize SceneViewPanelWidget::sizeHint() const
+QSize SceneViewPanelGLWidget::sizeHint() const
 {
     return QSize(200, 200);
 }
 
-void SceneViewPanelWidget::rotateBy(int xAngle, int yAngle, int zAngle)
+void SceneViewPanelGLWidget::rotateBy(int xAngle, int yAngle, int zAngle)
 {
     xRot += xAngle;
     yRot += yAngle;
@@ -87,13 +41,13 @@ void SceneViewPanelWidget::rotateBy(int xAngle, int yAngle, int zAngle)
     update();
 }
 
-void SceneViewPanelWidget::setClearColor(const QColor &color)
+void SceneViewPanelGLWidget::setClearColor(const QColor &color)
 {
     clearColor = color;
     update();
 }
 
-void SceneViewPanelWidget::initializeGL() {
+void SceneViewPanelGLWidget::initializeGL() {
   initializeOpenGLFunctions();
 
   makeObject();
@@ -140,12 +94,12 @@ void SceneViewPanelWidget::initializeGL() {
     assert (glGetError() == GL_NO_ERROR);
 }
 
-void SceneViewPanelWidget::resizeGL(int width, int height) {
+void SceneViewPanelGLWidget::resizeGL(int width, int height) {
   //int side = qMin(width, height);
   glViewport(0, 0, width, height);
 }
 
-void SceneViewPanelWidget::paintGL() {
+void SceneViewPanelGLWidget::paintGL() {
   glClearColor(clearColor.redF(), clearColor.greenF(), clearColor.blueF(), clearColor.alphaF());
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -170,11 +124,11 @@ void SceneViewPanelWidget::paintGL() {
   assert (glGetError() == GL_NO_ERROR);
 }
 
-void SceneViewPanelWidget::mousePressEvent(QMouseEvent *event) {
+void SceneViewPanelGLWidget::mousePressEvent(QMouseEvent *event) {
     lastPos = event->pos();
 }
 
-void SceneViewPanelWidget::mouseMoveEvent(QMouseEvent *event) {
+void SceneViewPanelGLWidget::mouseMoveEvent(QMouseEvent *event) {
     int dx = event->x() - lastPos.x();
     int dy = event->y() - lastPos.y();
 
@@ -186,11 +140,11 @@ void SceneViewPanelWidget::mouseMoveEvent(QMouseEvent *event) {
     lastPos = event->pos();
 }
 
-void SceneViewPanelWidget::mouseReleaseEvent(QMouseEvent * /* event */) {
+void SceneViewPanelGLWidget::mouseReleaseEvent(QMouseEvent * /* event */) {
     emit clicked();
 }
 
-void SceneViewPanelWidget::makeObject()
+void SceneViewPanelGLWidget::makeObject()
 {
     static const int coords[6][4][3] = {
         { { +1, -1, -1 }, { -1, -1, -1 }, { -1, +1, -1 }, { +1, +1, -1 } },

@@ -36,7 +36,7 @@ std::string GeometryOpData::myTypeName() {
     return "geometry";
 }
 
-BaseOpData *GeometryOpData::myConstructor() {
+OpDataBase *GeometryOpData::myConstructor() {
     return new GeometryOpData();
 }
 

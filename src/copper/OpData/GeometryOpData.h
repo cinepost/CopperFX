@@ -5,12 +5,12 @@
 #include <string>
 #include <map>
 
-#include "copper/OpData/BaseOpData.h"
+#include "copper/OpData/OpDataBase.h"
 #include "copper/Prims/Point3.h"
 
 namespace copper {
 
-class GeometryOpData: public BaseOpData {
+class GeometryOpData: public OpDataBase {
 	public:
 		GeometryOpData(){};
 
@@ -27,7 +27,7 @@ class GeometryOpData: public BaseOpData {
 
     // factory methods
     static std::string myTypeName();
-		static BaseOpData *myConstructor();
+		static OpDataBase *myConstructor();
 		
 	private:
 		std::vector<Point3d> _points;

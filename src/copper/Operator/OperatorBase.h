@@ -7,9 +7,9 @@
 
 namespace copper {
 
-class BaseOperator  {
+class OperatorBase {
 	public:
-		BaseOperator();
+		OperatorBase();
 };
 
 }

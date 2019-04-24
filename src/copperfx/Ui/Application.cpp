@@ -1,6 +1,6 @@
 #include "copperfx/Ui/Application.h"
 #include "copperfx/Ui/PanelManager.h"
-#include "copperfx/Ui/SceneViewPanel.h"
+#include "copperfx/contrib/Ui/SceneViewPanel/SceneViewPanel.h"
 
 
 namespace copper { namespace ui {

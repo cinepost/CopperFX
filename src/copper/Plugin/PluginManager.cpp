@@ -1,3 +1,7 @@
+#include <boost/log/core.hpp>
+#include <boost/log/trivial.hpp>
+#include <boost/log/expressions.hpp>
+
 // MinGW related workaround
 #define BOOST_DLL_FORCE_ALIAS_INSTANTIATION
 
@@ -10,12 +14,12 @@ namespace copper {
 PluginManager::PluginManager(const boost::filesystem::path& plugins_directory)
   : _plugins_directory(plugins_directory) {
   
-  load_all();
+  loadAll();
 }
 
 
 //[plugcpp_plugins_collector_load_all
-void PluginManager::load_all() {
+void PluginManager::loadAll() {
     namespace fs = ::boost::filesystem;
     typedef fs::path::string_type string_type;
     const string_type extension = dll::shared_library::suffix().native();
@@ -37,20 +41,24 @@ void PluginManager::load_all() {
         if (error) {
             continue;
         }
-        std::cout << "Loaded (" << plugin.native() << "):" << it->path() << '\n';
+        BOOST_LOG_TRIVIAL(debug) << "Loaded (" << plugin.native() << "): " << it->path();
 
         // Gets plugin using "create_plugin" or "plugin" function
-        insert_plugin(boost::move(plugin));
+        insertPlugin(boost::move(plugin));
     }
 
     dll::shared_library plugin(dll::program_location());
     std::cout << "Loaded self\n";
-    insert_plugin(boost::move(plugin));
+    insertPlugin(boost::move(plugin));
 }
 //]
 
+bool PluginManager::loadPluginLib(const boost::filesystem::path& plugin_file_path) {
+
+}
+
 //[plugcpp_plugins_collector_insert_plugin
-void PluginManager::insert_plugin(BOOST_RV_REF(dll::shared_library) lib) {
+void PluginManager::insertPlugin(BOOST_RV_REF(dll::shared_library) lib) {
     std::string plugin_name;
     if (lib.has("create_plugin")) {
         plugin_name = lib.get_alias<boost::shared_ptr<BaseAPI>()>("create_plugin")()->name();
@@ -66,14 +74,18 @@ void PluginManager::insert_plugin(BOOST_RV_REF(dll::shared_library) lib) {
 }
 //]
 
-void PluginManager::print_plugins() const {
-    plugins_t::const_iterator const end = _plugins.cend();
-    for (plugins_t::const_iterator it = _plugins.cbegin(); it != end; ++it) {
-        std::cout << '(' << it->second.native() << "): " << it->first << '\n';
+void PluginManager::printPluginLibs() const {
+    if (_plugins.size() > 0 ) {
+        plugins_t::const_iterator const end = _plugins.cend();
+        for (plugins_t::const_iterator it = _plugins.cbegin(); it != end; ++it) {
+            std::cout << '(' << it->second.native() << "): " << it->first << '\n';
+        }
+    } else {
+        std::cout << "No plugin libraries loaded !\n";   
     }
 }
 
-std::size_t PluginManager::count() const {
+std::size_t PluginManager::countPluginLibs() const {
     return _plugins.size();
 }
 

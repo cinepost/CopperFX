@@ -10,19 +10,13 @@
 
 namespace copper { namespace ui {
 
-class PanelBase : public BaseAPI { //,public QWidget {
+class PanelBase : public BaseAPI, public QWidget {
 
   //Q_OBJECT
 
   public:
-    PanelBase();
+    PanelBase(QWidget *parent = nullptr);
     virtual ~PanelBase() {};
-
-    virtual QWidget *widget() = 0;
-
-  	//virtual const std::string typeName() const = 0; // internal type name;
-  protected:
-  	QWidget *_widget;
 };
 
 }}

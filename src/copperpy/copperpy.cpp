@@ -19,10 +19,10 @@ int main(int argc, char *argv[]) {
 
     try {
     	//Py_SetProgramName("somename"); // do i need this !?
-        PyImport_AppendInittab((char*)"cfx", INIT_MODULE);
+        PyImport_AppendInittab((char*)"hou", INIT_MODULE);
         Py_Initialize();
 
-        PyRun_SimpleString("import cfx");
+        PyRun_SimpleString("import hou");
         PyRun_InteractiveLoop(stdin, "-");
         Py_Finalize();
     } catch (error_already_set& e) {

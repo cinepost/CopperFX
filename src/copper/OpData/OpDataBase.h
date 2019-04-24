@@ -1,5 +1,5 @@
-#ifndef BASE_OP_DATA_H
-#define BASE_OP_DATA_H
+#ifndef OP_DATA_BASE_H
+#define OP_DATA_BASE_H
 
 #include <string>
 #include <map>
@@ -8,7 +8,7 @@
 
 namespace copper {
 
-class BaseOpData: public BaseAPI {
+class OpDataBase: public BaseAPI {
 	public:
   	virtual const std::string name() const = 0; // plugin instance name used for display purposes
   	virtual const std::string typeName() const = 0; // plugin instance type name
@@ -19,4 +19,4 @@ class BaseOpData: public BaseAPI {
 
 }
 
-#endif // BASE_OP_DATA_H
+#endif // OP_DATA_BASE_H

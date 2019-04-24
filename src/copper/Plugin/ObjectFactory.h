@@ -4,6 +4,7 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <iostream>
 #include <typeindex>
 #include <typeinfo>
 #include <unordered_map>
@@ -15,8 +16,8 @@
 #include <boost/mpl/assert.hpp>
 #include <boost/type_traits.hpp>
 
-#include "copper/OpData/BaseOpData.h"
-#include "copper/Operator/BaseOperator.h"
+#include "copper/OpData/OpDataBase.h"
+#include "copper/Operator/OperatorBase.h"
 #include "copper/Util/Singleton.h"
 #include "copper/Plugin/PluginApi.h"
 
@@ -24,7 +25,7 @@
 namespace copper {
 
 template <class T>
-class ObjectFactory { //: public Singleton<ObjectFactory<T>> {
+class ObjectFactory {
   typedef std::string (*objectTypeName)();
   typedef T *(*objectConstructor)();
 
@@ -35,12 +36,12 @@ class ObjectFactory { //: public Singleton<ObjectFactory<T>> {
     ObjectFactory() {};
 
     T *createObjectByTypeName(std::string object_type_name);
+    T *createObjectByTypeId(std::type_index object_type_id);
+
     void registerType(objectTypeName typeNameCallable, objectConstructor constructor);
     void registerType(std::string type_name, objectConstructor constructor);
 
-    void printRegisteredTypes();
-
-    //const std::string registeredTypes(); // mostly for debugging purposes
+    void printRegisteredTypes(); // mostly for debugging purposes
 
   private:
     HashTableByTypeName _constructors_by_type_name;
@@ -49,17 +50,23 @@ class ObjectFactory { //: public Singleton<ObjectFactory<T>> {
 
 template <class T>
 void ObjectFactory<T>::printRegisteredTypes() {
-  BOOST_LOG_TRIVIAL(debug) << "ObjectFactory begin --------- ";
+  std::cout << "ObjectFactory begin ---------\n";
   for (std::pair<std::string, objectConstructor> element : _constructors_by_type_name) {
-    BOOST_LOG_TRIVIAL(debug) << element.first;
+    std::cout << element.first << ", ";
   }
-  BOOST_LOG_TRIVIAL(debug) << "ObjectFactory end ----------- ";
+  std::cout << "\nObjectFactory end -----------\n";
 }
 
 template <class T>
-T *ObjectFactory<T>::createObjectByTypeName(std::string object_type_name){
-  BOOST_LOG_TRIVIAL(debug) << "ObjectFactory::createObjectByTypeName " << object_type_name << " "<< _constructors_by_type_name[object_type_name];
+T *ObjectFactory<T>::createObjectByTypeName(std::string object_type_name) {
+  BOOST_LOG_TRIVIAL(debug) << "ObjectFactory::createObjectByTypeName " << object_type_name << " " << _constructors_by_type_name[object_type_name];
   return _constructors_by_type_name[object_type_name]();
+}
+
+template <class T>
+T *ObjectFactory<T>::createObjectByTypeId(std::type_index object_type_id) {
+  BOOST_LOG_TRIVIAL(debug) << "ObjectFactory::createObjectByTypeId " << object_type_id << " " << _constructors_by_type_info[object_type_id];
+  return _constructors_by_type_info[object_type_id]();
 }
 
 template <class T>
@@ -71,8 +78,8 @@ template <class T>
 void ObjectFactory<T>::registerType(std::string type_name, objectConstructor constructor){
   BOOST_MPL_ASSERT((boost::is_base_of<BaseAPI, T>)); // protection against wrong types registrations
 
-  _constructors_by_type_info[typeid(T)] = constructor;//reinterpret_cast<T*>(constructor);
-  _constructors_by_type_name[type_name] = constructor;//reinterpret_cast<T*>(constructor);
+  _constructors_by_type_info[typeid(T)] = constructor;
+  _constructors_by_type_name[type_name] = constructor;
 
   BOOST_LOG_TRIVIAL(debug) << "Registered " << typeid(T).name() << " \"" << type_name << "\"";
 }

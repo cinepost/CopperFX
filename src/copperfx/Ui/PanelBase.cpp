@@ -8,8 +8,8 @@
 
 namespace copper { namespace ui {
 
-PanelBase::PanelBase() {
-	_widget = nullptr;
+PanelBase::PanelBase(QWidget *parent) : QWidget(parent) {
+
 }
 
 }}

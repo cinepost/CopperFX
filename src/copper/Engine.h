@@ -9,8 +9,8 @@
 #include <boost/log/core.hpp>
 #include <boost/log/trivial.hpp>
 	
-#include "copper/OpData/BaseOpData.h"
-#include "copper/Operator/BaseOperator.h"
+#include "copper/OpData/OpDataBase.h"
+#include "copper/Operator/OperatorBase.h"
 #include "copper/Plugin/ObjectFactory.h"
 #include "copper/Util/Singleton.h"
 #include "copper/Operator/OP_Node.h"
@@ -18,8 +18,8 @@
 
 namespace copper {
 
-typedef ObjectFactory<BaseOpData> OpDataFactory;
-typedef ObjectFactory<BaseOperator> OperatorFactory;
+typedef ObjectFactory<OpDataBase> OpDataFactory;
+typedef ObjectFactory<OperatorBase> OperatorFactory;
 
 // Engine class is a singleton, but we might need more than one engine so 
 // things may change in the future...

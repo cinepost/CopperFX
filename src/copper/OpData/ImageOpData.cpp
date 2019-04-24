@@ -23,7 +23,7 @@ std::string ImageOpData::myTypeName() {
     return "image";
 }
 
-BaseOpData *ImageOpData::myConstructor() {
+OpDataBase *ImageOpData::myConstructor() {
     return new ImageOpData();
 }
 

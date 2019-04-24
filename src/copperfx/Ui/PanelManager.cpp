@@ -24,7 +24,7 @@ PanelManager::~PanelManager() {
 
 void PanelManager::addPanelByTypeName(std::string panel_type_name) {
 	PanelBase *new_panel = _panel_factory.createObjectByTypeName(panel_type_name);
-	addTab(new_panel->widget(), new_panel->name().c_str());
+	addTab(new_panel, new_panel->name().c_str());
 }
 
 }}
