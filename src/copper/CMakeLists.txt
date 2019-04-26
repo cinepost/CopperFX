@@ -1,6 +1,6 @@
 file( GLOB SOURCES
 	./Util/*.cpp
-	./Parameters/*.cpp
+	./OpParameter/*.cpp
 	./Operator/*.cpp
 	./Prims/*.cpp
 	./OpData/*.cpp

@@ -1,6 +1,8 @@
 #ifndef MAIN_WINDOW_H
 #define MAIN_WINDOW_H
 
+#include <vector>
+
 #include <QMainWindow>
 
 #include "copperfx/Ui/Workspace.h"
@@ -20,7 +22,8 @@ class MainWindow : public QMainWindow {
         MainWindow(QWidget *parent = 0);
         virtual ~MainWindow();
 
-        Workspace *workspace();
+        Workspace *currentWorkspace();
+        std::vector<Workspace*> *workspaces();
 
         void loadFile(const QString &fileName);
 
@@ -51,7 +54,7 @@ class MainWindow : public QMainWindow {
         QPlainTextEdit *textEdit;
         QString curFile;
 
-        Workspace *_workspace;
+        std::vector<Workspace*> _workspaces; // all the workspaces we have internally defined and plugged in
 };
 
 }}

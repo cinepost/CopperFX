@@ -5,13 +5,13 @@
 #include <map>
 
 #include "copper/Util/UT_StringUtils.h"
-#include "copper/Operator/OP_Parameters.h"
-#include "copper/Operator/OP_NetworkBoxItem.h"
+#include "copper/OpParameter/OpParameter.h"
+#include "copper/Operator/NetworkBoxItem.h"
 
 
 namespace copper {
 
-class OP_Node : public OP_Parameters, public OP_NetworkBoxItem {
+class OP_Node : public NetworkBoxItem {
 	friend class OP_Engine;
 	public:
 		OP_Node();

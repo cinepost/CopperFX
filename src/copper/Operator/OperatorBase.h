@@ -14,4 +14,4 @@ class OperatorBase {
 
 }
 
-#endif // OP_OPERATOR_H
+#endif // BASE_OPERATOR_H

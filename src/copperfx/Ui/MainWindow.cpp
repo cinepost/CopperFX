@@ -6,16 +6,21 @@
 
 namespace copper { namespace ui {
 
-MainWindow::MainWindow(QWidget *parent) : _workspace(new Workspace) {
+MainWindow::MainWindow(QWidget *parent) {
     
-    textEdit = new QPlainTextEdit();
-    setCentralWidget(_workspace);
+    // register workspaces
+    _workspaces.push_back(new Workspace);
 
+    setCentralWidget(_workspaces.back());
+
+
+    // continue normal qt inialisation
     createActions();
     createStatusBar();
 
     readSettings();
 
+    textEdit = new QPlainTextEdit();
     connect(textEdit->document(), &QTextDocument::contentsChanged,
             this, &MainWindow::documentWasModified);
 
@@ -33,8 +38,12 @@ MainWindow::~MainWindow() {
 
 }
 
-Workspace *MainWindow::workspace() {
-    return _workspace;
+Workspace *MainWindow::currentWorkspace() {
+    return _workspaces.back();
+}
+
+std::vector<Workspace*> *MainWindow::workspaces() {
+    return &_workspaces;
 }
 
 void MainWindow::closeEvent(QCloseEvent *event) {

@@ -1,4 +1,4 @@
-#include "copperfx/Ui/SceneViewPanelGLWidget.h"
+#include "SceneViewPanelGLWidget.h"
 
 
 namespace copper { namespace ui {

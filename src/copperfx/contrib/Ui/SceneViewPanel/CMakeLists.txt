@@ -2,8 +2,6 @@ file( GLOB SOURCES
 	./*.cpp
 )
 
-set ( LIBNAME scene_view )
-
 # Qt5
 find_package( Qt5Core REQUIRED )
 find_package( Qt5Svg REQUIRED )
@@ -24,8 +22,6 @@ include_directories(
   ${QtSvg_location}
 )
 
-qt5_use_modules( ${LIBNAME} Core Gui Widgets Svg )
-
 # find boost libs
 find_package( Boost COMPONENTS log REQUIRED )
 include_directories( ${Boost_INCLUDE_DIRS} )
@@ -33,8 +29,10 @@ include_directories( ${Boost_INCLUDE_DIRS} )
 # we will use static libs
 add_definitions(-DBOOST_LOG_DYN_LINK)
 
-add_library( ${LIBNAME} SHARED ${SOURCES} ${HEADERS} )
+add_library( scene_view STATIC ${SOURCES} ${HEADERS} )
 
-target_link_libraries( ${LIBNAME} ${OpenCL_LIBRARY} dl Boost::log)
+target_link_libraries( scene_view ${OpenCL_LIBRARY} dl Boost::log)
 
-install( TARGETS ${LIBNAME} DESTINATION "lib" )
+qt5_use_modules( scene_view Core Gui Widgets Svg )
+
+install( TARGETS scene_view DESTINATION "lib" )

@@ -76,10 +76,6 @@ add_executable(
   ${RCC_SOURCES}
 )
 
-#target_include_directories( copperfx PRIVATE
-#   ${PROJECT_ROOT}/include
-#)
-
 qt5_use_modules( copperfx Core Gui Widgets Svg )
 
 if(APPLE)
