@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "copper/Prims/Constants.h"
 #include "copper/Prims/Matrix.h"
 
@@ -33,13 +35,14 @@ void ViewportCamera::pan(double delta_x_pixels, double delta_y_pixels ) {
 }
 
 void ViewportCamera::orbit(double delta_x_pixels, double delta_y_pixels) {
-	double pixelsPerDegree = 1000 / _orbiting_speed_degrees_per_radians;
+	double pixelsPerDegree = 1000.0 / _orbiting_speed_degrees_per_radians;
 	double radiansPerPixel = 1.0 / pixelsPerDegree * math::PI / 180.0;
 
 	Vector3d t2p = _position - _target;
 	Vector3d ground_normal(0,1,0);
 
-	Matrix4d m = Matrix4d::rotationMatrix( - delta_x_pixels * radiansPerPixel, ground_normal );
+	Matrix4d m;
+	m = Matrix4d::rotationMatrix( - delta_x_pixels * radiansPerPixel, ground_normal );
 	t2p = m * t2p;
 	_up = m * _up;
 

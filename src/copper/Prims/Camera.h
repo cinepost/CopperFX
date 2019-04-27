@@ -22,10 +22,13 @@ enum class Projection {
 
 class Camera {
   public:
-    Camera(Point3d position = Point3d(0,0,0), Point3d target = Point3d(1,0,0), double fov_degrees = 41.0, double near_plane = 0.1, double far_plane = 1000.0);
+    Camera(Point3d position = Point3d(0,0,5), Point3d target = Point3d(0,0,0), Vector3d up = Vector3d(0,1,0), double fov_degrees = 41.0, double near_plane = 0.1, double far_plane = 1000.0);
     ~Camera(){};
 
     Matrix4d getTransform();
+    Vector3d up();
+    Point3d position();
+    Point3d target();
 
     void setProjectionType(Projection projection);
 

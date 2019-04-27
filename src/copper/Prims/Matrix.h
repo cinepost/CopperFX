@@ -66,36 +66,29 @@ class Matrix4: public wykobi::matrix<T,4,4> {
 		// build rotation matrix in radians around axis at origin
 	  inline static Matrix4<T> rotationMatrix(T angle, Vector3<T> axis, Point3<T> origin=0) {
 			Matrix4<T> m;
+			m.identity();
 
 			T cos0 = cos(angle);
 			T sin0 = sin(angle);
 
 			T u=axis.x; T v=axis.y; T w=axis.z;
-			T l = (u*u + v * v + w * w);
-			T ll = sqrt(l);
 			T u2 = u * u;
     	T v2 = v * v;
     	T w2 = w * w;
+			T l = (u2 + v2 + w2);
+			T ll = sqrt(l);
 
-			m[0] = (u2 + (v2 + w2) * cos0) / l;
-			m[1] = (u * v * (1 - cos0) - w * ll * sin0) / l;
-			m[2] = (u * w * (1 - cos0) + v * ll * sin0) / l;
-			m[3] = 0.0; 
+			m(0,0) = (u2 + (v2 + w2) * cos0) / l;
+			m(0,1) = (u * v * (1 - cos0) - w * ll * sin0) / l;
+			m(0,2) = (u * w * (1 - cos0) + v * ll * sin0) / l;
 
-			m[4] = (u * v * (1 - cos0) + w * ll * sin0) / l;
-			m[5] = (v2 + (u2 + w2) * cos0) / l;
-			m[6] = (v * w * (1 - cos0) - u * ll * sin0) / l;
-			m[7] = 0.0; 
+			m(1,0) = (u * v * (1 - cos0) + w * ll * sin0) / l;
+			m(1,1) = (v2 + (u2 + w2) * cos0) / l;
+			m(1,2) = (v * w * (1 - cos0) - u * ll * sin0) / l;
 
-			m[8] = (u * w * (1 - cos0) - v * ll * sin0) / l;
-			m[9] = (v * w * (1 - cos0) + u * ll * sin0) / l;
-			m[10] = (w2 + (u2 + v2) * cos0) / l;
-			m[11] = 0.0; 
-
-			m[12] = 0.0;
-			m[13] = 0.0;
-			m[14] = 0.0;
-			m[15] = 1.0;
+			m(2,0) = (u * w * (1 - cos0) - v * ll * sin0) / l;
+			m(2,1) = (v * w * (1 - cos0) + u * ll * sin0) / l;
+			m(2,2) = (w2 + (u2 + v2) * cos0) / l;
 
 	    return m;
 	  }
@@ -123,7 +116,7 @@ inline Vector3<T> operator*(const Matrix4<T>& m, const Vector3<T>& v){
   Vector3<T> vv;
   vv.x = m[0] * v.x + m[1] * v.y + m[2] * v.z;
   vv.y = m[4] * v.x + m[5] * v.y + m[6] * v.z;
-  vv.z = m[8] * v.x + m[9] * v.z + m[10] * v.z;
+  vv.z = m[8] * v.x + m[9] * v.y + m[10] * v.z;
   return vv;
 }
 

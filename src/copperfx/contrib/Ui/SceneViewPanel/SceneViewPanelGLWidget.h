@@ -4,15 +4,18 @@
 #include <QOpenGLWidget>
 #include <QOpenGLContext>
 #include <QOpenGLFunctions>
+#include <QtGui/QMatrix4x4>
 #include <QOpenGLShaderProgram>
 #include <QOpenGLTexture>
 #include <QMouseEvent>
 #include <QOpenGLBuffer>
+#include <QOpenGLFunctions_3_2_Core>
 
 QT_FORWARD_DECLARE_CLASS(QOpenGLShaderProgram);
 QT_FORWARD_DECLARE_CLASS(QOpenGLTexture);
 
-#include "ViewportCamera.h"
+#include "copper/Prims/Point.h"
+#include "QGLViewportCamera.h"
 
 namespace copper { namespace ui {
 
@@ -43,7 +46,7 @@ class SceneViewPanelGLWidget : public QOpenGLWidget, protected QOpenGLFunctions 
   private:
   	void makeTestObject();
 
-    ViewportCamera *active_camera;
+    QGLViewportCamera *active_camera;
 
   	QColor clearColor;
     QPoint lastPos;
@@ -53,6 +56,8 @@ class SceneViewPanelGLWidget : public QOpenGLWidget, protected QOpenGLFunctions 
     QOpenGLTexture *textures[6];
     QOpenGLShaderProgram *program;
     QOpenGLBuffer vbo;
+
+    QMatrix4x4 m_model, m_view, m_projection;
 };
 
 }}

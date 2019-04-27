@@ -3,6 +3,7 @@
 
 #include <cmath>
 #include <vector>
+#include <iostream>
 #include <stdexcept>
 #include <math.h>
 
@@ -53,7 +54,6 @@ class Vector3: public wykobi::vector3d<T> {
 			T c = T(1.0) / length();
 			return Vector3<T>(this->x * c, this->y * c, this->z * c);
 		}
-
 };
 
 typedef Vector3<int> Vector3i;
@@ -63,18 +63,18 @@ typedef Vector3<double> Vector3d;
 // Overloaded operators
 template <typename T>
 inline Vector3<T> operator^(const Vector3<T>& v1, const Vector3<T>& v2){
-  Vector3<T> v(
-  	v1.x * v2.z - v1.z * v1.y,
-  	-v1.x * v2.z + v1.z * v2.x,
-  	v1.x * v2.y - v1.y * v2.x
+  return Vector3<T>(
+  	v1.y * v2.z - v1.z * v2.y,
+    v1.z * v2.x - v1.x * v2.z,
+    v1.x * v2.y - v1.y * v2.x
   );
-  return v;
 }
 
 template <typename T>
 inline Vector3<T> operator-(const Vector3<T>& v){
   return Vector3<T>(-v.x, -v.y, -v.z );
 }
+
 
 }
 

@@ -1,3 +1,6 @@
+#include <iostream>
+#include <cmath>
+
 #include "SceneViewPanelGLWidget.h"
 
 
@@ -11,7 +14,7 @@ SceneViewPanelGLWidget::SceneViewPanelGLWidget(QWidget *parent)
       zRot(0),
       program(0)
 {
-    active_camera = new ViewportCamera();
+    active_camera = new QGLViewportCamera();
     memset(textures, 0, sizeof(textures));
 }
 
@@ -32,7 +35,7 @@ QSize SceneViewPanelGLWidget::minimumSizeHint() const
 
 QSize SceneViewPanelGLWidget::sizeHint() const
 {
-    return QSize(200, 200);
+    return QSize(640, 360);
 }
 
 void SceneViewPanelGLWidget::rotateBy(int xAngle, int yAngle, int zAngle)
@@ -50,7 +53,7 @@ void SceneViewPanelGLWidget::setClearColor(const QColor &color)
 }
 
 void SceneViewPanelGLWidget::initializeGL() {
-  initializeOpenGLFunctions();
+  QOpenGLFunctions::initializeOpenGLFunctions();
 
   makeTestObject();
 
@@ -93,26 +96,39 @@ void SceneViewPanelGLWidget::initializeGL() {
     program->bind();
     program->setUniformValue("texture", 0);
 
+    m_view.setToIdentity();
+
     assert (glGetError() == GL_NO_ERROR);
 }
 
 void SceneViewPanelGLWidget::resizeGL(int width, int height) {
-  //int side = qMin(width, height);
   glViewport(0, 0, width, height);
+  m_model.setToIdentity();
+  m_projection.setToIdentity();
+  m_projection.perspective(45.0, (GLfloat)width / (GLfloat)height, 0.1, 100.0);
+  active_camera->setViewportDimensions(width, height);
+  update();
 }
 
 void SceneViewPanelGLWidget::paintGL() {
-  glClearColor(clearColor.redF(), clearColor.greenF(), clearColor.blueF(), clearColor.alphaF());
+  glClearColor(0.5, 0.5, 0.5, 1.0);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-  QMatrix4x4 m;
-  m.ortho(-0.5f, +0.5f, +0.5f, -0.5f, 4.0f, 15.0f);
-  m.translate(0.0f, 0.0f, -10.0f);
-  m.rotate(xRot / 16.0f, 1.0f, 0.0f, 0.0f);
-  m.rotate(yRot / 16.0f, 0.0f, 1.0f, 0.0f);
-  m.rotate(zRot / 16.0f, 0.0f, 0.0f, 1.0f);
+  m_view.setToIdentity();
+  m_view.lookAt(
+    active_camera->position(), // Eye
+    active_camera->target(), // Focal Point
+    active_camera->up() // Up vector
+  );
 
-  program->setUniformValue("matrix", m);
+  QMatrix4x4 mvp = m_projection * m_view * m_model;
+  //mvp.ortho(-0.5f, +0.5f, +0.5f, -0.5f, 4.0f, 15.0f);
+  //mvp.translate(0.0f, 0.0f, -10.0f);
+  //mvp.rotate(xRot / 16.0f, 1.0f, 0.0f, 0.0f);
+  //mvp.rotate(yRot / 16.0f, 0.0f, 1.0f, 0.0f);
+  //mvp.rotate(zRot / 16.0f, 0.0f, 0.0f, 1.0f);
+
+  program->setUniformValue("matrix", mvp);
   program->enableAttributeArray(PROGRAM_VERTEX_ATTRIBUTE);
   program->enableAttributeArray(PROGRAM_TEXCOORD_ATTRIBUTE);
   program->setAttributeBuffer(PROGRAM_VERTEX_ATTRIBUTE, GL_FLOAT, 0, 3, 5 * sizeof(GLfloat));
@@ -135,11 +151,14 @@ void SceneViewPanelGLWidget::mouseMoveEvent(QMouseEvent *event) {
     int dy = event->y() - lastPos.y();
 
     if (event->buttons() & Qt::LeftButton) {
-        rotateBy(8 * dy, 8 * dx, 0);
+      active_camera->orbit(-dx, dy);
+    } else if (event->button() == Qt::MiddleButton) {
+      active_camera->pan(-dx, dy); // camera panning
     } else if (event->buttons() & Qt::RightButton) {
-        rotateBy(8 * dy, 0, 8 * dx);
+      active_camera->dolly(3*(dy-dx), false);
     }
     lastPos = event->pos();
+    update();
 }
 
 void SceneViewPanelGLWidget::mouseReleaseEvent(QMouseEvent * /* event */) {
