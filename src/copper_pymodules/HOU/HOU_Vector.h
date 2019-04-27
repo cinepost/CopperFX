@@ -4,7 +4,7 @@
 #include <boost/python.hpp>
 #include <boost/format.hpp>
 
-#include "copper/Util/Vector3.h"
+#include "copper/Prims/Vector.h"
 
 using namespace copper;
 

@@ -11,10 +11,12 @@ SceneViewPanelGLWidget::SceneViewPanelGLWidget(QWidget *parent)
       zRot(0),
       program(0)
 {
+    active_camera = new ViewportCamera();
     memset(textures, 0, sizeof(textures));
 }
 
 SceneViewPanelGLWidget::~SceneViewPanelGLWidget() {
+    delete active_camera;
     makeCurrent();
     vbo.destroy();
     for (int i = 0; i < 6; ++i)
@@ -50,7 +52,7 @@ void SceneViewPanelGLWidget::setClearColor(const QColor &color)
 void SceneViewPanelGLWidget::initializeGL() {
   initializeOpenGLFunctions();
 
-  makeObject();
+  makeTestObject();
 
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_CULL_FACE);
@@ -144,7 +146,7 @@ void SceneViewPanelGLWidget::mouseReleaseEvent(QMouseEvent * /* event */) {
     emit clicked();
 }
 
-void SceneViewPanelGLWidget::makeObject()
+void SceneViewPanelGLWidget::makeTestObject()
 {
     static const int coords[6][4][3] = {
         { { +1, -1, -1 }, { -1, -1, -1 }, { -1, +1, -1 }, { +1, +1, -1 } },

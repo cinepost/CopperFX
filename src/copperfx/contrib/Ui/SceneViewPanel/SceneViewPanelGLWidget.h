@@ -9,9 +9,10 @@
 #include <QMouseEvent>
 #include <QOpenGLBuffer>
 
-
 QT_FORWARD_DECLARE_CLASS(QOpenGLShaderProgram);
 QT_FORWARD_DECLARE_CLASS(QOpenGLTexture);
+
+#include "ViewportCamera.h"
 
 namespace copper { namespace ui {
 
@@ -40,7 +41,9 @@ class SceneViewPanelGLWidget : public QOpenGLWidget, protected QOpenGLFunctions 
     void mouseReleaseEvent(QMouseEvent * /* event */) override;
 
   private:
-  	void makeObject();
+  	void makeTestObject();
+
+    ViewportCamera *active_camera;
 
   	QColor clearColor;
     QPoint lastPos;

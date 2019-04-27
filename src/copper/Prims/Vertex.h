@@ -5,7 +5,7 @@
 #include <stdexcept>
 #include <math.h>
 
-#include "copper/Prims/Point3.h"
+#include "Point.h"
 
 
 namespace copper {

@@ -6,7 +6,7 @@
 #include <map>
 
 #include "copper/OpData/OpDataBase.h"
-#include "copper/Prims/Point3.h"
+#include "copper/Prims/Point.h"
 
 namespace copper {
 

@@ -4,7 +4,7 @@
 #include <boost/python.hpp>
 #include <boost/shared_ptr.hpp>
 
-#include "copper/Prims/Point3.h"
+#include "copper/Prims/Point.h"
 #include "copper/OpData/GeometryOpData.h"
 
 #include "copper_pymodules/HOU/HOU_Point.h"

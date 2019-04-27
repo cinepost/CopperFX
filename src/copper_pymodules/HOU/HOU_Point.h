@@ -8,7 +8,7 @@
 #include <vector>
 
 #include "copper/OpData/GeometryOpData.h"
-#include "copper/Prims/Point3.h"
+#include "copper/Prims/Point.h"
 
 #include "copper_pymodules/HOU/HOU_Geometry.h"
 #include "copper_pymodules/HOU/HOU_Vector.h"
