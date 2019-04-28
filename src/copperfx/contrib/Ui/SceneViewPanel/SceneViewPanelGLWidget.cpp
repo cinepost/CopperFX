@@ -9,9 +9,6 @@ namespace copper { namespace ui {
 SceneViewPanelGLWidget::SceneViewPanelGLWidget(QWidget *parent)
     : QOpenGLWidget(parent),
       clearColor(Qt::black),
-      xRot(0),
-      yRot(0),
-      zRot(0),
       program(0)
 {
     active_camera = new QGLViewportCamera();
@@ -28,26 +25,15 @@ SceneViewPanelGLWidget::~SceneViewPanelGLWidget() {
     doneCurrent();
 }
 
-QSize SceneViewPanelGLWidget::minimumSizeHint() const
-{
+QSize SceneViewPanelGLWidget::minimumSizeHint() const {
     return QSize(50, 50);
 }
 
-QSize SceneViewPanelGLWidget::sizeHint() const
-{
+QSize SceneViewPanelGLWidget::sizeHint() const {
     return QSize(640, 360);
 }
 
-void SceneViewPanelGLWidget::rotateBy(int xAngle, int yAngle, int zAngle)
-{
-    xRot += xAngle;
-    yRot += yAngle;
-    zRot += zAngle;
-    update();
-}
-
-void SceneViewPanelGLWidget::setClearColor(const QColor &color)
-{
+void SceneViewPanelGLWidget::setClearColor(const QColor &color) {
     clearColor = color;
     update();
 }
@@ -105,7 +91,12 @@ void SceneViewPanelGLWidget::resizeGL(int width, int height) {
   glViewport(0, 0, width, height);
   m_model.setToIdentity();
   m_projection.setToIdentity();
-  m_projection.perspective(45.0, (GLfloat)width / (GLfloat)height, 0.1, 100.0);
+
+  if ( active_camera->projectionType() == Projection::PERSPECTIVE) {
+    m_projection.perspective(active_camera->fovDegrees(), (GLfloat)width / (GLfloat)height, active_camera->nearPlane(), active_camera->farPlane());
+  } else {
+    m_projection.ortho(-1.0, 1.0, -1.0, 1.0, active_camera->nearPlane(), active_camera->farPlane());
+  }
   active_camera->setViewportDimensions(width, height);
   update();
 }
@@ -176,9 +167,12 @@ void SceneViewPanelGLWidget::makeTestObject()
         { { -1, -1, +1 }, { +1, -1, +1 }, { +1, +1, +1 }, { -1, +1, +1 } }
     };
 
-    for (int j = 0; j < 6; ++j)
+    for (int j = 0; j < 6; ++j) {
       //textures[j] = new QOpenGLTexture(QImage(QString(":/images/side%1.png").arg(j + 1)).mirrored());
       textures[j] = new QOpenGLTexture(QImage(QString(":/textures/texture_2.png")).mirrored());
+      textures[j]->setMinificationFilter(QOpenGLTexture::LinearMipMapLinear);
+      textures[j]->setMagnificationFilter(QOpenGLTexture::Linear);
+    }
 
     QVector<GLfloat> vertData;
     for (int i = 0; i < 6; ++i) {

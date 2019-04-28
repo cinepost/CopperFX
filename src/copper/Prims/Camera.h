@@ -30,7 +30,12 @@ class Camera {
     Point3d position();
     Point3d target();
 
+    double fovDegrees();
+    double nearPlane();
+    double farPlane();
+
     void setProjectionType(Projection projection);
+    Projection projectionType();
 
   protected:
     void buildUpVector(const Vector3d ground_normal=Vector3d(0,1,0));
@@ -39,7 +44,10 @@ class Camera {
     Projection _projection;
     Point3d _position, _target;
     Vector3d _up, _ground;
-    double _fov_degrees, _near_plane, _far_plane;
+
+    double _fov_degrees = 45.0;
+    double _near_plane = 0.1;
+    double _far_plane = 100;
 
 };
 

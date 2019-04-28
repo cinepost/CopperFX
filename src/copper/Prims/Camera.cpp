@@ -14,6 +14,10 @@ void Camera::setProjectionType(Projection projection){
 	_projection = projection;
 }
 
+Projection Camera::projectionType() {
+	return _projection;
+}
+
 void Camera::buildUpVector(Vector3d ground_normal) {
 	Vector3d t2p = _position - _target;
   Vector3d left = -(t2p ^ _ground).normalized();
@@ -34,6 +38,18 @@ Point3d Camera::position(){
 
 Point3d Camera::target(){
 	return _target;
+}
+
+double Camera::nearPlane(){
+	return _near_plane;
+}
+
+double Camera::farPlane(){
+	return _far_plane;
+}
+
+double Camera::fovDegrees(){
+	return _fov_degrees;
 }
 
 }

@@ -23,12 +23,11 @@ class SceneViewPanelGLWidget : public QOpenGLWidget, protected QOpenGLFunctions 
 	Q_OBJECT
 
 	public:
-    explicit SceneViewPanelGLWidget(QWidget *parent = 0);
+    explicit SceneViewPanelGLWidget(QWidget *parent = nullptr);
     ~SceneViewPanelGLWidget();
 
     QSize minimumSizeHint() const override;
     QSize sizeHint() const override;
-    void rotateBy(int xAngle, int yAngle, int zAngle);
     void setClearColor(const QColor &color);
 
 	signals:
@@ -50,9 +49,6 @@ class SceneViewPanelGLWidget : public QOpenGLWidget, protected QOpenGLFunctions 
 
   	QColor clearColor;
     QPoint lastPos;
-    int xRot;
-    int yRot;
-    int zRot;
     QOpenGLTexture *textures[6];
     QOpenGLShaderProgram *program;
     QOpenGLBuffer vbo;

@@ -91,6 +91,7 @@ target_link_libraries (
   copperfx
   copper_lib
   scene_view
+  node_flow_view
   Boost::log
   Qt5::Core
   Qt5::Widgets

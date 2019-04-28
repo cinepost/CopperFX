@@ -28,7 +28,7 @@ Workspace::Workspace(QWidget *parent) {
 
   // add test panels
   panel_manager1->addPanelByTypeName("scene_view");
-  panel_manager1->addPanelByTypeName("scene_view");
+  panel_manager1->addPanelByTypeName("node_flow_view");
 }
 
 Workspace::~Workspace() {

@@ -34,10 +34,6 @@ class ViewportCamera: public Camera {
     double _viewport_width_in_pixels = 10;
     double _viewport_height_in_pixels = 10;
     double _viewport_radius_in_pixels = 5;
-
-    double _near_plane = 0.1;
-    double _far_plane = 100;
-
 };
 
 }}
