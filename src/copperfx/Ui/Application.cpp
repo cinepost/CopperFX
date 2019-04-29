@@ -1,8 +1,8 @@
 #include "copperfx/Ui/Application.h"
 #include "copperfx/Ui/PanelManager.h"
 
-#include "copperfx/contrib/Ui/SceneViewPanel/SceneViewPanel.h"
-#include "copperfx/contrib/Ui/NodeFlowViewPanel/NodeFlowViewPanel.h"
+#include "copperfx/panels/SceneViewPanel/SceneViewPanel.h"
+#include "copperfx/panels/NodeFlowViewPanel/NodeFlowViewPanel.h"
 
 namespace copper { namespace ui {
 

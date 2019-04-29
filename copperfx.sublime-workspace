@@ -4,6 +4,126 @@
 		"selected_items":
 		[
 			[
+				"Op",
+				"OpDataBase"
+			],
+			[
+				"e",
+				"event"
+			],
+			[
+				"con",
+				"contextMenuEvent"
+			],
+			[
+				"N",
+				"NodeItem"
+			],
+			[
+				"No",
+				"NodeFlowScene"
+			],
+			[
+				"QG",
+				"QGraphicsView"
+			],
+			[
+				"zoo",
+				"zoom_factor"
+			],
+			[
+				"zoom",
+				"zoom_factor"
+			],
+			[
+				"no",
+				"normalize"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"ios",
+				"iostream\tstandard header"
+			],
+			[
+				"h",
+				"height"
+			],
+			[
+				"vi",
+				"viewportHeight"
+			],
+			[
+				"v",
+				"viewportWidth"
+			],
+			[
+				"Ve",
+				"Vector3"
+			],
+			[
+				"fo",
+				"fov_degrees"
+			],
+			[
+				"Point",
+				"Point3d"
+			],
+			[
+				"Po",
+				"Point3"
+			],
+			[
+				"P",
+				"Point3"
+			],
+			[
+				"Pint",
+				"Point3d"
+			],
+			[
+				"ne",
+				"new_panel"
+			],
+			[
+				"ob",
+				"object_type_name"
+			],
+			[
+				"Scene",
+				"SceneViewPanel"
+			],
+			[
+				"name",
+				"namespace"
+			],
+			[
+				"nam",
+				"namespace"
+			],
+			[
+				"co",
+				"copper_pymodule"
+			],
+			[
+				"cop",
+				"copper"
+			],
+			[
+				"copp",
+				"copper_pymodule"
+			],
+			[
+				"_constructors_by_ty",
+				"_constructors_by_type_info"
+			],
+			[
+				"type",
+				"type_name"
+			],
+			[
 				"re",
 				"return"
 			],
@@ -86,10 +206,6 @@
 			[
 				"W",
 				"WorldBegin"
-			],
-			[
-				"Op",
-				"Opacity"
 			],
 			[
 				"S",
@@ -320,16 +436,8 @@
 				"export_Geometry"
 			],
 			[
-				"h",
-				"h"
-			],
-			[
 				"new",
 				"newGeometry"
-			],
-			[
-				"no",
-				"no_init"
 			],
 			[
 				"ret",
@@ -406,143 +514,181 @@
 			[
 				"la",
 				"layout_name"
-			],
-			[
-				"poly",
-				"_poly_count"
-			],
-			[
-				"_po",
-				"_poly_count"
-			],
-			[
-				"_pol",
-				"_poly_indices_vbo"
-			],
-			[
-				"obj",
-				"ogl_obj_cache"
-			],
-			[
-				"divs",
-				"divsx"
-			],
-			[
-				"Po",
-				"Point"
-			],
-			[
-				"prim",
-				"primType"
-			],
-			[
-				"parm",
-				"parm_template"
-			],
-			[
-				"class",
-				"classmethod"
-			],
-			[
-				"size",
-				"sizez"
-			],
-			[
-				"half",
-				"halfz"
-			],
-			[
-				"ha",
-				"halfy"
-			],
-			[
-				"d",
-				"divsy"
-			],
-			[
-				"displ",
-				"display_node"
-			],
-			[
-				"dis",
-				"distanceFromTarget"
-			],
-			[
-				"len",
-				"length"
-			],
-			[
-				"ob",
-				"obj_cache"
-			],
-			[
-				"is",
-				"isGuiMode"
-			],
-			[
-				"node_",
-				"node_path"
-			],
-			[
-				"node",
-				"node_name"
-			],
-			[
-				"end",
-				"endl"
-			],
-			[
-				"name",
-				"name_string"
-			],
-			[
-				"opencl_",
-				"opencl_ready"
-			],
-			[
-				"root",
-				"root_node"
-			],
-			[
-				"str",
-				"string"
-			],
-			[
-				"crea",
-				"createNode"
-			],
-			[
-				"get",
-				"get_chars"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "src/copper_pymodule/CMakeLists.txt",
-			"settings":
-			{
-				"buffer_size": 939,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "CMakeLists.txt",
 			"settings":
 			{
-				"buffer_size": 2864,
+				"buffer_size": 3691,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
+			"file": "src/copperfx/contrib/CMakeLists.txt",
+			"settings":
+			{
+				"buffer_size": 148,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper_pymodules/HOU/HOU_Vector.cpp",
+			"settings":
+			{
+				"buffer_size": 1567,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper_pymodules/HOU/HOU_Prim.h",
+			"settings":
+			{
+				"buffer_size": 499,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper_pymodules/HOU/HOU_Prim.cpp",
+			"settings":
+			{
+				"buffer_size": 262,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper_pymodules/HOU/HOU_Point.h",
+			"settings":
+			{
+				"buffer_size": 813,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper_pymodules/hou_module.h",
+			"settings":
+			{
+				"buffer_size": 779,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper_pymodules/HOU/HOU_Point.cpp",
+			"settings":
+			{
+				"buffer_size": 1623,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "cmake/CopperConfigTargets.cmake",
+			"settings":
+			{
+				"buffer_size": 937,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "function(ogre_config_framework LIBNAME)"
+			}
+		},
+		{
+			"file": "src/copper_pymodules/HOU/HOU_Point.cpp",
+			"settings":
+			{
+				"buffer_size": 1623,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper_pymodules/hou_module.cpp",
+			"settings":
+			{
+				"buffer_size": 1542,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper_pymodules/HOU/HOU_Geometry.cpp",
+			"settings":
+			{
+				"buffer_size": 1413,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper_pymodules/HOU/HOU_Vertex.h",
+			"settings":
+			{
+				"buffer_size": 277,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper_pymodules/HOU/HOU_Vector.h",
+			"settings":
+			{
+				"buffer_size": 481,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper_pymodules/HOU/HOU_Node.h",
+			"settings":
+			{
+				"buffer_size": 609,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper_pymodules/HOU/HOU_Node.cpp",
+			"settings":
+			{
+				"buffer_size": 1254,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper_pymodules/HOU/HOU_Geometry.h",
+			"settings":
+			{
+				"buffer_size": 512,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper_pymodules/CMakeLists.txt",
+			"settings":
+			{
+				"buffer_size": 1032,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "#ifndef PL_PANELAPI_H\n#define PL_PANELAPI_H\n\n#include \"copper/PL/PL_PluginApi.h\"\n\n\nclass PL_PanelAPI: public PL_BaseAPI {\n\n  Q_OBJECT\n\n  public:\n    PL_PanelAPI(QWidget *parent = 0);\n    virtual ~PL_PanelAPI();\n\n    virtual std::string name() const = 0; // name used for display purposes\n  \tvirtual std::string typeName() const = 0; // internal type name\n};\n\n\ntypedef PL_ObjectFactory<GUI_Panel> GUI_PanelFactory;\n\n#endif // GUI_PANELAPI_H",
 			"file": "include/copperfx/PL/PL_PanelApi.h",
+			"file_size": 439,
+			"file_write_time": 131927300250599592,
 			"settings":
 			{
 				"buffer_size": 439,
-				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -561,7 +707,7 @@
 			"file": "src/copper/Plugin/PluginManager.h",
 			"settings":
 			{
-				"buffer_size": 1512,
+				"buffer_size": 2192,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -570,56 +716,16 @@
 			"file": "src/copper/Plugin/PluginManager.cpp",
 			"settings":
 			{
-				"buffer_size": 2395,
+				"buffer_size": 2632,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "{\n\t// A list of URLs that each contain a JSON file with a list of repositories.\n\t// The repositories from these channels are placed in order after the\n\t// repositories from the \"repositories\" setting\n\t\"channels\": [\n\t\t\"https://packagecontrol.io/channel_v3.json\"\n\t],\n\n\t// A list of URLs that contain a packages JSON file. These repositories\n\t// are placed in order before repositories from the \"channels\"\n\t// setting\n\t\"repositories\": [],\n\n\t// A list of packages to install pre-release versions for. Versions\n\t// under 1.0.0 are not considered pre-release, only those using the SemVer\n\t// -prerelease suffixes will be ignored if the package is not in this\n\t// list.\n\t\"install_prereleases\": [],\n\n\t// If debugging information for HTTP/HTTPS connections should be printed\n\t// to the Sublime Text console\n\t\"debug\": false,\n\n\t// This helps solve naming issues where a repository it not named the\n\t// same as the package should be. This is primarily only useful for\n\t// GitHub and BitBucket repositories. This mapping will override the\n\t// mapping that is retrieved from the repository channels.\n\t\"package_name_map\": {},\n\n\t// If package install, upgrade and removal info should be submitted to\n\t// the channel for aggregated statistics\n\t\"submit_usage\": true,\n\n\t// The URL to post install, upgrade and removal notices to\n\t\"submit_url\": \"https://packagecontrol.io/submit\",\n\n\t// If packages should be automatically upgraded when ST starts\n\t\"auto_upgrade\": true,\n\n\t// If missing packages should be automatically installed when ST starts\n\t\"install_missing\": true,\n\n\t// If a package was installed by Package Control (has a\n\t// package-metadata.json file) but is not in installed_packages, remove it\n\t// based upon the assumption that it was removed on another machine and\n\t// the Package Control.sublime-settings file was synced to this machine.\n\t\"remove_orphaned\": true,\n\n\t// The minimum frequency in hours in which to check for automatic upgrades,\n\t// setting this to 0 will always check for automatic upgrades\n\t\"auto_upgrade_frequency\": 1,\n\n\t// Packages to not auto upgrade\n\t\"auto_upgrade_ignore\": [],\n\n\t// Timeout for downloading channels, repositories and packages. Doesn't\n\t// have an effect on Windows due to a bug in WinINet.\n\t\"timeout\": 30,\n\n\t// The number of seconds to cache repository and package info for\n\t\"cache_length\": 300,\n\n\t// An HTTP proxy server to use for requests. Not normally used on Windows\n\t// since the system proxy configuration is utilized via WinINet. However,\n\t// if WinINet is not working properly, this will be used by the Urllib\n\t// downloader, which acts as a fallback.\n\t\"http_proxy\": \"\",\n\t// An HTTPS proxy server to use for requests - this will inherit from\n\t// http_proxy if it is set to \"\" or null and http_proxy has a value. You\n\t// can set this to false to prevent inheriting from http_proxy. Not\n\t// normally used on Windows since the system proxy configuration is\n\t// utilized via WinINet. However, if WinINet is not working properly, this\n\t// will be used by the Urllib downloader, which acts as a fallback.\n\t\"https_proxy\": \"\",\n\n\t// Username and password for both http_proxy and https_proxy. May be used\n\t// with WinINet to set credentials for system-level proxy config.\n\t\"proxy_username\": \"\",\n\t\"proxy_password\": \"\",\n\n\t// If HTTP responses should be cached to disk\n\t\"http_cache\": true,\n\n\t// Number of seconds to cache HTTP responses for, defaults to one week\n\t\"http_cache_length\": 604800,\n\n\t// User agent for HTTP requests. If \"%s\" is present, will be replaced\n\t// with the current version.\n\t\"user_agent\": \"Package Control v%s\",\n\n\t// A list of package names to ignore when performing operations. This will\n\t// only affect packages that appear to be a git or hg repository, but will\n\t// be especially useful for package developers who manually deal with the\n\t// repository and don't want Package Control touching it.\n\t//\n\t// It can help if trying to list packages to install hangs, possibly due\n\t// to an interactive prompt.\n\t//\n\t// The setting can also be set to the boolean true to ignore all git and hg\n\t// repositories, no matter what the name.\n\t\"ignore_vcs_packages\": [],\n\n\t// Custom path(s) to \"git\" binary for when it can't be automatically\n\t// found on the system and a package includes a .git metadata directory.\n\t// Supports more than one path to allow users to sync settings across\n\t// operating systems.\n\t\"git_binary\": [],\n\n\t// This should NOT contain the name of the remote or branch - that will\n\t// be automatically determined.\n\t\"git_update_command\": [\"pull\", \"--ff\", \"--commit\"],\n\n\t// Custom path(s) to \"hg\" binary for when it can't be automatically\n\t// found on the system and a package includes a .hg metadata directory.\n\t// Supports more than one path to allow users to sync settings across\n\t// operating systems.\n\t\"hg_binary\": [],\n\n\t// For HG repositories, be sure to use \"default\" as the remote URL.\n\t// This is the default behavior when cloning an HG repo.\n\t\"hg_update_command\": [\"pull\", \"--update\"],\n\n\t// Additional packages to ignore when listing unmanaged packages.\n\t\"unmanaged_packages_ignore\": [],\n\n\t// The downloader backends that should be used for HTTP(S) requests, split\n\t// by operating system to allow for configuration to be shared.\n\t//\n\t// Valid options include: \"urllib\", \"curl\", \"wget\", (Windows-only) \"wininet\"\n\t//\n\t// This setting allows Windows users to bypass wininet and use urllib\n\t// instead if they machine or network presents trouble to wininet. Some\n\t// OS X and Linux users have also reported better luck with certain proxies\n\t// using curl or wget instead of urllib.\n\t//\n\t// The \"curl\" and \"wget\" options require the command line \"curl\" or \"wget\"\n\t// program installed and present in the PATH.\n\t\"downloader_precedence\": {\n\t\t\"windows\": [\"wininet\"],\n\t\t\"osx\": [\"urllib\"],\n\t\t\"linux\": [\"urllib\", \"curl\", \"wget\"]\n\t},\n\n\t// Directories to ignore when creating a package\n\t\"dirs_to_ignore\": [\n\t\t\".hg\", \".git\", \".svn\", \"_darcs\", \"CVS\"\n\t],\n\n\t// Files to ignore when creating a package\n\t\"files_to_ignore\": [\n\t\t\"*.pyc\", \".hgignore\", \".gitignore\", \".bzrignore\",\n\t\t\"*.sublime-project\", \"*.sublime-workspace\", \"*.tmTheme.cache\"\n\t],\n\n\t// Files to include, even if they match a pattern in files_to_ignore\n\t\"files_to_include\": [],\n\n\t// When a package is created, copy it to this folder - defaults to Desktop\n\t\"package_destination\": \"\",\n\n\t// A way to create different packaging profiles for different types of\n\t// package releases, such as for different platforms or binary-only\n\t// releases.\n\t//\n\t// The key of the object will be the profile name and a list of them will\n\t// be presenting when running the \"Create Package File\" command. The\n\t// profile \"Default\" will use the top-level version on the following\n\t// settings:\n\t//\n\t// - \"dirs_to_ignore\"\n\t// - \"files_to_ignore\"\n\t// - \"files_to_include\"\n\t// - \"package_destination\"\n\t//\n\t// If a profile does not include one of those three setting, it will fall\n\t// back to the top-level settings.\n\t\"package_profiles\": {\n\t\t\"Binaries Only\": {\n\t\t\t// Exclude all .py files, but consequently include all .pyc files\n\t\t\t\"files_to_ignore\": [\n\t\t\t\t\"*.py\", \".hgignore\", \".gitignore\", \".bzrignore\",\n\t\t\t\t\"*.sublime-project\", \"*.sublime-workspace\", \"*.tmTheme.cache\"\n\t\t\t],\n\n\t\t\t// Include __init__.py so Sublime Text will load the package\n\t\t\t\"files_to_include\": [\n\t\t\t\t\"__init__.py\"\n\t\t\t]\n\t\t}\n\t},\n\n\t// Enable the ability to run the tests - this is only for development\n\t\"enable_tests\": false\n}\n",
-			"file": "/Users/max/Library/Application Support/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
-			"file_size": -1,
-			"file_write_time": -1,
+			"file": "src/copper/Operator/NetworkBoxItem.h",
 			"settings":
 			{
-				"buffer_size": 7379,
-				"line_ending": "Unix",
-				"read_only": true,
-				"scratch": true
-			}
-		},
-		{
-			"file": "src/copper/GEO/Point3.h",
-			"settings":
-			{
-				"buffer_size": 326,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copper/GEO/Vertex.h",
-			"settings":
-			{
-				"buffer_size": 242,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copper/GEO/GEO_Geometry.h",
-			"settings":
-			{
-				"buffer_size": 576,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copper/Operator/OP_NetworkBoxItem.h",
-			"settings":
-			{
-				"buffer_size": 249,
+				"buffer_size": 254,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -629,14 +735,6 @@
 			"settings":
 			{
 				"buffer_size": 2232,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copper/Plugin/ObjectFactory.cpp",
-			"settings":
-			{
-				"buffer_size": 554,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -645,34 +743,43 @@
 			"file": "src/copper/Plugin/ObjectFactory.h",
 			"settings":
 			{
-				"buffer_size": 1068,
+				"buffer_size": 2867,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/copper/Operator/BaseOperator.h",
+			"file": "src/copper/Operator/OperatorBase.h",
 			"settings":
 			{
-				"buffer_size": 183,
+				"buffer_size": 328,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/copper/Operator/OP_Network.h",
+			"file": "src/copper/Operator/OpNetwork.h",
 			"settings":
 			{
-				"buffer_size": 514,
+				"buffer_size": 532,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/copper/Operator/OP_NetworkBoxItem.cpp",
+			"file": "src/copperpy/copperpy.cpp",
 			"settings":
 			{
-				"buffer_size": 291,
+				"buffer_size": 684,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper/Operator/NetworkBoxItem.cpp",
+			"settings":
+			{
+				"buffer_size": 257,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -690,25 +797,16 @@
 			"file": "src/copper/Operator/OP_Node.h",
 			"settings":
 			{
-				"buffer_size": 965,
+				"buffer_size": 938,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/copper/Operator/BaseOperator.cpp",
+			"file": "src/copper/Operator/OperatorBase.cpp",
 			"settings":
 			{
 				"buffer_size": 100,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copper/Operator/OP_Parameters.cpp",
-			"settings":
-			{
-				"buffer_size": 78,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -733,7 +831,7 @@
 			"file": "src/copper/Plugin/PluginApi.h",
 			"settings":
 			{
-				"buffer_size": 480,
+				"buffer_size": 524,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -748,37 +846,27 @@
 			}
 		},
 		{
-			"file": "src/copper/Util/Vector2.h",
+			"file": "/Users/max/dev/Copperfield_FX/copper/vmath/matrix4.py",
 			"settings":
 			{
-				"buffer_size": 438,
+				"buffer_size": 4764,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper/Prims/Matrix.h",
+			"settings":
+			{
+				"buffer_size": 2909,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/copper/Util/Vector2.cpp",
+			"file": "src/copper/Prims/Vector.h",
 			"settings":
 			{
-				"buffer_size": 32,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copper/Util/Vector3.cpp",
-			"settings":
-			{
-				"buffer_size": 33,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copper/Util/Vector3.h",
-			"settings":
-			{
-				"buffer_size": 441,
+				"buffer_size": 1779,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -787,170 +875,25 @@
 			"file": "src/copper/Util/Singleton.h",
 			"settings":
 			{
-				"buffer_size": 654,
+				"buffer_size": 646,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/copper_pymodule/COM/COM_Vector.h",
+			"file": "src/copper/Prims/Prim.h",
 			"settings":
 			{
-				"buffer_size": 458,
+				"buffer_size": 306,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/copperfx/GUI/GUI_Panel.h",
+			"file": "src/copper/Prims/Vertex.h",
 			"settings":
 			{
-				"buffer_size": 489,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copper_pymodule/COM/COM_Geometry.h",
-			"settings":
-			{
-				"buffer_size": 423,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copperfx/GUI/GUI_MainWindow.h",
-			"settings":
-			{
-				"buffer_size": 1176,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copperfx/GUI/GUI_PanelRegistry.h",
-			"settings":
-			{
-				"buffer_size": 583,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copperfx/GUI/GUI_SceneViewPanel.h",
-			"settings":
-			{
-				"buffer_size": 760,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copperfx/GUI/GUI_SceneViewPanel.cpp",
-			"settings":
-			{
-				"buffer_size": 986,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copperfx/GUI/GUI_MainWindow.cpp",
-			"settings":
-			{
-				"buffer_size": 10340,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copperfx/GUI/GUI_Panel.cpp",
-			"settings":
-			{
-				"buffer_size": 256,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copperfx/GUI/GUI_PanelManager.h",
-			"settings":
-			{
-				"buffer_size": 459,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copperfx/GUI/GUI_PanelManager.cpp",
-			"settings":
-			{
-				"buffer_size": 574,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copperfx/GUI/GUI_PanelRegistry.cpp",
-			"settings":
-			{
-				"buffer_size": 611,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copper/OpData/GeometryOpData.h",
-			"settings":
-			{
-				"buffer_size": 406,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copper/OpData/BaseOpData.h",
-			"settings":
-			{
-				"buffer_size": 444,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copper/CMakeLists.txt",
-			"settings":
-			{
-				"buffer_size": 727,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Package Control Messages\n========================\n\nSublimeLinter-cpplint\n---------------------\n\n  SublimeLinter-cpplint\n  -------------------------------\n  This linter plugin for SublimeLinter provides an interface to cpplint.\n  \n  Please read the installation instructions at:\n  \n  https://github.com/SublimeLinter/SublimeLinter-cpplint\n\n\nSublimeLinter\n-------------\n\n  \n    ____        _     _ _                _     _       _\n   / ___| _   _| |__ | (_)_ __ ___   ___| |   (_)_ __ | |_ ___ _ __\n   \\___ \\| | | | '_ \\| | | '_ ` _ \\ / _ \\ |   | | '_ \\| __/ _ \\ '__|\n    ___) | |_| | |_) | | | | | | | |  __/ |___| | | | | ||  __/ |\n   |____/ \\__,_|_.__/|_|_|_| |_| |_|\\___|_____|_|_| |_|\\__\\___|_|\n  \n  \n  Welcome to SublimeLinter, a linter framework for Sublime Text 3.\n  Linters are not included, they must be installed separately.\n  \n  \n  For complete documentation on how to use and configure SublimeLinter,\n  please see: http://www.sublimelinter.com\n  \n  To report issues: https://github.com/SublimeLinter/SublimeLinter\n",
-			"settings":
-			{
-				"buffer_size": 1025,
-				"line_ending": "Unix",
-				"name": "Package Control Messages",
-				"read_only": true,
-				"scratch": true
-			}
-		},
-		{
-			"file": "src/copper/GEO/Prim.h",
-			"settings":
-			{
-				"buffer_size": 304,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copper/OpData/GeometryOpData.cpp",
-			"settings":
-			{
-				"buffer_size": 280,
+				"buffer_size": 230,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -959,7 +902,307 @@
 			"file": "src/copperfx/copperfx.cpp",
 			"settings":
 			{
-				"buffer_size": 3238,
+				"buffer_size": 3318,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/contrib/Ui/NodeFlowViewPanel/CMakeLists.txt",
+			"settings":
+			{
+				"buffer_size": 817,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/Ui/PanelBase.h",
+			"settings":
+			{
+				"buffer_size": 391,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/Ui/PanelBase.cpp",
+			"settings":
+			{
+				"buffer_size": 278,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/max/dev/Copperfield_FX/gui/panels/scene_view_panel/camera.py",
+			"settings":
+			{
+				"buffer_size": 6342,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper/Prims/Camera.h",
+			"settings":
+			{
+				"buffer_size": 1124,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper/Prims/Constants.h",
+			"settings":
+			{
+				"buffer_size": 184,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "#ifndef CONSTANTS_H"
+			}
+		},
+		{
+			"file": "src/copper/Prims/Camera.cpp",
+			"settings":
+			{
+				"buffer_size": 1036,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper/Prims/Point.h",
+			"settings":
+			{
+				"buffer_size": 1321,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/contrib/Ui/SceneViewPanel/ViewportCamera.cpp",
+			"settings":
+			{
+				"buffer_size": 3417,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/contrib/Ui/SceneViewPanel/ViewportCamera.h",
+			"settings":
+			{
+				"buffer_size": 1061,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/contrib/Ui/SceneViewPanel/QGLViewportCamera.cpp",
+			"settings":
+			{
+				"buffer_size": 347,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "#ifndef QGL_VIEWPORT_CAMERA"
+			}
+		},
+		{
+			"file": "src/copperfx/contrib/Ui/SceneViewPanel/QGLViewportCamera.h",
+			"settings":
+			{
+				"buffer_size": 309,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/contrib/Ui/SceneViewPanel/SceneViewPanelGLWidget.h",
+			"settings":
+			{
+				"buffer_size": 1476,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/contrib/Ui/NodeFlowViewPanel/NodeFlowView.h",
+			"settings":
+			{
+				"buffer_size": 1265,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/max/dev/Copperfield_FX/gui/panels/network_view_panel.py",
+			"settings":
+			{
+				"buffer_size": 18023,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/contrib/Ui/NodeFlowViewPanel/NodeFlowView.cpp",
+			"settings":
+			{
+				"buffer_size": 5291,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/contrib/Ui/SceneViewPanel/SceneViewPanelGLWidget.cpp",
+			"settings":
+			{
+				"buffer_size": 6119,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/contrib/Ui/NodeFlowViewPanel/NodeFlowScene.cpp",
+			"settings":
+			{
+				"buffer_size": 223,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "#include <QtWidgets/QGraphicsView>"
+			}
+		},
+		{
+			"file": "src/copperfx/contrib/Ui/NodeFlowViewPanel/NodeItem.h",
+			"settings":
+			{
+				"buffer_size": 612,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/contrib/Ui/NodeFlowViewPanel/NodeItem.cpp",
+			"settings":
+			{
+				"buffer_size": 1045,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/contrib/Ui/NodeFlowViewPanel/NodeFlowScene.h",
+			"settings":
+			{
+				"buffer_size": 368,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/contrib/Ui/NodeFlowViewPanel/NodeFlowViewPanel.h",
+			"settings":
+			{
+				"buffer_size": 632,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/Ui/PanelManager.h",
+			"settings":
+			{
+				"buffer_size": 636,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper/OpData/GeometryOpData.cpp",
+			"settings":
+			{
+				"buffer_size": 915,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/panels/CMakeLists.txt",
+			"settings":
+			{
+				"buffer_size": 142,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copper/OpData/GeometryOpData.h",
+			"settings":
+			{
+				"buffer_size": 865,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/Ui/PanelManager.cpp",
+			"settings":
+			{
+				"buffer_size": 647,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/Ui/MainWindow.h",
+			"settings":
+			{
+				"buffer_size": 1356,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/Ui/MainWindow.cpp",
+			"settings":
+			{
+				"buffer_size": 10053,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/Ui/LogWindow.h",
+			"settings":
+			{
+				"buffer_size": 950,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/Ui/LogWindow.cpp",
+			"settings":
+			{
+				"buffer_size": 645,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/Ui/Application.h",
+			"settings":
+			{
+				"buffer_size": 240,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/Ui/Application.cpp",
+			"settings":
+			{
+				"buffer_size": 608,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -968,7 +1211,42 @@
 			"file": "src/copperfx/CMakeLists.txt",
 			"settings":
 			{
-				"buffer_size": 2063,
+				"buffer_size": 2364,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/contrib/Ui/NodeFlowViewPanel/NodeFlowViewPanel.cpp",
+			"settings":
+			{
+				"buffer_size": 1281,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/Ui/Workspace.cpp",
+			"settings":
+			{
+				"buffer_size": 857,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "third_party/QDarkStyleSheet/qdarkstyle/style.qrc",
+			"settings":
+			{
+				"buffer_size": 1741,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/copperfx/resources.qrc",
+			"settings":
+			{
+				"buffer_size": 875,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -983,30 +1261,13 @@
 			}
 		},
 		{
-			"file": "include/copper/MT/MT_MetaData.h",
-			"settings":
-			{
-				"buffer_size": 503,
-				"encoding": "UTF-8",
-				"line_ending": "Unix",
-				"name": "#ifndef MT_METADATA_H"
-			}
-		},
-		{
-			"file": "include/copper/MT/MT_MetaCreator.h",
-			"settings":
-			{
-				"buffer_size": 539,
-				"encoding": "UTF-8",
-				"line_ending": "Unix",
-				"name": "#ifndef MT_METACREATOR_H"
-			}
-		},
-		{
+			"contents": "#include \"copper/Engine.h\"\n\n#include \"copper/OpData/ImageOpData.h\"\n#include \"copper/OpData/GeometryOpData.h\"\n\nnamespace copper {\n\nEngine::Engine() {\n    BOOST_LOG_TRIVIAL(debug) << \"Initializing CopperFX engine...\";\n\n    // Create root node\n    _root_node = new OP_Node();\n    _root_node->setName(\"/\");\n    _nodes_map[\"/\"] = _root_node;\n\n\n    // Set animation defaults\n    _fps = 24.0;\n    _time = 0.0;\n    _frame = 1.0;\n\n    // Load Plugins \n    /*\n    bool allPluginsLoaded = true;\n    try {\n    \ttheKernel.loadPlugin(\"NetworkViewPanel\");\n    }\n    catch(const std::exception &exception) {\n    \tallPluginsLoaded = false;\n    \tstd::cerr << \"Unhandled error: \" << exception.what() << std::endl;\n    }\n\n    if (allPluginsLoaded) {\n    \tstd::cout << \"CopperFX engine initialized. All good.\" << std::endl;\n    } else {\n    \tstd::cout << \"CopperFX engine initialized with errors. Not all plugins loaded.\" << std::endl;\n    }\n    */\n    BOOST_LOG_TRIVIAL(debug) << \"CopperFX engine initialization done.\";\n}\n\nvoid Engine::init() {\n    // Register internally defined opdata\n    _opdata_factory.registerType( GeometryOpData::myTypeName, GeometryOpData::myConstructor );\n    _opdata_factory.registerType( ImageOpData::myTypeName, ImageOpData::myConstructor );\n\n    // Register internally defined operators\n    \n}\n\nOP_Node *Engine::node(std::string node_path) {\n\treturn _root_node->node(node_path);\n}\n\nfloat Engine::time() { return _time; }\nvoid Engine::setTime(float time){ _time = time; }\n\nfloat Engine::frame() { return _frame; }\nvoid Engine::setFrame(float frame){ _frame = frame; }\n\nfloat Engine::fps() { return _fps; }\nvoid Engine::setFps(float fps){ _fps = fps; }\n\n}",
 			"file": "src/copper/Engine.cpp",
+			"file_size": 1622,
+			"file_write_time": 132005919245037605,
 			"settings":
 			{
-				"buffer_size": 1280,
+				"buffer_size": 1663,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1015,66 +1276,8 @@
 			"file": "src/copper/Engine.h",
 			"settings":
 			{
-				"buffer_size": 825,
+				"buffer_size": 1121,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copper/GEO/GEO_Geometry.cpp",
-			"settings":
-			{
-				"buffer_size": 898,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copper/GEO/Point3.cpp",
-			"settings":
-			{
-				"buffer_size": 31,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copper/GEO/Prim.cpp",
-			"settings":
-			{
-				"buffer_size": 223,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/copper/GEO/Vertex.cpp",
-			"settings":
-			{
-				"buffer_size": 97,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "#include \"copper/UT/UT_Vector2.h\"",
-			"file": "src/copper/UT/Vector2.cpp",
-			"file_size": 33,
-			"file_write_time": 131926706196703649,
-			"settings":
-			{
-				"buffer_size": 33,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "#include \"copper/UT/UT_Vector3.h\"\n",
-			"file": "src/copper/UT/Vector3.cpp",
-			"file_size": 34,
-			"file_write_time": 131926706266292195,
-			"settings":
-			{
-				"buffer_size": 34,
 				"line_ending": "Unix"
 			}
 		},
@@ -1084,16 +1287,6 @@
 			{
 				"buffer_size": 668,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Searching 170 files for \"tr(\"\n\n/Users/max/dev/CopperFX/include/copper/HOM/HOM_Module.h:\n   16        (*l).append(&vec[i]);\n   17  \n   18:     return l->ptr();\n   19    }\n   20  };\n   ..\n   27        (*l) += boost::python::make_tuple(&vec[i]);\n   28  \n   29:     return l->ptr();\n   30    }\n   31  };\n\n/Users/max/dev/CopperFX/include/copper/SharedLibrary.h:\n   44        std::string pathWithExtension = path + \".dll\";\n   45  \n   46:       HMODULE moduleHandle = ::LoadLibraryA(pathWithExtension.c_str());\n   47        if(moduleHandle == NULL) {\n   48          throw std::runtime_error(\"Could not load DLL\");\n   ..\n   74      ) {\n   75        FARPROC functionAddress = ::GetProcAddress(\n   76:         sharedLibraryHandle, functionName.c_str()\n   77        );\n   78        if(functionAddress == NULL) {\n   ..\n  104        std::string pathWithExtension = std::string(\"./lib\") + path + \".so\";\n  105  \n  106:       void *sharedObject = ::dlopen(pathWithExtension.c_str(), RTLD_NOW);\n  107        if(sharedObject == NULL) {\n  108          throw std::runtime_error(\n  ...\n  138  \n  139        void *functionAddress = ::dlsym(\n  140:         sharedLibraryHandle, functionName.c_str()\n  141        );\n  142  \n\n/Users/max/dev/CopperFX/include/wykobi/wykobi_graphics_vcl.hpp:\n   67        inline void draw_text(const T& x, const T& y, std::string text)\n   68        {\n   69:          AnsiString s = text.c_str();\n   70           canvas->TextOut(static_cast<int>(x),static_cast<int>(y),s);\n   71        }\n\n/Users/max/dev/CopperFX/include/wykobi/wykobi_gui.hpp:\n   50        glutInitWindowPosition(window_position_x(),window_position_y());\n   51        glutInit(&argc,argv);\n   52:       glutCreateWindow(window_title().c_str()  );\n   53        glutKeyboardFunc(glut_keyboard_handler   );\n   54        glutSpecialFunc (glut_special_key_handler);\n\n/Users/max/dev/CopperFX/include/wykobi/wykobi_matrix.hpp:\n   40  \n   41        matrix()\n   42:       : dptr(reinterpret_cast<T*>(&data))\n   43        {\n   44           zero();\n\n/Users/max/dev/CopperFX/include/wykobi/wykobi_matrix.inl:\n   29     template <typename T, std::size_t M, std::size_t N>\n   30     inline matrix<T,M,N>::matrix(const matrix<T,M,N>& m)\n   31:    : dptr(reinterpret_cast<T*>(&data))\n   32     {\n   33        std::copy(m.dptr,m.dptr + (M * N), dptr);\n\n/Users/max/dev/CopperFX/src/copper_gui/GUI_MainWindow.cpp:\n   28       statusBar()->showMessage(message);\n   29  \n   30:      setWindowTitle(tr(\"Menus\"));\n   31       setMinimumSize(160, 160);\n   32       resize(480, 320);\n\n/Users/max/dev/CopperFX/src/copper_lib/OP/OP_Node.cpp:\n   67  \t// if path starts with \"/\" return OP_Node with path from root\n   68  \tif (found == 0) {\n   69: \t\treturn rootNode()->node(node_path.substr(1));\n   70  \t}\n   71  \n   ..\n   76  \t\tif ( it != _children.end() ) return it->second;\n   77  \t}else{\n   78: \t\tstd::string node_name = node_path.substr(0, found + 1);\n   79: \t\tstd::string path = node_path.substr(found + 2);\n   80  \t\tit = _children.find(node_name);\n   81  \t\tif ( it != _children.end() ) return it->second->node(path);\n\n/Users/max/dev/CopperFX/src/copper_lib/UT/UT_StringUtils.cpp:\n    7  \tif ( found != (s.length() - 1) ) {\n    8  \t\t// there is digits in the end\n    9: \t\tstd::string name_string = s.substr( 0, found + 1);\n   10:     \tint i = std::stoi( s.substr(found + 1) );\n   11      \treturn name_string.append(std::to_string( i + 1 ));\n   12  \t}\n\n/Users/max/dev/CopperFX/src/copper_pymodule/HOM_Geometry.cpp:\n   21  \t}\n   22  \n   23:     return l->ptr();\n   24  };\n   25  \n\n/Users/max/dev/CopperFX/src/copper_pymodule/HOM_Point.cpp:\n   36  \tboost::format formater(\"<hou.Point #%d of geometry %s>\");\n   37  \tformater % _index % _hom_geo;\n   38: \treturn formater.str();\n   39  }\n   40  \n\n/Users/max/dev/CopperFX/src/copper_pymodule/HOM_Vector3.cpp:\n   18  \tboost::format formater(\"[%f, %f, %f]\");\n   19  \tformater % self[0] % self[1] % self[2];\n   20: \treturn formater.str();\n   21  }\n   22  \n   ..\n   24  \tboost::format formater(\"<HOM.Vector3 %s>\");\n   25      formater % HOM_Vector3__str__(self);\n   26:     return formater.str();\n   27  }\n   28  \n\n20 matches across 12 files\n\n\nSearching 461 files for \"CMAKE_INSTALL_RPATH\"\n\n0 matches",
-			"settings":
-			{
-				"buffer_size": 4187,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
 			}
 		}
 	],
@@ -1140,26 +1333,100 @@
 	[
 		"/Users/max/dev/CopperFX",
 		"/Users/max/dev/CopperFX/build",
-		"/Users/max/dev/CopperFX/include",
-		"/Users/max/dev/CopperFX/include/copper",
-		"/Users/max/dev/CopperFX/include/copperfx",
-		"/Users/max/dev/CopperFX/include/copperfx/GUI",
-		"/Users/max/dev/CopperFX/include/copperfx/PL",
+		"/Users/max/dev/CopperFX/cmake",
 		"/Users/max/dev/CopperFX/src",
 		"/Users/max/dev/CopperFX/src/copper",
-		"/Users/max/dev/CopperFX/src/copper/GEO",
 		"/Users/max/dev/CopperFX/src/copper/OpData",
 		"/Users/max/dev/CopperFX/src/copper/Operator",
+		"/Users/max/dev/CopperFX/src/copper/OpParameter",
 		"/Users/max/dev/CopperFX/src/copper/Plugin",
+		"/Users/max/dev/CopperFX/src/copper/Prims",
 		"/Users/max/dev/CopperFX/src/copper/Util",
-		"/Users/max/dev/CopperFX/src/copper_pymodule",
-		"/Users/max/dev/CopperFX/src/copper_pymodule/COM",
+		"/Users/max/dev/CopperFX/src/copper_pymodules",
+		"/Users/max/dev/CopperFX/src/copper_pymodules/HOU",
 		"/Users/max/dev/CopperFX/src/copperfx",
-		"/Users/max/dev/CopperFX/src/copperfx/GUI",
-		"/Users/max/dev/CopperFX/src/copperpy"
+		"/Users/max/dev/CopperFX/src/copperfx/panels",
+		"/Users/max/dev/CopperFX/src/copperfx/panels/Ui",
+		"/Users/max/dev/CopperFX/src/copperfx/Ui",
+		"/Users/max/dev/CopperFX/src/copperpy",
+		"/Users/max/dev/CopperFX/third_party",
+		"/Users/max/dev/CopperFX/third_party/wykobi"
 	],
 	"file_history":
 	[
+		"/Users/max/dev/Copperfield_FX/gui/panels/scene_view_panel/scene_view_panel.py",
+		"/Users/max/dev/CopperFX/src/copperfx/contrib/Ui/NodeFlowViewPanel/PortType.h",
+		"/Users/max/dev/CopperFX/src/copperfx/contrib/Ui/NodeFlowViewPanel/NodeState.h",
+		"/Users/max/dev/CopperFX/src/copperfx/contrib/Ui/NodeFlowViewPanel/NodeState.cpp",
+		"/Users/max/dev/CopperFX/src/copperfx/contrib/Ui/NodeFlowViewPanel/Connection.cpp",
+		"/Users/max/dev/CopperFX/src/copperfx/contrib/Ui/NodeFlowViewPanel/Connection.h",
+		"/Users/max/dev/CopperFX/src/copperfx/contrib/Ui/NodeFlowViewPanel/ConnectionState.cpp",
+		"/Users/max/dev/CopperFX/src/copperfx/contrib/Ui/NodeFlowViewPanel/ConnectionState.h",
+		"/Users/max/dev/CopperFX/src/copperfx/contrib/Ui/NodeFlowViewPanel/Node.cpp",
+		"/Users/max/dev/CopperFX/src/copperfx/contrib/Ui/NodeFlowViewPanel/Node.h",
+		"/Users/max/dev/CopperFX/src/copperfx/GUI/GUI_MainWindow.h",
+		"/Users/max/dev/CopperFX/src/copperfx/GUI/GUI_Panel.h",
+		"/Users/max/dev/CopperFX/src/copper_pymodule/COM/COM_Vertex.h",
+		"/Users/max/dev/CopperFX/src/copper_pymodule/COM/COM_Vector.h",
+		"/Users/max/dev/CopperFX/src/copper/OpParameters/OpParameters.cpp",
+		"/Users/max/dev/CopperFX/src/copper_pymodule/COM/COM_Node.h",
+		"/Users/max/dev/CopperFX/src/copper_pymodule/COM/COM_Vector.cpp",
+		"/Users/max/dev/CopperFX/src/copper_pymodule/module.cpp",
+		"/Users/max/dev/CopperFX/src/copper_pymodule/COM/COM_Geometry.cpp",
+		"/Users/max/dev/CopperFX/src/copper_pymodule/COM/COM_Geometry.h",
+		"/Users/max/dev/CopperFX/src/copper_pymodule/COM/COM_Point.cpp",
+		"/Users/max/dev/CopperFX/src/copper_pymodule/module.h",
+		"/Users/max/dev/CopperFX/src/copper_pymodule/COM/COM_Prim.cpp",
+		"/Users/max/dev/CopperFX/src/copper_pymodule/COM/COM_Prim.h",
+		"/Users/max/dev/CopperFX/src/copper_pymodule/CMakeLists.txt",
+		"/Users/max/dev/CopperFX/src/copper/OpParameters/OpParameters.h",
+		"/Users/max/dev/CopperFX/src/copperfx/CMakeLists.txt",
+		"/Users/max/dev/CopperFX/src/copper/Prims/Vertex.cpp",
+		"/Users/max/dev/CopperFX/src/copper/Prims/Prim.cpp",
+		"/Users/max/dev/CopperFX/src/copper/OpData/ImageOpData.cpp",
+		"/Users/max/dev/CopperFX/src/copper/OpParameter/OpParameter.h",
+		"/Users/max/dev/CopperFX/src/copper/OpParameter/OpParameter.cpp",
+		"/Users/max/dev/CopperFX/src/copper/CMakeLists.txt",
+		"/Users/max/dev/CopperFX/src/copper/OpData/OpDataBase.h",
+		"/Users/max/dev/CopperFX/src/copper/OpData/ImageOpData.h",
+		"/Users/max/dev/CopperFX/src/copperfx/GUI/GUI_PanelManager.cpp",
+		"/Users/max/dev/CopperFX/src/copperfx/GUI/GUI_LogWindow.cpp",
+		"/Users/max/dev/CopperFX/src/copperfx/GUI/GUI_Workspace.h",
+		"/Users/max/dev/CopperFX/src/copperfx/GUI/GUI_Workspace.cpp",
+		"/Users/max/dev/CopperFX/src/copperfx/GUI/GUI_PanelManager.h",
+		"/Users/max/dev/CopperFX/src/copperfx/GUI/GUI_Panel.cpp",
+		"/Users/max/dev/CopperFX/src/copperfx/GUI/GUI_LogWindow.h",
+		"/Users/max/dev/CopperFX/src/copperfx/GUI/GUI_MainWindow.cpp",
+		"/Users/max/dev/CopperFX/src/copperfx/GUI/GUI_SceneViewPanel.cpp",
+		"/Users/max/dev/CopperFX/src/copperfx/GUI/GUI_SceneViewPanel.h",
+		"/Users/max/dev/CopperFX/src/copper/Prims/Vector.cpp",
+		"/Users/max/dev/CopperFX/src/copper/Prims/Point.cpp",
+		"/Users/max/dev/CopperFX/src/copper/Util/Vector2.cpp",
+		"/Users/max/dev/CopperFX/src/copper/Util/Vector2.h",
+		"/Users/max/dev/CopperFX/src/copper/Util/Vector3.cpp",
+		"/Users/max/dev/CopperFX/src/copper/Prims/Point.h",
+		"/Users/max/dev/CopperFX/src/copper/Prims/GEO_Geometry.cpp",
+		"/Users/max/dev/CopperFX/src/copper/Prims/GEO_Geometry.h",
+		"/Users/max/dev/CopperFX/src/copperfx/Ui/SceneViewPanel.h",
+		"/Users/max/dev/CopperFX/src/copperfx/Ui/SceneViewPanelGLWidget.h",
+		"/Users/max/dev/CopperFX/src/copperfx/Ui/SceneViewPanelGLWidget.cpp",
+		"/Users/max/dev/CopperFX/src/copperfx/Ui/SceneViewPanel.cpp",
+		"/Users/max/dev/CopperFX/src/copper/UT/Vector3.cpp",
+		"/Users/max/dev/CopperFX/src/copper/UT/Vector2.cpp",
+		"/Users/max/dev/CopperFX/src/copper/GEO/Vertex.cpp",
+		"/Users/max/dev/CopperFX/src/copper/GEO/Prim.cpp",
+		"/Users/max/dev/CopperFX/src/copper/GEO/Point3.cpp",
+		"/Users/max/dev/CopperFX/src/copper/GEO/GEO_Geometry.cpp",
+		"/Users/max/dev/CopperFX/include/copper/MT/MT_MetaCreator.h",
+		"/Users/max/dev/CopperFX/include/copper/MT/MT_MetaData.h",
+		"/Users/max/dev/CopperFX/src/copper/GEO/Prim.h",
+		"/Users/max/dev/CopperFX/src/copperfx/GUI/GUI_PanelRegistry.cpp",
+		"/Users/max/dev/CopperFX/src/copperfx/GUI/GUI_PanelRegistry.h",
+		"/Users/max/dev/CopperFX/src/copper/GEO/GEO_Geometry.h",
+		"/Users/max/dev/CopperFX/src/copper/GEO/Vertex.h",
+		"/Users/max/dev/CopperFX/src/copper/GEO/Point3.h",
+		"/Users/max/dev/CopperFX/src/copper/Plugin/ObjectFactory.cpp",
+		"/Users/max/Library/Application Support/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
 		"/Users/max/dev/CopperFX/src/copper/OP/OP_Operator.cpp",
 		"/Users/max/dev/CopperFX/src/copper/OP/OP_Node.cpp",
 		"/Users/max/dev/CopperFX/src/copper/OP/OP_NetworkBoxItem.cpp",
@@ -1174,7 +1441,6 @@
 		"/Users/max/dev/CopperFX/src/copper/Data/GeometryData.h",
 		"/Users/max/dev/CopperFX/src/copper/Data/DataBase.h",
 		"/Users/max/dev/CopperFX/src/copper/PL/PL_PluginApi.cpp",
-		"/Users/max/dev/CopperFX/src/copper_pymodule/COM/COM_Geometry.cpp",
 		"/Users/max/dev/glman/src/glman_for_python/CMakeLists.txt",
 		"/Users/max/dev/CopperFX/CMakeLists.txt",
 		"/Users/max/dev/CopperFX/src/copper/Plugin/PluginApi.cpp",
@@ -1215,79 +1481,7 @@
 		"/Users/max/dev/glman/include/glman_lib/renderer/shader.h",
 		"/Users/max/dev/glman/src/glman_lib/renderer/model.cpp",
 		"/Users/max/dev/glman/include/glman_lib/renderer/model.h",
-		"/Users/max/dev/glman/include/glman_lib/renderer/mesh.h",
-		"/Users/max/dev/glman/src/glman_lib/renderer/mesh.cpp",
-		"/Users/max/dev/glman/src/glman_for_python/ri_module.cpp",
-		"/Users/max/dev/glman/src/glman_lib/rib/attributes.cpp",
-		"/Users/max/dev/glman/include/glman_lib/rib/attributes.h",
-		"/Users/max/dev/glman/include/glman_for_python/ri_module.h",
-		"/Users/max/dev/glman/src/glman_cmd/glman_cmd.cpp",
-		"/Users/max/dev/glman/include/glman_lib/scene.h",
-		"/Users/max/dev/glman/include/glman_lib/parsers/rib_parser.h",
-		"/Users/max/dev/glman/include/glman_lib/renderer/renderer.h",
-		"/Users/max/dev/glman/src/glman_lib/renderer/renderer.cpp",
-		"/Users/max/dev/glman/src/glman_lib/renderer/display.cpp",
-		"/Users/max/dev/glman/include/glman_lib/interfaces/rib_interface.h",
-		"/Users/max/dev/glman/include/glman_lib/interfaces/rib_rendering_interface.h",
-		"/Users/max/dev/glman/src/glman_lib/CMakeLists.txt",
-		"/Users/max/dev/glman/src/glman_for_python/glman_for_python.cpp",
-		"/Users/max/dev/glman/src/glman_lib/scene.cpp",
-		"/Users/max/dev/glman/src/glman_lib/loaders/rib_loader.cpp",
-		"/Users/max/dev/glman/src/glman_lib/parsers/rib_parser.h",
-		"/Users/max/dev/glman/src/glman_lib/renderer.cpp",
-		"/Users/max/dev/glman/src/glman_lib/display.cpp",
-		"/Users/max/dev/glman/include/glman_lib/interfaces/rib_file_interface.h",
-		"/Users/max/dev/glman/src/glman_for_python/RiModule.cpp",
-		"/Users/max/dev/glman/src/glman_lib/Renderer.cpp",
-		"/Users/max/dev/glman/src/glman_lib/Display.cpp",
-		"/Users/max/dev/glman/src/glman_lib/interfaces/ifd_interface.cpp",
-		"/Users/max/dev/glman/include/glman/loaders/rib_loader.h",
-		"/Users/max/dev/glman/src/glman_lib/RIB_Rendering_Interface.cpp",
-		"/Users/max/dev/glman/notes",
-		"/Users/max/dev/glman/src/glman_cmd/CMakeLists.txt",
-		"/Users/max/dev/glman/tests/scenes/pacman.rib",
-		"/Users/max/dev/glman/include/glman/Display.h",
-		"/Users/max/dev/glman/include/glman/RIB_Rendering_Interface.h",
-		"/Users/max/dev/glman/src/glman_lib/IFD_Interface.cpp",
-		"/Users/max/dev/glman/include/glman/IFD_Interface.h",
-		"/Users/max/dev/glman/include/glman/RIB_File_Interface.h",
-		"/Users/max/dev/glman/src/glman_lib/RIB_File_Interface.cpp",
-		"/Users/max/dev/Copperfield_FX/test/mantra/test.rib",
-		"/Users/max/dev/glman/include/glman/Scene_Reader.h",
-		"/Users/max/dev/glman/src/glman_lib/Scene_Reader.cpp",
-		"/Users/max/dev/CopperFX/src/copper_pymodule/HOM_Geometry.cpp",
-		"/Users/max/dev/CopperFX/src/copper_pymodule/HOM_Module.cpp",
-		"/Users/max/dev/CopperFX/include/copper/HOM/HOM_Module.h",
-		"/Users/max/dev/CopperFX/src/copper_pymodule/HOM_Node.cpp",
-		"/Users/max/dev/CopperFX/include/copper/HOM/HOM_Node.h",
-		"/Users/max/dev/glman/include/glman/Renderer.h",
-		"/Users/max/dev/glman/include/glman/ri.h",
-		"/Users/max/dev/glman/python/glman_for_python/prman.py",
-		"/Users/max/dev/glman/include/glman/RibInterface.h",
-		"/Users/max/dev/glman/src/glman_lib/RibInterface.cpp",
-		"/Users/max/Downloads/patch-FindBoost.cmake",
-		"/Users/max/dev/Copperfield_FX/copper/shout/parsers/ifd/parser_ifd.py",
-		"/Users/max/dev/Copperfield_FX/test/mantra/cornell-box.rib",
-		"/Users/max/dev/Copperfield_FX/copper/shout/parsers/rib/parser_rib.py",
-		"/Users/max/dev/Copperfield_FX/copper/shout/parsers/base.py",
-		"/Users/max/dev/Copperfield_FX/copper/shout/shout.py",
-		"/Users/max/Downloads/gaffer-0.48.0.0-osx/startup/gui/viewer.py",
-		"/Users/max/Downloads/gaffer-0.48.0.0-osx/apps/gui/gui-1.py",
-		"/Users/max/Downloads/gaffer-0.48.0.0-osx/bin/gaffer.py",
-		"/Users/max/Downloads/gaffer-0.48.0.0-osx/bin/gaffer",
-		"/Users/max/Downloads/EFI/CLOVER/config.plist",
-		"/Users/max/Documents/stor1.htzr.s4account",
-		"/Users/max/htzr.ovpn",
-		"/Users/max/htzr_hosta01.ovpn",
-		"/Users/max/htzr_stor1.ovpn",
-		"/Users/max/dev/Copperfield_FX/test/mantra/test.ifd",
-		"/Users/max/dev/Copperfield_FX/gui/panels/network_view_panel.py",
-		"/Users/max/dev/Copperfield_FX/copper/shout/parsers/ifd/parser_bgeo.py",
-		"/Users/max/dev/Copperfield_FX/bin/copper",
-		"/Users/max/dev/Copperfield_FX/gui/main_window.py",
-		"/Users/max/dev/Copperfield_FX/copper/op/op_network.py",
-		"/Users/max/dev/Copperfield_FX/copper/vmath/vector3.py",
-		"/Users/max/dev/Copperfield_FX/gui/panels/tree_view_panel.py"
+		"/Users/max/dev/glman/include/glman_lib/renderer/mesh.h"
 	],
 	"find":
 	{
@@ -1298,6 +1492,7 @@
 		"height": 101.0,
 		"where_history":
 		[
+			"/Users/max/dev/CopperFX/third_party/wykobi",
 			"/Users/max/dev/CopperFX"
 		]
 	},
@@ -1306,6 +1501,21 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"operator=",
+			"cross",
+			"vector_norm",
+			"normaliz",
+			"len",
+			"vector",
+			"length",
+			"operat",
+			"SceneViewPanelWidget",
+			"GUI_MainWindow",
+			"Geometry",
+			"cfx",
+			"MACOSX_",
+			"Frameworks",
+			"COM_",
 			"CMAKE_INSTALL_RPATH",
 			"DT_GeometryData",
 			"tr(",
@@ -1317,6 +1527,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"SceneViewPanelGLWidget",
+			"MainWindow",
+			"Image",
+			"hou",
+			"HOU_",
 			"Data_Geometry"
 		],
 		"reverse": false,
@@ -1328,55 +1543,24 @@
 	"groups":
 	[
 		{
-			"selected": 12,
+			"selected": 67,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/copper_pymodule/CMakeLists.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 939,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								40,
-								40
-							]
-						],
-						"settings":
-						{
-							"SL.13.region_keys":
-							[
-							],
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 36,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "CMakeLists.txt",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2864,
+						"buffer_size": 3691,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2511,
-								2511
+								3433,
+								3433
 							]
 						],
 						"settings":
@@ -1392,11 +1576,551 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 22,
+					"stack_index": 39,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/copperfx/contrib/CMakeLists.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 148,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								117,
+								117
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 25,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
+					"file": "src/copper_pymodules/HOU/HOU_Vector.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1567,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								771,
+								771
+							]
+						],
+						"settings":
+						{
+							"SL.180.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 70,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/copper_pymodules/HOU/HOU_Prim.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 499,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								309,
+								309
+							]
+						],
+						"settings":
+						{
+							"SL.181.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 76,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/copper_pymodules/HOU/HOU_Prim.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 262,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								262,
+								262
+							]
+						],
+						"settings":
+						{
+							"SL.182.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 71,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/copper_pymodules/HOU/HOU_Point.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 813,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								259,
+								228
+							]
+						],
+						"settings":
+						{
+							"SL.183.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 44,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/copper_pymodules/hou_module.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 779,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								764,
+								764
+							]
+						],
+						"settings":
+						{
+							"SL.189.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 63,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/copper_pymodules/HOU/HOU_Point.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1623,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								957,
+								964
+							]
+						],
+						"settings":
+						{
+							"SL.184.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 47,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "cmake/CopperConfigTargets.cmake",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 937,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								550,
+								550
+							]
+						],
+						"settings":
+						{
+							"auto_name": "function(ogre_config_framework LIBNAME)",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 73,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/copper_pymodules/HOU/HOU_Point.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1623,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								341,
+								341
+							]
+						],
+						"settings":
+						{
+							"SL.56.region_keys":
+							[
+							],
+							"SL.96.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 78,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "src/copper_pymodules/hou_module.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1542,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								481,
+								481
+							]
+						],
+						"settings":
+						{
+							"SL.172.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 56,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "src/copper_pymodules/HOU/HOU_Geometry.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1413,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1413,
+								1413
+							]
+						],
+						"settings":
+						{
+							"SL.175.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 42,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "src/copper_pymodules/HOU/HOU_Vertex.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 277,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								157,
+								157
+							]
+						],
+						"settings":
+						{
+							"SL.187.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 77,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "src/copper_pymodules/HOU/HOU_Vector.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 481,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								122,
+								122
+							]
+						],
+						"settings":
+						{
+							"SL.188.region_keys":
+							[
+							],
+							"SL.27.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 35,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "src/copper_pymodules/HOU/HOU_Node.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 609,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								601,
+								601
+							]
+						],
+						"settings":
+						{
+							"SL.177.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 75,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "src/copper_pymodules/HOU/HOU_Node.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1254,
+								1254
+							]
+						],
+						"settings":
+						{
+							"SL.178.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 74,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "src/copper_pymodules/HOU/HOU_Geometry.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 512,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								144,
+								144
+							]
+						],
+						"settings":
+						{
+							"SL.185.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 41,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "src/copper_pymodules/CMakeLists.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1032,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								609,
+								612
+							]
+						],
+						"settings":
+						{
+							"SL.173.region_keys":
+							[
+							],
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 72,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
 					"file": "include/copperfx/PL/PL_PanelApi.h",
 					"semi_transient": false,
 					"settings":
@@ -1423,11 +2147,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 59,
+					"stack_index": 84,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 19,
 					"file": "src/copper/DT/Data_Geometry.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1454,24 +2178,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 56,
+					"stack_index": 83,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 20,
 					"file": "src/copper/Plugin/PluginManager.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1512,
+						"buffer_size": 2192,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								805,
-								787
+								966,
+								966
 							]
 						],
 						"settings":
@@ -1479,6 +2203,12 @@
 							"SL.18.region_keys":
 							[
 							],
+							"SL.19.region_keys":
+							[
+							],
+							"SL.64.region_keys":
+							[
+							],
 							"syntax": "Packages/C++/C++.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -1487,24 +2217,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 47,
+					"stack_index": 58,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 21,
 					"file": "src/copper/Plugin/PluginManager.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2395,
+						"buffer_size": 2632,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2395,
-								2395
+								398,
+								398
 							]
 						],
 						"settings":
@@ -1512,6 +2242,12 @@
 							"SL.19.region_keys":
 							[
 							],
+							"SL.20.region_keys":
+							[
+							],
+							"SL.65.region_keys":
+							[
+							],
 							"syntax": "Packages/C++/C++.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -1520,147 +2256,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 57,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "/Users/max/Library/Application Support/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
+					"buffer": 22,
+					"file": "src/copper/Operator/NetworkBoxItem.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7379,
+						"buffer_size": 254,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								115,
-								115
-							]
-						],
-						"settings":
-						{
-							"mini_diff": false,
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "src/copper/GEO/Point3.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 326,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								302,
-								211
-							]
-						],
-						"settings":
-						{
-							"SL.20.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 41,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "src/copper/GEO/Vertex.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 242,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								222,
-								222
-							]
-						],
-						"settings":
-						{
-							"SL.21.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 39,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "src/copper/GEO/GEO_Geometry.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 576,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								216,
-								216
-							]
-						],
-						"settings":
-						{
-							"SL.22.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "src/copper/Operator/OP_NetworkBoxItem.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 249,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								249,
-								249
+								82,
+								96
 							]
 						],
 						"settings":
@@ -1668,17 +2281,20 @@
 							"SL.23.region_keys":
 							[
 							],
+							"SL.69.region_keys":
+							[
+							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 23,
+					"stack_index": 49,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 23,
 					"file": "/Users/max/dev/sovoq/src/svq/math/vec3.h",
 					"semi_transient": false,
 					"settings":
@@ -1699,6 +2315,9 @@
 							"SL.24.region_keys":
 							[
 							],
+							"SL.26.region_keys":
+							[
+							],
 							"syntax": "Packages/C++/C++.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
@@ -1706,60 +2325,38 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 45,
+					"stack_index": 80,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
-					"file": "src/copper/Plugin/ObjectFactory.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 554,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								142,
-								142
-							]
-						],
-						"settings":
-						{
-							"SL.25.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
+					"buffer": 24,
 					"file": "src/copper/Plugin/ObjectFactory.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1068,
+						"buffer_size": 2867,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1027,
-								1027
+								1840,
+								1840
 							]
 						],
 						"settings":
 						{
+							"SL.28.region_keys":
+							[
+							],
 							"SL.29.region_keys":
+							[
+							],
+							"SL.47.region_keys":
+							[
+							],
+							"SL.71.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax",
@@ -1767,32 +2364,38 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 135.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 14,
-					"file": "src/copper/Operator/BaseOperator.h",
+					"buffer": 25,
+					"file": "src/copper/Operator/OperatorBase.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 183,
+						"buffer_size": 328,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								158,
-								158
+								294,
+								294
 							]
 						],
 						"settings":
 						{
 							"SL.30.region_keys":
+							[
+							],
+							"SL.48.region_keys":
+							[
+							],
+							"SL.72.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
@@ -1801,29 +2404,32 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 29,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 15,
-					"file": "src/copper/Operator/OP_Network.h",
+					"buffer": 26,
+					"file": "src/copper/Operator/OpNetwork.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 514,
+						"buffer_size": 532,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								61,
-								69
+								403,
+								403
 							]
 						],
 						"settings":
 						{
 							"SL.31.region_keys":
+							[
+							],
+							"SL.73.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax",
@@ -1833,29 +2439,65 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 32,
+					"stack_index": 61,
 					"type": "text"
 				},
 				{
-					"buffer": 16,
-					"file": "src/copper/Operator/OP_NetworkBoxItem.cpp",
+					"buffer": 27,
+					"file": "src/copperpy/copperpy.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 291,
+						"buffer_size": 684,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								291,
-								291
+								511,
+								511
+							]
+						],
+						"settings":
+						{
+							"SL.232.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 62,
+					"type": "text"
+				},
+				{
+					"buffer": 28,
+					"file": "src/copper/Operator/NetworkBoxItem.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 257,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								226,
+								226
 							]
 						],
 						"settings":
 						{
 							"SL.32.region_keys":
+							[
+							],
+							"SL.74.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
@@ -1864,11 +2506,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 24,
+					"stack_index": 48,
 					"type": "text"
 				},
 				{
-					"buffer": 17,
+					"buffer": 29,
 					"file": "src/copper/Operator/OP_Node.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1889,36 +2531,7 @@
 							"SL.33.region_keys":
 							[
 							],
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 27,
-					"type": "text"
-				},
-				{
-					"buffer": 18,
-					"file": "src/copper/Operator/OP_Node.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 965,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								957,
-								957
-							]
-						],
-						"settings":
-						{
-							"SL.34.region_keys":
+							"SL.75.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax",
@@ -1928,12 +2541,47 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 28,
+					"stack_index": 51,
 					"type": "text"
 				},
 				{
-					"buffer": 19,
-					"file": "src/copper/Operator/BaseOperator.cpp",
+					"buffer": 30,
+					"file": "src/copper/Operator/OP_Node.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 938,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								189,
+								189
+							]
+						],
+						"settings":
+						{
+							"SL.34.region_keys":
+							[
+							],
+							"SL.76.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 50,
+					"type": "text"
+				},
+				{
+					"buffer": 31,
+					"file": "src/copper/Operator/OperatorBase.cpp",
 					"semi_transient": false,
 					"settings":
 					{
@@ -1944,8 +2592,8 @@
 						"selection":
 						[
 							[
-								62,
-								44
+								38,
+								38
 							]
 						],
 						"settings":
@@ -1953,35 +2601,10 @@
 							"SL.35.region_keys":
 							[
 							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 30,
-					"type": "text"
-				},
-				{
-					"buffer": 20,
-					"file": "src/copper/Operator/OP_Parameters.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 78,
-						"regions":
-						{
-						},
-						"selection":
-						[
+							"SL.54.region_keys":
 							[
-								25,
-								25
-							]
-						],
-						"settings":
-						{
-							"SL.36.region_keys":
+							],
+							"SL.77.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
@@ -1990,11 +2613,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 31,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 21,
+					"buffer": 32,
 					"file": "/Users/max/dev/sovoq/src/svq/gfx/renderable_2d.h",
 					"semi_transient": false,
 					"settings":
@@ -2023,11 +2646,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 48,
+					"stack_index": 82,
 					"type": "text"
 				},
 				{
-					"buffer": 22,
+					"buffer": 33,
 					"file": "/Users/max/dev/sovoq/src/svq/gfx/renderable_2d.cpp",
 					"semi_transient": false,
 					"settings":
@@ -2055,29 +2678,38 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 81,
 					"type": "text"
 				},
 				{
-					"buffer": 23,
+					"buffer": 34,
 					"file": "src/copper/Plugin/PluginApi.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 480,
+						"buffer_size": 524,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								345,
-								345
+								468,
+								495
 							]
 						],
 						"settings":
 						{
+							"SL.38.region_keys":
+							[
+							],
 							"SL.39.region_keys":
+							[
+							],
+							"SL.58.region_keys":
+							[
+							],
+							"SL.81.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
@@ -2086,11 +2718,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 34,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 24,
+					"buffer": 35,
 					"file": "src/copper/Util/UT_StringUtils.cpp",
 					"semi_transient": false,
 					"settings":
@@ -2111,6 +2743,9 @@
 							"SL.40.region_keys":
 							[
 							],
+							"SL.82.region_keys":
+							[
+							],
 							"syntax": "Packages/C++/C++.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
@@ -2118,122 +2753,201 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 54,
+					"stack_index": 46,
 					"type": "text"
 				},
 				{
-					"buffer": 25,
-					"file": "src/copper/Util/Vector2.h",
+					"buffer": 36,
+					"file": "/Users/max/dev/Copperfield_FX/copper/vmath/matrix4.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 438,
+						"buffer_size": 4764,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								414,
-								317
+								113,
+								155
 							]
 						],
 						"settings":
 						{
-							"SL.41.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 880.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 44,
+					"stack_index": 37,
 					"type": "text"
 				},
 				{
-					"buffer": 26,
-					"file": "src/copper/Util/Vector2.cpp",
+					"buffer": 37,
+					"file": "src/copper/Prims/Matrix.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 32,
+						"buffer_size": 2909,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								22,
-								22
-							]
-						],
-						"settings":
-						{
-							"SL.42.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 53,
-					"type": "text"
-				},
-				{
-					"buffer": 27,
-					"file": "src/copper/Util/Vector3.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 33,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								22,
-								22
-							]
-						],
-						"settings":
-						{
-							"SL.43.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 52,
-					"type": "text"
-				},
-				{
-					"buffer": 28,
-					"file": "src/copper/Util/Vector3.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 441,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								415,
-								415
+								2856,
+								2856
 							]
 						],
 						"settings":
 						{
 							"SL.44.region_keys":
+							[
+							],
+							"SL.61.region_keys":
+							[
+							],
+							"SL.86.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 903.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 33,
+					"type": "text"
+				},
+				{
+					"buffer": 38,
+					"file": "src/copper/Prims/Vector.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1779,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1637,
+								1637
+							]
+						],
+						"settings":
+						{
+							"SL.345.region_keys":
+							[
+							],
+							"SL.62.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 243.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 34,
+					"type": "text"
+				},
+				{
+					"buffer": 39,
+					"file": "src/copper/Util/Singleton.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 646,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								373,
+								373
+							]
+						],
+						"settings":
+						{
+							"SL.45.region_keys":
+							[
+							],
+							"SL.87.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 69,
+					"type": "text"
+				},
+				{
+					"buffer": 40,
+					"file": "src/copper/Prims/Prim.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 306,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								111,
+								111
+							]
+						],
+						"settings":
+						{
+							"SL.155.region_keys":
+							[
+							],
+							"SL.68.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 41,
+					"file": "src/copper/Prims/Vertex.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 230,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								116,
+								116
+							]
+						],
+						"settings":
+						{
+							"SL.156.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
@@ -2246,25 +2960,31 @@
 					"type": "text"
 				},
 				{
-					"buffer": 29,
-					"file": "src/copper/Util/Singleton.h",
+					"buffer": 42,
+					"file": "src/copperfx/copperfx.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 654,
+						"buffer_size": 3318,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								642,
-								642
+								1181,
+								1258
 							]
 						],
 						"settings":
 						{
-							"SL.45.region_keys":
+							"SL.106.region_keys":
+							[
+							],
+							"SL.63.region_keys":
+							[
+							],
+							"SL.68.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax",
@@ -2275,29 +2995,57 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 55,
+					"stack_index": 53,
 					"type": "text"
 				},
 				{
-					"buffer": 30,
-					"file": "src/copper_pymodule/COM/COM_Vector.h",
+					"buffer": 43,
+					"file": "src/copperfx/contrib/Ui/NodeFlowViewPanel/CMakeLists.txt",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 458,
+						"buffer_size": 817,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								229,
-								229
+								726,
+								740
 							]
 						],
 						"settings":
 						{
-							"SL.48.region_keys":
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 23,
+					"type": "text"
+				},
+				{
+					"buffer": 44,
+					"file": "src/copperfx/Ui/PanelBase.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 391,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								328,
+								328
+							]
+						],
+						"settings":
+						{
+							"SL.212.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
@@ -2306,29 +3054,29 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 51,
+					"stack_index": 60,
 					"type": "text"
 				},
 				{
-					"buffer": 31,
-					"file": "src/copperfx/GUI/GUI_Panel.h",
+					"buffer": 45,
+					"file": "src/copperfx/Ui/PanelBase.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 489,
+						"buffer_size": 278,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								139,
-								139
+								250,
+								250
 							]
 						],
 						"settings":
 						{
-							"SL.49.region_keys":
+							"SL.213.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
@@ -2337,29 +3085,133 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 40,
 					"type": "text"
 				},
 				{
-					"buffer": 32,
-					"file": "src/copper_pymodule/COM/COM_Geometry.h",
-					"semi_transient": true,
+					"buffer": 46,
+					"file": "/Users/max/dev/Copperfield_FX/gui/panels/scene_view_panel/camera.py",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 423,
+						"buffer_size": 6342,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2514,
+								3274
 							]
 						],
 						"settings":
 						{
-							"SL.50.region_keys":
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1218.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 36,
+					"type": "text"
+				},
+				{
+					"buffer": 47,
+					"file": "src/copper/Prims/Camera.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1124,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1006,
+								1006
+							]
+						],
+						"settings":
+						{
+							"SL.237.region_keys":
+							[
+							],
+							"SL.75.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 26,
+					"type": "text"
+				},
+				{
+					"buffer": 48,
+					"file": "src/copper/Prims/Constants.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 184,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								161,
+								161
+							]
+						],
+						"settings":
+						{
+							"SL.326.region_keys":
+							[
+							],
+							"SL.76.region_keys":
+							[
+							],
+							"auto_name": "#ifndef CONSTANTS_H",
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 31,
+					"type": "text"
+				},
+				{
+					"buffer": 49,
+					"file": "src/copper/Prims/Camera.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1036,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								435,
+								435
+							]
+						],
+						"settings":
+						{
+							"SL.262.region_keys":
+							[
+							],
+							"SL.77.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
@@ -2368,29 +3220,202 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 27,
 					"type": "text"
 				},
 				{
-					"buffer": 33,
-					"file": "src/copperfx/GUI/GUI_MainWindow.h",
+					"buffer": 50,
+					"file": "src/copper/Prims/Point.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1176,
+						"buffer_size": 1321,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								203,
-								203
+								1292,
+								1292
 							]
 						],
 						"settings":
 						{
-							"SL.51.region_keys":
+							"SL.278.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 38,
+					"type": "text"
+				},
+				{
+					"buffer": 51,
+					"file": "src/copperfx/contrib/Ui/SceneViewPanel/ViewportCamera.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3417,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1616,
+								1616
+							]
+						],
+						"settings":
+						{
+							"SL.274.region_keys":
+							[
+							],
+							"SL.79.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 453.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 29,
+					"type": "text"
+				},
+				{
+					"buffer": 52,
+					"file": "src/copperfx/contrib/Ui/SceneViewPanel/ViewportCamera.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1061,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1025,
+								1025
+							]
+						],
+						"settings":
+						{
+							"SL.275.region_keys":
+							[
+							],
+							"SL.80.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 30,
+					"type": "text"
+				},
+				{
+					"buffer": 53,
+					"file": "src/copperfx/contrib/Ui/SceneViewPanel/QGLViewportCamera.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 347,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								161,
+								161
+							]
+						],
+						"settings":
+						{
+							"SL.353.region_keys":
+							[
+							],
+							"SL.81.region_keys":
+							[
+							],
+							"auto_name": "#ifndef QGL_VIEWPORT_CAMERA",
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 32,
+					"type": "text"
+				},
+				{
+					"buffer": 54,
+					"file": "src/copperfx/contrib/Ui/SceneViewPanel/QGLViewportCamera.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 309,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								163,
+								163
+							]
+						],
+						"settings":
+						{
+							"SL.354.region_keys":
+							[
+							],
+							"SL.82.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 28,
+					"type": "text"
+				},
+				{
+					"buffer": 55,
+					"file": "src/copperfx/contrib/Ui/SceneViewPanel/SceneViewPanelGLWidget.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1476,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								99,
+								75
+							]
+						],
+						"settings":
+						{
+							"SL.258.region_keys":
+							[
+							],
+							"SL.83.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax",
@@ -2405,25 +3430,25 @@
 					"type": "text"
 				},
 				{
-					"buffer": 34,
-					"file": "src/copperfx/GUI/GUI_PanelRegistry.h",
+					"buffer": 56,
+					"file": "src/copperfx/contrib/Ui/NodeFlowViewPanel/NodeFlowView.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 583,
+						"buffer_size": 1265,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								305,
-								305
+								997,
+								997
 							]
 						],
 						"settings":
 						{
-							"SL.52.region_keys":
+							"SL.113.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
@@ -2436,59 +3461,99 @@
 					"type": "text"
 				},
 				{
-					"buffer": 35,
-					"file": "src/copperfx/GUI/GUI_SceneViewPanel.h",
+					"buffer": 57,
+					"file": "/Users/max/dev/Copperfield_FX/gui/panels/network_view_panel.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 760,
+						"buffer_size": 18023,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								567,
-								589
+								14953,
+								14994
 							]
 						],
 						"settings":
 						{
-							"SL.53.region_keys":
+							"SL.124.region_keys":
 							[
 							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.x": 2.0,
+						"translation.y": 5268.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 21,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 36,
-					"file": "src/copperfx/GUI/GUI_SceneViewPanel.cpp",
+					"buffer": 58,
+					"file": "src/copperfx/contrib/Ui/NodeFlowViewPanel/NodeFlowView.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 986,
+						"buffer_size": 5291,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								653,
-								653
+								3593,
+								3593
 							]
 						],
 						"settings":
 						{
-							"SL.54.region_keys":
+							"SL.242.region_keys":
 							[
 							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
+							"SL.84.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1479.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 59,
+					"file": "src/copperfx/contrib/Ui/SceneViewPanel/SceneViewPanelGLWidget.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6119,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								790,
+								790
+							]
+						],
+						"settings":
+						{
+							"SL.112.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -2498,58 +3563,57 @@
 					"type": "text"
 				},
 				{
-					"buffer": 37,
-					"file": "src/copperfx/GUI/GUI_MainWindow.cpp",
+					"buffer": 60,
+					"file": "src/copperfx/contrib/Ui/NodeFlowViewPanel/NodeFlowScene.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10340,
+						"buffer_size": 223,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								453,
-								453
+								219,
+								219
 							]
 						],
 						"settings":
 						{
-							"SL.55.region_keys":
+							"SL.106.region_keys":
 							[
 							],
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"auto_name": "#include <QtWidgets/QGraphicsView>",
+							"syntax": "Packages/C++/C++.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
-					"buffer": 38,
-					"file": "src/copperfx/GUI/GUI_Panel.cpp",
+					"buffer": 61,
+					"file": "src/copperfx/contrib/Ui/NodeFlowViewPanel/NodeItem.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 256,
+						"buffer_size": 612,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								256,
-								256
+								334,
+								334
 							]
 						],
 						"settings":
 						{
-							"SL.56.region_keys":
+							"SL.114.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
@@ -2562,306 +3626,25 @@
 					"type": "text"
 				},
 				{
-					"buffer": 39,
-					"file": "src/copperfx/GUI/GUI_PanelManager.h",
+					"buffer": 62,
+					"file": "src/copperfx/contrib/Ui/NodeFlowViewPanel/NodeItem.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 459,
+						"buffer_size": 1045,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								152,
-								152
+								899,
+								899
 							]
 						],
 						"settings":
 						{
-							"SL.57.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 40,
-					"file": "src/copperfx/GUI/GUI_PanelManager.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 574,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								574,
-								574
-							]
-						],
-						"settings":
-						{
-							"SL.58.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 41,
-					"file": "src/copperfx/GUI/GUI_PanelRegistry.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 611,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								207,
-								207
-							]
-						],
-						"settings":
-						{
-							"SL.59.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 17,
-					"type": "text"
-				},
-				{
-					"buffer": 42,
-					"file": "src/copper/OpData/GeometryOpData.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 406,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								223,
-								354
-							]
-						],
-						"settings":
-						{
-							"SL.60.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 43,
-					"file": "src/copper/OpData/BaseOpData.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 444,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								151,
-								151
-							]
-						],
-						"settings":
-						{
-							"SL.61.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 37,
-					"type": "text"
-				},
-				{
-					"buffer": 44,
-					"file": "src/copper/CMakeLists.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 727,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								327,
-								333
-							]
-						],
-						"settings":
-						{
-							"SL.62.region_keys":
-							[
-							],
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 45,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1025,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								281,
-								338
-							]
-						],
-						"settings":
-						{
-							"SL.92.region_keys":
-							[
-							],
-							"auto_indent": false,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_width": 2,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 46,
-					"file": "src/copper/GEO/Prim.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 304,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								304,
-								304
-							]
-						],
-						"settings":
-						{
-							"SL.63.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 42,
-					"type": "text"
-				},
-				{
-					"buffer": 47,
-					"file": "src/copper/OpData/GeometryOpData.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 280,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								247,
-								247
-							]
-						],
-						"settings":
-						{
-							"SL.64.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 33,
-					"type": "text"
-				},
-				{
-					"buffer": 48,
-					"file": "src/copperfx/copperfx.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3238,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								402,
-								402
-							]
-						],
-						"settings":
-						{
-							"SL.68.region_keys":
+							"SL.125.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax",
@@ -2876,28 +3659,314 @@
 					"type": "text"
 				},
 				{
-					"buffer": 49,
-					"file": "src/copperfx/CMakeLists.txt",
+					"buffer": 63,
+					"file": "src/copperfx/contrib/Ui/NodeFlowViewPanel/NodeFlowScene.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2063,
+						"buffer_size": 368,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								49,
-								49
+								311,
+								325
 							]
 						],
 						"settings":
 						{
-							"SL.70.region_keys":
+							"SL.127.region_keys":
 							[
 							],
-							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 64,
+					"file": "src/copperfx/contrib/Ui/NodeFlowViewPanel/NodeFlowViewPanel.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 632,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								133,
+								100
+							]
+						],
+						"settings":
+						{
+							"SL.108.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 65,
+					"file": "src/copperfx/Ui/PanelManager.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 636,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								600,
+								600
+							]
+						],
+						"settings":
+						{
+							"SL.220.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 64,
+					"type": "text"
+				},
+				{
+					"buffer": 66,
+					"file": "src/copper/OpData/GeometryOpData.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 915,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								62,
+								62
+							]
+						],
+						"settings":
+						{
+							"SL.228.region_keys":
+							[
+							],
+							"SL.87.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 67,
+					"file": "src/copperfx/panels/CMakeLists.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 142,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								103,
+								103
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 68,
+					"file": "src/copper/OpData/GeometryOpData.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 865,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								269,
+								269
+							]
+						],
+						"settings":
+						{
+							"SL.231.region_keys":
+							[
+							],
+							"SL.88.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 69,
+					"file": "src/copperfx/Ui/PanelManager.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 647,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								612,
+								612
+							]
+						],
+						"settings":
+						{
+							"SL.221.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 59,
+					"type": "text"
+				},
+				{
+					"buffer": 70,
+					"file": "src/copperfx/Ui/MainWindow.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1356,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1246,
+								1246
+							]
+						],
+						"settings":
+						{
+							"SL.222.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 54,
+					"type": "text"
+				},
+				{
+					"buffer": 71,
+					"file": "src/copperfx/Ui/MainWindow.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10053,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1005,
+								1005
+							]
+						],
+						"settings":
+						{
+							"SL.223.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 55,
+					"type": "text"
+				},
+				{
+					"buffer": 72,
+					"file": "src/copperfx/Ui/LogWindow.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 950,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								926,
+								926
+							]
+						],
+						"settings":
+						{
+							"SL.224.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -2905,11 +3974,265 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 35,
+					"stack_index": 68,
 					"type": "text"
 				},
 				{
-					"buffer": 50,
+					"buffer": 73,
+					"file": "src/copperfx/Ui/LogWindow.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 645,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								645,
+								645
+							]
+						],
+						"settings":
+						{
+							"SL.225.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 67,
+					"type": "text"
+				},
+				{
+					"buffer": 74,
+					"file": "src/copperfx/Ui/Application.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 240,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								203,
+								203
+							]
+						],
+						"settings":
+						{
+							"SL.216.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 65,
+					"type": "text"
+				},
+				{
+					"buffer": 75,
+					"file": "src/copperfx/Ui/Application.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 608,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								186,
+								186
+							]
+						],
+						"settings":
+						{
+							"SL.230.region_keys":
+							[
+							],
+							"SL.95.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 24,
+					"type": "text"
+				},
+				{
+					"buffer": 76,
+					"file": "src/copperfx/CMakeLists.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2364,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2054,
+								2054
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 684.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 22,
+					"type": "text"
+				},
+				{
+					"buffer": 77,
+					"file": "src/copperfx/contrib/Ui/NodeFlowViewPanel/NodeFlowViewPanel.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1281,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								534,
+								534
+							]
+						],
+						"settings":
+						{
+							"SL.240.region_keys":
+							[
+							],
+							"SL.96.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 78,
+					"file": "src/copperfx/Ui/Workspace.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 857,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								733,
+								733
+							]
+						],
+						"settings":
+						{
+							"SL.217.region_keys":
+							[
+							],
+							"SL.97.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 21,
+					"type": "text"
+				},
+				{
+					"buffer": 79,
+					"file": "third_party/QDarkStyleSheet/qdarkstyle/style.qrc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1741,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1658,
+								1733
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 79,
+					"type": "text"
+				},
+				{
+					"buffer": 80,
+					"file": "src/copperfx/resources.qrc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 875,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								603,
+								603
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 66,
+					"type": "text"
+				},
+				{
+					"buffer": 81,
 					"file": "src/copperfx/Plugin/PanelApi.h",
 					"semi_transient": false,
 					"settings":
@@ -2927,6 +4250,9 @@
 						],
 						"settings":
 						{
+							"SL.108.region_keys":
+							[
+							],
 							"SL.71.region_keys":
 							[
 							],
@@ -2936,93 +4262,37 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 50,
+					"stack_index": 52,
 					"type": "text"
 				},
 				{
-					"buffer": 51,
-					"file": "include/copper/MT/MT_MetaData.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 503,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								91,
-								91
-							]
-						],
-						"settings":
-						{
-							"SL.72.region_keys":
-							[
-							],
-							"auto_name": "#ifndef MT_METADATA_H",
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 58,
-					"type": "text"
-				},
-				{
-					"buffer": 52,
-					"file": "include/copper/MT/MT_MetaCreator.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 539,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								52,
-								52
-							]
-						],
-						"settings":
-						{
-							"SL.73.region_keys":
-							[
-							],
-							"auto_name": "#ifndef MT_METACREATOR_H",
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 57,
-					"type": "text"
-				},
-				{
-					"buffer": 53,
+					"buffer": 82,
 					"file": "src/copper/Engine.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1280,
+						"buffer_size": 1663,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1280,
-								1280
+								1301,
+								1301
 							]
 						],
 						"settings":
 						{
+							"SL.101.region_keys":
+							[
+							],
+							"SL.111.region_keys":
+							[
+							],
+							"SL.68.region_keys":
+							[
+							],
 							"SL.74.region_keys":
 							[
 							],
@@ -3034,28 +4304,37 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 25,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 54,
+					"buffer": 83,
 					"file": "src/copper/Engine.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 825,
+						"buffer_size": 1121,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								825,
-								825
+								54,
+								35
 							]
 						],
 						"settings":
 						{
+							"SL.102.region_keys":
+							[
+							],
+							"SL.112.region_keys":
+							[
+							],
+							"SL.69.region_keys":
+							[
+							],
 							"SL.75.region_keys":
 							[
 							],
@@ -3066,198 +4345,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 26,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 55,
-					"file": "src/copper/GEO/GEO_Geometry.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 898,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								633,
-								633
-							]
-						],
-						"settings":
-						{
-							"SL.76.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 56,
-					"file": "src/copper/GEO/Point3.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 31,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								27,
-								27
-							]
-						],
-						"settings":
-						{
-							"SL.77.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 46,
-					"type": "text"
-				},
-				{
-					"buffer": 57,
-					"file": "src/copper/GEO/Prim.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 223,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								147,
-								147
-							]
-						],
-						"settings":
-						{
-							"SL.79.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 40,
-					"type": "text"
-				},
-				{
-					"buffer": 58,
-					"file": "src/copper/GEO/Vertex.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 97,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								89,
-								89
-							]
-						],
-						"settings":
-						{
-							"SL.80.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 38,
-					"type": "text"
-				},
-				{
-					"buffer": 59,
-					"file": "src/copper/UT/Vector2.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 33,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								17,
-								17
-							]
-						],
-						"settings":
-						{
-							"SL.84.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 61,
-					"type": "text"
-				},
-				{
-					"buffer": 60,
-					"file": "src/copper/UT/Vector3.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 34,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								17,
-								17
-							]
-						],
-						"settings":
-						{
-							"SL.85.region_keys":
-							[
-							],
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 60,
-					"type": "text"
-				},
-				{
-					"buffer": 61,
+					"buffer": 84,
 					"file": "/Users/max/dev/mini-cmake-qt/src/main.cc",
 					"semi_transient": false,
 					"settings":
@@ -3275,6 +4367,9 @@
 						],
 						"settings":
 						{
+							"SL.119.region_keys":
+							[
+							],
 							"SL.86.region_keys":
 							[
 							],
@@ -3286,132 +4381,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 62,
-					"type": "text"
-				},
-				{
-					"buffer": 62,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4187,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										153,
-										156
-									],
-									[
-										273,
-										276
-									],
-									[
-										497,
-										500
-									],
-									[
-										737,
-										740
-									],
-									[
-										961,
-										964
-									],
-									[
-										1171,
-										1174
-									],
-									[
-										1396,
-										1399
-									],
-									[
-										1710,
-										1713
-									],
-									[
-										1939,
-										1942
-									],
-									[
-										2208,
-										2211
-									],
-									[
-										2449,
-										2452
-									],
-									[
-										2730,
-										2733
-									],
-									[
-										2881,
-										2884
-									],
-									[
-										2941,
-										2944
-									],
-									[
-										3252,
-										3255
-									],
-									[
-										3308,
-										3311
-									],
-									[
-										3502,
-										3505
-									],
-									[
-										3715,
-										3718
-									],
-									[
-										3921,
-										3924
-									],
-									[
-										4078,
-										4081
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								4131,
-								4131
-							]
-						],
-						"settings":
-						{
-							"SL.87.region_keys":
-							[
-							],
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 2,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1809.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 49,
+					"stack_index": 45,
 					"type": "text"
 				}
 			]
@@ -3502,7 +4472,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 281.0,
+	"side_bar_width": 315.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -3,8 +3,5 @@
 
 namespace copper {
 
-OperatorBase::OperatorBase() {
-
-}
 
 }

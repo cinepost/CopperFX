@@ -6,7 +6,7 @@
 namespace copper { namespace ui {
 
 Workspace::Workspace(QWidget *parent) {
-  setObjectName("Workspace");
+  setObjectName("workspace");
 
   // test workspace setup
   // TODO: load workspace layout from file
@@ -16,19 +16,24 @@ Workspace::Workspace(QWidget *parent) {
 	//splitter1->addWidget(new QLabel("I am widget A"));
 
   PanelManager *panel_manager1 = new PanelManager();
+  PanelManager *panel_manager2 = new PanelManager();
 
 	splitter1->addWidget(panel_manager1);
-	splitter1->addWidget(new QLabel("I am widget B"));
+  splitter1->addWidget(panel_manager2);
 
-	QHBoxLayout *hBoxLayout = new QHBoxLayout();
+	QLayout *layout = new QHBoxLayout();
 
-	hBoxLayout->addWidget(splitter1);
+	layout->addWidget(splitter1);
+  layout->setContentsMargins(0, 0, 0, 0);
+  layout->setSpacing(0);
 
-  setLayout(hBoxLayout);
+  setLayout(layout);
 
   // add test panels
   panel_manager1->addPanelByTypeName("scene_view");
   panel_manager1->addPanelByTypeName("node_flow_view");
+
+  panel_manager2->addPanelByTypeName("node_flow_view");
 }
 
 Workspace::~Workspace() {

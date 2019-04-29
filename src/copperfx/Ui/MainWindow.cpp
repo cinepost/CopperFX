@@ -7,7 +7,6 @@
 namespace copper { namespace ui {
 
 MainWindow::MainWindow(QWidget *parent) {
-    
     // register workspaces
     _workspaces.push_back(new Workspace);
 
@@ -167,6 +166,11 @@ void MainWindow::createActions() {
     connect(pasteAct, &QAction::triggered, textEdit, &QPlainTextEdit::paste);
     editMenu->addAction(pasteAct);
     editToolBar->addAction(pasteAct);
+
+    menuBar()->addSeparator();
+
+    QMenu *windowMenu = menuBar()->addMenu(tr("&Window"));
+    QMenu *workspaceMenu = windowMenu->addMenu(tr("&Workspace"));
 
     menuBar()->addSeparator();
 

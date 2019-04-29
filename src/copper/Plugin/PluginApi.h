@@ -6,6 +6,8 @@
 
 namespace copper {
 
+#define BASE_API
+
 class BOOST_SYMBOL_VISIBLE BaseAPI {
   public:
   	virtual const std::string name() const = 0; // plugin instance name used for display purposes

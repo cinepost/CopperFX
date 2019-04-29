@@ -3,6 +3,8 @@
 #include "copper/OpData/ImageOpData.h"
 #include "copper/OpData/GeometryOpData.h"
 
+#include "copper/operators/BoxGeometryOp/BoxGeometryOp.h"
+
 namespace copper {
 
 Engine::Engine() {
@@ -40,9 +42,21 @@ Engine::Engine() {
 }
 
 void Engine::init() {
-    // Init internally defined opdata and operators
+    // Register internally defined opdata
     _opdata_factory.registerType( GeometryOpData::myTypeName, GeometryOpData::myConstructor );
     _opdata_factory.registerType( ImageOpData::myTypeName, ImageOpData::myConstructor );
+
+    // Register internally defined operators
+    _op_factory.registerType( BoxGeometryOp::myTypeName, BoxGeometryOp::myConstructor );
+    
+}
+
+OpDataFactory *Engine::dataFactory(){ 
+    return &_opdata_factory;
+}
+
+OpFactory *Engine::opFactory(){
+    return &_op_factory;
 }
 
 OP_Node *Engine::node(std::string node_path) {

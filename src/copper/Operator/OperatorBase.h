@@ -1,17 +1,20 @@
-#ifndef BASE_OPERATOR_H
-#define BASE_OPERATOR_H
+#ifndef OPERATOR_BASE_H
+#define OPERATOR_BASE_H
 
 #include <string>
 #include <map>
 
+#include "copper/Plugin/PluginApi.h"
+#include "copper/OpData/OpDataBase.h"
+
 
 namespace copper {
 
-class OperatorBase {
+class OperatorBase: public BaseAPI {
 	public:
-		OperatorBase();
+		virtual bool cookData(OpDataBase &out_data) = 0;
 };
 
 }
 
-#endif // BASE_OPERATOR_H
+#endif // OPERATOR_BASE_H

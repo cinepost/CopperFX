@@ -19,7 +19,7 @@
 namespace copper {
 
 typedef ObjectFactory<OpDataBase> OpDataFactory;
-typedef ObjectFactory<OperatorBase> OperatorFactory;
+typedef ObjectFactory<OperatorBase> OpFactory;
 
 // Engine class is a singleton, but we might need more than one engine so 
 // things may change in the future...
@@ -41,6 +41,9 @@ class Engine: public Singleton<Engine> {
 		float fps();
 		void setFps(float fps);
 
+		OpDataFactory *dataFactory();
+		OpFactory *opFactory();
+
 	private:
 		OP_Node *_root_node;
 		std::map<std::string, OP_Node *> _nodes_map;
@@ -50,7 +53,7 @@ class Engine: public Singleton<Engine> {
 
 		// Factories 
 		OpDataFactory _opdata_factory;
-		OperatorFactory _operator_factory;
+		OpFactory _op_factory;
 
 };
 

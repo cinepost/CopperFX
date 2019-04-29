@@ -20,7 +20,10 @@ NodeFlowViewPanel::NodeFlowViewPanel() {
   _node_flow_view_widget->setScene(new NodeFlowScene()); // test scene
   _node_flow_view_widget->scene()->createTestNode(); // test item
 
-	QVBoxLayout *layout = new QVBoxLayout;
+	QLayout *layout = new QVBoxLayout;
+  layout->setContentsMargins(0, 0, 0, 0);
+  layout->setSpacing(0);
+
   layout->addWidget(_node_flow_view_widget);
   setLayout(layout);
   BOOST_LOG_TRIVIAL(debug) << "Node Flow View panel constructed!";

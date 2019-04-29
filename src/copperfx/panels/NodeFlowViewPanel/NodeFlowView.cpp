@@ -15,6 +15,7 @@
 #include <QOpenGLWidget>
 #include <QGraphicsItem>
 
+#include "copper/Engine.h"
 #include "NodeFlowView.h"
 
 
@@ -122,13 +123,11 @@ void NodeFlowView::contextMenuEvent(QContextMenuEvent *event) {
 
     QAction *op_action;
 
-    op_action = op_menu->addAction("Box");
-    op_action->setActionGroup(op_group);
-    op_action->setData("box");
-
-    op_action = op_menu->addAction("Font");
-    op_action->setActionGroup(op_group);
-    op_action->setData("font");
+    for (auto & element : Engine::getInstance().opFactory()->registeredTypeNames()) {
+      op_action = op_menu->addAction(element.c_str());
+      op_action->setActionGroup(op_group);
+      op_action->setData(element.c_str());
+    }
 
     //op_group->triggered->connect(_scene.createTestNode)
 
@@ -164,19 +163,21 @@ void NodeFlowView::wheelEvent(QWheelEvent *event) {
 
   QPointF old_pos = mapToScene(event->pos());
 
-  if (event->angleDelta().y() > 0) {
-    zoom_factor = zoom_in_factor;
-  } else {
-    zoom_factor = zoom_out_factor;
+  float angle_delta = event->angleDelta().y();
+  if (std::abs(angle_delta) > 0.1 ) { // using 0.1 threshold to make wheel smoother
+    if (angle_delta > 0) {
+      zoom_factor = zoom_in_factor;
+    } else {
+      zoom_factor = zoom_out_factor;
+    }
+
+    zoom(zoom_factor);
+
+    QPointF new_pos = mapToScene(event->pos());
+
+    QPointF delta = new_pos - old_pos;
+    this->translate(delta.x(), delta.y());
   }
-
-  zoom(zoom_factor);
-
-  QPointF new_pos = mapToScene(event->pos());
-
-  QPointF delta = new_pos - old_pos;
-  translate(delta.x(), delta.y());
-
 }
 
 void NodeFlowView::zoom(double zoom_factor) {

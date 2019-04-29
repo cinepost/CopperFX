@@ -1,6 +1,10 @@
 #include <iostream>
 #include <cmath>
 
+#include <boost/log/core.hpp>
+#include <boost/log/trivial.hpp>
+#include <boost/log/expressions.hpp>
+
 #include "SceneViewPanelGLWidget.h"
 
 
@@ -13,6 +17,7 @@ SceneViewPanelGLWidget::SceneViewPanelGLWidget(QWidget *parent)
 {
     active_camera = new QGLViewportCamera();
     memset(textures, 0, sizeof(textures));
+    BOOST_LOG_TRIVIAL(debug) << "SceneViewPanelGLWidget constructed!";
 }
 
 SceneViewPanelGLWidget::~SceneViewPanelGLWidget() {
@@ -23,6 +28,7 @@ SceneViewPanelGLWidget::~SceneViewPanelGLWidget() {
         delete textures[i];
     delete program;
     doneCurrent();
+    BOOST_LOG_TRIVIAL(debug) << "SceneViewPanelGLWidget constructed!";
 }
 
 QSize SceneViewPanelGLWidget::minimumSizeHint() const {
@@ -39,10 +45,11 @@ void SceneViewPanelGLWidget::setClearColor(const QColor &color) {
 }
 
 void SceneViewPanelGLWidget::initializeGL() {
+  std::cout << "1";
   QOpenGLFunctions::initializeOpenGLFunctions();
-
+  std::cout << "2";
   makeTestObject();
-
+  std::cout << "3";
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_CULL_FACE);
 
@@ -83,7 +90,7 @@ void SceneViewPanelGLWidget::initializeGL() {
     program->setUniformValue("texture", 0);
 
     m_view.setToIdentity();
-
+    std::cout << "N";
     assert (glGetError() == GL_NO_ERROR);
 }
 

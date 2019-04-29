@@ -17,7 +17,11 @@ add_definitions(-DBOOST_LOG_DYN_LINK)
 
 add_library( copper_lib SHARED ${SOURCES} ${HEADERS} )
 
-target_link_libraries( copper_lib ${OpenCL_LIBRARY} dl Boost::log)
+target_link_libraries( 
+	copper_lib 
+	box_geo_op
+	${OpenCL_LIBRARY} dl Boost::log
+)
 
 if(APPLE)
 	if( COPPER_BUILD_LIBS_AS_FRAMEWORKS )
@@ -33,3 +37,6 @@ if(APPLE)
 elseif(UNIX)
 	install( TARGETS copper_lib DESTINATION "lib" )
 endif()
+
+# copper built ins
+add_subdirectory( operators )

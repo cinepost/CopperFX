@@ -105,5 +105,5 @@ elseif(UNIX)
   install( TARGETS copperfx DESTINATION ${CMAKE_INSTALL_PREFIX}/bin )
 endif()
 
-# copperfx contrib modules
-add_subdirectory( contrib ) # main copper library
+# copperfx built ins
+add_subdirectory( panels )

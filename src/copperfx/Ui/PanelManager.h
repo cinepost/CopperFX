@@ -8,6 +8,7 @@
 #include <QFrame>
 #include <QTabWidget>
 
+#include "copperfx/Ui/TabView.h"
 #include "copperfx/Ui/PanelBase.h"
 
 
@@ -15,7 +16,7 @@ namespace copper { namespace ui {
 
 typedef ObjectFactory<PanelBase> UiPanelFactory;
 
-class PanelManager : public QTabWidget {
+class PanelManager : public TabView {
   Q_OBJECT
 
 	public:
@@ -26,6 +27,8 @@ class PanelManager : public QTabWidget {
     void addPanelByTypeName(std::string panel_type_name);
 
 	private:
+		QWidget *_corner_widget;
+
     static UiPanelFactory _panel_factory;
 
     friend class Application;

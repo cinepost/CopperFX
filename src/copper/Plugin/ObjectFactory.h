@@ -41,6 +41,8 @@ class ObjectFactory {
     void registerType(objectTypeName typeNameCallable, objectConstructor constructor);
     void registerType(std::string type_name, objectConstructor constructor);
 
+    std::vector<std::string> registeredTypeNames();
+
     void printRegisteredTypes(); // mostly for debugging purposes
 
   private:
@@ -49,9 +51,18 @@ class ObjectFactory {
 };
 
 template <class T>
+std::vector<std::string> ObjectFactory<T>::registeredTypeNames() {
+  std::vector<std::string> type_names;
+  for (std::pair<std::string, objectConstructor> element : _constructors_by_type_name) {
+    type_names.push_back(element.first);
+  }
+  return type_names;
+}
+
+template <class T>
 void ObjectFactory<T>::printRegisteredTypes() {
   std::cout << "ObjectFactory begin ---------\n";
-  for (std::pair<std::string, objectConstructor> element : _constructors_by_type_name) {
+  for (auto & element : registeredTypeNames()) {
     std::cout << element.first << ", ";
   }
   std::cout << "\nObjectFactory end -----------\n";

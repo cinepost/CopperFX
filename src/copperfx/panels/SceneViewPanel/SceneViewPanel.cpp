@@ -15,16 +15,19 @@ namespace copper { namespace ui {
 
 SceneViewPanel::SceneViewPanel() {
 	_gl_widget = new SceneViewPanelGLWidget();
-	QVBoxLayout *layout = new QVBoxLayout;
+	QLayout *layout = new QVBoxLayout;
+  layout->setContentsMargins(0, 0, 0, 0);
+  layout->setSpacing(0);
+
   layout->addWidget(_gl_widget);
   setLayout(layout);
-  BOOST_LOG_TRIVIAL(debug) << "Scene View panel constructed!";
+  BOOST_LOG_TRIVIAL(debug) << "SceneViewPanel constructed!";
 }
 
 
 SceneViewPanel::~SceneViewPanel() {
 	delete _gl_widget;
-  BOOST_LOG_TRIVIAL(debug) << "Scene View panel destructed!";
+  BOOST_LOG_TRIVIAL(debug) << "SceneViewPanel destructed!";
 }
 
 const std::string SceneViewPanel::name() const{
