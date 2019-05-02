@@ -7,7 +7,7 @@ namespace hou_module {
 //Node *(Node::*createNode)(std::string) = &Node::createNode;
 //Node *(Node::*createNamedNode)(std::string, std::string) = &Node::createNode;
 
-HOU_Node::HOU_Node(OP_Node *node) {
+HOU_Node::HOU_Node(OpNode *node) {
 	this->_node = node;
 }
 

@@ -4,7 +4,6 @@
 #include <QWidget>
 
 #include "copper/Plugin/PluginApi.h"
-#include "copper/Plugin/ObjectFactory.h"
 
 #include "copperfx/Ui/PanelBase.h"
 

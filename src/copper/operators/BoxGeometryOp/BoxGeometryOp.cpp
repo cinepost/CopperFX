@@ -6,8 +6,11 @@
 #include <iostream>
 #include <sstream>
 
-#include "BoxGeometryOp.h"
 #include "copper/OpData/GeometryOpData.h"
+#include "copper/Operator/OpDataSocket.h"
+#include "copper/Operator/OpCreator.h"
+
+#include "BoxGeometryOp.h"
 
 namespace copper {
 
@@ -32,18 +35,29 @@ const unsigned int BoxGeometryOp::version() const{
 	return 0;
 }
 
-bool BoxGeometryOp::cookData(OpDataBase &out_data) {
-  out_data = GeometryOpData();
+bool BoxGeometryOp::cookData(uint output_index, OpDataBase &out_data) {
+  //out_data = GeometryOpData();
   return true;
 }
 
 // factory methods
-std::string BoxGeometryOp::myTypeName() {
-  return "box";
+OpBase *BoxGeometryOp::myConstructor() {
+	return new BoxGeometryOp();
 }
 
-OperatorBase *BoxGeometryOp::myConstructor() {
-	return new BoxGeometryOp();
+void BoxGeometryOp::registerOperator(OpFactory *op_factory) {
+  std::vector<OpDataSocket> input_sockets;    /// operator inputs
+  std::vector<OpDataSocket> outputs_sockets;  /// operator outputs
+
+  op_factory->registerOperator( new OpCreator(
+    0,                            // version
+    "box",                        /// internal operator name
+    "Box",                        /// name used in ui
+    BoxGeometryOp::myConstructor, /// op constructor
+    input_sockets,
+    outputs_sockets,
+    OpCreator::Flags::OP_FLAG_GENERATOR
+  ));
 }
 
 }

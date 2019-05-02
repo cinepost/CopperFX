@@ -10,14 +10,11 @@ namespace copper {
 Engine::Engine() {
     BOOST_LOG_TRIVIAL(debug) << "Initializing CopperFX engine...";
 
-    // Create root node
-    _root_node = new OP_Node();
-    _root_node->setName("/");
-    _nodes_map["/"] = _root_node;
-
+    // Create root node network
+    _root = new OpNetwork(nullptr, "/");
 
     // Set animation defaults
-    _fps = 24.0;
+    _fps = 25.0;
     _time = 0.0;
     _frame = 1.0;
 
@@ -47,8 +44,7 @@ void Engine::init() {
     _opdata_factory.registerType( ImageOpData::myTypeName, ImageOpData::myConstructor );
 
     // Register internally defined operators
-    _op_factory.registerType( BoxGeometryOp::myTypeName, BoxGeometryOp::myConstructor );
-    
+    BoxGeometryOp::registerOperator(&_op_factory);    
 }
 
 OpDataFactory *Engine::dataFactory(){ 
@@ -59,8 +55,8 @@ OpFactory *Engine::opFactory(){
     return &_op_factory;
 }
 
-OP_Node *Engine::node(std::string node_path) {
-	return _root_node->node(node_path);
+OpNode *Engine::node(std::string node_path) {
+	return _root->node(node_path);
 }
 
 float Engine::time() { return _time; }

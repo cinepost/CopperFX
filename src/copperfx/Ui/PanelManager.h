@@ -8,13 +8,15 @@
 #include <QFrame>
 #include <QTabWidget>
 
+#include "copper/Plugin/AbstractFactory.h"
+
 #include "copperfx/Ui/TabView.h"
 #include "copperfx/Ui/PanelBase.h"
 
 
 namespace copper { namespace ui {
 
-typedef ObjectFactory<PanelBase> UiPanelFactory;
+typedef AbstractFactory<PanelBase> UiPanelFactory;
 
 class PanelManager : public TabView {
   Q_OBJECT

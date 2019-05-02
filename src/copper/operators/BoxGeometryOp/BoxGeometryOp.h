@@ -6,12 +6,12 @@
 #include <iostream>
 #include <fstream>
 
-#include "copper/Operator/OperatorBase.h"
-
+#include "copper/Operator/OpBase.h"
+#include "copper/Operator/OpFactory.h"
 
 namespace copper {
 
-class BoxGeometryOp : public OperatorBase {
+class BoxGeometryOp : public OpBase {
   public:
     BoxGeometryOp();
     ~BoxGeometryOp();
@@ -21,12 +21,12 @@ class BoxGeometryOp : public OperatorBase {
     const std::string typeName() const;
     const unsigned int version() const;
 
-    bool cookData(OpDataBase &out_data);
+    bool cookData(uint output_index, OpDataBase &out_data);
 
   public:
-    // factory methods
-    static std::string myTypeName();
-    static OperatorBase *myConstructor();
+    // factory method
+    static void registerOperator(OpFactory *op_factory);
+    static OpBase *myConstructor();
 };
 
 }

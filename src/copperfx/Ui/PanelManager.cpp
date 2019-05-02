@@ -2,6 +2,7 @@
 #include <QTabWidget>
 #include <QPushButton>
 #include <QHBoxLayout>
+#include <QSizePolicy>
 
 #include "copperfx/Ui/PanelManager.h"
 
@@ -19,6 +20,7 @@ PanelManager::PanelManager(QWidget *parent) : TabView (parent) {
   setMovable(true);
 
   _corner_widget = new QWidget(this);
+  _corner_widget->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Ignored);
 
   QHBoxLayout *corner_widget_layout = new QHBoxLayout();
   corner_widget_layout->setSpacing(0);
@@ -27,10 +29,19 @@ PanelManager::PanelManager(QWidget *parent) : TabView (parent) {
   _corner_widget->setLayout(corner_widget_layout);
 
   QPushButton *plus_button = new QPushButton();
-  plus_button->setIcon(QIcon::fromTheme("add", QIcon(":/icons/pane-plus")));
+  plus_button->setIcon(QIcon::fromTheme("tab-new", QIcon(":/icons/pane-plus")));
+
+  QPushButton *max_button = new QPushButton();
+  max_button->setIcon(QIcon::fromTheme("view-fullscreen", QIcon(":/icons/pane-maximize")));
+
+  QPushButton *menu_button = new QPushButton();
+  menu_button->setIcon(QIcon::fromTheme("go-down", QIcon(":/icons/panes-menu")));
 
 
   corner_widget_layout->addWidget(plus_button);
+  corner_widget_layout->addStretch();
+  corner_widget_layout->addWidget(max_button);
+  corner_widget_layout->addWidget(menu_button);
 
   setCornerWidget(_corner_widget);
 }

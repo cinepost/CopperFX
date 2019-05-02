@@ -1,25 +1,29 @@
 #ifndef OP_NETWORK_H
 #define OP_NETWORK_H
 
-#include "Operator/OP_Node.h"
-
 #include <string>
 #include <map>
 
-class OpNetwork {//: public OP_Node {
+#include "copper/Engine.h"
+#include "copper/Operator/OpNode.h"
+#include "copper/Operator/OpCreator.h"
+
+
+namespace copper {
+
+class OpNetwork: public OpNode {
+	friend class OP_Engine;
+
 	public:
-		BaseOperator 	*addOp(const char *type, const char *name = 0);
+		OpNetwork(OpNetwork *parent, std::string name, OpCreator *op = nullptr);
 
-	protected:
-		// Protected constructor since networks are only created by Operators.
-		OpNetwork(OP_Network *parent = nullptr, const char *name, OP_Operator *op);
-		virtual ~OpNetwork();
-
+		OpNode 		*createNode(std::string op_type_name);
+		OpNode 		*createNode(std::string op_type_name, std::string node_name);
 
 	private:
-		OP_Node *_parent;
-		std::string	_name;
-		std::map<std::string, OP_Node *> _children;
+		std::map<std::string, OpNode *> _children;
 };
+
+}
 
 #endif // OP_NETWORK_H

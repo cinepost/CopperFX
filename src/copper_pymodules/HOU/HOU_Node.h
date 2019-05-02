@@ -7,20 +7,20 @@
 
 #include <vector>
 
-#include "copper/Operator/OP_Node.h"
+#include "copper/Operator/OpNode.h"
 
 
 using namespace copper;
 namespace hou_module {
 
-class HOU_Node: public OP_Node {
+class HOU_Node {
 	public:
-		HOU_Node(OP_Node *node);
+		HOU_Node(OpNode *node);
 		boost::shared_ptr<HOU_Node> createNode(std::string type_name);
 		boost::shared_ptr<HOU_Node> createNamedNode(std::string type_name, std::string name);
 		boost::shared_ptr<HOU_Node> node(std::string path);
 	private:
-		OP_Node *_node;
+		OpNode *_node;
 };
 
 void export_Node();

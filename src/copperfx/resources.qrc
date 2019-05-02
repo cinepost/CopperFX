@@ -10,6 +10,8 @@
 		<file alias="cut">resources/images/scalable/edit-cut.svg</file>
 
 		<file alias="pane-plus">resources/images/scalable/pane-plus.svg</file>
+		<file alias="pane-maximize">resources/images/scalable/pane-maximize.svg</file>
+		<file alias="panes-menu">resources/images/scalable/pane-arrow.svg</file>
 	</qresource>
 	<qresource prefix="/textures">
 		<file alias="texture_1.png">resources/images/textures/texture_1.png</file>
