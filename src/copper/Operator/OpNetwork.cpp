@@ -24,10 +24,6 @@ OpNode *OpNetwork::createNode( const std::string &node_type_name, const std::str
 	return new_node;
 }
 
-std::unordered_map<std::string, OpNode *> OpNetwork::children() const {
-	return _children;
-}
-
 OpNetwork *OpNetwork::parent() {
 	if(_parent == nullptr) {
 		return this;

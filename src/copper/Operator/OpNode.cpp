@@ -62,7 +62,7 @@ OpNode *OpNode::node( std::string node_path ) {
 		return root()->node(node_path.substr(1));
 	}
 
-	std::map<std::string, OpNode *>::iterator it;
+	std::unordered_map<std::string, OpNode *>::iterator it;
 	if (found == std::string::npos) {
 		// no "/" in path name, search for child with this name
 		it = _children.find(node_path);

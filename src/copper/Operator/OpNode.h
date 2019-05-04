@@ -3,6 +3,7 @@
 
 #include <string>
 #include <map>
+#include <unordered_map>
 
 #include "copper/Util/UT_StringUtils.h"
 #include "copper/OpParameter/OpParameter.h"
@@ -37,7 +38,8 @@ class OpNode : public NetworkBoxItem {
 		OpNetwork 	*_parent;
 		std::string	_name;
 		OpBase 			*_operator;
-		std::map<std::string, OpNode *> _children;
+
+		std::unordered_map<std::string, OpNode *> _children;
 
 		std::vector<OpDataSocket> _inputs;
 		std::vector<OpDataSocket> _outputs;
