@@ -2,8 +2,7 @@
 #define SINGLETON_H
 
 template <typename T>
-class Singleton
-{
+class Singleton {
     public:
         /// This method gets one and only one instance of a UT_Singleton derived class
         /** This is a method that does so

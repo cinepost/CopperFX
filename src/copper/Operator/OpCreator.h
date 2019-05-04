@@ -40,14 +40,16 @@ class OpCreator {
 			Flags flags
 		);
 
-		std::string typeName();
-		opConstructor constructor();
+		std::string typeName() const;
+		opConstructor constructor() const;
+		const std::vector<OpDataSocket> *inputs() const;
+		const std::vector<OpDataSocket> *outputs() const;
 
 	private:
 		unsigned int _version;
-		opConstructor _opConstructor;
 		std::string _type_name;
 		std::string _ui_name;
+		opConstructor _opConstructor;
 		std::vector<OpDataSocket> _inputs;
 		std::vector<OpDataSocket> _outputs;
 		Flags _flags;

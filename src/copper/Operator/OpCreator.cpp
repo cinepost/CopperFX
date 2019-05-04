@@ -20,12 +20,20 @@ OpCreator::OpCreator(
 	_outputs(outputs),
 	_flags(flags) { }
 
-std::string OpCreator::typeName() {
+std::string OpCreator::typeName() const {
 	return _type_name;
 }
 
-opConstructor OpCreator::constructor(){
+opConstructor OpCreator::constructor() const {
 	return _opConstructor;
+}
+
+const std::vector<OpDataSocket> *OpCreator::inputs() const {
+	return &_inputs;
+}
+
+const std::vector<OpDataSocket> *OpCreator::outputs() const {
+	return &_outputs;
 }
 
 }

@@ -1,9 +1,11 @@
+#include <iostream>
+
 #include "copper/Operator/OpNode.h"
 #include "copper/Operator/OpNetwork.h"
 
 namespace copper {
 
-OpNode::OpNode(OpNetwork *parent, std::string name, OpCreator *op) {
+OpNode::OpNode(OpNetwork *parent, const std::string &name, OpCreator *op) {
 	_parent = parent;
 	_name = name;
 	_operator = nullptr;
@@ -13,7 +15,7 @@ OpNode::OpNode(const OpNode &node){
 	std::cout << "OpNode copied" << std::endl;
 }
 
-const std::string OpNode::getName() {
+const std::string OpNode::name() const {
 	return _name;
 }
 
@@ -21,24 +23,29 @@ void OpNode::setName( std::string name ) {
 	_name = name;
 }
 
-const std::string OpNode::path() {
-	return _name;
+const std::string OpNode::path() const {
+	if (_parent == nullptr ) {
+		return _name;
+	} else if (_parent->isRoot()) {
+		return  '/' + _name;
+	}
+	return _parent->path() + '/' + _name;
 }
 
-OpNetwork *OpNode::parent() const {
+OpNetwork *OpNode::parent() {
 	return _parent;
 }
 
-OpNetwork *OpNode::root() const {
+OpNetwork *OpNode::root() {
 	return _parent->root();
 }
 
-std::string OpNode::buildBase1NodeName(std::string name){
+const std::string OpNode::buildBase1NodeName(const std::string &name){
 	if ( _children.find(name) != _children.end() ) {
 		// this OpNode name already taken by child OpNode, let's rename it by Base1 rule
 		return buildBase1NodeName(makeBase1String(name)); // TODO: some speedup instead of dumb recursion
 	}
-	return _name;
+	return name;
 }
 
 OpNode *OpNode::node( std::string node_path ) {

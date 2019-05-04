@@ -3,6 +3,7 @@
 
 #include <string>
 #include <map>
+#include <unordered_map>
 
 #include "copper/Engine.h"
 #include "copper/Operator/OpNode.h"
@@ -13,15 +14,23 @@ namespace copper {
 
 class OpNetwork: public OpNode {
 	friend class OP_Engine;
+	friend class OpNode;
 
 	public:
 		OpNetwork(OpNetwork *parent, std::string name, OpCreator *op = nullptr);
 
-		OpNode 		*createNode(std::string op_type_name);
-		OpNode 		*createNode(std::string op_type_name, std::string node_name);
+		OpNode 		*createNode(const std::string &op_type_name);
+		OpNode 		*createNode(const std::string &op_type_name, const std::string &node_name);
+
+		std::unordered_map<std::string, OpNode *> children() const;
+
+	protected:
+		bool	isRoot() const;
+		OpNetwork 	*parent();
+		OpNetwork 	*root();
 
 	private:
-		std::map<std::string, OpNode *> _children;
+		std::unordered_map<std::string, OpNode *> _children;
 };
 
 }

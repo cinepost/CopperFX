@@ -8,6 +8,8 @@
 
 #include <boost/log/core.hpp>
 #include <boost/log/trivial.hpp>
+
+#include <boost/signals2.hpp>
 	
 #include "copper/OpData/OpDataBase.h"
 #include "copper/Operator/OpBase.h"
@@ -18,18 +20,24 @@
 #include "copper/Operator/OpNetwork.h"
 #include "copper/Operator/OpFactory.h"
 
+
 namespace copper {
 
 typedef AbstractFactory<OpDataBase> OpDataFactory;
-//typedef AbstractFactory<OperatorBase> OpFactory;
 
-// Engine class is a singleton, but we might need more than one engine so 
-// things may change in the future...
+// Engine class is a singleton, but we might need more than one engine so  things are subject to change in the future...
 class Engine: public Singleton<Engine> {
+
+	public:
+		// public engine signals
+		boost::signals2::signal<void(std::string, std::string)> signalCreateOpNode;
+		boost::signals2::signal<void(std::string)> signalOpNodeCreated;
+
   public:
 		Engine();
 		~Engine() {};
 
+	public:
 		void init();
 
 		OpNode *node(std::string node_path);
@@ -46,6 +54,10 @@ class Engine: public Singleton<Engine> {
 		OpDataFactory *dataFactory();
 		OpFactory *opFactory();
 
+	// signal handlers
+	private:
+		void onCreateOpNode(std::string op_node_type_name, std::string op_network_path);
+
 	private:
 		OpNetwork *_root;
 
@@ -55,6 +67,8 @@ class Engine: public Singleton<Engine> {
 		// Factories 
 		OpDataFactory _opdata_factory;
 		OpFactory _op_factory;
+
+		bool _initialized;
 
 };
 

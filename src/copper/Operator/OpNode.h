@@ -8,6 +8,7 @@
 #include "copper/OpParameter/OpParameter.h"
 #include "copper/Operator/OpCreator.h"
 #include "copper/Operator/NetworkBoxItem.h"
+#include "copper/Operator/OpDataSocket.h"
 
 
 namespace copper {
@@ -22,21 +23,24 @@ class OpNode : public NetworkBoxItem {
 		OpNode(const OpNode &OpNode); // copy constructor
 
 		OpNode 		*node(std::string OpNode_path);
-		const std::string getName();
-		const std::string path();
+		const std::string name() const;
+		const std::string path() const ;
 		void setName( std::string name );
 
 	protected:
-		OpNetwork 	*parent() const;
-		OpNetwork 	*root() const;
+		OpNetwork 	*parent();
+		OpNetwork 	*root();
 
 	protected:
-		OpNode(OpNetwork *parent, std::string name, OpCreator *op = nullptr);
-		std::string buildBase1NodeName(std::string name);
+		OpNode(OpNetwork *parent, const std::string &name, OpCreator *op = nullptr);
+		const std::string buildBase1NodeName(const std::string &name);
 		OpNetwork 	*_parent;
 		std::string	_name;
 		OpBase 			*_operator;
 		std::map<std::string, OpNode *> _children;
+
+		std::vector<OpDataSocket> _inputs;
+		std::vector<OpDataSocket> _outputs;
 };
 
 }

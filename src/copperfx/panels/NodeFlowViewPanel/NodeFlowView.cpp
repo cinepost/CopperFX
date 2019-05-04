@@ -123,13 +123,12 @@ void NodeFlowView::contextMenuEvent(QContextMenuEvent *event) {
 
     QAction *op_action;
 
-    for (auto & element : Engine::getInstance().opFactory()->registeredTypeNames()) {
-      op_action = op_menu->addAction(element.c_str());
+    // build opnodes creation menu actions
+    for (auto & op_node_type_name : Engine::getInstance().opFactory()->registeredTypeNames()) {
+      op_action = op_menu->addAction(op_node_type_name.c_str());
       op_action->setActionGroup(op_group);
-      op_action->setData(element.c_str());
+      connect(op_action, &QAction::triggered, this, [=]() { Engine::getInstance().signalCreateOpNode(op_node_type_name, "/"); });
     }
-
-    //op_group->triggered->connect(_scene.createTestNode)
 
     main_menu.exec(event->globalPos());
 }

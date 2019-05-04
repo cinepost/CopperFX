@@ -38,6 +38,8 @@ class NodeFlowView : public QGraphicsView {
   private:
   	void contextMenuEvent(QContextMenuEvent *event) override;
 
+  private slots:
+
   private:
   	double _min_zoom_level = 0.05;
   	double _max_zoom_level = 10.0;
