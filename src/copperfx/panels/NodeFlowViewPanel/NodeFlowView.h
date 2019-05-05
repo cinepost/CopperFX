@@ -1,6 +1,8 @@
 #ifndef NODE_FLOW_VIEW_H
 #define NODE_FLOW_VIEW_H
 
+#include <unordered_map>
+
 #include <QAction>
 #include <QMouseEvent>
 #include <QtCore/QPointF>
@@ -15,8 +17,7 @@ class NodeFlowView : public QGraphicsView {
 	Q_OBJECT
 
 	public:
-		explicit NodeFlowView(QWidget *parent = nullptr);
-		explicit NodeFlowView(NodeFlowScene *scene, QWidget *parent = nullptr);
+		explicit NodeFlowView(QWidget *parent, const std::string &op_network_path);
     ~NodeFlowView();
     
 		QSize minimumSizeHint() const override;
@@ -25,9 +26,6 @@ class NodeFlowView : public QGraphicsView {
     double zoomLevel();
     void zoom(double zoom_factor);
     void setZoomLevel(double zoom_level);
-    void setScene(NodeFlowScene *scene);
-
-    NodeFlowScene * scene();
 
   protected:
   	void wheelEvent(QWheelEvent *event) override;
@@ -36,9 +34,12 @@ class NodeFlowView : public QGraphicsView {
   	void drawBackground(QPainter* painter, const QRectF& r) override;
 
   private:
+    void viewNetwork(const std::string &op_network_path);
   	void contextMenuEvent(QContextMenuEvent *event) override;
 
-  private slots:
+  //public slots:
+    void onOpNetworkChanged(const std::string &op_network_path);
+    void onOpNodeCreated(const std::string &op_node_path, const std::string &op_network_path);
 
   private:
   	double _min_zoom_level = 0.05;
@@ -49,7 +50,7 @@ class NodeFlowView : public QGraphicsView {
 
   	QPointF _clickPos;
 
-  	NodeFlowScene* _scene;
+  	std::unordered_map<std::string, NodeFlowScene*> _scenes;
 
 };
 

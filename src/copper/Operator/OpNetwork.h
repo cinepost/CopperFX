@@ -24,7 +24,7 @@ class OpNetwork: public OpNode {
 	protected:
 		bool	isRoot() const;
 		OpNetwork 	*parent();
-		OpNetwork 	*root();
+		OpNetwork 	*root() override;
 };
 
 }

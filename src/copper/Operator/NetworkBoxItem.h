@@ -6,8 +6,11 @@ namespace copper {
 
 class NetworkBoxItem {
 	public:
-		float	getX();
-		float	getY();
+		NetworkBoxItem();
+
+	public:
+		float	x();
+		float	y();
 		void	setX(float x);
 		void	setY(float y);
 

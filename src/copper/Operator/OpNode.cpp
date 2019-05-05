@@ -1,4 +1,8 @@
 #include <iostream>
+#include <cassert>
+
+#include <boost/log/core.hpp>
+#include <boost/log/trivial.hpp>
 
 #include "copper/Operator/OpNode.h"
 #include "copper/Operator/OpNetwork.h"
@@ -6,6 +10,7 @@
 namespace copper {
 
 OpNode::OpNode(OpNetwork *parent, const std::string &name, OpCreator *op) {
+	//assert(parent != nullptr && "OpNode parent pointer should never be null!");
 	_parent = parent;
 	_name = name;
 	_operator = nullptr;
@@ -19,26 +24,45 @@ const std::string OpNode::name() const {
 	return _name;
 }
 
-void OpNode::setName( std::string name ) {
-	_name = name;
+void OpNode::setName(const std::string &name ) {
+	_name = buildBase1NodeName(name);
 }
 
 const std::string OpNode::path() const {
 	if (_parent == nullptr ) {
 		return _name;
 	} else if (_parent->isRoot()) {
-		return  '/' + _name;
+		return  "/" + _name;
 	}
-	return _parent->path() + '/' + _name;
+	return _parent->path() + "/" + _name;
 }
 
 OpNetwork *OpNode::parent() {
+	assert(_parent != nullptr && "OpNode parent pointer should never be null!");
 	return _parent;
 }
 
 OpNetwork *OpNode::root() {
+	assert(_parent != nullptr && "OpNode parent pointer should never be null!");
 	return _parent->root();
 }
+
+std::vector<OpNode*> OpNode::children() const {
+	std::vector<OpNode*> children;
+	for (auto const& item : _children) {
+    children.push_back(item.second);
+	}
+	return children;
+}
+
+std::vector<OpDataSocket> OpNode::inputs() const {
+	return _inputs;
+}
+
+std::vector<OpDataSocket> OpNode::outputs() const {
+	return _outputs;
+}
+
 
 const std::string OpNode::buildBase1NodeName(const std::string &name){
 	if ( _children.find(name) != _children.end() ) {
@@ -48,7 +72,7 @@ const std::string OpNode::buildBase1NodeName(const std::string &name){
 	return name;
 }
 
-OpNode *OpNode::node( std::string node_path ) {
+OpNode *OpNode::node( const std::string &node_path ) {
 	// if path is "/" return root OpNode
 	if (node_path == "/"){
 		return root();

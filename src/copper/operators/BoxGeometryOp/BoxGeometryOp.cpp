@@ -47,6 +47,8 @@ OpBase *BoxGeometryOp::myConstructor() {
 
 void BoxGeometryOp::registerOperator(OpFactory *op_factory) {
   std::vector<OpDataSocket> input_sockets;    /// operator inputs
+  input_sockets.emplace_back(OpDataSocket(0, 0, "geometry", OpDataSocket::Flags::INPUT_SOCKET));
+
   std::vector<OpDataSocket> outputs_sockets;  /// operator outputs
 
   op_factory->registerOperator( new OpCreator(

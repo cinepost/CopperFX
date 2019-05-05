@@ -17,7 +17,7 @@ class PanelBase : public BaseAPI, public QWidget {
     virtual ~PanelBase();
 
   private:
-  	QBoxLayout *_layout;
+  	//QBoxLayout *_layout;
 };
 
 }}

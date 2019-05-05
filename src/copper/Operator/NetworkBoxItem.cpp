@@ -3,11 +3,16 @@
 
 namespace copper {
 
-float NetworkBoxItem::getX() {
+NetworkBoxItem::NetworkBoxItem(){
+	_x = 0;
+	_y = 0;
+}
+
+float NetworkBoxItem::x() {
 	return _x;
 }
 
-float NetworkBoxItem::getY() {
+float NetworkBoxItem::y() {
 	return _y;
 }
 

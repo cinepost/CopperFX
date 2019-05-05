@@ -54,8 +54,8 @@ void Engine::init() {
         // Register internally defined operators
         BoxGeometryOp::registerOperator(&_op_factory);  
 
-        // connect signals
-        signalCreateOpNode.connect(boost::bind(&Engine::onCreateOpNode, this, _1, _2));
+        // connect engine signals
+        EngineSignals::getInstance().signalCreateOpNode.connect(boost::bind(&Engine::onCreateOpNode, this, _1, _2));
 
         _initialized = true;
     }  
@@ -67,6 +67,10 @@ OpDataFactory *Engine::dataFactory(){
 
 OpFactory *Engine::opFactory(){
     return &_op_factory;
+}
+
+OpNetwork *Engine::root() {
+    return _root;
 }
 
 OpNode *Engine::node(std::string node_path) {
@@ -84,10 +88,9 @@ void Engine::setFps(float fps){ _fps = fps; }
 
 // engine signals handlers
 
-void Engine::onCreateOpNode(std::string op_node_type_name, std::string op_network_path) {
+void Engine::onCreateOpNode(const std::string &op_node_type_name, const std::string &op_network_path) {
     BOOST_LOG_TRIVIAL(debug) << "Creating OpNode of type: " << op_node_type_name;
     OpNode *op_node = _root->createNode(op_node_type_name);
-    signalOpNodeCreated(op_node->path());
     BOOST_LOG_TRIVIAL(debug) << "OpNode created path: " << op_node->path();
 }
 

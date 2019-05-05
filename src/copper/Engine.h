@@ -25,13 +25,22 @@ namespace copper {
 
 typedef AbstractFactory<OpDataBase> OpDataFactory;
 
+class EngineSignals: public Singleton<EngineSignals> {
+	public:
+		// public engine signals
+		boost::signals2::signal<void(const std::string&, const std::string&)> signalCreateOpNode;
+		boost::signals2::signal<void(const std::string&, const std::string&)> signalOpNodeCreated;
+		boost::signals2::signal<void(const std::string&)> signalOpNetworkChanged;
+};
+
 // Engine class is a singleton, but we might need more than one engine so  things are subject to change in the future...
 class Engine: public Singleton<Engine> {
 
 	public:
 		// public engine signals
-		boost::signals2::signal<void(std::string, std::string)> signalCreateOpNode;
-		boost::signals2::signal<void(std::string)> signalOpNodeCreated;
+		
+		//boost::signals2::signal<void(const std::string&, const std::string&)> signalCreateOpNode;
+		//boost::signals2::signal<void(const std::string&, const std::string&)> signalOpNodeCreated;
 
   public:
 		Engine();
@@ -40,6 +49,7 @@ class Engine: public Singleton<Engine> {
 	public:
 		void init();
 
+		OpNetwork *root();
 		OpNode *node(std::string node_path);
 
 		float time();
@@ -56,7 +66,7 @@ class Engine: public Singleton<Engine> {
 
 	// signal handlers
 	private:
-		void onCreateOpNode(std::string op_node_type_name, std::string op_network_path);
+		void onCreateOpNode(const std::string &op_node_type_name, const std::string &op_network_path);
 
 	private:
 		OpNetwork *_root;

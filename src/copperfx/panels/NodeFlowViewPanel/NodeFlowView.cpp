@@ -21,7 +21,7 @@
 
 namespace copper { namespace ui {
 
-NodeFlowView::NodeFlowView(QWidget *parent): QGraphicsView(parent) {
+NodeFlowView::NodeFlowView(QWidget *parent, const std::string &op_network_path): QGraphicsView(parent) {
   setDragMode(QGraphicsView::ScrollHandDrag);
   setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 
@@ -40,14 +40,38 @@ NodeFlowView::NodeFlowView(QWidget *parent): QGraphicsView(parent) {
   //setDragMode( QGraphicsView::RubberBandDrag );
 
   setViewport(new QOpenGLWidget());
-}
 
-NodeFlowView::NodeFlowView(NodeFlowScene *scene, QWidget *parent ): NodeFlowView(parent) {
-  setScene(scene);
+  // connect engine signals
+  EngineSignals::getInstance().signalOpNodeCreated.connect(boost::bind(&NodeFlowView::onOpNodeCreated, this, _1, _2));
+  EngineSignals::getInstance().signalOpNetworkChanged.connect(boost::bind(&NodeFlowView::onOpNetworkChanged, this, _1));
+
+  // view op network
+  viewNetwork(op_network_path);
 }
 
 NodeFlowView::~NodeFlowView() {
 
+}
+
+void NodeFlowView::onOpNodeCreated(const std::string &op_node_path, const std::string &op_network_path) {
+  //_scenes[op_network_path].buildScene();
+}
+
+void NodeFlowView::onOpNetworkChanged(const std::string &op_network_path) {
+  _scenes[op_network_path]->buildScene();
+}
+
+void NodeFlowView::viewNetwork(const std::string &op_network_path) {
+  NodeFlowScene *scene;
+
+  // check if we dont have network scene built yet
+  if (_scenes.find(op_network_path) == _scenes.end()) {
+    scene = new NodeFlowScene(this, op_network_path);
+    _scenes.insert(make_pair(op_network_path, scene)); 
+  }
+  scene = _scenes[op_network_path];
+
+  QGraphicsView::setScene(scene);
 }
 
 QSize NodeFlowView::minimumSizeHint() const {
@@ -56,11 +80,6 @@ QSize NodeFlowView::minimumSizeHint() const {
 
 QSize NodeFlowView::sizeHint() const {
     return QSize(640, 360);
-}
-
-void NodeFlowView::setScene(NodeFlowScene *scene) {
-  _scene = scene;
-  QGraphicsView::setScene(_scene);
 }
 
 void NodeFlowView::drawBackground(QPainter* painter, const QRectF& r) {
@@ -127,7 +146,7 @@ void NodeFlowView::contextMenuEvent(QContextMenuEvent *event) {
     for (auto & op_node_type_name : Engine::getInstance().opFactory()->registeredTypeNames()) {
       op_action = op_menu->addAction(op_node_type_name.c_str());
       op_action->setActionGroup(op_group);
-      connect(op_action, &QAction::triggered, this, [=]() { Engine::getInstance().signalCreateOpNode(op_node_type_name, "/"); });
+      connect(op_action, &QAction::triggered, this, [=]() { EngineSignals::getInstance().signalCreateOpNode(op_node_type_name, "/"); });
     }
 
     main_menu.exec(event->globalPos());
@@ -191,10 +210,6 @@ void NodeFlowView::setZoomLevel(double zoom_level) {
 
 double NodeFlowView::zoomLevel() {
   return _zoom_level;
-}
-
-NodeFlowScene *NodeFlowView::scene() {
-  return _scene;
 }
 
 }}

@@ -16,9 +16,9 @@
 namespace copper { namespace ui {
 
 NodeFlowViewPanel::NodeFlowViewPanel() {
-	_node_flow_view_widget = new NodeFlowView();
-  _node_flow_view_widget->setScene(new NodeFlowScene()); // test scene
-  _node_flow_view_widget->scene()->createTestNode(); // test item
+	_node_flow_view_widget = new NodeFlowView(this, "/");
+  //_node_flow_view_widget->setScene(new NodeFlowScene()); // test scene
+  //_node_flow_view_widget->scene()->createTestNode(); // test item
 
 	QLayout *layout = new QVBoxLayout;
   layout->setContentsMargins(0, 0, 0, 0);

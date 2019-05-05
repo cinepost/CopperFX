@@ -10,11 +10,11 @@
 namespace copper { namespace ui {
 
 PanelBase::PanelBase(QWidget *parent) : QWidget(parent) {
-	_layout = new QVBoxLayout(this);
+	//_layout = new QVBoxLayout(this);
 }
 
 PanelBase::~PanelBase() {
-	delete _layout;
+	//delete _layout;
 }
 
 }}

@@ -23,14 +23,18 @@ class OpNode : public NetworkBoxItem {
 	public:
 		OpNode(const OpNode &OpNode); // copy constructor
 
-		OpNode 		*node(std::string OpNode_path);
+		OpNode 		*node(const std::string &node_path);
 		const std::string name() const;
-		const std::string path() const ;
-		void setName( std::string name );
+		const std::string path() const;
+		void setName(const std::string &name );
+
+		std::vector<OpNode*> children() const;
+		std::vector<OpDataSocket> inputs() const;
+		std::vector<OpDataSocket> outputs() const;
 
 	protected:
 		OpNetwork 	*parent();
-		OpNetwork 	*root();
+		virtual OpNetwork 	*root();
 
 	protected:
 		OpNode(OpNetwork *parent, const std::string &name, OpCreator *op = nullptr);
