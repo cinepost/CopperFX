@@ -1,12 +1,13 @@
 #include <boost/log/core.hpp>
 #include <boost/log/trivial.hpp>
 
+#include "copper/Operator/OpDefinition.h"
 #include "OpNetwork.h"
 
 
 namespace copper {
 
-OpNetwork::OpNetwork(OpNetwork *parent, std::string name, OpCreator *op): OpNode::OpNode(parent, name, op) { }
+OpNetwork::OpNetwork(OpNetwork *parent, std::string name, OpDefinition *op_def): OpNode::OpNode(parent, name, op_def) { }
 
 OpNode *OpNetwork::createNode( const std::string &node_type_name ) {
 	return createNode( node_type_name, node_type_name );
@@ -14,8 +15,13 @@ OpNode *OpNetwork::createNode( const std::string &node_type_name ) {
 
 
 OpNode *OpNetwork::createNode( const std::string &node_type_name, const std::string &node_name ) {
+	BOOST_LOG_TRIVIAL(debug) << "Creating OpNode of type " << node_type_name;
+
 	std::string new_node_name = buildBase1NodeName(node_name);
-	//_children.insert(std::make_pair<std::string, OpNode *>(new_node_name, new OpNode(this, new_node_name)));
+	BOOST_LOG_TRIVIAL(debug) << "get op definition";
+	OpDefinition * op_def = Engine::opFactory()->opDefinition(node_type_name);
+	BOOST_LOG_TRIVIAL(debug) << "creating node";
+	op_def->createOpNode(this, node_name);
 
 	OpNode *new_node = new OpNode(this, new_node_name);
 	_children[new_node_name] = new_node;
@@ -23,6 +29,7 @@ OpNode *OpNetwork::createNode( const std::string &node_type_name, const std::str
 
 	EngineSignals::getInstance().signalOpNodeCreated(new_node->path(), this->path()); // fire node created (node_path, network_path)
 	EngineSignals::getInstance().signalOpNetworkChanged(this->path());
+
 	return new_node;
 }
 

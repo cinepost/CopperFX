@@ -19,8 +19,13 @@ class Singleton {
         ~Singleton() {}
 
     public:
-        Singleton(Singleton const &) = delete;
-        void operator=(Singleton const &) = delete;
+        Singleton(const Singleton&) = delete;
+        Singleton(Singleton&&) = delete;
+        Singleton& operator=(const Singleton&) = delete;
+        Singleton& operator=(Singleton&&) = delete;
+
+        //Singleton(const Singleton &) = delete;
+        //Singleton& operator=(const Singleton &) = delete;
 
 };
 

@@ -8,7 +8,7 @@
 
 #include "copper/OpData/GeometryOpData.h"
 #include "copper/Operator/OpDataSocket.h"
-#include "copper/Operator/OpCreator.h"
+#include "copper/Operator/OpDefinition.h"
 
 #include "BoxGeometryOp.h"
 
@@ -51,14 +51,14 @@ void BoxGeometryOp::registerOperator(OpFactory *op_factory) {
 
   std::vector<OpDataSocket> outputs_sockets;  /// operator outputs
 
-  op_factory->registerOperator( new OpCreator(
+  op_factory->registerOpDefinition( new OpDefinition(
     0,                            // version
     "box",                        /// internal operator name
     "Box",                        /// name used in ui
     BoxGeometryOp::myConstructor, /// op constructor
     input_sockets,
     outputs_sockets,
-    OpCreator::Flags::OP_FLAG_GENERATOR
+    OpDefinition::Flags::OP_FLAG_GENERATOR
   ));
 }
 

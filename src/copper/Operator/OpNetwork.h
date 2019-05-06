@@ -6,17 +6,18 @@
 
 #include "copper/Engine.h"
 #include "copper/Operator/OpNode.h"
-#include "copper/Operator/OpCreator.h"
 
 
 namespace copper {
+
+class OpDefinition;
 
 class OpNetwork: public OpNode {
 	friend class OP_Engine;
 	friend class OpNode;
 
 	public:
-		OpNetwork(OpNetwork *parent, std::string name, OpCreator *op = nullptr);
+		OpNetwork(OpNetwork *parent, std::string name, OpDefinition *op_def = nullptr);
 
 		OpNode 		*createNode(const std::string &op_type_name);
 		OpNode 		*createNode(const std::string &op_type_name, const std::string &node_name);

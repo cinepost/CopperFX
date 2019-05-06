@@ -4,16 +4,18 @@
 #include <boost/log/core.hpp>
 #include <boost/log/trivial.hpp>
 
+#include "copper/Operator/OpBase.h"
 #include "copper/Operator/OpNode.h"
 #include "copper/Operator/OpNetwork.h"
+#include "copper/Operator/OpDefinition.h"
 
 namespace copper {
 
-OpNode::OpNode(OpNetwork *parent, const std::string &name, OpCreator *op) {
+OpNode::OpNode(OpNetwork *parent, const std::string &name, OpDefinition *op_def) {
 	//assert(parent != nullptr && "OpNode parent pointer should never be null!");
 	_parent = parent;
 	_name = name;
-	_operator = nullptr;
+	_op_def = op_def;
 }
 
 OpNode::OpNode(const OpNode &node){

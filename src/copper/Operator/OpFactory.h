@@ -2,19 +2,23 @@
 #define OP_FACTORY_H
 
 #include <vector>
+#include <unordered_map>
 
 #include "copper/Plugin/AbstractFactory.h"
 #include "copper/Operator/OpBase.h"
-#include "copper/Operator/OpCreator.h"
 
 namespace copper {
-	
-class OpFactory: public AbstractFactory<OpBase> {
+
+class OpDefinition;	
+
+class OpFactory {
 	public:
-		void registerOperator(OpCreator *op);
+		void registerOpDefinition(OpDefinition *op_def);
+		OpDefinition* opDefinition(const std::string &type_name);
+		std::vector<std::string> registeredTypeNames();
 
 	private:
-		std::vector<OpCreator *> _op_creators_by_type_name;
+		std::unordered_map<std::string, OpDefinition *> _op_definitions_by_type_name;
 };
 
 }

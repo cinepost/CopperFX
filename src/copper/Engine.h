@@ -25,6 +25,8 @@ namespace copper {
 
 typedef AbstractFactory<OpDataBase> OpDataFactory;
 
+class OpFactory;
+
 class EngineSignals: public Singleton<EngineSignals> {
 	public:
 		// public engine signals
@@ -62,7 +64,7 @@ class Engine: public Singleton<Engine> {
 		void setFps(float fps);
 
 		OpDataFactory *dataFactory();
-		OpFactory *opFactory();
+		static OpFactory *opFactory();
 
 	// signal handlers
 	private:

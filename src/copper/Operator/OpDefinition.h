@@ -1,5 +1,5 @@
-#ifndef OP_CREATOR_H
-#define OP_CREATOR_H
+#ifndef OP_DEFINITION_H
+#define OP_DEFINITION_H
 
 #include <string>
 #include <vector>
@@ -7,6 +7,7 @@
 
 #include "copper/Plugin/PluginApi.h"
 #include "copper/Operator/OpDataSocket.h"
+#include "copper/Operator/OpNetwork.h"
 #include "copper/Operator/OpBase.h"
 
 
@@ -14,7 +15,8 @@ namespace copper {
 
 typedef OpBase *(*opConstructor)();
 
-class OpCreator {
+class OpDefinition {
+	friend class OpNetwork;
 
 	/// Flags passed to the operator definition contructor:
 	public:
@@ -30,7 +32,7 @@ class OpCreator {
 		};
 
 	public:
-		OpCreator(
+		OpDefinition(
 			unsigned int version, 							/// operator version
 			std::string type_name, 							/// internal operator name
 			std::string ui_name, 								/// name used in ui
@@ -46,6 +48,9 @@ class OpCreator {
 		const std::vector<OpDataSocket> *outputs() const;
 
 	private:
+		OpNode *createOpNode(OpNetwork *parent_op_network, const std::string &name);
+
+	private:
 		unsigned int _version;
 		std::string _type_name;
 		std::string _ui_name;
@@ -58,4 +63,4 @@ class OpCreator {
 
 }
 
-#endif // OP_CREATOR_H
+#endif // OP_DEFINITION_H
