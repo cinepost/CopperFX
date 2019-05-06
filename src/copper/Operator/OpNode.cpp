@@ -11,7 +11,7 @@
 
 namespace copper {
 
-OpNode::OpNode(OpNetwork *parent, const std::string &name, OpDefinition *op_def) {
+OpNode::OpNode(OpNetwork *parent, OpDefinition *op_def, const std::string &name) {
 	//assert(parent != nullptr && "OpNode parent pointer should never be null!");
 	_parent = parent;
 	_name = name;
@@ -72,6 +72,10 @@ const std::string OpNode::buildBase1NodeName(const std::string &name){
 		return buildBase1NodeName(makeBase1String(name)); // TODO: some speedup instead of dumb recursion
 	}
 	return name;
+}
+
+void OpNode::addOpNode(OpNode *op_node) {
+	_children[op_node->name()] = op_node;
 }
 
 OpNode *OpNode::node( const std::string &node_path ) {

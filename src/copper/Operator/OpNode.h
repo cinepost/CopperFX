@@ -18,10 +18,6 @@ class OpNetwork;
 class OpDefinition;
 
 class OpNode : public NetworkBoxItem {
-	friend class OP_Engine;
-	friend class OpNetwork;
-	friend class OpDefinition;
-
 	public:
 		OpNode(const OpNode &OpNode); // copy constructor
 
@@ -39,8 +35,7 @@ class OpNode : public NetworkBoxItem {
 		virtual OpNetwork 	*root();
 
 	protected:
-		OpNode(OpNetwork *parent, const std::string &name, OpDefinition *op_def = nullptr);
-		const std::string buildBase1NodeName(const std::string &name);
+		OpNode(OpNetwork *parent, OpDefinition *op_def, const std::string &name = "");
 		OpNetwork 		*_parent;
 		std::string		_name;
 		OpBase 				*_operator;
@@ -50,6 +45,14 @@ class OpNode : public NetworkBoxItem {
 
 		std::vector<OpDataSocket> _inputs;
 		std::vector<OpDataSocket> _outputs;
+
+		void addOpNode(OpNode *op_node);
+		const std::string buildBase1NodeName(const std::string &name);
+
+	friend class Engine;
+	friend class OpNetwork;
+	friend class OpDefinition;
+
 };
 
 }

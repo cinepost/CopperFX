@@ -17,7 +17,7 @@ class OpNetwork: public OpNode {
 	friend class OpNode;
 
 	public:
-		OpNetwork(OpNetwork *parent, std::string name, OpDefinition *op_def = nullptr);
+		OpNetwork(OpNetwork *parent, OpDefinition *op_def, const std::string &name);
 
 		OpNode 		*createNode(const std::string &op_type_name);
 		OpNode 		*createNode(const std::string &op_type_name, const std::string &node_name);

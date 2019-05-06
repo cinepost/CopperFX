@@ -25,12 +25,14 @@ namespace copper {
 
 typedef AbstractFactory<OpDataBase> OpDataFactory;
 
+class OpNode;
 class OpFactory;
 
 class EngineSignals: public Singleton<EngineSignals> {
 	public:
 		// public engine signals
-		boost::signals2::signal<void(const std::string&, const std::string&)> signalCreateOpNode;
+		boost::signals2::signal<OpNode*(const std::string&, const std::string&, const std::string&)> signalCreateOpNode;
+
 		boost::signals2::signal<void(const std::string&, const std::string&)> signalOpNodeCreated;
 		boost::signals2::signal<void(const std::string&)> signalOpNetworkChanged;
 };
@@ -68,7 +70,7 @@ class Engine: public Singleton<Engine> {
 
 	// signal handlers
 	private:
-		void onCreateOpNode(const std::string &op_node_type_name, const std::string &op_network_path);
+		OpNode* onCreateOpNode(const std::string &op_node_type_name, const std::string &op_network_path, const std::string &node_name = "");
 
 	private:
 		OpNetwork *_root;

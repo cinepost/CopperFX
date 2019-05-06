@@ -7,14 +7,14 @@
 
 namespace copper {
 
-OpNetwork::OpNetwork(OpNetwork *parent, std::string name, OpDefinition *op_def): OpNode::OpNode(parent, name, op_def) { }
+OpNetwork::OpNetwork(OpNetwork *parent, OpDefinition *op_def, const std::string &name): OpNode::OpNode(parent, op_def, name ) { }
 
 OpNode *OpNetwork::createNode( const std::string &node_type_name ) {
 	return createNode( node_type_name, node_type_name );
 }
 
-
 OpNode *OpNetwork::createNode( const std::string &node_type_name, const std::string &node_name ) {
+	/*
 	BOOST_LOG_TRIVIAL(debug) << "Creating OpNode of type " << node_type_name;
 
 	std::string new_node_name = buildBase1NodeName(node_name);
@@ -29,8 +29,8 @@ OpNode *OpNetwork::createNode( const std::string &node_type_name, const std::str
 
 	EngineSignals::getInstance().signalOpNodeCreated(new_node->path(), this->path()); // fire node created (node_path, network_path)
 	EngineSignals::getInstance().signalOpNetworkChanged(this->path());
-
-	return new_node;
+	*/
+	return EngineSignals::getInstance().signalCreateOpNode(node_type_name, this->path(), node_name );
 }
 
 OpNetwork *OpNetwork::parent() {

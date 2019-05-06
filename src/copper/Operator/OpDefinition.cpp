@@ -37,7 +37,11 @@ const std::vector<OpDataSocket> *OpDefinition::outputs() const {
 }
 
 OpNode *OpDefinition::createOpNode(OpNetwork *parent_op_network, const std::string &name) {
-	OpNode *op_node = new OpNode(parent_op_network, name, this);
+	std::string new_node_name = name;
+	if (name == "") {
+		new_node_name = _type_name;
+	}
+	OpNode *op_node = new OpNode(parent_op_network, this, name);
 	op_node->_operator = _opConstructor();
 	op_node->_inputs = _inputs;
 	op_node->_outputs = _outputs;

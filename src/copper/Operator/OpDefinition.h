@@ -47,8 +47,8 @@ class OpDefinition {
 		const std::vector<OpDataSocket> *inputs() const;
 		const std::vector<OpDataSocket> *outputs() const;
 
-	private:
-		OpNode *createOpNode(OpNetwork *parent_op_network, const std::string &name);
+	public:
+		OpNode *createOpNode(OpNetwork *parent_op_network, const std::string &name = "");
 
 	private:
 		unsigned int _version;
