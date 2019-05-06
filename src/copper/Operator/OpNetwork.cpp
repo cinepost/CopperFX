@@ -14,23 +14,11 @@ OpNode *OpNetwork::createNode( const std::string &node_type_name ) {
 }
 
 OpNode *OpNetwork::createNode( const std::string &node_type_name, const std::string &node_name ) {
-	/*
-	BOOST_LOG_TRIVIAL(debug) << "Creating OpNode of type " << node_type_name;
-
-	std::string new_node_name = buildBase1NodeName(node_name);
-	BOOST_LOG_TRIVIAL(debug) << "get op definition";
-	OpDefinition * op_def = Engine::opFactory()->opDefinition(node_type_name);
-	BOOST_LOG_TRIVIAL(debug) << "creating node";
-	op_def->createOpNode(this, node_name);
-
-	OpNode *new_node = new OpNode(this, new_node_name);
-	_children[new_node_name] = new_node;
-	BOOST_LOG_TRIVIAL(debug) << "OpNode of type " << node_type_name << " named \"" << new_node->name() << "\" created at " << this->name();
-
-	EngineSignals::getInstance().signalOpNodeCreated(new_node->path(), this->path()); // fire node created (node_path, network_path)
-	EngineSignals::getInstance().signalOpNetworkChanged(this->path());
-	*/
-	return EngineSignals::getInstance().signalCreateOpNode(node_type_name, this->path(), node_name );
+	boost::optional<OpNode *> new_node = EngineSignals::getInstance().signalCreateOpNode(node_type_name, this->path(), node_name );
+	if (new_node) {
+		return *new_node;
+	}
+	return nullptr;
 }
 
 OpNetwork *OpNetwork::parent() {

@@ -18,7 +18,7 @@
 
 #include "copper/Operator/OpNode.h"
 #include "copper/Operator/OpNetwork.h"
-#include "copper/Operator/OpFactory.h"
+#include "copper/Operator/OpTable.h"
 
 
 namespace copper {
@@ -26,7 +26,6 @@ namespace copper {
 typedef AbstractFactory<OpDataBase> OpDataFactory;
 
 class OpNode;
-class OpFactory;
 
 class EngineSignals: public Singleton<EngineSignals> {
 	public:
@@ -66,7 +65,7 @@ class Engine: public Singleton<Engine> {
 		void setFps(float fps);
 
 		OpDataFactory *dataFactory();
-		static OpFactory *opFactory();
+		OpTable *opTable();
 
 	// signal handlers
 	private:
@@ -80,7 +79,7 @@ class Engine: public Singleton<Engine> {
 
 		// Factories 
 		OpDataFactory _opdata_factory;
-		OpFactory _op_factory;
+		OpTable _op_table;
 
 		bool _initialized;
 

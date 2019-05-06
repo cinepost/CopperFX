@@ -45,13 +45,13 @@ OpBase *BoxGeometryOp::myConstructor() {
 	return new BoxGeometryOp();
 }
 
-void BoxGeometryOp::registerOperator(OpFactory *op_factory) {
+void BoxGeometryOp::registerOperator(OpTable *op_table) {
   std::vector<OpDataSocket> input_sockets;    /// operator inputs
   input_sockets.emplace_back(OpDataSocket(0, 0, "geometry", OpDataSocket::Flags::INPUT_SOCKET));
 
   std::vector<OpDataSocket> outputs_sockets;  /// operator outputs
 
-  op_factory->registerOpDefinition( new OpDefinition(
+  op_table->registerOpDefinition( new OpDefinition(
     0,                            // version
     "box",                        /// internal operator name
     "Box",                        /// name used in ui

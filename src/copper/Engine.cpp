@@ -60,7 +60,7 @@ void Engine::init() {
 
         // Register internally defined operators
         BOOST_LOG_TRIVIAL(debug) << "Registering internal operator types ...";
-        BoxGeometryOp::registerOperator(&_op_factory);
+        BoxGeometryOp::registerOperator(&_op_table);
         BOOST_LOG_TRIVIAL(debug) << "Internal operators types registration done.";
 
         // connect engine signals
@@ -75,8 +75,8 @@ OpDataFactory *Engine::dataFactory(){
     return &_opdata_factory;
 }
 
-OpFactory *Engine::opFactory(){
-    return &getInstance()._op_factory;
+OpTable *Engine::opTable(){
+    return &_op_table;
 }
 
 OpNetwork *Engine::root() {
@@ -101,24 +101,24 @@ OpNode *Engine::onCreateOpNode(const std::string &op_node_type_name, const std::
     BOOST_LOG_TRIVIAL(debug) << "Creating OpNode of type: " << op_node_type_name;
 
     //OpNode *op_node = _root->createNode(op_node_type_name);
-    OpDefinition *op_def = Engine::opFactory()->opDefinition(op_node_type_name);
+    OpDefinition *op_def = _op_table.opDefinition(op_node_type_name);
+
     if (op_def == nullptr) {
         BOOST_LOG_TRIVIAL(error) << "Unable to get OpDefinition for type: " << op_node_type_name;
         return nullptr;
     }
 
-    OpNetwork *op_network = _root;
-
-    BOOST_LOG_TRIVIAL(debug) << "creating node";
+    OpNetwork *op_network = _root->node(op_network_path)->castToOpNetwork();
 
     OpNode *new_node = op_def->createOpNode(op_network, op_network->buildBase1NodeName(op_node_type_name));
     op_network->addOpNode(new_node);
     BOOST_LOG_TRIVIAL(debug) << "OpNode of type " << op_node_type_name << " named \"" << new_node->name() << "\" created at " << op_network->path();
 
-    EngineSignals::getInstance().signalOpNodeCreated(new_node->path(), op_network->path()); // fire node created (node_path, network_path)
-    EngineSignals::getInstance().signalOpNetworkChanged(op_network->path());
+    EngineSignals::getInstance().signalOpNodeCreated(new_node->path(), op_network->path()); // notify node created (node_path, network_path)
+    EngineSignals::getInstance().signalOpNetworkChanged(op_network->path()); // notify that op_network changed
 
     BOOST_LOG_TRIVIAL(debug) << "OpNode created path: " << new_node->path();
+    return new_node;
 }
 
 }

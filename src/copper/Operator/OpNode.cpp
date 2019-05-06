@@ -40,12 +40,10 @@ const std::string OpNode::path() const {
 }
 
 OpNetwork *OpNode::parent() {
-	assert(_parent != nullptr && "OpNode parent pointer should never be null!");
 	return _parent;
 }
 
 OpNetwork *OpNode::root() {
-	assert(_parent != nullptr && "OpNode parent pointer should never be null!");
 	return _parent->root();
 }
 
@@ -65,6 +63,12 @@ std::vector<OpDataSocket> OpNode::outputs() const {
 	return _outputs;
 }
 
+OpNetwork *OpNode::castToOpNetwork() {
+	if ( OpNetwork *op_network = dynamic_cast<OpNetwork*>(this)) {
+		return op_network;
+	}
+	return nullptr;
+}
 
 const std::string OpNode::buildBase1NodeName(const std::string &name){
 	if ( _children.find(name) != _children.end() ) {

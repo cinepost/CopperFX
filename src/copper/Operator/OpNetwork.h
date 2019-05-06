@@ -13,7 +13,7 @@ namespace copper {
 class OpDefinition;
 
 class OpNetwork: public OpNode {
-	friend class OP_Engine;
+	friend class Engine;
 	friend class OpNode;
 
 	public:
@@ -24,7 +24,7 @@ class OpNetwork: public OpNode {
 
 	protected:
 		bool	isRoot() const;
-		OpNetwork 	*parent();
+		OpNetwork 	*parent() override;
 		OpNetwork 	*root() override;
 };
 

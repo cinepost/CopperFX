@@ -1,5 +1,5 @@
-#ifndef OP_FACTORY_H
-#define OP_FACTORY_H
+#ifndef OP_TABLE_H
+#define OP_TABLE_H
 
 #include <vector>
 #include <unordered_map>
@@ -11,7 +11,7 @@ namespace copper {
 
 class OpDefinition;	
 
-class OpFactory {
+class OpTable {
 	public:
 		void registerOpDefinition(OpDefinition *op_def);
 		OpDefinition* opDefinition(const std::string &type_name);
@@ -23,4 +23,4 @@ class OpFactory {
 
 }
 
-#endif // OP_FACTORY_H
+#endif // OP_TABLE_H

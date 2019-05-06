@@ -7,7 +7,7 @@
 #include <fstream>
 
 #include "copper/Operator/OpBase.h"
-#include "copper/Operator/OpFactory.h"
+#include "copper/Operator/OpTable.h"
 
 namespace copper {
 
@@ -25,7 +25,7 @@ class BoxGeometryOp : public OpBase {
 
   public:
     // factory method
-    static void registerOperator(OpFactory *op_factory);
+    static void registerOperator(OpTable *op_table);
     static OpBase *myConstructor();
 };
 
