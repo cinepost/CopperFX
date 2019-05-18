@@ -4,14 +4,15 @@
 #include <boost/log/core.hpp>
 #include <boost/log/trivial.hpp>
 
+#include "copper/Engine.h"
+
 #include "copper/Operator/OpBase.h"
 #include "copper/Operator/OpNode.h"
-#include "copper/Operator/OpNetwork.h"
 #include "copper/Operator/OpDefinition.h"
 
 namespace copper {
 
-OpNode::OpNode(OpNetwork *parent, OpDefinition *op_def, const std::string &name) {
+OpNode::OpNode(OpNode *parent, OpDefinition *op_def, const std::string &name) {
 	//assert(parent != nullptr && "OpNode parent pointer should never be null!");
 	_parent = parent;
 	_name = name;
@@ -39,12 +40,15 @@ const std::string OpNode::path() const {
 	return _parent->path() + "/" + _name;
 }
 
-OpNetwork *OpNode::parent() {
+OpNode *OpNode::parent() {
 	return _parent;
 }
 
-OpNetwork *OpNode::root() {
-	return _parent->root();
+OpNode *OpNode::root() {
+	if (_parent) {
+		return _parent->root();
+	}
+	return this;
 }
 
 std::vector<OpNode*> OpNode::children() const {
@@ -63,11 +67,29 @@ std::vector<OpDataSocket> OpNode::outputs() const {
 	return _outputs;
 }
 
-OpNetwork *OpNode::castToOpNetwork() {
-	if ( OpNetwork *op_network = dynamic_cast<OpNetwork*>(this)) {
-		return op_network;
+OpDataSocket *OpNode::input(unsigned int index) {
+	if (index < _inputs.size()) { 
+		return &_inputs[index]; 
 	}
 	return nullptr;
+}
+
+OpDataSocket *OpNode::output(unsigned int index) {
+	if (index < _outputs.size()) { 
+		return &_outputs[index]; 
+	}
+	return nullptr;
+}
+
+bool OpNode::isSubnetwork() const {
+	return false;
+}
+
+bool OpNode::isRoot() const {
+	if (_parent) {
+		return false;
+	}
+	return true;
 }
 
 const std::string OpNode::buildBase1NodeName(const std::string &name){
@@ -76,6 +98,26 @@ const std::string OpNode::buildBase1NodeName(const std::string &name){
 		return buildBase1NodeName(makeBase1String(name)); // TODO: some speedup instead of dumb recursion
 	}
 	return name;
+}
+
+OpNode *OpNode::createNode( const std::string &node_type_name ) {
+	return createNode( node_type_name, node_type_name );
+}
+
+OpNode *OpNode::createNode( const std::string &node_type_name, const std::string &node_name ) {
+	boost::optional<OpNode *> new_node = EngineSignals::getInstance().signalCreateOpNode(node_type_name, this->path(), node_name );
+	if (new_node)
+		return *new_node;
+	
+	return nullptr;
+}
+
+bool OpNode::setInput(unsigned int input_index, const std::string &output_op_node_path, unsigned int output_index) {
+	boost::optional<bool> connected = EngineSignals::getInstance().signalConnectOpNodes(input_index, this->path(), output_index, output_op_node_path);
+	if (connected)
+		return *connected;
+
+	return false;
 }
 
 void OpNode::addOpNode(OpNode *op_node) {

@@ -4,9 +4,8 @@
 #include <boost/config.hpp>
 #include <string>
 
-namespace copper {
 
-#define BASE_API
+namespace copper {
 
 class BOOST_SYMBOL_VISIBLE BaseAPI {
   public:
@@ -16,7 +15,7 @@ class BOOST_SYMBOL_VISIBLE BaseAPI {
   	virtual ~BaseAPI() {}
 
   private:
-  	template<class T> friend class ObjectFactory;
+  	template<class T> friend class AbstractFactory;
 };
 
 }

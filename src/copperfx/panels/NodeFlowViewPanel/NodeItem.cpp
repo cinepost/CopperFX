@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include <QRect>
 #include <QColor>
 #include <QGraphicsScene>
@@ -7,8 +9,8 @@
 
 namespace copper { namespace ui {
 
-NodeItem::NodeItem(OpNode *op_node): QGraphicsObject(nullptr),
-  _locked(false), _op_node(op_node)
+NodeItem::NodeItem(OpNode *op_node, NodeItem::Flags flags): QGraphicsObject(nullptr),
+  _locked(false), _flags(flags), _op_node(op_node)
 {
   
   setFlag(QGraphicsItem::ItemDoesntPropagateOpacityToChildren, true);
@@ -27,7 +29,22 @@ NodeItem::NodeItem(OpNode *op_node): QGraphicsObject(nullptr),
   for(auto input : _op_node->inputs()) {
     addSocket(&input);
   }
+
+  // create output sockets
+  for(auto output : _op_node->outputs()) {
+    addSocket(&output);
+  }
+
+  _node_name_item.setParentItem(this);
+  _node_name_item.setPos(size().width() / 2.0 + 1, 0);
+  _node_name_item.setBrush(QColor(192, 192, 192));
+  _node_name_item.setText(_op_node->name().c_str());
 }
+
+QSizeF NodeItem::size() const {
+  return _size;
+}
+
 
 QRectF NodeItem::boundingRect() const {
   qreal pen_width = 1;
@@ -35,18 +52,38 @@ QRectF NodeItem::boundingRect() const {
 }
 
 void NodeItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+  Q_UNUSED(option);
+  Q_UNUSED(widget);
+
   QRectF rect = QRectF(-_size.width()/2.0, -_size.height()/2.0, _size.width(), _size.height());
 
-  painter->setPen(QColor(255, 255, 255));
-  painter->drawRoundedRect(rect, 1.5, 1.5);
+  if (isSelected()) {
+    painter->setPen(QColor(255, 190, 64));
+  } else {
+    painter->setPen(QColor(0, 0, 0));
+  }
 
-  painter->setPen(QColor(255, 255, 255));
-  painter->drawText(rect, Qt::AlignCenter, _op_node->name().c_str());
+  painter->setBrush(Qt::gray);
+  painter->drawRoundedRect(rect, 1.0, 1.0);
 }
 
 void NodeItem::addSocket(OpDataSocket *opdata_socket) {
-  NodeSocketItem *socket_item = new NodeSocketItem(this, opdata_socket);
-  _input_socket_items.push_back(socket_item);
+  NodeSocketItem *node_socket_item = new NodeSocketItem(this, opdata_socket);
+  _socket_items.push_back(node_socket_item);
+
+  // update sockets positions
+  for(auto socket_item : _socket_items) {
+    if(socket_item->isInput()) {
+      socket_item->setPos(0, -10);
+    } else {
+      socket_item->setPos(0, 10);
+    }
+  }
+
+}
+
+void NodeItem::mousePressEvent(QGraphicsSceneMouseEvent * event) {
+  if(_locked) return;
 }
 
 QVariant NodeItem::itemChange(GraphicsItemChange change, const QVariant &value) {

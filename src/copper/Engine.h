@@ -17,7 +17,6 @@
 #include "copper/Util/Singleton.h"
 
 #include "copper/Operator/OpNode.h"
-#include "copper/Operator/OpNetwork.h"
 #include "copper/Operator/OpTable.h"
 
 
@@ -31,6 +30,7 @@ class EngineSignals: public Singleton<EngineSignals> {
 	public:
 		// public engine signals
 		boost::signals2::signal<OpNode*(const std::string&, const std::string&, const std::string&)> signalCreateOpNode;
+		boost::signals2::signal<bool(unsigned int, const std::string&, unsigned int, const std::string&)> signalConnectOpNodes;
 
 		boost::signals2::signal<void(const std::string&, const std::string&)> signalOpNodeCreated;
 		boost::signals2::signal<void(const std::string&)> signalOpNetworkChanged;
@@ -38,13 +38,6 @@ class EngineSignals: public Singleton<EngineSignals> {
 
 // Engine class is a singleton, but we might need more than one engine so  things are subject to change in the future...
 class Engine: public Singleton<Engine> {
-
-	public:
-		// public engine signals
-		
-		//boost::signals2::signal<void(const std::string&, const std::string&)> signalCreateOpNode;
-		//boost::signals2::signal<void(const std::string&, const std::string&)> signalOpNodeCreated;
-
   public:
 		Engine();
 		~Engine() {};
@@ -52,7 +45,7 @@ class Engine: public Singleton<Engine> {
 	public:
 		void init();
 
-		OpNetwork *root();
+		OpNode *root();
 		OpNode *node(std::string node_path);
 
 		float time();
@@ -69,10 +62,11 @@ class Engine: public Singleton<Engine> {
 
 	// signal handlers
 	private:
-		OpNode* onCreateOpNode(const std::string &op_node_type_name, const std::string &op_network_path, const std::string &node_name = "");
+		OpNode* onCreateOpNode(const std::string &op_node_type_name, const std::string &op_node_path, const std::string &node_name = "");
+		bool    onConnectOpNodes(unsigned int input_index, const std::string &input_op_node_path, unsigned int output_index, const std::string &output_op_node_path);
 
 	private:
-		OpNetwork *_root;
+		OpNode *_root;
 
 		// animation related
 		float _time, _frame, _fps;

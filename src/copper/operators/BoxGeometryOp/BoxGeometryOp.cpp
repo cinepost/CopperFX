@@ -50,6 +50,7 @@ void BoxGeometryOp::registerOperator(OpTable *op_table) {
   input_sockets.emplace_back(OpDataSocket(0, 0, "geometry", OpDataSocket::Flags::INPUT_SOCKET));
 
   std::vector<OpDataSocket> outputs_sockets;  /// operator outputs
+  outputs_sockets.emplace_back(OpDataSocket(0, 0, "geometry", OpDataSocket::Flags::OUTPUT_SOCKET));
 
   op_table->registerOpDefinition( new OpDefinition(
     0,                            // version

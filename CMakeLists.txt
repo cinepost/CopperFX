@@ -41,7 +41,7 @@ endif()
 # Include Qt basic functions
 include( QtCommon )
 
-# INclude config targets
+# Include config targets
 include ( CopperConfigTargets )
 
 # Specify build paths
@@ -74,6 +74,7 @@ set ( COPPER_INCLUDE_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/src )
 include_directories(
     ${COPPER_INCLUDE_ROOT}
     ${CMAKE_CURRENT_SOURCE_DIR}/third_party
+    ${CMAKE_CURRENT_SOURCE_DIR}/third_party/enum-flags/include
 )
 
 # Documentation

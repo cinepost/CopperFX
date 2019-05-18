@@ -5,3 +5,6 @@
 [submodule "third_party/wykobi"]
 	path = third_party/wykobi
 	url = https://github.com/ArashPartow/wykobi.git
+[submodule "third_party/enum-flags"]
+	path = third_party/enum-flags
+	url = https://github.com/grisumbras/enum-flags

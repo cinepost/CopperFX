@@ -4,18 +4,19 @@
 #include <string>
 #include <map>
 
-#include "copper/Plugin/PluginApi.h"
+#include <flags/flags.hpp>
 
+#include "copper/Plugin/PluginApi.h"
 
 namespace copper {
 
 class OpDataSocket {
 	public:
 	/// Flags passed to the operator definition contructor:
-	enum Flags{
-		INPUT_SOCKET	= 0x01, /// Socket for output data
+	enum class Flags {
+		INPUT_SOCKET	 = 0x01, /// Socket for output data
 		OUTPUT_SOCKET  = 0x02, /// Socket for ouput data
-		MULTY_INPUT   = 0x04  /// Unordered multiple input
+		MULTY_INPUT    = 0x04  /// Unordered multiple input
 	};
 
 	public:
@@ -29,14 +30,22 @@ class OpDataSocket {
 	public:
 		bool isInput() const;
 		bool isOutput() const;
+		bool connect(OpDataSocket *socket);
+		std::vector<OpDataSocket*> connections();
+
+		OpDataSocket::Flags flags() const;
 
 	private:
 		unsigned int 				_id;
 		unsigned int 				_opdata_type_version;
 		std::string 				_opdata_type_name;
 		OpDataSocket::Flags _flags;
+
+		std::vector<OpDataSocket*> 	_connections;
 };
 
 }
+
+ALLOW_FLAGS_FOR_ENUM(copper::OpDataSocket::Flags)
 
 #endif // OP_DATA_SOCKET_H

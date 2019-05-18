@@ -177,7 +177,7 @@ void SceneViewPanelGLWidget::makeTestObject()
     for (int j = 0; j < 6; ++j) {
       //textures[j] = new QOpenGLTexture(QImage(QString(":/images/side%1.png").arg(j + 1)).mirrored());
       textures[j] = new QOpenGLTexture(QImage(QString(":/textures/texture_2.png")).mirrored());
-      textures[j]->setMinificationFilter(QOpenGLTexture::LinearMipMapLinear);
+      textures[j]->setMinificationFilter(QOpenGLTexture::Nearest);
       textures[j]->setMagnificationFilter(QOpenGLTexture::Linear);
     }
 

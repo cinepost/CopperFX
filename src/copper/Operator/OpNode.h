@@ -5,6 +5,8 @@
 #include <map>
 #include <unordered_map>
 
+#include <boost/optional.hpp>
+
 #include "copper/Util/UT_StringUtils.h"
 #include "copper/OpParameter/OpParameter.h"
 #include "copper/Operator/NetworkBoxItem.h"
@@ -14,12 +16,10 @@
 namespace copper {
 
 class OpBase;
-class OpNetwork;
 class OpDefinition;
 
 class OpNode : public NetworkBoxItem {
 	friend class Engine;
-	friend class OpNetwork;
 	friend class OpDefinition;
 
 	public:
@@ -34,15 +34,24 @@ class OpNode : public NetworkBoxItem {
 		std::vector<OpDataSocket> inputs() const;
 		std::vector<OpDataSocket> outputs() const;
 
-		virtual OpNetwork *castToOpNetwork();
+		OpDataSocket *input(unsigned int index);
+		OpDataSocket *output(unsigned int index);
+
+		OpNode 		*createNode(const std::string &op_type_name);
+		OpNode 		*createNode(const std::string &op_type_name, const std::string &node_name);
+
+		bool setInput(unsigned int input_index, const std::string &output_op_node_path, unsigned int output_index = 0);
+
+		virtual bool isSubnetwork() const;
+		bool isRoot() const;
 
 	protected:
-		virtual OpNetwork 	*parent();
-		virtual OpNetwork 	*root();
+		virtual OpNode 	*parent();
+		virtual OpNode 	*root();
 
 	protected:
-		OpNode(OpNetwork *parent, OpDefinition *op_def, const std::string &name = "");
-		OpNetwork 		*_parent;
+		OpNode(OpNode *parent, OpDefinition *op_def, const std::string &name = "");
+		OpNode 				*_parent;
 		std::string		_name;
 		OpBase 				*_operator;
 		OpDefinition 	*_op_def;

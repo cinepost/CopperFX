@@ -2,7 +2,6 @@
 
 #include "copper/Engine.h"
 #include "copper/Operator/OpNode.h"
-#include "copper/Operator/OpNetwork.h"
 
 #include "NodeFlowScene.h"
 
@@ -23,7 +22,7 @@ void NodeFlowScene::buildScene() {
 	OpNode *op_network = Engine::getInstance().root()->node(_op_network_path);
 	std::cout << "Creating NodeFlowScene at: ";// << op_network->path();
 	for(auto&& op_node: op_network->children()) {
-		addItem(new NodeItem(op_node));
+		addItem(new NodeItem(op_node, NodeItem::Flags::SOCKETS_HORIZONTAL));
 	}
 }
 

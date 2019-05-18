@@ -1,5 +1,6 @@
 #include "OpDefinition.h"
 
+#include "copper/Operator/OpNode.h"
 
 namespace copper {
 
@@ -10,7 +11,7 @@ OpDefinition::OpDefinition(
 	opConstructor op_contructor,
 	std::vector<OpDataSocket> inputs,
 	std::vector<OpDataSocket> outputs,
-	Flags flags
+	OpDefinition::Flags flags
 	): 
 	_version(version), 
 	_type_name(type_name), 
@@ -36,12 +37,14 @@ const std::vector<OpDataSocket> *OpDefinition::outputs() const {
 	return &_outputs;
 }
 
-OpNode *OpDefinition::createOpNode(OpNetwork *parent_op_network, const std::string &name) {
+OpNode *OpDefinition::createOpNode(OpNode *parent_op_network, const std::string &name) {
 	std::string new_node_name = name;
+	
 	if (name == "") {
 		new_node_name = _type_name;
 	}
-	OpNode *op_node = new OpNode(parent_op_network, this, name);
+
+	OpNode *op_node = new OpNode(parent_op_network, this, new_node_name);
 	op_node->_operator = _opConstructor();
 	op_node->_inputs = _inputs;
 	op_node->_outputs = _outputs;
