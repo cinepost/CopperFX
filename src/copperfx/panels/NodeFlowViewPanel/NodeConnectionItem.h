@@ -35,6 +35,8 @@ class NodeConnectionItem : public QGraphicsPathItem {
     QPointF _pos_to;
     NodeSocketItem *_socket_from;
     NodeSocketItem *_socket_to;
+
+    bool _connected = false;
 };
 
 }}

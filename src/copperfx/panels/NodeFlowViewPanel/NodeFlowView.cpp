@@ -22,7 +22,7 @@
 namespace copper { namespace ui {
 
 NodeFlowView::NodeFlowView(QWidget *parent, const std::string &op_network_path): QGraphicsView(parent) {
-  setDragMode(QGraphicsView::ScrollHandDrag);
+  setDragMode(QGraphicsView::NoDrag);
   setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 
   setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -57,19 +57,19 @@ void NodeFlowView::onOpNodeCreated(const std::string &op_node_path, const std::s
   //_scenes[op_network_path].buildScene();
 }
 
-void NodeFlowView::onOpNetworkChanged(const std::string &op_network_path) {
-  _scenes[op_network_path]->buildScene();
+void NodeFlowView::onOpNetworkChanged(const std::string &op_node_path) {
+  _scenes[op_node_path]->buildSceneAt(op_node_path);
 }
 
-void NodeFlowView::viewNetwork(const std::string &op_network_path) {
+void NodeFlowView::viewNetwork(const std::string &op_node_path) {
   NodeFlowScene *scene;
 
   // check if we dont have network scene built yet
-  if (_scenes.find(op_network_path) == _scenes.end()) {
-    scene = new NodeFlowScene(this, op_network_path);
-    _scenes.insert(make_pair(op_network_path, scene)); 
+  if (_scenes.find(op_node_path) == _scenes.end()) {
+    scene = new NodeFlowScene(this, op_node_path);
+    _scenes.insert(make_pair(op_node_path, scene)); 
   }
-  scene = _scenes[op_network_path];
+  scene = _scenes[op_node_path];
 
   QGraphicsView::setScene(scene);
 }
@@ -153,23 +153,31 @@ void NodeFlowView::contextMenuEvent(QContextMenuEvent *event) {
 }
 
 void NodeFlowView::mousePressEvent(QMouseEvent *event) {
-  QGraphicsView::mousePressEvent(event);
-  if (event->button() == Qt::LeftButton) {
+  if (event->button() == Qt::LeftButton && event->modifiers().testFlag(Qt::ControlModifier)) {
+    setDragMode(QGraphicsView::ScrollHandDrag);
     _clickPos = mapToScene(event->pos());
   }
+  QGraphicsView::mousePressEvent(event);
 }
 
 
 void NodeFlowView::mouseMoveEvent(QMouseEvent *event) {
-  QGraphicsView::mouseMoveEvent(event);
-  if (scene()->mouseGrabberItem() == nullptr && event->buttons() == Qt::LeftButton) {
+  if (scene()->mouseGrabberItem() == nullptr && event->buttons() == Qt::LeftButton && event->modifiers ().testFlag (Qt::ControlModifier)) {
     // Make sure shift is not being pressed
     if ((event->modifiers() & Qt::ShiftModifier) == 0) {
       QPointF difference = _clickPos - mapToScene(event->pos());
       setSceneRect(sceneRect().translated(difference.x(), difference.y()));
     }
   }
+  QGraphicsView::mouseMoveEvent(event);
 }
+
+
+void NodeFlowView::mouseReleaseEvent(QMouseEvent *event) {
+  setDragMode(QGraphicsView::NoDrag);
+  QGraphicsView::mouseReleaseEvent(event);
+}
+
 
 void NodeFlowView::wheelEvent(QWheelEvent *event) {
   double zoom_in_factor = 1.05;

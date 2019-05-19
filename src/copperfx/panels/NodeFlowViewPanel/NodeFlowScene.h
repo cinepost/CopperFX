@@ -15,13 +15,13 @@ class NodeFlowScene : public QGraphicsScene {
 	Q_OBJECT
 
 	public:
-		NodeFlowScene(QWidget *parent, const std::string &op_network_path);
+		NodeFlowScene(QWidget *parent, const std::string &op_node_path = "/");
 
 	public:
-		void buildScene();
+		void buildSceneAt(const std::string &op_node_path);
 
 	private:
-		std::string _op_network_path;
+		std::string _op_node_path;
 };
 
 }}

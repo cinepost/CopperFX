@@ -9,7 +9,7 @@
 namespace copper { namespace ui {
 
 NodeConnectionItem::NodeConnectionItem(QGraphicsItem *parent): QGraphicsPathItem(parent) {
-	setPen(QPen(Qt::black, 2));
+	setPen(QPen(Qt::black, 1.0));
 	setBrush(Qt::NoBrush);
 	setZValue(-1);
 	_socket_from = nullptr;
@@ -26,30 +26,39 @@ NodeConnectionItem::~NodeConnectionItem() {
 
 
 void NodeConnectionItem::setPosFrom(const QPointF &pos) {
-	_pos_from = pos;
+	if (!_socket_from) {
+		_pos_from = pos;
+		updatePath();
+	}
 }
 
 
 void NodeConnectionItem::setPosTo(const QPointF &pos) {
-	_pos_to = pos;
+	if (!_socket_to) {
+		_pos_to = pos;
+		updatePath();
+	}
 }
 
 
 void NodeConnectionItem::setSocketFrom(NodeSocketItem *socket_item) {
 	_socket_from = socket_item;
 	_socket_from->connections().append(this);
+	if (_socket_to)_connected = true;
 }
 
 
 void NodeConnectionItem::setSocketTo(NodeSocketItem *socket_item) {
 	_socket_to = socket_item;
 	_socket_to->connections().append(this);
+	if (_socket_from)_connected = true;
 }
 
 
 void NodeConnectionItem::updatePosFromPorts() {
-	_pos_from = _socket_from->scenePos();
-	_pos_to = _socket_to->scenePos();
+	if(_socket_from)_pos_from = _socket_from->scenePos();
+	if(_socket_to)_pos_to = _socket_to->scenePos();
+	updatePath();
 }
 
 

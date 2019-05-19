@@ -4,6 +4,8 @@
 #include <QVector>
 #include <QSizeF>
 #include <QPainter>
+#include <QMouseEvent>
+#include <QGraphicsSceneMouseEvent>
 #include <QtCore/QUuid>
 #include <QtWidgets/QGraphicsItem>
 #include <QtWidgets/QGraphicsObject>
@@ -11,6 +13,9 @@
 #include "copper/Operator/OpDataSocket.h"
 #include "NodeItem.h"
 
+
+class QDragEnterEvent;
+class QDropEvent;
 
 namespace copper { namespace ui {
 
@@ -26,14 +31,20 @@ class NodeSocketItem : public QGraphicsObject {
   public:
     bool isInput() const;
     bool isOutput() const;
+    bool isConnected(NodeSocketItem *socket_item) const;
+    NodeItem *nodeItem();
+
     QSizeF size() const;
     QVector<NodeConnectionItem*>& connections();
 
-    bool isConnected(NodeSocketItem *socket);
-
   public:
     void hoverEnterEvent(QGraphicsSceneHoverEvent * event) override;
+    void hoverMoveEvent(QGraphicsSceneHoverEvent *event) override;
     void hoverLeaveEvent(QGraphicsSceneHoverEvent * event) override;
+
+    void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
+    void mouseMoveEvent(QGraphicsSceneMouseEvent * event) override;
+    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
 
 	private:
     QRectF boundingRect() const override;
@@ -48,6 +59,9 @@ class NodeSocketItem : public QGraphicsObject {
 
     bool _is_input = false;
     bool _hovered = false;
+
+    NodeItem *_parent = nullptr;
+    NodeConnectionItem *_temp_connection_item = nullptr;
 };
 
 }}
