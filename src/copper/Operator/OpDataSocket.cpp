@@ -35,6 +35,18 @@ bool OpDataSocket::isOutput() const {
   return false;
 }
 
+std::string OpDataSocket::dataTypeName() const {
+	return _opdata_type_name;
+}
+
+bool OpDataSocket::canConnect(const OpDataSocket* socket_1, const OpDataSocket* socket_2) {
+	if ((socket_1 == nullptr) || (socket_2 == nullptr)) return false;
+	// TODO: check if it's the same node sockets then return false
+	if ( socket_1->dataTypeName() != socket_2->dataTypeName()) return false;
+
+	return true;
+}
+
 bool OpDataSocket::connect(OpDataSocket *socket) {
 	if ((this->isInput() && socket->isInput()) || (this->isOutput() && socket->isOutput())) {
 		BOOST_LOG_TRIVIAL(error) << "OpDataSocket can not connect socket of the same type !";

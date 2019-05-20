@@ -2,6 +2,10 @@
 #include <boost/algorithm/clamp.hpp>
 #include <cmath>
 
+#include <boost/log/core.hpp>
+#include <boost/log/trivial.hpp>
+#include <boost/log/expressions.hpp>
+
 #include <QtGui/QPen>
 #include <QtGui/QBrush>
 
@@ -16,12 +20,16 @@
 #include <QGraphicsItem>
 
 #include "copper/Engine.h"
+
+#include "NodeFlowDefines.h"
 #include "NodeFlowView.h"
 
 
 namespace copper { namespace ui {
 
 NodeFlowView::NodeFlowView(QWidget *parent, const std::string &op_network_path): QGraphicsView(parent) {
+  BOOST_LOG_TRIVIAL(debug) << "Constructing Node Flow View panel";
+
   setDragMode(QGraphicsView::NoDrag);
   setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 
@@ -47,6 +55,8 @@ NodeFlowView::NodeFlowView(QWidget *parent, const std::string &op_network_path):
 
   // view op network
   viewNetwork(op_network_path);
+
+  BOOST_LOG_TRIVIAL(debug) << "Node Flow View panel constructed!";
 }
 
 NodeFlowView::~NodeFlowView() {
@@ -156,17 +166,52 @@ void NodeFlowView::mousePressEvent(QMouseEvent *event) {
   if (event->button() == Qt::LeftButton && event->modifiers().testFlag(Qt::ControlModifier)) {
     setDragMode(QGraphicsView::ScrollHandDrag);
     _clickPos = mapToScene(event->pos());
+  } else {
+    // process item click
+    QGraphicsItem *item = itemAt(event->pos());
+    if( item ){
+      switch( item->type() ) {
+        case NodeSocketType:
+          // NodeSocket click. Start creating new connection
+          _temp_socket_from = dynamic_cast<NodeSocketItem*>(item);
+
+          _temp_connection_item = new NodeConnectionItem();
+          _temp_connection_item->setPosFrom(mapToScene(event->pos()));
+          _temp_connection_item->setPosTo(mapToScene(event->pos()));
+          scene()->addItem(_temp_connection_item);
+          std::cout << "create connection!\n";
+          break;
+      }
+    }
   }
   QGraphicsView::mousePressEvent(event);
 }
 
 
 void NodeFlowView::mouseMoveEvent(QMouseEvent *event) {
+  // translate scene
   if (scene()->mouseGrabberItem() == nullptr && event->buttons() == Qt::LeftButton && event->modifiers ().testFlag (Qt::ControlModifier)) {
     // Make sure shift is not being pressed
     if ((event->modifiers() & Qt::ShiftModifier) == 0) {
       QPointF difference = _clickPos - mapToScene(event->pos());
       setSceneRect(sceneRect().translated(difference.x(), difference.y()));
+    }
+  } else {
+    if (_temp_connection_item) {
+      // update temp connection item
+      _temp_connection_item->setPosTo(mapToScene(event->pos()));
+
+      // check if we are over some socket
+      QGraphicsItem *item = itemAt(event->pos());
+      if( item ){
+        switch( item->type() ) {
+          case NodeSocketType:
+            // snap to socket
+            _temp_socket_to = dynamic_cast<NodeSocketItem*>(item);
+            _temp_connection_item->setPosTo(item->scenePos());
+            break;
+        }
+      }
     }
   }
   QGraphicsView::mouseMoveEvent(event);
@@ -174,6 +219,22 @@ void NodeFlowView::mouseMoveEvent(QMouseEvent *event) {
 
 
 void NodeFlowView::mouseReleaseEvent(QMouseEvent *event) {
+  // process sockets connection if it's there
+  if(_temp_connection_item) {
+    // check if coonection is allowed
+    if(NodeSocketItem::canConnect(_temp_socket_from, _temp_socket_to)) {
+      std::cout << "CAN CONNECT!!!\n";
+    } else {
+      std::cout << "CAN NOT CONNECT!!!\n";
+      // connection not allowed, delete temporary connection item
+      scene()->removeItem(_temp_connection_item);
+    }
+
+    _temp_connection_item = nullptr;
+    _temp_socket_to = nullptr;
+    _temp_socket_to = nullptr;
+  }
+
   setDragMode(QGraphicsView::NoDrag);
   QGraphicsView::mouseReleaseEvent(event);
 }

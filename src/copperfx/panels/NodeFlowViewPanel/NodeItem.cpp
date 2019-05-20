@@ -1,5 +1,9 @@
 #include <iostream>
 
+#include <boost/log/core.hpp>
+#include <boost/log/trivial.hpp>
+#include <boost/log/expressions.hpp>
+
 #include <QRect>
 #include <QColor>
 #include <QGraphicsScene>
@@ -9,10 +13,8 @@
 
 namespace copper { namespace ui {
 
-NodeItem::NodeItem(OpNode *op_node, NodeItem::Flags flags): QGraphicsObject(nullptr),
-  _locked(false), _flags(flags), _op_node(op_node)
-{
-  
+NodeItem::NodeItem(OpNode *op_node, NodeItem::Flags flags): QGraphicsItem(nullptr), _locked(false), _flags(flags), _op_node(op_node) {
+  BOOST_LOG_TRIVIAL(debug) << "Constructing Node Item.";
   setFlag(QGraphicsItem::ItemDoesntPropagateOpacityToChildren, true);
   setFlag(QGraphicsItem::ItemIsMovable, true);
   setFlag(QGraphicsItem::ItemIsFocusable, true);
@@ -27,18 +29,19 @@ NodeItem::NodeItem(OpNode *op_node, NodeItem::Flags flags): QGraphicsObject(null
 
   // create input sockets
   for(auto input : _op_node->inputs()) {
-    addSocket(&input);
+    addSocket(input);
   }
 
   // create output sockets
   for(auto output : _op_node->outputs()) {
-    addSocket(&output);
+    addSocket(output);
   }
 
   _node_name_item.setParentItem(this);
   _node_name_item.setPos(size().width() / 2.0 + 1, 0);
   _node_name_item.setBrush(QColor(192, 192, 192));
   _node_name_item.setText(_op_node->name().c_str());
+  BOOST_LOG_TRIVIAL(debug) << "Node Item constructed!";
 }
 
 QSizeF NodeItem::size() const {
@@ -67,7 +70,7 @@ void NodeItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
   painter->drawRoundedRect(rect, 1.0, 1.0);
 }
 
-void NodeItem::addSocket(OpDataSocket *opdata_socket) {
+void NodeItem::addSocket(const OpDataSocket *opdata_socket) {
   NodeSocketItem *node_socket_item = new NodeSocketItem(this, opdata_socket);
   _socket_items.push_back(node_socket_item);
 
@@ -84,6 +87,11 @@ void NodeItem::addSocket(OpDataSocket *opdata_socket) {
 
 void NodeItem::mousePressEvent(QGraphicsSceneMouseEvent * event) {
   if(_locked) return;
+
+  // deselect all other items after this one is selected
+  if (!isSelected() && !(event->modifiers() & Qt::ControlModifier)) {
+    scene()->clearSelection();
+  }
 }
 
 QVariant NodeItem::itemChange(GraphicsItemChange change, const QVariant &value) {

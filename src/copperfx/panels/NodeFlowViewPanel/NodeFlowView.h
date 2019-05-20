@@ -8,6 +8,7 @@
 #include <QtCore/QPointF>
 #include <QtWidgets/QGraphicsView>
 
+#include "NodeConnectionItem.h"
 #include "NodeFlowScene.h"
 
 
@@ -53,6 +54,11 @@ class NodeFlowView : public QGraphicsView {
   	QPointF _clickPos;
 
   	std::unordered_map<std::string, NodeFlowScene*> _scenes;
+
+  private:
+    NodeSocketItem      *_temp_socket_from = nullptr;
+    NodeSocketItem      *_temp_socket_to = nullptr;
+    NodeConnectionItem  *_temp_connection_item = nullptr;
 
 };
 

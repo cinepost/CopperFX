@@ -30,8 +30,11 @@ class OpDataSocket {
 	public:
 		bool isInput() const;
 		bool isOutput() const;
+		std::string dataTypeName() const;
 		bool connect(OpDataSocket *socket);
 		std::vector<OpDataSocket*> connections();
+
+		static bool canConnect(const OpDataSocket* socket_1, const OpDataSocket* socket_2);
 
 		OpDataSocket::Flags flags() const;
 

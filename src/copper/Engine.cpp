@@ -140,8 +140,11 @@ bool Engine::onConnectOpNodes(unsigned int input_index, const std::string &input
   }
 
   bool connected = input_socket->connect(output_socket);
-  if( connected) BOOST_LOG_TRIVIAL(debug) << "Connected!";
+  if( connected) {
+    BOOST_LOG_TRIVIAL(debug) << "Connected!";
+  } else {
     BOOST_LOG_TRIVIAL(debug) << "Not connected!";
+  }
 
   return connected;
 }

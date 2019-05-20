@@ -22,11 +22,11 @@ namespace copper { namespace ui {
 class NodeItem;
 class NodeConnectionItem;
 
-class NodeSocketItem : public QGraphicsObject {
-	Q_OBJECT
+class NodeSocketItem : public QGraphicsItem {
+	//Q_OBJECT
 
 	public:
-		NodeSocketItem(NodeItem *parent, OpDataSocket *opdata_socket);
+		NodeSocketItem(NodeItem *parent, const OpDataSocket *opdata_socket);
 
   public:
     bool isInput() const;
@@ -34,10 +34,14 @@ class NodeSocketItem : public QGraphicsObject {
     bool isConnected(NodeSocketItem *socket_item) const;
     NodeItem *nodeItem();
 
+    const OpDataSocket *opDataSocket() const;
+    static bool canConnect(NodeSocketItem *_temp_socket_from, NodeSocketItem *_temp_socket_to);
+
     QSizeF size() const;
     QVector<NodeConnectionItem*>& connections();
 
   public:
+    int type() const override; // Enable the use of qgraphicsitem_cast with this item.
     void hoverEnterEvent(QGraphicsSceneHoverEvent * event) override;
     void hoverMoveEvent(QGraphicsSceneHoverEvent *event) override;
     void hoverLeaveEvent(QGraphicsSceneHoverEvent * event) override;
@@ -48,20 +52,20 @@ class NodeSocketItem : public QGraphicsObject {
 
 	private:
     QRectF boundingRect() const override;
+    QPainterPath shape() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = 0) override;
     //QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
 
   private:
   	QSizeF _size = QSizeF(10,10);
 
-    OpDataSocket *_opdata_socket;
+    const OpDataSocket *_opdata_socket;
     QVector<NodeConnectionItem*> _connections;
 
     bool _is_input = false;
     bool _hovered = false;
 
     NodeItem *_parent = nullptr;
-    NodeConnectionItem *_temp_connection_item = nullptr;
 };
 
 }}

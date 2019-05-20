@@ -4,7 +4,7 @@
 #include <QSizeF>
 #include <QPainter>
 #include <QtCore/QUuid>
-#include <QGraphicsPathItem>
+#include <QGraphicsItem>
 
 #include "NodeSocketItem.h"
 
@@ -13,7 +13,7 @@ namespace copper { namespace ui {
 
 class NodeSocketItem;
 
-class NodeConnectionItem : public QGraphicsPathItem {
+class NodeConnectionItem : public QGraphicsItem {
   public:
 	//Q_OBJECT
 
@@ -26,9 +26,19 @@ class NodeConnectionItem : public QGraphicsPathItem {
     void setSocketFrom(NodeSocketItem *socket_item);
     void setSocketTo(NodeSocketItem *socket_item);
     void updatePosFromPorts();
-    void updatePath();
     NodeSocketItem* socketFrom() const;
     NodeSocketItem* socketTo() const;
+
+  public:
+    void hoverEnterEvent(QGraphicsSceneHoverEvent * event) override;
+    void hoverLeaveEvent(QGraphicsSceneHoverEvent * event) override;
+
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+    QRectF boundingRect() const override;
+    QPainterPath shape() const override;
+
+  private:
+    QPainterPath buildPath() const;
 
   private:
   	QPointF _pos_from;
@@ -37,6 +47,7 @@ class NodeConnectionItem : public QGraphicsPathItem {
     NodeSocketItem *_socket_to;
 
     bool _connected = false;
+    bool _hovered = false;
 };
 
 }}

@@ -59,12 +59,18 @@ std::vector<OpNode*> OpNode::children() const {
 	return children;
 }
 
-std::vector<OpDataSocket> OpNode::inputs() const {
-	return _inputs;
+std::vector<const OpDataSocket*> OpNode::inputs() const {
+	std::vector<const OpDataSocket*> ins;
+	for (auto in: _inputs)
+		ins.push_back(&in);
+	return ins;
 }
 
-std::vector<OpDataSocket> OpNode::outputs() const {
-	return _outputs;
+std::vector<const OpDataSocket*> OpNode::outputs() const {
+	std::vector<const OpDataSocket*> outs;
+	for (auto out: _outputs)
+		outs.push_back(&out);
+	return outs;
 }
 
 OpDataSocket *OpNode::input(unsigned int index) {

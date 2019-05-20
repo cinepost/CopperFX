@@ -31,8 +31,8 @@ class OpNode : public NetworkBoxItem {
 		void setName(const std::string &name );
 
 		std::vector<OpNode*> children() const;
-		std::vector<OpDataSocket> inputs() const;
-		std::vector<OpDataSocket> outputs() const;
+		std::vector<const OpDataSocket*> inputs() const;
+		std::vector<const OpDataSocket*> outputs() const;
 
 		OpDataSocket *input(unsigned int index);
 		OpDataSocket *output(unsigned int index);

@@ -20,8 +20,15 @@ class NodeFlowScene : public QGraphicsScene {
 	public:
 		void buildSceneAt(const std::string &op_node_path);
 
+	public:
+		void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
+    void mouseMoveEvent(QGraphicsSceneMouseEvent * event) override;
+    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
+
 	private:
 		std::string _op_node_path;
+		
+		NodeConnectionItem *_temp_connection_item = nullptr;
 };
 
 }}

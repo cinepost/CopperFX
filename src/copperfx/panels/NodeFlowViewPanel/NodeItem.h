@@ -20,14 +20,14 @@ namespace copper { namespace ui {
 
 class NodeSocketItem;
 
-class NodeItem : public QGraphicsObject {
+class NodeItem : public QGraphicsItem {
   public:
   enum class Flags {
     SOCKETS_VERTICAL    = 0x01, /// Socket for output data
     SOCKETS_HORIZONTAL  = 0x02, /// Socket for ouput data
   };
 
-	Q_OBJECT
+	//Q_OBJECT
 
 	public:
 		NodeItem(OpNode *op_node, NodeItem::Flags flags);
@@ -39,8 +39,8 @@ class NodeItem : public QGraphicsObject {
     QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
     void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
 
-  public:
-    void addSocket(OpDataSocket *opdata_socket);
+  private:
+    void addSocket(const OpDataSocket *opdata_socket);
 
   private:
   	bool _locked;

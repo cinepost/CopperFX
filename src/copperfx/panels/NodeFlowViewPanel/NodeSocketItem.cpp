@@ -7,13 +7,14 @@
 #include <QMimeData>
 #include <QGraphicsScene>
 
+#include "NodeFlowDefines.h"
 #include "NodeSocketItem.h"
 #include "NodeConnectionItem.h"
 
 
 namespace copper { namespace ui {
 
-NodeSocketItem::NodeSocketItem(NodeItem *parent, OpDataSocket *opdata_socket): QGraphicsObject(parent), _opdata_socket(opdata_socket) {
+NodeSocketItem::NodeSocketItem(NodeItem *parent, const OpDataSocket *opdata_socket): QGraphicsItem(parent), _opdata_socket(opdata_socket) {
   setFlag(QGraphicsItem::ItemDoesntPropagateOpacityToChildren, true);
   setFlag(QGraphicsItem::ItemIsMovable, false);
   setFlag(QGraphicsItem::ItemIsFocusable, true);
@@ -24,6 +25,8 @@ NodeSocketItem::NodeSocketItem(NodeItem *parent, OpDataSocket *opdata_socket): Q
   setAcceptHoverEvents(true);
   setZValue(0);
   setCacheMode(QGraphicsItem::DeviceCoordinateCache);
+
+  setToolTip(_opdata_socket->dataTypeName().c_str());
 
   _parent = parent;
 
@@ -65,46 +68,70 @@ QRectF NodeSocketItem::boundingRect() const {
   return QRectF(-_size.width()/2.0 - pen_width/2.0, -_size.height()/2.0 - pen_width/2.0, _size.width() + pen_width, _size.height() + pen_width);
 }
 
+QPainterPath NodeSocketItem::shape() const {
+    QPainterPath path;
+    path.addEllipse(boundingRect());
+    return path;
+}
 
 void NodeSocketItem::hoverEnterEvent(QGraphicsSceneHoverEvent *event) {
   _hovered = true;
-  QGraphicsObject::hoverEnterEvent(event);
+  QGraphicsItem::hoverEnterEvent(event);
 }
 
 void NodeSocketItem::hoverMoveEvent(QGraphicsSceneHoverEvent *event) {
-  QGraphicsObject::hoverMoveEvent(event);
+  QGraphicsItem::hoverMoveEvent(event);
 }
 
 
 void NodeSocketItem::hoverLeaveEvent(QGraphicsSceneHoverEvent *event) {
   _hovered = false;
-  QGraphicsObject::hoverLeaveEvent(event);
+  QGraphicsItem::hoverLeaveEvent(event);
 }
 
 
 void NodeSocketItem::mousePressEvent(QGraphicsSceneMouseEvent * event) {
-  if(event->button() & Qt::LeftButton) {
-    _temp_connection_item = new NodeConnectionItem(this);
-    _temp_connection_item->setPosFrom(event->pos());
-    _temp_connection_item->setPosTo(event->pos());
-  } else {
-    QGraphicsObject::mousePressEvent(event);
-  }
+  //if(event->button() & Qt::LeftButton) {
+  //  _temp_connection_item = new NodeConnectionItem(this);
+  //  _temp_connection_item->setPosFrom(event->pos());
+  //  _temp_connection_item->setPosTo(event->pos());
+  //} else {
+  //  QGraphicsObject::mousePressEvent(event);
+  //}
+  //QGraphicsItem::mousePressEvent(event);
 }
 
 
 void NodeSocketItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event) {
-  QGraphicsObject::mouseMoveEvent(event);
-  if(_temp_connection_item) {
-    // move the end point of a temporary connection item
-    _temp_connection_item->setPosTo(event->pos());
-  }
+  //if(_temp_connection_item) {
+    //move the end point of a temporary connection item
+  //  _temp_connection_item->setPosTo(event->pos());
+  //}
+  //QGraphicsItem::mouseMoveEvent(event);
 }
 
 
 void NodeSocketItem::mouseReleaseEvent(QGraphicsSceneMouseEvent * event) {
-  delete _temp_connection_item;
-  QGraphicsObject::mouseReleaseEvent(event);
+  //delete _temp_connection_item;
+  QGraphicsItem::mouseReleaseEvent(event);
+}
+
+
+int NodeSocketItem::type() const {
+  // Enable the use of qgraphicsitem_cast with this item.
+  return NodeSocketType;
+}
+
+
+const OpDataSocket *NodeSocketItem::opDataSocket() const {
+  return _opdata_socket;
+}
+
+
+bool NodeSocketItem::canConnect(NodeSocketItem *_temp_socket_from, NodeSocketItem *_temp_socket_to) {
+  return true;
+  if ((_temp_socket_from == nullptr) || (_temp_socket_to == nullptr)) return false;
+  return OpDataSocket::canConnect(_temp_socket_from->opDataSocket(), _temp_socket_to->opDataSocket());
 }
 
 
