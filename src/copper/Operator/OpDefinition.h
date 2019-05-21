@@ -8,13 +8,13 @@
 #include "flags/flags.hpp"
 
 #include "copper/Plugin/PluginApi.h"
-#include "copper/Operator/OpDataSocket.h"
 #include "copper/Operator/OpBase.h"
 
 
 namespace copper {
 
 class OpNode;
+class OpDataSocket;
 
 typedef OpBase *(*opConstructor)();
 
@@ -45,13 +45,13 @@ class OpDefinition {
 			OpDefinition::Flags flags
 		);
 
-		std::string typeName() const;
+		const std::string& typeName() const;
 		opConstructor constructor() const;
 		const std::vector<OpDataSocket> *inputs() const;
 		const std::vector<OpDataSocket> *outputs() const;
 
 	public:
-		OpNode *createOpNode(OpNode *parent_op_network, const std::string &name = "");
+		OpNode *createOpNode(OpNode *parent_op_node, const std::string &name = "");
 
 	private:
 		unsigned int _version;

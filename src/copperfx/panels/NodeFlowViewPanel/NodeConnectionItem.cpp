@@ -63,7 +63,7 @@ void NodeConnectionItem::setSocketTo(NodeSocketItem *socket_item) {
 }
 
 
-void NodeConnectionItem::updatePosFromPorts() {
+void NodeConnectionItem::updatePosFromSockets() {
 	if(_socket_from)_pos_from = _socket_from->scenePos();
 	if(_socket_to)_pos_to = _socket_to->scenePos();
 	update();

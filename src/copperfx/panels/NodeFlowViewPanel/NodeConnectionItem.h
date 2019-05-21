@@ -25,7 +25,7 @@ class NodeConnectionItem : public QGraphicsItem {
     void setPosTo(const QPointF &pos);
     void setSocketFrom(NodeSocketItem *socket_item);
     void setSocketTo(NodeSocketItem *socket_item);
-    void updatePosFromPorts();
+    void updatePosFromSockets();
     NodeSocketItem* socketFrom() const;
     NodeSocketItem* socketTo() const;
 

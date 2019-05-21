@@ -104,8 +104,12 @@ QVariant NodeItem::itemChange(GraphicsItemChange change, const QVariant &value) 
       newPos.setX(qMin(rect.right(), qMax(newPos.x(), rect.left())));
       newPos.setY(qMin(rect.bottom(), qMax(newPos.y(), rect.top())));
     }
+
     _op_node->setX(newPos.x());
     _op_node->setY(newPos.y());
+    for (auto socket_item: _socket_items) {
+      socket_item->itemChange(change, value);
+    }
 
     return newPos;
   }

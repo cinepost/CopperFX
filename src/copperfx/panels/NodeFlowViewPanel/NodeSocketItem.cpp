@@ -1,5 +1,9 @@
 #include <iostream>
 
+#include <boost/log/core.hpp>
+#include <boost/log/trivial.hpp>
+#include <boost/log/expressions.hpp>
+
 #include <QDrag>
 #include <QRect>
 #include <QColor>
@@ -15,24 +19,26 @@
 namespace copper { namespace ui {
 
 NodeSocketItem::NodeSocketItem(NodeItem *parent, const OpDataSocket *opdata_socket): QGraphicsItem(parent), _opdata_socket(opdata_socket) {
+  BOOST_LOG_TRIVIAL(debug) << "Constructing Node Socket Item.";
   setFlag(QGraphicsItem::ItemDoesntPropagateOpacityToChildren, true);
   setFlag(QGraphicsItem::ItemIsMovable, false);
   setFlag(QGraphicsItem::ItemIsFocusable, true);
   setFlag(QGraphicsItem::ItemIsSelectable, false);
-  //setFlag(QGraphicsItem::ItemSendsScenePositionChanges, true);
 
   setAcceptDrops(true);
   setAcceptHoverEvents(true);
   setZValue(0);
   setCacheMode(QGraphicsItem::DeviceCoordinateCache);
 
-  setToolTip(_opdata_socket->dataTypeName().c_str());
+  //setToolTip(_opdata_socket->dataTypeName());
+  BOOST_LOG_TRIVIAL(debug) << "Node Socket Item data type name: " << _opdata_socket->dataTypeName();
 
   _parent = parent;
 
   if (_opdata_socket->isInput()) {
     _is_input = true;
   }
+  BOOST_LOG_TRIVIAL(debug) << "Node Socket Item constructed.";
 }
 
 NodeItem *NodeSocketItem::nodeItem() {
@@ -49,6 +55,10 @@ bool NodeSocketItem::isOutput() const {
 
 QVector<NodeConnectionItem*>& NodeSocketItem::connections() {
   return _connections;
+}
+
+void NodeSocketItem::addConnection(NodeConnectionItem* connection_item) {
+  _connections.append(connection_item);
 }
 
 bool NodeSocketItem::isConnected(NodeSocketItem *socket) const {
@@ -129,8 +139,9 @@ const OpDataSocket *NodeSocketItem::opDataSocket() const {
 
 
 bool NodeSocketItem::canConnect(NodeSocketItem *_temp_socket_from, NodeSocketItem *_temp_socket_to) {
-  return true;
-  if ((_temp_socket_from == nullptr) || (_temp_socket_to == nullptr)) return false;
+  if (!_temp_socket_from || !_temp_socket_to || (_temp_socket_from == _temp_socket_to)) return false;
+  if (_temp_socket_from->_is_input == _temp_socket_to->_is_input) return false;
+  if (_temp_socket_from->_parent == _temp_socket_to->_parent) return false;
   return OpDataSocket::canConnect(_temp_socket_from->opDataSocket(), _temp_socket_to->opDataSocket());
 }
 
@@ -149,6 +160,15 @@ void NodeSocketItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
 
   painter->setBrush(Qt::gray);
   painter->drawEllipse(rect);
+}
+
+QVariant  NodeSocketItem::itemChange(GraphicsItemChange change, const QVariant &value) {
+  if (change == ItemPositionChange && scene()) {
+    for ( auto conn: _connections) {
+      conn->updatePosFromSockets();
+    }
+  }
+  return QGraphicsItem::itemChange(change, value);
 }
 
 }}

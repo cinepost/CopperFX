@@ -17,13 +17,16 @@ OpNode::OpNode(OpNode *parent, OpDefinition *op_def, const std::string &name) {
 	_parent = parent;
 	_name = name;
 	_op_def = op_def;
+
+	_inputs.empty();
+	_outputs.empty();
 }
 
 OpNode::OpNode(const OpNode &node){
 	std::cout << "OpNode copied" << std::endl;
 }
 
-const std::string OpNode::name() const {
+const std::string& OpNode::name() const {
 	return _name;
 }
 
@@ -61,14 +64,14 @@ std::vector<OpNode*> OpNode::children() const {
 
 std::vector<const OpDataSocket*> OpNode::inputs() const {
 	std::vector<const OpDataSocket*> ins;
-	for (auto in: _inputs)
+	for (auto const& in: _inputs)
 		ins.push_back(&in);
 	return ins;
 }
 
 std::vector<const OpDataSocket*> OpNode::outputs() const {
 	std::vector<const OpDataSocket*> outs;
-	for (auto out: _outputs)
+	for (auto const& out: _outputs)
 		outs.push_back(&out);
 	return outs;
 }

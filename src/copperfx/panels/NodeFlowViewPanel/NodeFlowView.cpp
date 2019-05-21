@@ -224,6 +224,8 @@ void NodeFlowView::mouseReleaseEvent(QMouseEvent *event) {
     // check if coonection is allowed
     if(NodeSocketItem::canConnect(_temp_socket_from, _temp_socket_to)) {
       std::cout << "CAN CONNECT!!!\n";
+      _temp_connection_item->setSocketFrom(_temp_socket_from);
+      _temp_connection_item->setSocketTo(_temp_socket_to);
     } else {
       std::cout << "CAN NOT CONNECT!!!\n";
       // connection not allowed, delete temporary connection item

@@ -26,7 +26,7 @@ class OpNode : public NetworkBoxItem {
 		OpNode(const OpNode &OpNode); // copy constructor
 
 		OpNode 		*node(const std::string &node_path);
-		const std::string name() const;
+		const std::string& name() const;
 		const std::string path() const;
 		void setName(const std::string &name );
 

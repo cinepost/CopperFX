@@ -38,6 +38,7 @@ class NodeSocketItem : public QGraphicsItem {
     static bool canConnect(NodeSocketItem *_temp_socket_from, NodeSocketItem *_temp_socket_to);
 
     QSizeF size() const;
+    void addConnection(NodeConnectionItem* connection_item);
     QVector<NodeConnectionItem*>& connections();
 
   public:
@@ -49,6 +50,8 @@ class NodeSocketItem : public QGraphicsItem {
     void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
     void mouseMoveEvent(QGraphicsSceneMouseEvent * event) override;
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
+
+    QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
 
 	private:
     QRectF boundingRect() const override;

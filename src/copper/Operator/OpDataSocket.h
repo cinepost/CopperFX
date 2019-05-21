@@ -30,9 +30,9 @@ class OpDataSocket {
 	public:
 		bool isInput() const;
 		bool isOutput() const;
-		std::string dataTypeName() const;
-		bool connect(OpDataSocket *socket);
-		std::vector<OpDataSocket*> connections();
+		const std::string& dataTypeName() const;
+		bool connect(const OpDataSocket *socket);
+		std::vector<const OpDataSocket*> connections() const;
 
 		static bool canConnect(const OpDataSocket* socket_1, const OpDataSocket* socket_2);
 
@@ -41,10 +41,10 @@ class OpDataSocket {
 	private:
 		unsigned int 				_id;
 		unsigned int 				_opdata_type_version;
-		std::string 				_opdata_type_name;
+		std::string 				_opdata_type_name = "";
 		OpDataSocket::Flags _flags;
 
-		std::vector<OpDataSocket*> 	_connections;
+		std::vector<const OpDataSocket*> 	_connections;
 };
 
 }

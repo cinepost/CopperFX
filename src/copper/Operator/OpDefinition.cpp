@@ -1,6 +1,10 @@
+#include <boost/log/core.hpp>
+#include <boost/log/trivial.hpp>
+
 #include "OpDefinition.h"
 
 #include "copper/Operator/OpNode.h"
+#include "copper/Operator/OpDataSocket.h"
 
 namespace copper {
 
@@ -11,17 +15,18 @@ OpDefinition::OpDefinition(
 	opConstructor op_contructor,
 	std::vector<OpDataSocket> inputs,
 	std::vector<OpDataSocket> outputs,
-	OpDefinition::Flags flags
-	): 
-	_version(version), 
-	_type_name(type_name), 
-	_ui_name(ui_name), 
-	_opConstructor(op_contructor), 
-	_inputs(inputs), 
-	_outputs(outputs),
-	_flags(flags) { }
+	OpDefinition::Flags flags ) {
 
-std::string OpDefinition::typeName() const {
+	_version  = version;
+	_type_name = type_name; 
+	_ui_name = ui_name;
+	_opConstructor = op_contructor; 
+	_inputs = inputs;
+	_outputs = outputs;
+	_flags = flags;
+}
+
+const std::string& OpDefinition::typeName() const {
 	return _type_name;
 }
 
@@ -37,14 +42,17 @@ const std::vector<OpDataSocket> *OpDefinition::outputs() const {
 	return &_outputs;
 }
 
-OpNode *OpDefinition::createOpNode(OpNode *parent_op_network, const std::string &name) {
+OpNode *OpDefinition::createOpNode(OpNode *parent_op_node, const std::string &name) {
 	std::string new_node_name = name;
 	
 	if (name == "") {
 		new_node_name = _type_name;
 	}
 
-	OpNode *op_node = new OpNode(parent_op_network, this, new_node_name);
+	OpNode *op_node = new OpNode(parent_op_node, this, new_node_name);
+
+	// TODO: add all necessary check to validate sockets
+
 	op_node->_operator = _opConstructor();
 	op_node->_inputs = _inputs;
 	op_node->_outputs = _outputs;
