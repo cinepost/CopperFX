@@ -24,6 +24,7 @@ NodeSocketItem::NodeSocketItem(NodeItem *parent, const OpDataSocket *opdata_sock
   setFlag(QGraphicsItem::ItemIsMovable, false);
   setFlag(QGraphicsItem::ItemIsFocusable, true);
   setFlag(QGraphicsItem::ItemIsSelectable, false);
+  setFlag(QGraphicsItem::ItemSendsScenePositionChanges, true);
 
   setAcceptDrops(true);
   setAcceptHoverEvents(true);
@@ -162,11 +163,13 @@ void NodeSocketItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
   painter->drawEllipse(rect);
 }
 
-QVariant  NodeSocketItem::itemChange(GraphicsItemChange change, const QVariant &value) {
+void NodeSocketItem::updateConnections() const {
+  for ( auto conn: _connections)conn->updatePosFromSockets();
+}
+
+QVariant NodeSocketItem::itemChange(GraphicsItemChange change, const QVariant &value) {
   if (change == ItemPositionChange && scene()) {
-    for ( auto conn: _connections) {
-      conn->updatePosFromSockets();
-    }
+    updateConnections();
   }
   return QGraphicsItem::itemChange(change, value);
 }

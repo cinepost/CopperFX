@@ -15,21 +15,21 @@ NodeConnectionItem::NodeConnectionItem(QGraphicsItem *parent): QGraphicsItem(par
 	setAcceptHoverEvents(true);
 	setFlag(QGraphicsItem::ItemIsSelectable, true);
 
-	//setPen(QPen(Qt::black, 1.0));
-	//setBrush(Qt::NoBrush);
-	setZValue(-1);
+	setCacheMode(QGraphicsItem::DeviceCoordinateCache);
+	setZValue(1);
+
+	_hovered = false;
+	_connected = false;
 	_socket_from = nullptr;
 	_socket_to = nullptr;
 }
 
 
 NodeConnectionItem::~NodeConnectionItem() {
-	if (_socket_from)
-		_socket_from->connections().remove(_socket_from->connections().indexOf(this));
-	if (_socket_to)
-		_socket_to->connections().remove(_socket_to->connections().indexOf(this));
-
-	std::cout << "connection deleted!\n";
+	//if (_socket_from)
+	//	_socket_from->connections().remove(_socket_from->connections().indexOf(this));
+	//if (_socket_to)
+	//	_socket_to->connections().remove(_socket_to->connections().indexOf(this));
 }
 
 
@@ -50,16 +50,22 @@ void NodeConnectionItem::setPosTo(const QPointF &pos) {
 
 
 void NodeConnectionItem::setSocketFrom(NodeSocketItem *socket_item) {
-	_socket_from = socket_item;
-	_socket_from->connections().append(this);
-	if (_socket_to)_connected = true;
+	if(socket_item) {
+		_socket_from = socket_item;
+		_socket_from->connections().append(this);
+		if (_socket_to)_connected = true;
+		updatePosFromSockets();
+	}
 }
 
 
 void NodeConnectionItem::setSocketTo(NodeSocketItem *socket_item) {
-	_socket_to = socket_item;
-	_socket_to->connections().append(this);
-	if (_socket_from)_connected = true;
+	if(socket_item) {
+		_socket_to = socket_item;
+		_socket_to->connections().append(this);
+		if (_socket_from)_connected = true;
+		updatePosFromSockets();
+	}
 }
 
 
@@ -101,18 +107,22 @@ void NodeConnectionItem::paint(QPainter *painter, const QStyleOptionGraphicsItem
 
   QPainterPath p = buildPath();
 
-  if (isSelected()) {
+  painter->setPen(QPen(Qt::black, 1.0));
+
+  if (isSelected() && _connected) {
     painter->setPen(QPen(Qt::yellow, 2.0));
   } else {
-  	if (_hovered) {
+  	if (_hovered && _connected) {
   		painter->setPen(QColor(255, 190, 64));
-  	} else {
-    	painter->setPen(QColor(0, 0, 0));
   	}
   }
 
   painter->setBrush(Qt::NoBrush);
   painter->drawPath(p);
+
+  //painter->setBrush(Qt::SolidPattern);
+  //painter->drawEllipse(QRectF(_pos_from.x()-2, _pos_from.y()-2, 4, 4));
+  //painter->drawEllipse(QRectF(_pos_to.x()-2, _pos_to.y()-2, 4, 4));
 }
 
 

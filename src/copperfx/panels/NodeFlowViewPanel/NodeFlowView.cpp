@@ -30,6 +30,8 @@ namespace copper { namespace ui {
 NodeFlowView::NodeFlowView(QWidget *parent, const std::string &op_network_path): QGraphicsView(parent) {
   BOOST_LOG_TRIVIAL(debug) << "Constructing Node Flow View panel";
 
+  _node_flow_scene = nullptr;
+
   setDragMode(QGraphicsView::NoDrag);
   setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 
@@ -68,20 +70,17 @@ void NodeFlowView::onOpNodeCreated(const std::string &op_node_path, const std::s
 }
 
 void NodeFlowView::onOpNetworkChanged(const std::string &op_node_path) {
-  _scenes[op_node_path]->buildSceneAt(op_node_path);
+  if (_node_flow_scene) {
+    if (_node_flow_scene->sceneLevelPath() == op_node_path) {
+      _node_flow_scene->buildSceneAt(op_node_path);
+    }
+  }
 }
 
 void NodeFlowView::viewNetwork(const std::string &op_node_path) {
-  NodeFlowScene *scene;
-
-  // check if we dont have network scene built yet
-  if (_scenes.find(op_node_path) == _scenes.end()) {
-    scene = new NodeFlowScene(this, op_node_path);
-    _scenes.insert(make_pair(op_node_path, scene)); 
-  }
-  scene = _scenes[op_node_path];
-
-  QGraphicsView::setScene(scene);
+  delete _node_flow_scene;
+  _node_flow_scene = new NodeFlowScene(this, op_node_path);
+  QGraphicsView::setScene(_node_flow_scene);
 }
 
 QSize NodeFlowView::minimumSizeHint() const {
@@ -176,7 +175,7 @@ void NodeFlowView::mousePressEvent(QMouseEvent *event) {
           _temp_socket_from = dynamic_cast<NodeSocketItem*>(item);
 
           _temp_connection_item = new NodeConnectionItem();
-          _temp_connection_item->setPosFrom(mapToScene(event->pos()));
+          _temp_connection_item->setSocketFrom(_temp_socket_from);
           _temp_connection_item->setPosTo(mapToScene(event->pos()));
           scene()->addItem(_temp_connection_item);
           std::cout << "create connection!\n";
@@ -223,13 +222,13 @@ void NodeFlowView::mouseReleaseEvent(QMouseEvent *event) {
   if(_temp_connection_item) {
     // check if coonection is allowed
     if(NodeSocketItem::canConnect(_temp_socket_from, _temp_socket_to)) {
-      std::cout << "CAN CONNECT!!!\n";
+      // connect temp item to socket items
       _temp_connection_item->setSocketFrom(_temp_socket_from);
       _temp_connection_item->setSocketTo(_temp_socket_to);
     } else {
-      std::cout << "CAN NOT CONNECT!!!\n";
       // connection not allowed, delete temporary connection item
       scene()->removeItem(_temp_connection_item);
+      delete _temp_connection_item;
     }
 
     _temp_connection_item = nullptr;

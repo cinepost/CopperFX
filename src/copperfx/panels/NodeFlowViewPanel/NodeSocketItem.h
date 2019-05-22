@@ -40,6 +40,7 @@ class NodeSocketItem : public QGraphicsItem {
     QSizeF size() const;
     void addConnection(NodeConnectionItem* connection_item);
     QVector<NodeConnectionItem*>& connections();
+    void updateConnections() const;
 
   public:
     int type() const override; // Enable the use of qgraphicsitem_cast with this item.

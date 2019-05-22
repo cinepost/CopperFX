@@ -20,9 +20,10 @@ NodeItem::NodeItem(OpNode *op_node, NodeItem::Flags flags): QGraphicsItem(nullpt
   setFlag(QGraphicsItem::ItemIsFocusable, true);
   setFlag(QGraphicsItem::ItemIsSelectable, true);
   setFlag(QGraphicsItem::ItemSendsScenePositionChanges, true);
+  setFlag(QGraphicsItem::ItemSendsGeometryChanges, true);
 
   setAcceptHoverEvents(true);
-  setZValue(0);
+  setZValue(-1);
   setCacheMode(QGraphicsItem::DeviceCoordinateCache);
 
   setPos(_op_node->x(), _op_node->y());

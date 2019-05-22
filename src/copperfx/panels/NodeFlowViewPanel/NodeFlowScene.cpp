@@ -34,6 +34,11 @@ void NodeFlowScene::buildSceneAt(const std::string &op_node_path) {
 }
 
 
+const std::string& NodeFlowScene::sceneLevelPath() const {
+	return _op_node_path;
+}
+
+
 void NodeFlowScene::mousePressEvent(QGraphicsSceneMouseEvent * event) {
 	QGraphicsScene::mousePressEvent(event);
 }
