@@ -13,6 +13,7 @@ class NetworkBoxItem {
 		float	y();
 		void	setX(float x);
 		void	setY(float y);
+		void  setPos(float x, float y);
 
 	private:
 		float	_x;

@@ -28,6 +28,7 @@ class OpDataSocket {
 		);
 
 	public:
+		unsigned int idx() const;
 		bool isInput() const;
 		bool isOutput() const;
 		const std::string& dataTypeName() const;

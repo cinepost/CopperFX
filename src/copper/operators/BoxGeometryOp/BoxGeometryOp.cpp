@@ -20,20 +20,9 @@ BoxGeometryOp::BoxGeometryOp() {
 
 
 BoxGeometryOp::~BoxGeometryOp() {
-  BOOST_LOG_TRIVIAL(debug) << "Box geometry operator  destructed!";
+  BOOST_LOG_TRIVIAL(debug) << "Box geometry operator destructed!";
 }
 
-const std::string BoxGeometryOp::name() const{
-  return "Box";
-}
-
-const std::string BoxGeometryOp::typeName() const{
-  return "box";
-}
-
-const unsigned int BoxGeometryOp::version() const{
-	return 0;
-}
 
 bool BoxGeometryOp::cookData(uint output_index, OpDataBase &out_data) {
   //out_data = GeometryOpData();

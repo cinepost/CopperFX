@@ -20,6 +20,10 @@ OpDataSocket::OpDataSocket( unsigned int id, unsigned int opdata_type_version, c
 	}
 }
 
+unsigned int OpDataSocket::idx() const {
+	return _id;
+}
+
 bool OpDataSocket::isInput() const {
   if (_flags & OpDataSocket::Flags::INPUT_SOCKET) {
     return true;

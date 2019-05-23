@@ -12,7 +12,7 @@ namespace copper {
 
 typedef unsigned int uint;
 
-class OpBase: public BaseAPI {
+class OpBase {//: public BaseAPI {
 	public:
 		virtual bool cookData(uint output_index, OpDataBase &out_data) = 0;
 };

@@ -17,10 +17,6 @@ class BoxGeometryOp : public OpBase {
     ~BoxGeometryOp();
 
   public:
-    const std::string name() const;
-    const std::string typeName() const;
-    const unsigned int version() const;
-
     bool cookData(uint output_index, OpDataBase &out_data);
 
   public:

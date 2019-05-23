@@ -3,38 +3,45 @@
 
 #include <QBrush>
 #include <QPen>
+#include <QGraphicsItem>
 #include <QGraphicsScene>
 
-#include "NodeSocketItem.h"
 #include "NodeConnectionItem.h"
-
+#include "NodeSocketItem.h"
+#include "NodeFlowScene.h"
 
 namespace copper { namespace ui {
 
-NodeConnectionItem::NodeConnectionItem(QGraphicsItem *parent): QGraphicsItem(parent) {
+NodeConnectionItem::NodeConnectionItem(NodeFlowScene *scene): QGraphicsItem(nullptr) {
 	setAcceptHoverEvents(true);
 	setFlag(QGraphicsItem::ItemIsSelectable, true);
 
 	setCacheMode(QGraphicsItem::DeviceCoordinateCache);
-	setZValue(1);
+	setZValue(2);
 
+	_scene = scene;
+	_scene->addItem(this);
 	_hovered = false;
 	_connected = false;
 	_socket_from = nullptr;
 	_socket_to = nullptr;
 }
 
+NodeConnectionItem::NodeConnectionItem(NodeFlowScene *scene, NodeSocketItem *socket_from, NodeSocketItem *socket_to): NodeConnectionItem(scene) {
+	setSocketFrom(socket_from);
+	setSocketTo(socket_to);
+}
 
 NodeConnectionItem::~NodeConnectionItem() {
 	//if (_socket_from)
 	//	_socket_from->connections().remove(_socket_from->connections().indexOf(this));
 	//if (_socket_to)
 	//	_socket_to->connections().remove(_socket_to->connections().indexOf(this));
+	_scene->removeItem(this);
 }
 
-
 void NodeConnectionItem::setPosFrom(const QPointF &pos) {
-	if (!_socket_from) {
+	if (_pos_from != pos) {
 		_pos_from = pos;
 		update();
 	}
@@ -42,7 +49,7 @@ void NodeConnectionItem::setPosFrom(const QPointF &pos) {
 
 
 void NodeConnectionItem::setPosTo(const QPointF &pos) {
-	if (!_socket_to) {
+	if (_pos_to != pos) {
 		_pos_to = pos;
 		update();
 	}
@@ -53,7 +60,10 @@ void NodeConnectionItem::setSocketFrom(NodeSocketItem *socket_item) {
 	if(socket_item) {
 		_socket_from = socket_item;
 		_socket_from->connections().append(this);
-		if (_socket_to)_connected = true;
+		if (_socket_to){
+			_connected = true;
+			this->setZValue(0);
+		}
 		updatePosFromSockets();
 	}
 }
@@ -63,7 +73,10 @@ void NodeConnectionItem::setSocketTo(NodeSocketItem *socket_item) {
 	if(socket_item) {
 		_socket_to = socket_item;
 		_socket_to->connections().append(this);
-		if (_socket_from)_connected = true;
+		if (_socket_from){
+			_connected = true;
+			this->setZValue(0);
+		}
 		updatePosFromSockets();
 	}
 }
@@ -77,7 +90,11 @@ void NodeConnectionItem::updatePosFromSockets() {
 
 
 QRectF NodeConnectionItem::boundingRect() const { 
-  return QRectF(std::min(_pos_from.x(), _pos_to.x()), std::min(_pos_from.y(), _pos_to.y()), std::abs(_pos_from.x() -  _pos_to.x()), std::abs(_pos_from.y() - _pos_to.y()));
+  return QRectF(
+  	std::min(_pos_from.x(), _pos_to.x()) - 2.5, 
+  	std::min(_pos_from.y(), _pos_to.y()) - 2.5, 
+  	std::abs(_pos_from.x() - _pos_to.x()) + 5, 
+  	std::abs(_pos_from.y() - _pos_to.y()) + 5);
 }
 
 
@@ -97,7 +114,7 @@ QPainterPath NodeConnectionItem::buildPath() const {
 
 
 QPainterPath NodeConnectionItem::shape() const {
-    return buildPath();
+  return buildPath();
 }
 
 
@@ -107,22 +124,31 @@ void NodeConnectionItem::paint(QPainter *painter, const QStyleOptionGraphicsItem
 
   QPainterPath p = buildPath();
 
+  painter->setBrush(Qt::NoBrush);
+  painter->setPen(Qt::DashLine);
   painter->setPen(QPen(Qt::black, 1.0));
 
-  if (isSelected() && _connected) {
-    painter->setPen(QPen(Qt::yellow, 2.0));
-  } else {
-  	if (_hovered && _connected) {
-  		painter->setPen(QColor(255, 190, 64));
+  if (_connected) {
+  	// both sockets connected
+  	painter->setPen(Qt::SolidLine);
+  	if (isSelected()) {
+    	painter->setPen(Qt::yellow);
+  	} else {
+  		if (_hovered) {
+  			painter->setPen(QColor(255, 190, 64));
+  		}
   	}
+ 	}
+
+ 	painter->drawPath(p);
+
+ 	if(!_connected) {
+  	// this is a temporary connection, draw some pretty circles
+  	painter->setBrush(Qt::SolidPattern);
+  	painter->setPen(Qt::SolidLine);
+  	painter->drawEllipse(QRectF(_pos_from.x()-2, _pos_from.y()-2, 4, 4));
+  	painter->drawEllipse(QRectF(_pos_to.x()-2, _pos_to.y()-2, 4, 4));
   }
-
-  painter->setBrush(Qt::NoBrush);
-  painter->drawPath(p);
-
-  //painter->setBrush(Qt::SolidPattern);
-  //painter->drawEllipse(QRectF(_pos_from.x()-2, _pos_from.y()-2, 4, 4));
-  //painter->drawEllipse(QRectF(_pos_to.x()-2, _pos_to.y()-2, 4, 4));
 }
 
 

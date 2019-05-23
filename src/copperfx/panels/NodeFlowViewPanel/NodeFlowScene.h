@@ -11,6 +11,9 @@
 
 namespace copper { namespace ui {
 
+class NodeItem;
+class NodeConnectionItem;
+
 class NodeFlowScene : public QGraphicsScene {
 	Q_OBJECT
 
@@ -21,13 +24,25 @@ class NodeFlowScene : public QGraphicsScene {
 		void buildSceneAt(const std::string &op_node_path);
 		const std::string& sceneLevelPath() const;
 
+		void addConnectionItem(NodeConnectionItem *conn_item);
+		void addNodeItem(NodeItem *node_item);
+
 	public:
 		void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
     void mouseMoveEvent(QGraphicsSceneMouseEvent * event) override;
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
 
+  public:
+  	// boost slots
+  	void onOpNodePosChanged(const std::string& op_node_path);
+  	void onOpNetworkChanged(const std::string &op_node_path);
+    void onOpNodeCreated(const std::string &op_node_path, const std::string &op_network_path);
+
 	private:
 		std::string _op_node_path;
+
+		QVector<NodeItem*> _nodes;
+		QVector<NodeConnectionItem*> _connections;
 };
 
 }}

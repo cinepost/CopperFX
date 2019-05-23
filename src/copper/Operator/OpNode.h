@@ -45,7 +45,10 @@ class OpNode : public NetworkBoxItem {
 		virtual bool isSubnetwork() const;
 		bool isRoot() const;
 
-	protected:
+		void  setX(float x);
+		void  setY(float y);
+		void  setPos(float x, float y);
+
 		virtual OpNode 	*parent();
 		virtual OpNode 	*root();
 

@@ -24,4 +24,9 @@ void NetworkBoxItem::setY(float y) {
 	_y = y;
 }
 
+void NetworkBoxItem::setPos(float x, float y) {
+	_x = x;
+	_y = y;
+}
+
 }

@@ -34,6 +34,7 @@ class EngineSignals: public Singleton<EngineSignals> {
 
 		boost::signals2::signal<void(const std::string&, const std::string&)> signalOpNodeCreated;
 		boost::signals2::signal<void(const std::string&)> signalOpNetworkChanged;
+		boost::signals2::signal<void(const std::string&)> signalOpNodePosChanged;
 };
 
 // Engine class is a singleton, but we might need more than one engine so  things are subject to change in the future...

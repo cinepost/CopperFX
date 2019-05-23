@@ -111,13 +111,12 @@ OpNode *Engine::onCreateOpNode(const std::string &op_node_type_name, const std::
     return nullptr;
   }
 
-  OpNode *op_node = _root->node(op_node_path);
+  OpNode *op_node = node(op_node_path);
 
   OpNode *new_node = op_def->createOpNode(op_node, op_node->buildBase1NodeName(op_node_type_name));
   op_node->addOpNode(new_node);
   BOOST_LOG_TRIVIAL(debug) << "OpNode of type " << op_node_type_name << " named \"" << new_node->name() << "\" created at " << op_node->path();
 
-  EngineSignals::getInstance().signalOpNodeCreated(new_node->path(), op_node->path()); // notify node created (node_path, network_path)
   EngineSignals::getInstance().signalOpNetworkChanged(op_node->path()); // notify that op_node changed
 
   BOOST_LOG_TRIVIAL(debug) << "OpNode created path: " << new_node->path();
@@ -126,27 +125,34 @@ OpNode *Engine::onCreateOpNode(const std::string &op_node_type_name, const std::
 
 bool Engine::onConnectOpNodes(unsigned int input_index, const std::string &input_op_node_path, unsigned int output_index, const std::string &output_op_node_path) {
   BOOST_LOG_TRIVIAL(debug) << "Connecting output socket " << output_index << " of node " << output_op_node_path << " to input socket " << input_index << " of node " << input_op_node_path;
+  
+  OpNode *input_node = node(input_op_node_path);
+  if(input_node == nullptr)return false;
 
-  OpDataSocket *output_socket = node(output_op_node_path)->output(output_index);
-  if (output_socket == nullptr) {
-    BOOST_LOG_TRIVIAL(error) << "Unable to get output data socket!";
+  OpNode *output_node = node(output_op_node_path);
+  if(output_node == nullptr)return false;
+
+  if(input_node->parent() != output_node->parent()) {
+    BOOST_LOG_TRIVIAL(error) << "Unable connect nodes on different levels! " << input_index;
     return false;
   }
 
-  OpDataSocket *input_socket = node(input_op_node_path)->input(input_index);
+  OpDataSocket *input_socket = input_node->input(input_index);
   if (input_socket == nullptr) {
-    BOOST_LOG_TRIVIAL(error) << "Unable to get input data socket!";
+    BOOST_LOG_TRIVIAL(error) << "Unable to get input data socket idx: " << input_index;
     return false;
   }
 
-  bool connected = input_socket->connect(output_socket);
-  if( connected) {
-    BOOST_LOG_TRIVIAL(debug) << "Connected!";
-  } else {
-    BOOST_LOG_TRIVIAL(debug) << "Not connected!";
+  OpDataSocket *output_socket = output_node->output(output_index);
+  if (output_socket == nullptr) {
+    BOOST_LOG_TRIVIAL(error) << "Unable to get output data socket idx: " << output_index;
+    return false;
   }
 
-  return connected;
+  if (!input_socket->connect(output_socket)) return false;
+
+  EngineSignals::getInstance().signalOpNetworkChanged(input_node->parent()->path());
+  return true;
 }
 
 }

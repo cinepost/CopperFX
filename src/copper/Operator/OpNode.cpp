@@ -129,6 +129,21 @@ bool OpNode::setInput(unsigned int input_index, const std::string &output_op_nod
 	return false;
 }
 
+void OpNode::setX(float x) {
+	NetworkBoxItem::setX(x);
+	EngineSignals::getInstance().signalOpNodePosChanged(this->path());
+}
+
+void OpNode::setY(float y) {
+	NetworkBoxItem::setY(y);
+	EngineSignals::getInstance().signalOpNodePosChanged(this->path());
+}
+
+void OpNode::setPos(float x, float y) {
+	NetworkBoxItem::setPos(x, y);
+	EngineSignals::getInstance().signalOpNodePosChanged(this->path());
+}
+
 void OpNode::addOpNode(OpNode *op_node) {
 	_children[op_node->name()] = op_node;
 }

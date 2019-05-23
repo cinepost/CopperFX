@@ -34,15 +34,15 @@ class NodeFlowView : public QGraphicsView {
     void mouseReleaseEvent(QMouseEvent *event) override;
   	void mousePressEvent(QMouseEvent *event) override;
   	void mouseMoveEvent(QMouseEvent *event) override;
-  	void drawBackground(QPainter* painter, const QRectF& r) override;
+  	void drawBackground(QPainter *painter, const QRectF& r) override;
 
   private:
     void viewNetwork(const std::string &op_node_path);
   	void contextMenuEvent(QContextMenuEvent *event) override;
 
   //public slots:
-    void onOpNetworkChanged(const std::string &op_node_path);
-    void onOpNodeCreated(const std::string &op_node_path, const std::string &op_network_path);
+    //void onOpNetworkChanged(const std::string &op_node_path);
+    //void onOpNodeCreated(const std::string &op_node_path, const std::string &op_network_path);
 
   private:
   	double _min_zoom_level = 0.05;

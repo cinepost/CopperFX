@@ -32,6 +32,7 @@ class NodeItem : public QGraphicsItem {
 	public:
 		NodeItem(OpNode *op_node, NodeItem::Flags flags);
     QSizeF size() const;
+    const OpNode *opNode() const;
 
 	private:
     QRectF boundingRect() const override;

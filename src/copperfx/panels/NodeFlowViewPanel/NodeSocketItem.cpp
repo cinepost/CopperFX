@@ -28,7 +28,7 @@ NodeSocketItem::NodeSocketItem(NodeItem *parent, const OpDataSocket *opdata_sock
 
   setAcceptDrops(true);
   setAcceptHoverEvents(true);
-  setZValue(0);
+  setZValue(1);
   setCacheMode(QGraphicsItem::DeviceCoordinateCache);
 
   //setToolTip(_opdata_socket->dataTypeName());
@@ -168,10 +168,12 @@ void NodeSocketItem::updateConnections() const {
 }
 
 QVariant NodeSocketItem::itemChange(GraphicsItemChange change, const QVariant &value) {
-  if (change == ItemPositionChange && scene()) {
+  if (change == QGraphicsItem::ItemScenePositionHasChanged && scene()) {
+    // socket scene position changed so update connection items
     updateConnections();
   }
   return QGraphicsItem::itemChange(change, value);
 }
+
 
 }}

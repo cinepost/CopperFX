@@ -45,8 +45,13 @@ NodeItem::NodeItem(OpNode *op_node, NodeItem::Flags flags): QGraphicsItem(nullpt
   BOOST_LOG_TRIVIAL(debug) << "Node Item constructed!";
 }
 
+
 QSizeF NodeItem::size() const {
   return _size;
+}
+
+const OpNode *NodeItem::opNode() const {
+  return _op_node;
 }
 
 
@@ -108,9 +113,6 @@ QVariant NodeItem::itemChange(GraphicsItemChange change, const QVariant &value) 
 
     _op_node->setX(newPos.x());
     _op_node->setY(newPos.y());
-    for (auto socket_item: _socket_items) {
-      socket_item->itemChange(change, value);
-    }
 
     return newPos;
   }

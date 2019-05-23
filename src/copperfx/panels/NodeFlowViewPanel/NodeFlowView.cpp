@@ -12,6 +12,7 @@
 #include <QtCore/QRectF>
 #include <QtCore/QPointF>
 
+#include <QTimer>
 #include <QMenu>
 #include <QColor>
 #include <QAction>
@@ -51,9 +52,7 @@ NodeFlowView::NodeFlowView(QWidget *parent, const std::string &op_network_path):
 
   setViewport(new QOpenGLWidget());
 
-  // connect engine signals
-  EngineSignals::getInstance().signalOpNodeCreated.connect(boost::bind(&NodeFlowView::onOpNodeCreated, this, _1, _2));
-  EngineSignals::getInstance().signalOpNetworkChanged.connect(boost::bind(&NodeFlowView::onOpNetworkChanged, this, _1));
+  _temp_connection_item = nullptr;
 
   // view op network
   viewNetwork(op_network_path);
@@ -63,18 +62,6 @@ NodeFlowView::NodeFlowView(QWidget *parent, const std::string &op_network_path):
 
 NodeFlowView::~NodeFlowView() {
 
-}
-
-void NodeFlowView::onOpNodeCreated(const std::string &op_node_path, const std::string &op_network_path) {
-  //_scenes[op_network_path].buildScene();
-}
-
-void NodeFlowView::onOpNetworkChanged(const std::string &op_node_path) {
-  if (_node_flow_scene) {
-    if (_node_flow_scene->sceneLevelPath() == op_node_path) {
-      _node_flow_scene->buildSceneAt(op_node_path);
-    }
-  }
 }
 
 void NodeFlowView::viewNetwork(const std::string &op_node_path) {
@@ -163,8 +150,8 @@ void NodeFlowView::contextMenuEvent(QContextMenuEvent *event) {
 
 void NodeFlowView::mousePressEvent(QMouseEvent *event) {
   if (event->button() == Qt::LeftButton && event->modifiers().testFlag(Qt::ControlModifier)) {
-    setDragMode(QGraphicsView::ScrollHandDrag);
     _clickPos = mapToScene(event->pos());
+    setDragMode(QGraphicsView::ScrollHandDrag);
   } else {
     // process item click
     QGraphicsItem *item = itemAt(event->pos());
@@ -174,11 +161,9 @@ void NodeFlowView::mousePressEvent(QMouseEvent *event) {
           // NodeSocket click. Start creating new connection
           _temp_socket_from = dynamic_cast<NodeSocketItem*>(item);
 
-          _temp_connection_item = new NodeConnectionItem();
-          _temp_connection_item->setSocketFrom(_temp_socket_from);
-          _temp_connection_item->setPosTo(mapToScene(event->pos()));
-          scene()->addItem(_temp_connection_item);
-          std::cout << "create connection!\n";
+          _temp_connection_item = new NodeConnectionItem(_node_flow_scene);
+          _temp_connection_item->setPosFrom(_temp_socket_from->scenePos());
+          _temp_connection_item->setPosTo(_temp_socket_from->scenePos());
           break;
       }
     }
@@ -196,6 +181,7 @@ void NodeFlowView::mouseMoveEvent(QMouseEvent *event) {
       setSceneRect(sceneRect().translated(difference.x(), difference.y()));
     }
   } else {
+    _temp_socket_to = nullptr;
     if (_temp_connection_item) {
       // update temp connection item
       _temp_connection_item->setPosTo(mapToScene(event->pos()));
@@ -205,9 +191,13 @@ void NodeFlowView::mouseMoveEvent(QMouseEvent *event) {
       if( item ){
         switch( item->type() ) {
           case NodeSocketType:
-            // snap to socket
             _temp_socket_to = dynamic_cast<NodeSocketItem*>(item);
-            _temp_connection_item->setPosTo(item->scenePos());
+            if (NodeSocketItem::canConnect(_temp_socket_from, _temp_socket_to)) {
+               // snap to socket
+              _temp_connection_item->setPosTo(_temp_socket_to->scenePos());
+            } else {
+              _temp_connection_item->setPosTo(mapToScene(event->pos()));
+            }
             break;
         }
       }
@@ -223,16 +213,19 @@ void NodeFlowView::mouseReleaseEvent(QMouseEvent *event) {
     // check if coonection is allowed
     if(NodeSocketItem::canConnect(_temp_socket_from, _temp_socket_to)) {
       // connect temp item to socket items
-      _temp_connection_item->setSocketFrom(_temp_socket_from);
-      _temp_connection_item->setSocketTo(_temp_socket_to);
-    } else {
-      // connection not allowed, delete temporary connection item
-      scene()->removeItem(_temp_connection_item);
-      delete _temp_connection_item;
+      //_node_flow_scene->addConnectionItem(new NodeConnectionItem(_temp_socket_from, _temp_socket_to));
+      const OpDataSocket *socket_from = _temp_socket_from->opDataSocket();
+      const OpDataSocket *socket_to = _temp_socket_to->opDataSocket();
+      const OpNode *node_from = _temp_socket_from->nodeItem()->opNode();
+      const OpNode *node_to = _temp_socket_to->nodeItem()->opNode();
+      EngineSignals::getInstance().signalConnectOpNodes(socket_from->idx(), node_from->path(), socket_to->idx(), node_to->path());
     }
+      
+    // connection not allowed, delete temporary connection item
+    delete _temp_connection_item;
 
     _temp_connection_item = nullptr;
-    _temp_socket_to = nullptr;
+    _temp_socket_from = nullptr;
     _temp_socket_to = nullptr;
   }
 

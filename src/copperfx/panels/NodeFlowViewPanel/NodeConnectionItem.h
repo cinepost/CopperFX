@@ -6,11 +6,9 @@
 #include <QtCore/QUuid>
 #include <QGraphicsItem>
 
-#include "NodeSocketItem.h"
-
-
 namespace copper { namespace ui {
 
+class NodeFlowScene;
 class NodeSocketItem;
 
 class NodeConnectionItem : public QGraphicsItem {
@@ -18,8 +16,9 @@ class NodeConnectionItem : public QGraphicsItem {
 	//Q_OBJECT
 
 	public:
-		NodeConnectionItem(QGraphicsItem *parent = nullptr);
-    ~NodeConnectionItem();
+		NodeConnectionItem(NodeFlowScene *scene);
+    NodeConnectionItem(NodeFlowScene *scene, NodeSocketItem *socket_from, NodeSocketItem *socket_to);
+    ~NodeConnectionItem() override;
 
     void setPosFrom(const QPointF &pos);
     void setPosTo(const QPointF &pos);
@@ -41,6 +40,7 @@ class NodeConnectionItem : public QGraphicsItem {
     QPainterPath buildPath() const;
 
   private:
+    NodeFlowScene *_scene;
   	QPointF _pos_from;
     QPointF _pos_to;
     NodeSocketItem *_socket_from;
