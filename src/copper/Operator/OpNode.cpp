@@ -8,11 +8,11 @@
 
 #include "copper/Operator/OpBase.h"
 #include "copper/Operator/OpNode.h"
-#include "copper/Operator/OpDefinition.h"
+#include "copper/Operator/OpNodeTemplate.h"
 
 namespace copper {
 
-OpNode::OpNode(OpNode *parent, OpDefinition *op_def, const std::string &name) {
+OpNode::OpNode(OpNode *parent, OpNodeTemplate *op_def, const std::string &name) {
 	//assert(parent != nullptr && "OpNode parent pointer should never be null!");
 	_parent = parent;
 	_name = name;
@@ -20,10 +20,13 @@ OpNode::OpNode(OpNode *parent, OpDefinition *op_def, const std::string &name) {
 
 	_inputs.empty();
 	_outputs.empty();
+
+	_uuid = OpNode::getNextNodeUUID();
 }
 
 OpNode::OpNode(const OpNode &node){
-	std::cout << "OpNode copied" << std::endl;
+	_uuid = OpNode::getNextNodeUUID();
+	std::cout << "OpNode " << node.path() << " copied" << std::endl;
 }
 
 const std::string& OpNode::name() const {
@@ -62,30 +65,30 @@ std::vector<OpNode*> OpNode::children() const {
 	return children;
 }
 
-std::vector<const OpDataSocket*> OpNode::inputs() const {
-	std::vector<const OpDataSocket*> ins;
+std::vector<const OpDataSocketBase*> OpNode::inputs() const {
+	std::vector<const OpDataSocketBase*> ins;
 	for (auto const& in: _inputs)
-		ins.push_back(&in);
+		ins.push_back(in);
 	return ins;
 }
 
-std::vector<const OpDataSocket*> OpNode::outputs() const {
-	std::vector<const OpDataSocket*> outs;
+std::vector<const OpDataSocketBase*> OpNode::outputs() const {
+	std::vector<const OpDataSocketBase*> outs;
 	for (auto const& out: _outputs)
-		outs.push_back(&out);
+		outs.push_back(out);
 	return outs;
 }
 
-OpDataSocket *OpNode::input(unsigned int index) {
+OpDataSocketBase *OpNode::input(unsigned int index) {
 	if (index < _inputs.size()) { 
-		return &_inputs[index]; 
+		return _inputs[index]; 
 	}
 	return nullptr;
 }
 
-OpDataSocket *OpNode::output(unsigned int index) {
+OpDataSocketBase *OpNode::output(unsigned int index) {
 	if (index < _outputs.size()) { 
-		return &_outputs[index]; 
+		return _outputs[index]; 
 	}
 	return nullptr;
 }
@@ -144,8 +147,19 @@ void OpNode::setPos(float x, float y) {
 	EngineSignals::getInstance().signalOpNodePosChanged(this->path());
 }
 
+opnode_uuid_t OpNode::getNextNodeUUID() {
+  static std::atomic<opnode_uuid_t> UUID{0};  
+  return ++UUID; 
+}
+
 void OpNode::addOpNode(OpNode *op_node) {
 	_children[op_node->name()] = op_node;
+}
+
+OpNode *OpNode::node(opnode_uuid_t uuid) {
+	auto search = _children_by_uuid.find(uuid);
+	if ( search == _children_by_uuid.end()) return nullptr;
+	return search->second;
 }
 
 OpNode *OpNode::node( const std::string &node_path ) {

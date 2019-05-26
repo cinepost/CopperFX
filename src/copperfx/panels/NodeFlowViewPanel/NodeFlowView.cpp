@@ -181,7 +181,10 @@ void NodeFlowView::mouseMoveEvent(QMouseEvent *event) {
       setSceneRect(sceneRect().translated(difference.x(), difference.y()));
     }
   } else {
-    _temp_socket_to = nullptr;
+    if (_temp_socket_to) {
+      _temp_socket_to->setHoverFlag(NodeSocketItem::HoverFlag::NoHover);
+      _temp_socket_to = nullptr;
+    }
     if (_temp_connection_item) {
       // update temp connection item
       _temp_connection_item->setPosTo(mapToScene(event->pos()));
@@ -193,10 +196,12 @@ void NodeFlowView::mouseMoveEvent(QMouseEvent *event) {
           case NodeSocketType:
             _temp_socket_to = dynamic_cast<NodeSocketItem*>(item);
             if (NodeSocketItem::canConnect(_temp_socket_from, _temp_socket_to)) {
-               // snap to socket
+               // snap to socket and set hover flag on sockets
               _temp_connection_item->setPosTo(_temp_socket_to->scenePos());
+              _temp_socket_to->setHoverFlag(NodeSocketItem::HoverFlag::CanConnect);
             } else {
               _temp_connection_item->setPosTo(mapToScene(event->pos()));
+              _temp_socket_to->setHoverFlag(NodeSocketItem::HoverFlag::CanNotConnect);
             }
             break;
         }
@@ -210,7 +215,10 @@ void NodeFlowView::mouseMoveEvent(QMouseEvent *event) {
 void NodeFlowView::mouseReleaseEvent(QMouseEvent *event) {
   // process sockets connection if it's there
   if(_temp_connection_item) {
-    // check if coonection is allowed
+    // delete temporary connection item
+    delete _temp_connection_item;
+
+    // check if coonection is allowed then fire signal to engine
     if(NodeSocketItem::canConnect(_temp_socket_from, _temp_socket_to)) {
       // connect temp item to socket items
       //_node_flow_scene->addConnectionItem(new NodeConnectionItem(_temp_socket_from, _temp_socket_to));
@@ -220,9 +228,6 @@ void NodeFlowView::mouseReleaseEvent(QMouseEvent *event) {
       const OpNode *node_to = _temp_socket_to->nodeItem()->opNode();
       EngineSignals::getInstance().signalConnectOpNodes(socket_from->idx(), node_from->path(), socket_to->idx(), node_to->path());
     }
-      
-    // connection not allowed, delete temporary connection item
-    delete _temp_connection_item;
 
     _temp_connection_item = nullptr;
     _temp_socket_from = nullptr;

@@ -13,8 +13,8 @@ class ImageOpData: public OpDataBase {
 	public:
 		ImageOpData(){};
 
-		const std::string name() const override;
-		const std::string typeName() const override;
+		static const std::string name() override;
+		static const std::string typeName() override;
 		const unsigned int version() const override;
 
 		void saveToFile(std::string filename, const unsigned int version) override;

@@ -3,6 +3,7 @@
 
 #include <QSizeF>
 #include <QPainter>
+#include <QVector>
 #include <QtCore/QUuid>
 #include <QtWidgets/QGraphicsItem>
 #include <QtWidgets/QGraphicsObject>
@@ -18,6 +19,7 @@
 
 namespace copper { namespace ui {
 
+class NodeFlowScene;
 class NodeSocketItem;
 
 class NodeItem : public QGraphicsItem {
@@ -30,9 +32,12 @@ class NodeItem : public QGraphicsItem {
 	//Q_OBJECT
 
 	public:
-		NodeItem(OpNode *op_node, NodeItem::Flags flags);
+		NodeItem(NodeFlowScene *scene, OpNode *op_node, NodeItem::Flags flags);
+    ~NodeItem();
+
     QSizeF size() const;
     const OpNode *opNode() const;
+    const QVector<NodeSocketItem*> *socketItems() const;
 
 	private:
     QRectF boundingRect() const override;
@@ -44,6 +49,7 @@ class NodeItem : public QGraphicsItem {
     void addSocket(const OpDataSocket *opdata_socket);
 
   private:
+    NodeFlowScene *_scene;
   	bool _locked;
     NodeItem::Flags _flags;
     OpNode *_op_node;
@@ -52,7 +58,7 @@ class NodeItem : public QGraphicsItem {
 
   	QSizeF _size = QSizeF(60,20);
 
-    std::vector<NodeSocketItem*> _socket_items;
+    QVector<NodeSocketItem*> _socket_items;
 };
 
 }}

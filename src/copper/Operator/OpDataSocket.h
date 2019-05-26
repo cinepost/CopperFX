@@ -2,54 +2,59 @@
 #define OP_DATA_SOCKET_H
 
 #include <string>
-#include <map>
+#include <vector>
+#include <type_traits>
 
 #include <flags/flags.hpp>
 
 #include "copper/Plugin/PluginApi.h"
+#include "copper/OpData/OpDataBase.h"
 
 namespace copper {
 
-class OpDataSocket {
-	public:
-	/// Flags passed to the operator definition contructor:
-	enum class Flags {
-		INPUT_SOCKET	 = 0x01, /// Socket for output data
-		OUTPUT_SOCKET  = 0x02, /// Socket for ouput data
-		MULTY_INPUT    = 0x04  /// Unordered multiple input
-	};
+class OpNode;
 
+class OpDataSocketBase {
 	public:
-		OpDataSocket(
-			unsigned int id, 											/// input id
-			unsigned int opdata_type_version, 		/// opdata type version
-			const std::string &opdata_type_name,	/// internal opdata type name
-			OpDataSocket::Flags flags 						/// socket flags
-		);
-
-	public:
+		virtual ~OpDataSocketBase();
 		unsigned int idx() const;
 		bool isInput() const;
 		bool isOutput() const;
-		const std::string& dataTypeName() const;
-		bool connect(const OpDataSocket *socket);
-		std::vector<const OpDataSocket*> connections() const;
+		bool isMultiInput() const;
+		bool connect(const OpDataSocketBase *socket);
+		std::vector<const OpDataSocketBase*> connections() const;
+		static bool canConnect(const OpDataSocketBase* socket_1, const OpDataSocketBase* socket_2);
 
-		static bool canConnect(const OpDataSocket* socket_1, const OpDataSocket* socket_2);
+	public:
+		virtual const std::string& dataTypeName() const = 0;
 
-		OpDataSocket::Flags flags() const;
+	protected:
+		// direct OpDataSocket construction prohibited. Only OpDataSocketTemplate factory methon can make it
+		OpDataSocketBase();
 
 	private:
-		unsigned int 				_id;
-		unsigned int 				_opdata_type_version;
-		std::string 				_opdata_type_name = "";
-		OpDataSocket::Flags _flags;
+		unsigned int _id;
+		OpNode *_op_node = nullptr;
+		bool _is_input;
+		bool _is_multi_input;
 
-		std::vector<const OpDataSocket*> 	_connections;
+		std::vector<const OpDataSocketBase*> 	_connections;
 };
 
+template <class T>
+class OpDataSocket: public OpDataSocketBase {
+	static_assert(std::is_base_of<OpDataBase, T>::value, "T must inherit from OpDataBase");
+	
+	public:
+		const std::string& dataTypeName() const;
+		OpDataSocket(): OpDataSocketBase(){};
+};
+
+template<class T>
+const std::string& OpDataSocket<T>::dataTypeName() const {
+	return T::typeName();
 }
 
-ALLOW_FLAGS_FOR_ENUM(copper::OpDataSocket::Flags)
+}
 
 #endif // OP_DATA_SOCKET_H

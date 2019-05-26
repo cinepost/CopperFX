@@ -14,8 +14,6 @@ namespace copper { namespace ui {
 
 NodeConnectionItem::NodeConnectionItem(NodeFlowScene *scene): QGraphicsItem(nullptr) {
 	setAcceptHoverEvents(true);
-	setFlag(QGraphicsItem::ItemIsSelectable, true);
-
 	setCacheMode(QGraphicsItem::DeviceCoordinateCache);
 	setZValue(2);
 
@@ -30,6 +28,8 @@ NodeConnectionItem::NodeConnectionItem(NodeFlowScene *scene): QGraphicsItem(null
 NodeConnectionItem::NodeConnectionItem(NodeFlowScene *scene, NodeSocketItem *socket_from, NodeSocketItem *socket_to): NodeConnectionItem(scene) {
 	setSocketFrom(socket_from);
 	setSocketTo(socket_to);
+	setFlag(QGraphicsItem::ItemIsSelectable, true);
+	setZValue(0);
 }
 
 NodeConnectionItem::~NodeConnectionItem() {
@@ -62,7 +62,8 @@ void NodeConnectionItem::setSocketFrom(NodeSocketItem *socket_item) {
 		_socket_from->connections().append(this);
 		if (_socket_to){
 			_connected = true;
-			this->setZValue(0);
+			setFlag(QGraphicsItem::ItemIsSelectable, true);
+			setZValue(0);
 		}
 		updatePosFromSockets();
 	}
@@ -75,7 +76,8 @@ void NodeConnectionItem::setSocketTo(NodeSocketItem *socket_item) {
 		_socket_to->connections().append(this);
 		if (_socket_from){
 			_connected = true;
-			this->setZValue(0);
+			setFlag(QGraphicsItem::ItemIsSelectable, true);
+			setZValue(0);
 		}
 		updatePosFromSockets();
 	}

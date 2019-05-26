@@ -18,8 +18,11 @@
 
 namespace copper { namespace ui {
 
-NodeSocketItem::NodeSocketItem(NodeItem *parent, const OpDataSocket *opdata_socket): QGraphicsItem(parent), _opdata_socket(opdata_socket) {
+NodeSocketItem::NodeSocketItem(NodeItem *parent, const OpDataSocket *opdata_socket): QGraphicsItem(parent) {
   BOOST_LOG_TRIVIAL(debug) << "Constructing Node Socket Item.";
+
+  _opdata_socket = opdata_socket;
+
   setFlag(QGraphicsItem::ItemDoesntPropagateOpacityToChildren, true);
   setFlag(QGraphicsItem::ItemIsMovable, false);
   setFlag(QGraphicsItem::ItemIsFocusable, true);
@@ -40,6 +43,11 @@ NodeSocketItem::NodeSocketItem(NodeItem *parent, const OpDataSocket *opdata_sock
     _is_input = true;
   }
   BOOST_LOG_TRIVIAL(debug) << "Node Socket Item constructed.";
+}
+
+void NodeSocketItem::setHoverFlag(NodeSocketItem::HoverFlag flag) {
+  _hover_flag = flag;
+  update();
 }
 
 NodeItem *NodeSocketItem::nodeItem() {
@@ -86,47 +94,32 @@ QPainterPath NodeSocketItem::shape() const {
 }
 
 void NodeSocketItem::hoverEnterEvent(QGraphicsSceneHoverEvent *event) {
+  setToolTip(_opdata_socket->dataTypeName().c_str());
   _hovered = true;
-  QGraphicsItem::hoverEnterEvent(event);
+  //QGraphicsItem::hoverEnterEvent(event);
 }
 
 void NodeSocketItem::hoverMoveEvent(QGraphicsSceneHoverEvent *event) {
   QGraphicsItem::hoverMoveEvent(event);
 }
 
-
 void NodeSocketItem::hoverLeaveEvent(QGraphicsSceneHoverEvent *event) {
+  setToolTip("");
   _hovered = false;
-  QGraphicsItem::hoverLeaveEvent(event);
+  //QGraphicsItem::hoverLeaveEvent(event);
 }
 
-
 void NodeSocketItem::mousePressEvent(QGraphicsSceneMouseEvent * event) {
-  //if(event->button() & Qt::LeftButton) {
-  //  _temp_connection_item = new NodeConnectionItem(this);
-  //  _temp_connection_item->setPosFrom(event->pos());
-  //  _temp_connection_item->setPosTo(event->pos());
-  //} else {
-  //  QGraphicsObject::mousePressEvent(event);
-  //}
   //QGraphicsItem::mousePressEvent(event);
 }
 
-
 void NodeSocketItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event) {
-  //if(_temp_connection_item) {
-    //move the end point of a temporary connection item
-  //  _temp_connection_item->setPosTo(event->pos());
-  //}
   //QGraphicsItem::mouseMoveEvent(event);
 }
 
-
 void NodeSocketItem::mouseReleaseEvent(QGraphicsSceneMouseEvent * event) {
-  //delete _temp_connection_item;
-  QGraphicsItem::mouseReleaseEvent(event);
+  //QGraphicsItem::mouseReleaseEvent(event);
 }
-
 
 int NodeSocketItem::type() const {
   // Enable the use of qgraphicsitem_cast with this item.
@@ -160,6 +153,12 @@ void NodeSocketItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
   }
 
   painter->setBrush(Qt::gray);
+  if ( _hover_flag == NodeSocketItem::HoverFlag::CanConnect ) {
+    painter->setBrush(QColor(64, 255, 0));
+  } else if ( _hover_flag == NodeSocketItem::HoverFlag::CanNotConnect ) {
+    painter->setBrush(QColor(255, 64, 0));
+  }
+
   painter->drawEllipse(rect);
 }
 

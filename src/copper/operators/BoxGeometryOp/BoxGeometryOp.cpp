@@ -7,8 +7,9 @@
 #include <sstream>
 
 #include "copper/OpData/GeometryOpData.h"
+#include "copper/Operator/OpNodeTemplate.h"
 #include "copper/Operator/OpDataSocket.h"
-#include "copper/Operator/OpDefinition.h"
+#include "copper/Operator/OpDataSocketTemplate.h"
 
 #include "BoxGeometryOp.h"
 
@@ -35,20 +36,20 @@ OpBase *BoxGeometryOp::myConstructor() {
 }
 
 void BoxGeometryOp::registerOperator(OpTable *op_table) {
-  std::vector<OpDataSocket> input_sockets;    /// operator inputs
-  input_sockets.emplace_back(OpDataSocket(0, 0, "geometry", OpDataSocket::Flags::INPUT_SOCKET));
+  OpDataSocketTemplateList input_socket_templates;    /// operator node inputs
+  input_socket_templates.push_back(new OpDataSocketTemplate<GeometryOpData>(0, OpDataSocketTemplateFlags::INPUT_SOCKET));
 
-  std::vector<OpDataSocket> outputs_sockets;  /// operator outputs
-  outputs_sockets.emplace_back(OpDataSocket(0, 0, "geometry", OpDataSocket::Flags::OUTPUT_SOCKET));
+  OpDataSocketTemplateList outputs_socket_templates;  /// operator node outputs
+  outputs_socket_templates.push_back(new OpDataSocketTemplate<GeometryOpData>(0, OpDataSocketTemplateFlags::OUTPUT_SOCKET));
 
-  op_table->registerOpDefinition( new OpDefinition(
-    0,                            // version
+  op_table->registerOpNodeTemplate( new OpNodeTemplate(
+    0,                            /// version
     "box",                        /// internal operator name
     "Box",                        /// name used in ui
     BoxGeometryOp::myConstructor, /// op constructor
-    input_sockets,
-    outputs_sockets,
-    OpDefinition::Flags::OP_FLAG_GENERATOR
+    input_socket_templates,
+    outputs_socket_templates,
+    OpNodeTemplate::Flags::OP_FLAG_GENERATOR
   ));
 }
 

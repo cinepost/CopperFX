@@ -24,6 +24,12 @@ class NodeConnectionItem;
 
 class NodeSocketItem : public QGraphicsItem {
 	//Q_OBJECT
+  public:
+    enum HoverFlag {
+      NoHover = 0,
+      CanConnect = 1,
+      CanNotConnect = 2
+    };
 
 	public:
 		NodeSocketItem(NodeItem *parent, const OpDataSocket *opdata_socket);
@@ -33,6 +39,8 @@ class NodeSocketItem : public QGraphicsItem {
     bool isOutput() const;
     bool isConnected(NodeSocketItem *socket_item) const;
     NodeItem *nodeItem();
+
+    void setHoverFlag(NodeSocketItem::HoverFlag flag);
 
     const OpDataSocket *opDataSocket() const;
     static bool canConnect(NodeSocketItem *_temp_socket_from, NodeSocketItem *_temp_socket_to);
@@ -68,6 +76,7 @@ class NodeSocketItem : public QGraphicsItem {
 
     bool _is_input = false;
     bool _hovered = false;
+    NodeSocketItem::HoverFlag _hover_flag = NodeSocketItem::HoverFlag::NoHover;
 
     NodeItem *_parent = nullptr;
 };

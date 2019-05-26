@@ -9,16 +9,16 @@
 
 namespace copper {
 
-class OpDefinition;	
+class OpNodeTemplate;	
 
 class OpTable {
 	public:
-		void registerOpDefinition(OpDefinition *op_def);
-		OpDefinition* opDefinition(const std::string &type_name);
-		std::vector<std::string> registeredTypeNames();
+		void registerOpNodeTemplate(OpNodeTemplate *op_template);
+		OpNodeTemplate *getOpNodeTemplate(const std::string &type_name);
+		const std::vector<std::string> registeredTypeNames() const;
 
 	private:
-		std::unordered_map<std::string, OpDefinition *> _op_definitions_by_type_name;
+		std::unordered_map<std::string, OpNodeTemplate* > _op_node_templates_by_type_name;
 };
 
 }

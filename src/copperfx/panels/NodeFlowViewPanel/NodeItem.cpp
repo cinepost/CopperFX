@@ -10,11 +10,19 @@
 
 #include "NodeItem.h"
 #include "NodeSocketItem.h"
+#include "NodeFlowScene.h"
 
 namespace copper { namespace ui {
 
-NodeItem::NodeItem(OpNode *op_node, NodeItem::Flags flags): QGraphicsItem(nullptr), _locked(false), _flags(flags), _op_node(op_node) {
+NodeItem::NodeItem(NodeFlowScene *scene, OpNode *op_node, NodeItem::Flags flags): QGraphicsItem(nullptr) {
   BOOST_LOG_TRIVIAL(debug) << "Constructing Node Item.";
+
+  _scene = scene;
+  _scene->addItem(this);
+  _locked = false;
+  _flags = flags;
+  _op_node = op_node;
+
   setFlag(QGraphicsItem::ItemDoesntPropagateOpacityToChildren, true);
   setFlag(QGraphicsItem::ItemIsMovable, true);
   setFlag(QGraphicsItem::ItemIsFocusable, true);
@@ -46,6 +54,11 @@ NodeItem::NodeItem(OpNode *op_node, NodeItem::Flags flags): QGraphicsItem(nullpt
 }
 
 
+NodeItem::~NodeItem() {
+  _scene->removeItem(this);
+}
+
+
 QSizeF NodeItem::size() const {
   return _size;
 }
@@ -59,6 +72,7 @@ QRectF NodeItem::boundingRect() const {
   qreal pen_width = 1;
   return QRectF(-_size.width()/2.0 - pen_width/2, -_size.height()/2.0 - pen_width/2, _size.width() + pen_width, _size.height() + pen_width);
 }
+
 
 void NodeItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
   Q_UNUSED(option);
@@ -76,9 +90,10 @@ void NodeItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
   painter->drawRoundedRect(rect, 1.0, 1.0);
 }
 
+
 void NodeItem::addSocket(const OpDataSocket *opdata_socket) {
   NodeSocketItem *node_socket_item = new NodeSocketItem(this, opdata_socket);
-  _socket_items.push_back(node_socket_item);
+  _socket_items.append(node_socket_item);
 
   // update sockets positions
   for(auto socket_item : _socket_items) {
@@ -91,6 +106,12 @@ void NodeItem::addSocket(const OpDataSocket *opdata_socket) {
 
 }
 
+
+const QVector<NodeSocketItem*> *NodeItem::socketItems() const {
+  return &_socket_items;
+}
+
+
 void NodeItem::mousePressEvent(QGraphicsSceneMouseEvent * event) {
   if(_locked) return;
 
@@ -99,6 +120,7 @@ void NodeItem::mousePressEvent(QGraphicsSceneMouseEvent * event) {
     scene()->clearSelection();
   }
 }
+
 
 QVariant NodeItem::itemChange(GraphicsItemChange change, const QVariant &value) {
   if (change == ItemPositionChange && scene()) {

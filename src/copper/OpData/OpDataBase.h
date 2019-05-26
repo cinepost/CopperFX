@@ -10,11 +10,11 @@ namespace copper {
 
 class OpDataBase: public BaseAPI {
 	public:
-  	virtual const std::string name() const = 0; // plugin instance name used for display purposes
-  	virtual const std::string typeName() const = 0; // plugin instance type name
+  	static const std::string& name() = 0; // plugin instance name used for display purposes
+  	static const std::string& typeName() = 0; // plugin instance type name
 
-  	virtual void saveToFile(std::string filename, const unsigned int version) = 0;
-  	virtual void loadFromFile(std::string filename, const unsigned int version) = 0;
+  	virtual void saveToFile(const std::string& filename, const unsigned int version) = 0;
+  	virtual void loadFromFile(const std::string& filename, const unsigned int version) = 0;
 };
 
 }

@@ -48,6 +48,7 @@ class Engine: public Singleton<Engine> {
 
 		OpNode *root();
 		OpNode *node(std::string node_path);
+		OpNode *node(opnode_uuid_t uuid);
 
 		float time();
 		void setTime(float time);

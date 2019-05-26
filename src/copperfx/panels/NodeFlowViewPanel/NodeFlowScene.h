@@ -24,9 +24,6 @@ class NodeFlowScene : public QGraphicsScene {
 		void buildSceneAt(const std::string &op_node_path);
 		const std::string& sceneLevelPath() const;
 
-		void addConnectionItem(NodeConnectionItem *conn_item);
-		void addNodeItem(NodeItem *node_item);
-
 	public:
 		void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
     void mouseMoveEvent(QGraphicsSceneMouseEvent * event) override;
@@ -41,8 +38,8 @@ class NodeFlowScene : public QGraphicsScene {
 	private:
 		std::string _op_node_path;
 
-		QVector<NodeItem*> _nodes;
-		QVector<NodeConnectionItem*> _connections;
+		QVector<NodeItem*> _node_items;
+		QVector<NodeConnectionItem*> _connection_items;
 };
 
 }}

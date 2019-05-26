@@ -15,27 +15,36 @@
 
 namespace copper {
 
+class OpNode;
 class OpBase;
-class OpDefinition;
+class OpNodeTemplate;
+
+typedef uint64_t opnode_uuid_t;
+typedef std::unordered_map<std::string, OpNode *>   opnode_by_path_hashmap_t;
+typedef std::unordered_map<opnode_uuid_t, OpNode *> opnode_by_uuid_hashmap_t;
 
 class OpNode : public NetworkBoxItem {
 	friend class Engine;
-	friend class OpDefinition;
+	friend class OpNodeTemplate;
 
 	public:
 		OpNode(const OpNode &OpNode); // copy constructor
 
-		OpNode 		*node(const std::string &node_path);
+		OpNode 	*parent();
+		OpNode 	*root();
+		OpNode 	*node(const std::string &node_path);
+		OpNode 	*node(opnode_uuid_t uuid);
+
 		const std::string& name() const;
 		const std::string path() const;
 		void setName(const std::string &name );
 
 		std::vector<OpNode*> children() const;
-		std::vector<const OpDataSocket*> inputs() const;
-		std::vector<const OpDataSocket*> outputs() const;
+		std::vector<const OpDataSocketBase*> inputs() const;
+		std::vector<const OpDataSocketBase*> outputs() const;
 
-		OpDataSocket *input(unsigned int index);
-		OpDataSocket *output(unsigned int index);
+		OpDataSocketBase *input(unsigned int index);
+		OpDataSocketBase *output(unsigned int index);
 
 		OpNode 		*createNode(const std::string &op_type_name);
 		OpNode 		*createNode(const std::string &op_type_name, const std::string &node_name);
@@ -49,23 +58,29 @@ class OpNode : public NetworkBoxItem {
 		void  setY(float y);
 		void  setPos(float x, float y);
 
-		virtual OpNode 	*parent();
-		virtual OpNode 	*root();
+	private:
+		static opnode_uuid_t getNextNodeUUID();
 
 	protected:
-		OpNode(OpNode *parent, OpDefinition *op_def, const std::string &name = "");
-		OpNode 				*_parent;
-		std::string		_name;
-		OpBase 				*_operator;
-		OpDefinition 	*_op_def;
+		OpNode(OpNode *parent, OpNodeTemplate *op_def, const std::string &name = "");
 
-		std::unordered_map<std::string, OpNode *> _children;
-
-		std::vector<OpDataSocket> _inputs;
-		std::vector<OpDataSocket> _outputs;
-
+	protected:
 		void addOpNode(OpNode *op_node);
 		const std::string buildBase1NodeName(const std::string &name);
+
+	protected:
+		OpNode 					*_parent;
+		std::string			_name;
+		OpBase 					*_operator;
+		OpNodeTemplate 	*_op_def;
+
+		opnode_by_path_hashmap_t _children;
+		opnode_by_uuid_hashmap_t _children_by_uuid;
+
+	protected:
+		uint64_t _uuid; 
+		std::vector<OpDataSocketBase*> _inputs;
+		std::vector<OpDataSocketBase*> _outputs;
 
 };
 

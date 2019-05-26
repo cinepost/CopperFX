@@ -9,16 +9,18 @@
 
 #include "copper/Plugin/PluginApi.h"
 #include "copper/Operator/OpBase.h"
-
+#include "copper/Operator/OpDataSocketTemplate.h"
 
 namespace copper {
 
 class OpNode;
-class OpDataSocket;
+class OpDataBase;
+class OpDataSocketBase;
 
 typedef OpBase *(*opConstructor)();
+typedef std::vector<OpDataSocketTemplateBase *> OpDataSocketTemplateList;
 
-class OpDefinition {
+class OpNodeTemplate {
 	friend class OpNode;
 
 	/// Flags passed to the operator definition contructor:
@@ -35,20 +37,20 @@ class OpDefinition {
 		};
 
 	public:
-		OpDefinition(
+		OpNodeTemplate(
 			unsigned int version, 							/// operator version
 			std::string type_name, 							/// internal operator name
 			std::string ui_name, 								/// name used in ui
 			opConstructor op_contructor,   			/// operator factory method for operator instance construction
-			std::vector<OpDataSocket> inputs,		/// operator data inputs
-			std::vector<OpDataSocket> outputs, 	/// operator data outputs 
-			OpDefinition::Flags flags
+			OpDataSocketTemplateList input_socket_templates,		/// operator data inputs
+			OpDataSocketTemplateList output_socket_templates, 	/// operator data outputs 
+			OpNodeTemplate::Flags flags
 		);
 
 		const std::string& typeName() const;
 		opConstructor constructor() const;
-		const std::vector<OpDataSocket> *inputs() const;
-		const std::vector<OpDataSocket> *outputs() const;
+		const OpDataSocketTemplateList *inputs() const;
+		const OpDataSocketTemplateList *outputs() const;
 
 	public:
 		OpNode *createOpNode(OpNode *parent_op_node, const std::string &name = "");
@@ -58,14 +60,13 @@ class OpDefinition {
 		std::string _type_name;
 		std::string _ui_name;
 		opConstructor _opConstructor;
-		std::vector<OpDataSocket> _inputs;
-		std::vector<OpDataSocket> _outputs;
-		OpDefinition::Flags _flags;
-
+		OpDataSocketTemplateList _input_socket_templates;
+		OpDataSocketTemplateList _output_socket_templates;
+		OpNodeTemplate::Flags _flags;
 };
 
 }
 
-ALLOW_FLAGS_FOR_ENUM(copper::OpDefinition::Flags)
+ALLOW_FLAGS_FOR_ENUM(copper::OpNodeTemplate::Flags)
 
 #endif // OP_DEFINITION_H

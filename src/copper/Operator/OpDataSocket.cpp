@@ -3,13 +3,22 @@
 #include <boost/log/core.hpp>
 #include <boost/log/trivial.hpp>
 
+#include "OpNode.h"
 #include "OpDataSocket.h"
 
 
 namespace copper {
 
+OpDataSocketBase::OpDataSocketBase() {
+	_op_node = nullptr;
+	_id = 0;
+}
 
-OpDataSocket::OpDataSocket( unsigned int id, unsigned int opdata_type_version, const std::string &opdata_type_name, OpDataSocket::Flags flags ) {
+OpDataSocketBase::~OpDataSocketBase() {}
+
+/*
+OpDataSocketBase::OpDataSocketBase(unsigned int id, unsigned int opdata_type_version, const std::string &opdata_type_name, OpDataSocket::Flags flags ) {
+	_op_node = nullptr;
 	_id = id;
 	_opdata_type_version = opdata_type_version;
 	_opdata_type_name = opdata_type_name;
@@ -19,38 +28,33 @@ OpDataSocket::OpDataSocket( unsigned int id, unsigned int opdata_type_version, c
 		BOOST_LOG_TRIVIAL(error) << "OpDataSocket must be either INPUT_SOCKET or OUTPUT_SOCKET not both !!!";
 	}
 }
+*/
 
-unsigned int OpDataSocket::idx() const {
+unsigned int OpDataSocketBase::idx() const {
 	return _id;
 }
 
-bool OpDataSocket::isInput() const {
-  if (_flags & OpDataSocket::Flags::INPUT_SOCKET) {
-    return true;
-  }
-  return false;
+bool OpDataSocketBase::isInput() const {
+  return _is_input;
 }
 
-bool OpDataSocket::isOutput() const {
-  if (_flags & OpDataSocket::Flags::OUTPUT_SOCKET) {
-    return true;
-  }
-  return false;
+bool OpDataSocketBase::isMultiInput() const {
+  return _is_input && _is_multi_input;
 }
 
-const std::string& OpDataSocket::dataTypeName() const {
-	return _opdata_type_name;
+bool OpDataSocketBase::isOutput() const {
+  return !_is_input;
 }
 
-bool OpDataSocket::canConnect(const OpDataSocket* socket_1, const OpDataSocket* socket_2) {
+bool OpDataSocketBase::canConnect(const OpDataSocketBase* socket_1, const OpDataSocketBase* socket_2) {
 	if (!socket_1 || !socket_2) return false;
 	// TODO: check if it's the same node sockets then return false
-	if ( socket_1->dataTypeName() != socket_2->dataTypeName()) return false;
+	if (socket_1->dataTypeName() != socket_2->dataTypeName()) return false;
 
 	return true;
 }
 
-bool OpDataSocket::connect(const OpDataSocket *socket) {
+bool OpDataSocketBase::connect(const OpDataSocketBase *socket) {
 	if ((this->isInput() && socket->isInput()) || (this->isOutput() && socket->isOutput())) {
 		BOOST_LOG_TRIVIAL(error) << "OpDataSocket can not connect socket of the same type !";
 		return false;
@@ -66,12 +70,8 @@ bool OpDataSocket::connect(const OpDataSocket *socket) {
 	return true;
 }
 
-std::vector<const OpDataSocket*> OpDataSocket::connections() const {
+std::vector<const OpDataSocketBase*> OpDataSocketBase::connections() const {
 	return _connections;
-}
-
-OpDataSocket::Flags OpDataSocket::flags() const {
-	return _flags;
 }
 
 }

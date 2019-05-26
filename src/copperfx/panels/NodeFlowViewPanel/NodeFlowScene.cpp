@@ -32,23 +32,8 @@ NodeFlowScene::NodeFlowScene(QWidget *parent, const std::string &op_node_path): 
 void NodeFlowScene::onOpNetworkChanged(const std::string &op_node_path) {
 	std::cout << "NodeFlowScene onOpNetworkChanged called\n";
   if (_op_node_path == op_node_path) {
-    clear();
     buildSceneAt(op_node_path);
   }
-}
-
-void NodeFlowScene::addNodeItem(NodeItem *node_item) {
-	if(node_item && !_nodes.contains(node_item)) {
-		_nodes.append(node_item);
-		addItem(node_item);
-	}
-}
-
-void NodeFlowScene::addConnectionItem(NodeConnectionItem *conn_item) {
-	if(conn_item && !_connections.contains(conn_item)) {
-		_connections.append(conn_item);
-		addItem(conn_item);
-	}
 }
 
 /// build/rebuild scene
@@ -60,7 +45,15 @@ void NodeFlowScene::buildSceneAt(const std::string &op_node_path) {
 	
 	// create node items
 	for(auto&& op_node: op_node_level->children()) {
-		addNodeItem(new NodeItem(op_node, NodeItem::Flags::SOCKETS_HORIZONTAL));
+		_node_items.append(new NodeItem(this, op_node, NodeItem::Flags::SOCKETS_HORIZONTAL));
+	}
+
+	// create connection items
+	NodeItem *node_item;
+	NodeSocketItem *soket_from;
+	for (int i = 0; i < _node_items.size(); ++i) {
+		node_item = _node_items.at(i);
+		
 	}
 	BOOST_LOG_TRIVIAL(debug) << "Node Flow Scene built at: " << op_node_path;
 }
@@ -91,7 +84,7 @@ void NodeFlowScene::onOpNodePosChanged(const std::string& op_node_path) {
 	if (op_node) {
 		// check if we are at right level
 		if (op_node->parent()->path() == _op_node_path) {
-			for ( auto node_item: _nodes) {
+			for ( auto node_item: _node_items) {
 				if(node_item->opNode() == op_node) {
 					//node_item->setPos(op_node->x(), op_node->y());
 				}

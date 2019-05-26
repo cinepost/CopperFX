@@ -6,8 +6,10 @@
 #include <iostream>
 #include <fstream>
 
+#include "copper/OpData/GeometryOpData.h"
 #include "copper/Operator/OpBase.h"
 #include "copper/Operator/OpTable.h"
+
 
 namespace copper {
 
