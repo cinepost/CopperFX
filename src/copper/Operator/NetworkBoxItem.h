@@ -7,6 +7,7 @@ namespace copper {
 class NetworkBoxItem {
 	public:
 		NetworkBoxItem();
+		NetworkBoxItem(const NetworkBoxItem &item);
 
 	public:
 		float	x();

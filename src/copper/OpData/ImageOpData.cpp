@@ -3,11 +3,11 @@
 
 namespace copper {
 
-const std::string ImageOpData::name() {
+const std::string& ImageOpData::name() const {
 	return "Image";
 }
 
-const std::string ImageOpData::typeName() {
+const std::string& ImageOpData::typeName() const {
 	return "image";
 }
 
@@ -15,7 +15,7 @@ const unsigned int ImageOpData::version() const {
 	return 0;
 }
 
-void ImageOpData::saveToFile(const std::string& filename, const unsigned int version) { }
+void ImageOpData::saveToFile(const std::string& filename, const unsigned int version) const { }
 void ImageOpData::loadFromFile(const std::string& filename, const unsigned int version) { }
 
 // factory methods

@@ -30,11 +30,11 @@ SceneViewPanel::~SceneViewPanel() {
   BOOST_LOG_TRIVIAL(debug) << "SceneViewPanel destructed!";
 }
 
-const std::string SceneViewPanel::name() const{
+const std::string& SceneViewPanel::name() const{
   return "Scene View";
 }
 
-const std::string SceneViewPanel::typeName() const{
+const std::string& SceneViewPanel::typeName() const{
   return "scene_view";
 }
 

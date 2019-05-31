@@ -35,7 +35,7 @@ NodeSocketItem::NodeSocketItem(NodeItem *parent, const OpDataSocket *opdata_sock
   setCacheMode(QGraphicsItem::DeviceCoordinateCache);
 
   //setToolTip(_opdata_socket->dataTypeName());
-  BOOST_LOG_TRIVIAL(debug) << "Node Socket Item data type name: " << _opdata_socket->dataTypeName();
+  BOOST_LOG_TRIVIAL(debug) << "Node Socket Item data type UUID: " << _opdata_socket->dataTypeUUID();
 
   _parent = parent;
 
@@ -94,7 +94,7 @@ QPainterPath NodeSocketItem::shape() const {
 }
 
 void NodeSocketItem::hoverEnterEvent(QGraphicsSceneHoverEvent *event) {
-  setToolTip(_opdata_socket->dataTypeName().c_str());
+  //setToolTip(_opdata_socket->dataTypeName().c_str());
   _hovered = true;
   //QGraphicsItem::hoverEnterEvent(event);
 }

@@ -91,8 +91,8 @@ OpNode *Engine::node(std::string node_path) {
 	return _root->node(node_path);
 }
 
-OpNode *Engine::node(opnode_uuid_t uuid) {
-  return _root->node(uuid);
+OpNode *Engine::node(obj_id_t id) {
+  return _root->node(id);
 }
 
 float Engine::time() { return _time; }
@@ -141,13 +141,13 @@ bool Engine::onConnectOpNodes(unsigned int input_index, const std::string &input
     return false;
   }
 
-  OpDataSocketBase *input_socket = input_node->input(input_index);
+  OpDataSocket *input_socket = input_node->input(input_index);
   if (input_socket == nullptr) {
     BOOST_LOG_TRIVIAL(error) << "Unable to get input data socket idx: " << input_index;
     return false;
   }
 
-  OpDataSocketBase *output_socket = output_node->output(output_index);
+  OpDataSocket *output_socket = output_node->output(output_index);
   if (output_socket == nullptr) {
     BOOST_LOG_TRIVIAL(error) << "Unable to get output data socket idx: " << output_index;
     return false;

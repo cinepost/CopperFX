@@ -36,11 +36,11 @@ OpBase *BoxGeometryOp::myConstructor() {
 }
 
 void BoxGeometryOp::registerOperator(OpTable *op_table) {
-  OpDataSocketTemplateList input_socket_templates;    /// operator node inputs
-  input_socket_templates.push_back(new OpDataSocketTemplate<GeometryOpData>(0, OpDataSocketTemplateFlags::INPUT_SOCKET));
+  OpDataSocketTemplateList input_socket_templates;  /// operator node inputs
+  input_socket_templates.emplace_back(OpDataSocketTemplate(0, OpDataSocketTemplateFlags::INPUT_SOCKET));
 
   OpDataSocketTemplateList outputs_socket_templates;  /// operator node outputs
-  outputs_socket_templates.push_back(new OpDataSocketTemplate<GeometryOpData>(0, OpDataSocketTemplateFlags::OUTPUT_SOCKET));
+  outputs_socket_templates.emplace_back(OpDataSocketTemplate(0, OpDataSocketTemplateFlags::OUTPUT_SOCKET));
 
   op_table->registerOpNodeTemplate( new OpNodeTemplate(
     0,                            /// version

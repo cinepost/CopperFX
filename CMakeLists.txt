@@ -74,6 +74,7 @@ set ( COPPER_INCLUDE_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/src )
 include_directories(
     ${COPPER_INCLUDE_ROOT}
     ${CMAKE_CURRENT_SOURCE_DIR}/third_party
+    ${CMAKE_CURRENT_SOURCE_DIR}/third_party/include
     ${CMAKE_CURRENT_SOURCE_DIR}/third_party/enum-flags/include
 )
 
@@ -101,7 +102,13 @@ endif (DOXYGEN_FOUND)
 
 set( COPPER_BUILD_LIBS_AS_FRAMEWORKS true )
 
+# set variable pointing to the antlr tool that supports C++
+set(ANTLR4CPP_JAR_LOCATION ${PROJECT_SOURCE_DIR}/third_party/antlr-4.7.1-complete.jar)
+
 # Now setup targets
+
+# thirt party libs
+add_subdirectory("third_party/antlr4/runtime/Cpp")
 
 # copper libs
 add_subdirectory( src/copper ) # main copper library
@@ -112,7 +119,7 @@ add_subdirectory( src/copper ) # main copper library
 # copper apps
 add_subdirectory( src/copperfx )   # gui application
 #add_subdirectory( src/copperpy )   # commandline / embedded python interpreter
-
+add_subdirectory( src/shout ) # renderer
 
 install(
 	DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/cfs 

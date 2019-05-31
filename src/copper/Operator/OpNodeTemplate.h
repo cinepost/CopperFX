@@ -18,7 +18,7 @@ class OpDataBase;
 class OpDataSocketBase;
 
 typedef OpBase *(*opConstructor)();
-typedef std::vector<OpDataSocketTemplateBase *> OpDataSocketTemplateList;
+typedef std::vector<OpDataSocketTemplate> OpDataSocketTemplateList;
 
 class OpNodeTemplate {
 	friend class OpNode;

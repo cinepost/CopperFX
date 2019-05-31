@@ -14,46 +14,35 @@ namespace copper {
 
 class OpNode;
 
-class OpDataSocketBase {
+class OpDataSocket {
+	friend class OpDataSocketTemplate;
+
 	public:
-		virtual ~OpDataSocketBase();
+		virtual ~OpDataSocket();
 		unsigned int idx() const;
 		bool isInput() const;
 		bool isOutput() const;
 		bool isMultiInput() const;
-		bool connect(const OpDataSocketBase *socket);
-		std::vector<const OpDataSocketBase*> connections() const;
-		static bool canConnect(const OpDataSocketBase* socket_1, const OpDataSocketBase* socket_2);
+		bool connect(const OpDataSocket *socket);
+		std::vector<const OpDataSocket*> connections() const;
+		static bool canConnect(const OpDataSocket* socket_1, const OpDataSocket* socket_2);
 
 	public:
-		virtual const std::string& dataTypeName() const = 0;
+		unsigned int dataTypeUUID() const;
 
 	protected:
 		// direct OpDataSocket construction prohibited. Only OpDataSocketTemplate factory methon can make it
-		OpDataSocketBase();
+		OpDataSocket();
 
 	private:
 		unsigned int _id;
+		unsigned int _data_type_uuid;
 		OpNode *_op_node = nullptr;
 		bool _is_input;
 		bool _is_multi_input;
 
-		std::vector<const OpDataSocketBase*> 	_connections;
+		std::vector<const OpDataSocket*> 	_connections;
 };
-
-template <class T>
-class OpDataSocket: public OpDataSocketBase {
-	static_assert(std::is_base_of<OpDataBase, T>::value, "T must inherit from OpDataBase");
-	
-	public:
-		const std::string& dataTypeName() const;
-		OpDataSocket(): OpDataSocketBase(){};
-};
-
-template<class T>
-const std::string& OpDataSocket<T>::dataTypeName() const {
-	return T::typeName();
-}
 
 }
 

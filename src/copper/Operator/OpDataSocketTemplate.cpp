@@ -4,11 +4,22 @@
 
 namespace copper {
 
-//OpDataSocketTemplateBase::OpDataSocketTemplateBase(unsigned int idx, OpDataSocketTemplateFlags flags) {
-//	_idx = idx;
-//	_flags = flags;
-//}
+OpDataSocketTemplate::OpDataSocketTemplate(unsigned int idx, OpDataSocketTemplateFlags flags) {
+	_idx = idx;
+	_flags = flags;
+}
 
-OpDataSocketTemplateBase::~OpDataSocketTemplateBase() {}
+OpDataSocket *OpDataSocketTemplate::createOpDataSocket() {
+	OpDataSocket *opdata_socket_ptr = new OpDataSocket();
+	if (_flags & OpDataSocketTemplateFlags::INPUT_SOCKET) {
+		opdata_socket_ptr->_is_input = true;
+		if (_flags & OpDataSocketTemplateFlags::MULTI_INPUT_SOCKET) {
+			opdata_socket_ptr->_is_multi_input = true;
+		}
+	} else {
+		opdata_socket_ptr->_is_input = opdata_socket_ptr->_is_multi_input = false;
+	}
+	return opdata_socket_ptr;
+}
 
 }

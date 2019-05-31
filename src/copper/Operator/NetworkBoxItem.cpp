@@ -4,8 +4,13 @@
 namespace copper {
 
 NetworkBoxItem::NetworkBoxItem(){
-	_x = 0;
-	_y = 0;
+	_x = 0.0;
+	_y = 0.0;
+}
+
+NetworkBoxItem::NetworkBoxItem(const NetworkBoxItem &item){
+	_x = item._x + 10.0;
+	_y = item._y + 10.0;
 }
 
 float NetworkBoxItem::x() {

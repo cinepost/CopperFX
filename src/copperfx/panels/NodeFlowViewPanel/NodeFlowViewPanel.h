@@ -16,8 +16,8 @@ class NodeFlowViewPanel : public PanelBase {
     ~NodeFlowViewPanel();
 
   public:
-    const std::string name() const override;
-    const std::string typeName() const override;
+    const std::string& name() const override;
+    const std::string& typeName() const override;
     const unsigned int version() const override;
 
   private:

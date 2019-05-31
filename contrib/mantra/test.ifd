@@ -1,0 +1,4 @@
+ray_version VEX15.0.244.16
+ray_declare global float global:fps 245
+
+setenv HIP = "/home/user1"

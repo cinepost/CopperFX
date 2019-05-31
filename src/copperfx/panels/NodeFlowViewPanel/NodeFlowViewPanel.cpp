@@ -35,11 +35,11 @@ NodeFlowViewPanel::~NodeFlowViewPanel() {
   BOOST_LOG_TRIVIAL(debug) << "Node Flow View panel destructed!";
 }
 
-const std::string NodeFlowViewPanel::name() const{
+const std::string& NodeFlowViewPanel::name() const{
   return "Node Flow";
 }
 
-const std::string NodeFlowViewPanel::typeName() const{
+const std::string& NodeFlowViewPanel::typeName() const{
   return "node_flow_view";
 }
 

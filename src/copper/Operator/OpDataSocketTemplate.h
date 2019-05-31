@@ -21,37 +21,15 @@ enum class OpDataSocketTemplateFlags {
 	MULTI_INPUT_SOCKET = 0x04
 };
 
-class OpDataSocketTemplateBase {
-	public:
-		//virtual OpDataSocketTemplateBase(unsigned int idx, OpDataSocketTemplateFlags flags);
-		virtual ~OpDataSocketTemplateBase();
-
-		virtual OpDataSocketBase *createOpDataSocket() = 0;
-};
-
-template <class T>
-class OpDataSocketTemplate: public OpDataSocketTemplateBase {
-	static_assert(std::is_base_of<OpDataBase, T>::value, "T must inherit from OpDataBase");
-
+class OpDataSocketTemplate {
 	public:
 		OpDataSocketTemplate(unsigned int idx, OpDataSocketTemplateFlags flags);
-		OpDataSocketBase *createOpDataSocket();
+		OpDataSocket *createOpDataSocket();
 
 	protected:
 		unsigned int _idx;
 		OpDataSocketTemplateFlags _flags;
 };
-
-template <class T>
-OpDataSocketTemplate<T>::OpDataSocketTemplate(unsigned int idx, OpDataSocketTemplateFlags flags) {
-	_idx = idx;
-	_flags = flags;
-}
-
-template<class T>
-OpDataSocketBase *OpDataSocketTemplate<T>::createOpDataSocket() {
-	return new OpDataSocket<T>();
-}
 
 }
 

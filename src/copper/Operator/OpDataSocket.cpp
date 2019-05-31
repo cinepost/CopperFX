@@ -9,15 +9,15 @@
 
 namespace copper {
 
-OpDataSocketBase::OpDataSocketBase() {
+OpDataSocket::OpDataSocket() {
 	_op_node = nullptr;
 	_id = 0;
 }
 
-OpDataSocketBase::~OpDataSocketBase() {}
+OpDataSocket::~OpDataSocket() {}
 
 /*
-OpDataSocketBase::OpDataSocketBase(unsigned int id, unsigned int opdata_type_version, const std::string &opdata_type_name, OpDataSocket::Flags flags ) {
+OpDataSocket::OpDataSocket(unsigned int id, unsigned int opdata_type_version, const std::string &opdata_type_name, OpDataSocket::Flags flags ) {
 	_op_node = nullptr;
 	_id = id;
 	_opdata_type_version = opdata_type_version;
@@ -30,31 +30,31 @@ OpDataSocketBase::OpDataSocketBase(unsigned int id, unsigned int opdata_type_ver
 }
 */
 
-unsigned int OpDataSocketBase::idx() const {
+unsigned int OpDataSocket::idx() const {
 	return _id;
 }
 
-bool OpDataSocketBase::isInput() const {
+bool OpDataSocket::isInput() const {
   return _is_input;
 }
 
-bool OpDataSocketBase::isMultiInput() const {
+bool OpDataSocket::isMultiInput() const {
   return _is_input && _is_multi_input;
 }
 
-bool OpDataSocketBase::isOutput() const {
+bool OpDataSocket::isOutput() const {
   return !_is_input;
 }
 
-bool OpDataSocketBase::canConnect(const OpDataSocketBase* socket_1, const OpDataSocketBase* socket_2) {
+bool OpDataSocket::canConnect(const OpDataSocket* socket_1, const OpDataSocket* socket_2) {
 	if (!socket_1 || !socket_2) return false;
 	// TODO: check if it's the same node sockets then return false
-	if (socket_1->dataTypeName() != socket_2->dataTypeName()) return false;
+	if (socket_1->dataTypeUUID() != socket_2->dataTypeUUID()) return false;
 
 	return true;
 }
 
-bool OpDataSocketBase::connect(const OpDataSocketBase *socket) {
+bool OpDataSocket::connect(const OpDataSocket *socket) {
 	if ((this->isInput() && socket->isInput()) || (this->isOutput() && socket->isOutput())) {
 		BOOST_LOG_TRIVIAL(error) << "OpDataSocket can not connect socket of the same type !";
 		return false;
@@ -70,8 +70,12 @@ bool OpDataSocketBase::connect(const OpDataSocketBase *socket) {
 	return true;
 }
 
-std::vector<const OpDataSocketBase*> OpDataSocketBase::connections() const {
+std::vector<const OpDataSocket*> OpDataSocket::connections() const {
 	return _connections;
+}
+
+unsigned int OpDataSocket::dataTypeUUID() const {
+	return _data_type_uuid;
 }
 
 }

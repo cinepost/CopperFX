@@ -13,12 +13,12 @@ class ImageOpData: public OpDataBase {
 	public:
 		ImageOpData(){};
 
-		static const std::string name() override;
-		static const std::string typeName() override;
+		const std::string& name() const override;
+		const std::string& typeName() const override;
 		const unsigned int version() const override;
 
-		void saveToFile(std::string filename, const unsigned int version) override;
-    void loadFromFile(std::string filename, const unsigned int version) override;
+		void saveToFile(const std::string& filename, const unsigned int version) const override;
+    void loadFromFile(const std::string& filename, const unsigned int version) override;
 		
     // factory methods
     static std::string myTypeName();
