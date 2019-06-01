@@ -2,7 +2,7 @@
 
 
 Renderer::Renderer() {
-	display = new Display("openexr");
+	display = new Display("houdini");
 }
 
 

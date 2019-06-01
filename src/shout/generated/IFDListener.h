@@ -37,11 +37,11 @@ public:
   virtual void enterEnd(IFDParser::EndContext *ctx) = 0;
   virtual void exitEnd(IFDParser::EndContext *ctx) = 0;
 
-  virtual void enterDetail_1(IFDParser::Detail_1Context *ctx) = 0;
-  virtual void exitDetail_1(IFDParser::Detail_1Context *ctx) = 0;
+  virtual void enterDetail(IFDParser::DetailContext *ctx) = 0;
+  virtual void exitDetail(IFDParser::DetailContext *ctx) = 0;
 
-  virtual void enterDetail_2(IFDParser::Detail_2Context *ctx) = 0;
-  virtual void exitDetail_2(IFDParser::Detail_2Context *ctx) = 0;
+  virtual void enterDetail_instance(IFDParser::Detail_instanceContext *ctx) = 0;
+  virtual void exitDetail_instance(IFDParser::Detail_instanceContext *ctx) = 0;
 
   virtual void enterProperty(IFDParser::PropertyContext *ctx) = 0;
   virtual void exitProperty(IFDParser::PropertyContext *ctx) = 0;

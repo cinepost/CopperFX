@@ -39,11 +39,11 @@ public:
   virtual void enterEnd(IFDParser::EndContext * /*ctx*/) override { }
   virtual void exitEnd(IFDParser::EndContext * /*ctx*/) override { }
 
-  virtual void enterDetail_1(IFDParser::Detail_1Context * /*ctx*/) override { }
-  virtual void exitDetail_1(IFDParser::Detail_1Context * /*ctx*/) override { }
+  virtual void enterDetail(IFDParser::DetailContext * /*ctx*/) override { }
+  virtual void exitDetail(IFDParser::DetailContext * /*ctx*/) override { }
 
-  virtual void enterDetail_2(IFDParser::Detail_2Context * /*ctx*/) override { }
-  virtual void exitDetail_2(IFDParser::Detail_2Context * /*ctx*/) override { }
+  virtual void enterDetail_instance(IFDParser::Detail_instanceContext * /*ctx*/) override { }
+  virtual void exitDetail_instance(IFDParser::Detail_instanceContext * /*ctx*/) override { }
 
   virtual void enterProperty(IFDParser::PropertyContext * /*ctx*/) override { }
   virtual void exitProperty(IFDParser::PropertyContext * /*ctx*/) override { }

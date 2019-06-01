@@ -23,9 +23,9 @@ public:
 
   enum {
     RuleFile = 0, RuleLine = 1, RuleSetenv = 2, RuleVersion = 3, RuleDeclare = 4, 
-    RuleStart = 5, RuleEnd = 6, RuleDetail_1 = 7, RuleDetail_2 = 8, RuleProperty = 9, 
-    RuleImage = 10, RuleGeomerty = 11, RuleTime = 12, RuleRaytrace = 13, 
-    RuleQuit = 14
+    RuleStart = 5, RuleEnd = 6, RuleDetail = 7, RuleDetail_instance = 8, 
+    RuleProperty = 9, RuleImage = 10, RuleGeomerty = 11, RuleTime = 12, 
+    RuleRaytrace = 13, RuleQuit = 14
   };
 
   IFDParser(antlr4::TokenStream *input);
@@ -45,8 +45,8 @@ public:
   class DeclareContext;
   class StartContext;
   class EndContext;
-  class Detail_1Context;
-  class Detail_2Context;
+  class DetailContext;
+  class Detail_instanceContext;
   class PropertyContext;
   class ImageContext;
   class GeomertyContext;
@@ -80,8 +80,7 @@ public:
     StartContext *start();
     EndContext *end();
     PropertyContext *property();
-    Detail_1Context *detail_1();
-    Detail_2Context *detail_2();
+    DetailContext *detail();
     ImageContext *image();
     GeomertyContext *geomerty();
     TimeContext *time();
@@ -176,9 +175,9 @@ public:
 
   EndContext* end();
 
-  class  Detail_1Context : public antlr4::ParserRuleContext {
+  class  DetailContext : public antlr4::ParserRuleContext {
   public:
-    Detail_1Context(antlr4::ParserRuleContext *parent, size_t invokingState);
+    DetailContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *OBJPATH();
     antlr4::tree::TerminalNode *STREAM();
@@ -191,11 +190,11 @@ public:
    
   };
 
-  Detail_1Context* detail_1();
+  DetailContext* detail();
 
-  class  Detail_2Context : public antlr4::ParserRuleContext {
+  class  Detail_instanceContext : public antlr4::ParserRuleContext {
   public:
-    Detail_2Context(antlr4::ParserRuleContext *parent, size_t invokingState);
+    Detail_instanceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     std::vector<antlr4::tree::TerminalNode *> OBJPATH();
     antlr4::tree::TerminalNode* OBJPATH(size_t i);
@@ -209,7 +208,7 @@ public:
    
   };
 
-  Detail_2Context* detail_2();
+  Detail_instanceContext* detail_instance();
 
   class  PropertyContext : public antlr4::ParserRuleContext {
   public:

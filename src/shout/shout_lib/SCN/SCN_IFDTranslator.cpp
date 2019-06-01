@@ -39,12 +39,12 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual antlrcpp::Any visitDetail_1(IFDParser::Detail_1Context *ctx) override {
+  virtual antlrcpp::Any visitDetail(IFDParser::DetailContext *ctx) override {
     std::cout << "visitDetail_1" << std::endl;
     return true;
   }
 
-  virtual antlrcpp::Any visitDetail_2(IFDParser::Detail_2Context *ctx) override {
+  virtual antlrcpp::Any visitDetail_instance(IFDParser::Detail_instanceContext *ctx) override {
     std::cout << "visitDetail_2" << std::endl;
     return true;
   }

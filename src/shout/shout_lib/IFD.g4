@@ -6,7 +6,7 @@ grammar IFD;
 
 file: line*;
 
-line: version | declare | setenv | start | end | property | detail_1 | detail_2 | image | geomerty | time | raytrace | quit | COMMENT;
+line: version | declare | setenv | start | end | property | detail | image | geomerty | time | raytrace | quit | COMMENT;
 
 setenv
    : 'setenv' VAR_NAME '=' VALUE
@@ -28,11 +28,11 @@ end
    : 'ray_end'
    ;
 
-detail_1
+detail
    : 'ray_detail' '-T'? OBJPATH (STREAM | FILENAME)
    ;
 
-detail_2
+detail_instance
    : 'ray_detail' (('-v' VALUE) | ('-V' VALUE VALUE))? OBJPATH OBJPATH
    ;
 

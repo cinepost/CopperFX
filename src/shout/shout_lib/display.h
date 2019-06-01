@@ -16,6 +16,9 @@ class Display {
     void close();
     void write();
 
+  private:
+    void makeStringsParameter(const char* name, const char** strings, int count, UserParameter& parameter);
+
 	private:
     PtDspyOpenFuncPtr               m_OpenFunc;
     PtDspyWriteFuncPtr              m_WriteFunc;

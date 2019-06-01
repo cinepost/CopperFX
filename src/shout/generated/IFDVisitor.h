@@ -34,9 +34,9 @@ public:
 
     virtual antlrcpp::Any visitEnd(IFDParser::EndContext *context) = 0;
 
-    virtual antlrcpp::Any visitDetail_1(IFDParser::Detail_1Context *context) = 0;
+    virtual antlrcpp::Any visitDetail(IFDParser::DetailContext *context) = 0;
 
-    virtual antlrcpp::Any visitDetail_2(IFDParser::Detail_2Context *context) = 0;
+    virtual antlrcpp::Any visitDetail_instance(IFDParser::Detail_instanceContext *context) = 0;
 
     virtual antlrcpp::Any visitProperty(IFDParser::PropertyContext *context) = 0;
 

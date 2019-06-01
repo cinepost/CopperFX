@@ -45,11 +45,11 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual antlrcpp::Any visitDetail_1(IFDParser::Detail_1Context *ctx) override {
+  virtual antlrcpp::Any visitDetail(IFDParser::DetailContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual antlrcpp::Any visitDetail_2(IFDParser::Detail_2Context *ctx) override {
+  virtual antlrcpp::Any visitDetail_instance(IFDParser::Detail_instanceContext *ctx) override {
     return visitChildren(ctx);
   }
 
