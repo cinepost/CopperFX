@@ -25,6 +25,10 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual antlrcpp::Any visitBgeo(IFDParser::BgeoContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual antlrcpp::Any visitSetenv(IFDParser::SetenvContext *ctx) override {
     return visitChildren(ctx);
   }
@@ -46,10 +50,6 @@ public:
   }
 
   virtual antlrcpp::Any visitDetail(IFDParser::DetailContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual antlrcpp::Any visitDetail_instance(IFDParser::Detail_instanceContext *ctx) override {
     return visitChildren(ctx);
   }
 

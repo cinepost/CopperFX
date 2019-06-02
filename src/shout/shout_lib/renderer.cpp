@@ -2,7 +2,7 @@
 
 
 Renderer::Renderer() {
-	display = new Display("houdini");
+	display = new Display("sdldisplay");
 }
 
 

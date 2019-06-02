@@ -24,6 +24,9 @@ public:
   virtual void enterLine(IFDParser::LineContext * /*ctx*/) override { }
   virtual void exitLine(IFDParser::LineContext * /*ctx*/) override { }
 
+  virtual void enterBgeo(IFDParser::BgeoContext * /*ctx*/) override { }
+  virtual void exitBgeo(IFDParser::BgeoContext * /*ctx*/) override { }
+
   virtual void enterSetenv(IFDParser::SetenvContext * /*ctx*/) override { }
   virtual void exitSetenv(IFDParser::SetenvContext * /*ctx*/) override { }
 
@@ -41,9 +44,6 @@ public:
 
   virtual void enterDetail(IFDParser::DetailContext * /*ctx*/) override { }
   virtual void exitDetail(IFDParser::DetailContext * /*ctx*/) override { }
-
-  virtual void enterDetail_instance(IFDParser::Detail_instanceContext * /*ctx*/) override { }
-  virtual void exitDetail_instance(IFDParser::Detail_instanceContext * /*ctx*/) override { }
 
   virtual void enterProperty(IFDParser::PropertyContext * /*ctx*/) override { }
   virtual void exitProperty(IFDParser::PropertyContext * /*ctx*/) override { }

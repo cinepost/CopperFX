@@ -26,7 +26,7 @@ static PtDspyUnsigned32 g_height;
 
 PtDspyError processEvents();
 
-PtDspyError DspyImageOpen(PtDspyImageHandle *,
+PtDspyError DspyImageOpen(PtDspyImageHandle *image_h,
   const char *,const char *filename,
   int width,int height,
   int ,const UserParameter *,
@@ -59,8 +59,15 @@ PtDspyError DspyImageOpen(PtDspyImageHandle *,
 
   std::string name="SDL Display: ";
   name+=filename;
-  window.reset( new SDLOpenGLWindow(name.c_str(),0,0,width,height,g_channels));
+
+  SDLOpenGLWindow *sdl_window = new SDLOpenGLWindow(name.c_str(),0,0,width,height,g_channels);
+  if(!sdl_window)
+    return PkDspyErrorNoResource;
+
+  window.reset( sdl_window );
   g_start = std::chrono::system_clock::now();
+
+  *image_h = (void *)new float(1);
 
   return ret;
 }
@@ -151,8 +158,7 @@ PtDspyError DspyImageData(PtDspyImageHandle ,int xmin,int xmax,int ymin,int ymax
   return processEvents();
 }
 
-PtDspyError DspyImageClose(PtDspyImageHandle )
-{
+PtDspyError DspyImageClose(PtDspyImageHandle image_h) {
   std::cerr<<"Rendering Complete ESC to Quit\n";
   g_end = std::chrono::system_clock::now();
 
@@ -167,6 +173,8 @@ PtDspyError DspyImageClose(PtDspyImageHandle )
     quit=processEvents();
     window->draw();
   }// end of quit
+
+  delete image_h;
   return quit;
 }
 

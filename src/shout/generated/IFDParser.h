@@ -15,17 +15,23 @@ public:
   enum {
     T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, T__4 = 5, T__5 = 6, T__6 = 7, 
     T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, T__11 = 12, T__12 = 13, T__13 = 14, 
-    T__14 = 15, T__15 = 16, PATH = 17, OBJPATH = 18, FILENAME = 19, COMMENT = 20, 
-    STREAM = 21, TYPE = 22, OBJECT = 23, VEX_VERSION = 24, VAR_NAME = 25, 
-    VALUE = 26, INTEGER = 27, NUMBER = 28, STRING = 29, NO_QUOTED = 30, 
-    QUOTED = 31, CHARS = 32, BYTE = 33, BGEO = 34, WS = 35
+    T__14 = 15, T__15 = 16, T__16 = 17, COMMENT = 18, OBJNAME = 19, TYPE = 20, 
+    OBJECT = 21, VEX_VERSION = 22, VAR_NAME = 23, VALUE = 24, INTEGER = 25, 
+    NUMBER = 26, STRING = 27, NO_QUOTED = 28, QUOTED = 29, CHARS = 30, BGEO_START = 31, 
+    WS = 32, BSON_VALUE = 33, BSON_KEY = 34, BSON_MAP = 35, BSON_ARRAY = 36, 
+    JID_NULL = 37, JID_MAP_BEGIN = 38, JID_MAP_END = 39, JID_ARRAY_BEGIN = 40, 
+    JID_ARRAY_END = 41, JID_BOOL = 42, JID_INT8 = 43, JID_INT16 = 44, JID_INT32 = 45, 
+    JID_INT64 = 46, JID_REAL16 = 47, JID_REAL32 = 48, JID_REAL64 = 49, JID_UINT8 = 50, 
+    JID_UINT16 = 51, JID_STRING = 52, JID_FALSE = 53, JID_TRUE = 54, JID_TOKENDEF = 55, 
+    JID_TOKENREF = 56, JID_TOKENUNDEF = 57, JID_UNIFORM_ARRAY = 58, JID_KEY_SEPARATOR = 59, 
+    JID_VALUE_SEPARATOR = 60, JID_MAGIC = 61
   };
 
   enum {
-    RuleFile = 0, RuleLine = 1, RuleSetenv = 2, RuleVersion = 3, RuleDeclare = 4, 
-    RuleStart = 5, RuleEnd = 6, RuleDetail = 7, RuleDetail_instance = 8, 
-    RuleProperty = 9, RuleImage = 10, RuleGeomerty = 11, RuleTime = 12, 
-    RuleRaytrace = 13, RuleQuit = 14
+    RuleFile = 0, RuleLine = 1, RuleBgeo = 2, RuleSetenv = 3, RuleVersion = 4, 
+    RuleDeclare = 5, RuleStart = 6, RuleEnd = 7, RuleDetail = 8, RuleProperty = 9, 
+    RuleImage = 10, RuleGeomerty = 11, RuleTime = 12, RuleRaytrace = 13, 
+    RuleQuit = 14
   };
 
   IFDParser(antlr4::TokenStream *input);
@@ -40,13 +46,13 @@ public:
 
   class FileContext;
   class LineContext;
+  class BgeoContext;
   class SetenvContext;
   class VersionContext;
   class DeclareContext;
   class StartContext;
   class EndContext;
   class DetailContext;
-  class Detail_instanceContext;
   class PropertyContext;
   class ImageContext;
   class GeomertyContext;
@@ -84,6 +90,7 @@ public:
     ImageContext *image();
     GeomertyContext *geomerty();
     TimeContext *time();
+    BgeoContext *bgeo();
     RaytraceContext *raytrace();
     QuitContext *quit();
     antlr4::tree::TerminalNode *COMMENT();
@@ -96,6 +103,22 @@ public:
   };
 
   LineContext* line();
+
+  class  BgeoContext : public antlr4::ParserRuleContext {
+  public:
+    BgeoContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *BGEO_START();
+    antlr4::tree::TerminalNode *BSON_ARRAY();
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  BgeoContext* bgeo();
 
   class  SetenvContext : public antlr4::ParserRuleContext {
   public:
@@ -179,25 +202,8 @@ public:
   public:
     DetailContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *OBJPATH();
-    antlr4::tree::TerminalNode *STREAM();
-    antlr4::tree::TerminalNode *FILENAME();
-
-    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
-    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
-
-    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-   
-  };
-
-  DetailContext* detail();
-
-  class  Detail_instanceContext : public antlr4::ParserRuleContext {
-  public:
-    Detail_instanceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<antlr4::tree::TerminalNode *> OBJPATH();
-    antlr4::tree::TerminalNode* OBJPATH(size_t i);
+    antlr4::tree::TerminalNode *OBJNAME();
+    antlr4::tree::TerminalNode *STRING();
     std::vector<antlr4::tree::TerminalNode *> VALUE();
     antlr4::tree::TerminalNode* VALUE(size_t i);
 
@@ -208,7 +214,7 @@ public:
    
   };
 
-  Detail_instanceContext* detail_instance();
+  DetailContext* detail();
 
   class  PropertyContext : public antlr4::ParserRuleContext {
   public:
@@ -216,7 +222,6 @@ public:
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *OBJECT();
     antlr4::tree::TerminalNode *VAR_NAME();
-    antlr4::tree::TerminalNode *STREAM();
     antlr4::tree::TerminalNode *VALUE();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;

@@ -4,9 +4,15 @@
 
 grammar IFD;
 
+import BSON; /* binary json lexer grammar */
+
 file: line*;
 
-line: version | declare | setenv | start | end | property | detail | image | geomerty | time | raytrace | quit | COMMENT;
+line: version | declare | setenv | start | end | property | detail | image | geomerty | time | bgeo | raytrace | quit | COMMENT;
+
+bgeo
+   : BGEO_START BSON_ARRAY
+   ;
 
 setenv
    : 'setenv' VAR_NAME '=' VALUE
@@ -29,15 +35,11 @@ end
    ;
 
 detail
-   : 'ray_detail' '-T'? OBJPATH (STREAM | FILENAME)
-   ;
-
-detail_instance
-   : 'ray_detail' (('-v' VALUE) | ('-V' VALUE VALUE))? OBJPATH OBJPATH
+   : 'ray_detail' ('-T' | (('-v' VALUE) | ('-V' VALUE VALUE)))? OBJNAME  ( 'stdin' | STRING )
    ;
 
 property
-   : 'ray_property' OBJECT VAR_NAME (STREAM | VALUE)
+   : 'ray_property' OBJECT VAR_NAME VALUE?
    ;
 
 image
@@ -60,27 +62,12 @@ quit
    : 'ray_quit'
    ;
 
-PATH
-   /*: [a-zA-Z0-9/] [a-zA-Z0-9/]* */
-   : STRING
-   ;
-
-OBJPATH
-   /*: '/' [a-zA-Z] [a-zA-Z0-9/]* */
-   : STRING
-   ;
-
-FILENAME
-   : PATH
-   ;
-
 COMMENT
    : '#' ~( '\r' | '\n' )*
    ;
 
-STREAM
-   /*: 'stdin' .*? 'ray_end'*/
-   : 'stdin' .*? 'ray_end'
+OBJNAME
+   : '/' NO_QUOTED ('/' NO_QUOTED)?
    ;
 
 TYPE
@@ -116,7 +103,7 @@ STRING
    ;
 
 NO_QUOTED
-   : ~(' ' | '\'' | '"' | '\t' | '\r' | '\n')+
+   : ~(' ' | '\'' | '"' | '\t' | '\r' | '\n' | '\u007f')+  // ignore bjson magic number
    ;
 
 QUOTED
@@ -125,6 +112,14 @@ QUOTED
 
 CHARS
    : LETTER+
+   ;
+
+BGEO_START
+   : JID_MAGIC VALID_BGEO
+   ;
+
+fragment VALID_BGEO
+   : 'NSJb'
    ;
 
 fragment VALID_ID_START
@@ -136,7 +131,7 @@ fragment VALID_ID_CHAR
    ;
 
 fragment LETTER
-   : [a-zA-Z]
+   : [a-zA-Z$_]
    ;
 
 fragment INT
@@ -145,14 +140,6 @@ fragment INT
 
 fragment EXP
    : [Ee] [+\-]? INT
-   ;
-
-BYTE 
-   : '\u0000'..'\u00FF' 
-   ;
-
-BGEO
-   : '\u0000' 'NSJb' BYTE*
    ;
 
 WS: [ \n\t\r]+

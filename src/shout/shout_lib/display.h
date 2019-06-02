@@ -1,5 +1,5 @@
-#ifndef __Display_h__
-#define __Display_h__
+#ifndef DISPLAY_H
+#define DISPLAY_H
 
 #include <string>
 #include <vector>
@@ -12,7 +12,7 @@ class Display {
 		~Display();
 
   public:
-    void open();
+    void open(const std::string& imageName, int width, int height);
     void close();
     void write();
 
@@ -34,8 +34,11 @@ class Display {
     std::string driver_name;
 
     PtDspyImageHandle image;
-    PtFlagStuff flagstuff;                
+    PtFlagStuff flagstuff;   
+
+    std::string _image_name;
+    int _image_width;
+    int _image_height;             
 };
 
-
-#endif
+#endif // DISPLAY_H

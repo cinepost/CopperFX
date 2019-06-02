@@ -22,6 +22,9 @@ public:
   virtual void enterLine(IFDParser::LineContext *ctx) = 0;
   virtual void exitLine(IFDParser::LineContext *ctx) = 0;
 
+  virtual void enterBgeo(IFDParser::BgeoContext *ctx) = 0;
+  virtual void exitBgeo(IFDParser::BgeoContext *ctx) = 0;
+
   virtual void enterSetenv(IFDParser::SetenvContext *ctx) = 0;
   virtual void exitSetenv(IFDParser::SetenvContext *ctx) = 0;
 
@@ -39,9 +42,6 @@ public:
 
   virtual void enterDetail(IFDParser::DetailContext *ctx) = 0;
   virtual void exitDetail(IFDParser::DetailContext *ctx) = 0;
-
-  virtual void enterDetail_instance(IFDParser::Detail_instanceContext *ctx) = 0;
-  virtual void exitDetail_instance(IFDParser::Detail_instanceContext *ctx) = 0;
 
   virtual void enterProperty(IFDParser::PropertyContext *ctx) = 0;
   virtual void exitProperty(IFDParser::PropertyContext *ctx) = 0;

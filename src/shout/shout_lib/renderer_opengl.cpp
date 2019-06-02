@@ -53,7 +53,7 @@ RendererOpenGL::~RendererOpenGL() {
 }
 
 int RendererOpenGL::render(float time) {
-	display->open();
+	display->open("/Users/max/Desktop/shout_test.exr", 800, 600);
 	display->write();
 	display->close();
 	return 0;

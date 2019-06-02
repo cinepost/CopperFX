@@ -9,6 +9,9 @@
 #include "display.h"
 
 Display::Display(const std::string& driver_name) {
+  image = nullptr;
+  _image_name = "";
+  flagstuff.flags = 0;
 	char *error;
     
   boost::format libdspy_name(expandEnvVars("${SHOUT_HOME}/lib/d_%1%.so"));
@@ -52,8 +55,17 @@ Display::~Display() {
     BOOST_LOG_TRIVIAL(debug) << "Display \"" << driver_name << "\" destructed!";
 }
 
-void Display::open() {
-  BOOST_LOG_TRIVIAL(debug) << "Opening display " << driver_name;
+void Display::open(const std::string& imageName, int width, int height) {
+  BOOST_LOG_TRIVIAL(debug) << "Opening display: " << driver_name;
+
+  if(!m_OpenFunc) {
+    BOOST_LOG_TRIVIAL(debug) << "Failed to open display: " << driver_name;
+    exit(1);
+  }
+
+  _image_name = imageName;
+  _image_width = width; _image_height = height;
+
   //format can be rgb, rgba, rgbaz or rgbz
   int formatCount = 3;
   //char* channels[5] = {"r","g","b","a","z"};
@@ -75,7 +87,7 @@ void Display::open() {
   const char *pixeltype[1] = {"float"};
   makeStringsParameter("exrpixeltype", pixeltype, 1, prms[1]);
 
-  PtDspyError err = m_OpenFunc(&image, driver_name.c_str(), "/Users/max/dev/CopperFX/test_img.exr", 800, 600, 0, prms, formatCount, outformat, &flagstuff);
+  PtDspyError err = m_OpenFunc(&image, driver_name.c_str(), _image_name.c_str(), _image_width, _image_height, 0, prms, formatCount, outformat, &flagstuff);
   
   // check for an error
   if(err != PkDspyErrorNone ) {
@@ -108,13 +120,14 @@ void Display::open() {
       if(err) {
         BOOST_LOG_TRIVIAL(error) << "Unable to query image size info " << driver_name;
       } else {
+        _image_width = img_info.width; _image_height = img_info.height;
         BOOST_LOG_TRIVIAL(info) << "Image size: " << img_info.width << " " << img_info.height << " " << img_info.aspectRatio;
       }
     }
 
     // check flags
     if (flagstuff.flags & PkDspyFlagsWantsScanLineOrder)
-      BOOST_LOG_TRIVIAL(debug) << "PkDspyFlagsWantsScanLineOrder ";
+      BOOST_LOG_TRIVIAL(debug) << "PkDspyFlagsWantsScanLineOrder";
 
     if (flagstuff.flags & PkDspyFlagsWantsEmptyBuckets)
       BOOST_LOG_TRIVIAL(debug) << "PkDspyFlagsWantsEmptyBuckets";
@@ -128,14 +141,17 @@ void Display::open() {
 }
 
 void Display::write() {
+  if(!image) // m_OpenFunc was unsuccessfull
+    return;
+
   BOOST_LOG_TRIVIAL(debug) << "Writing to display " << driver_name;
   int num_channels = 3; // rgb
   int entrysize = num_channels * sizeof(PkDspyFloat32); // pixel data size in bytes; num channels x sizeof(float)
-  float *data = new float [800*600*num_channels]();
+  float *data = new float [_image_width * _image_height * num_channels]();
   float *ptr = &data[0];
 
   // test fill colour
-  for (int i = 0; i < 800*600; i++) {
+  for (int i = 0; i < _image_width * _image_height; i++) {
     ptr[0] = 1.0f;
     ptr[1] = 0.15f;
     ptr[2] = 0.0f; 
@@ -148,23 +164,28 @@ void Display::write() {
     // write scanlines
     BOOST_LOG_TRIVIAL(debug) << "Writing scanlines";
     int scanline = 0;
-    while ((err == PkDspyErrorNone) && (scanline < 600)) {
-      err = m_WriteFunc(image, 0, 800, scanline, scanline+1, entrysize, reinterpret_cast<const unsigned char*>(&data[scanline*800*num_channels]));
+    while ((err == PkDspyErrorNone) && (scanline < _image_height)) {
+      err = m_WriteFunc(image, 0, _image_width, scanline, scanline+1, entrysize, reinterpret_cast<const unsigned char*>(&data[scanline * _image_width * num_channels]));
       scanline++;
     }
   } else {
     // write whole image
     BOOST_LOG_TRIVIAL(debug) << "Writing while image";
-    err = m_WriteFunc(image, 0, 800, 0, 600, entrysize, reinterpret_cast<const unsigned char*>(&data[0]));
+    err = m_WriteFunc(image, 0, _image_width, 0, _image_height, entrysize, reinterpret_cast<const unsigned char*>(&data[0]));
   }
 
-  if(err)
-    BOOST_LOG_TRIVIAL(error) << "Cannot write data to display " << driver_name;
+  if(err) {
+    BOOST_LOG_TRIVIAL(error) << "Cannot write data to display !" << driver_name;
+    exit(1);
+  }
 
   delete [] data;
 }
 
 void Display::close() {
+  if(!image) // m_OpenFunc was unsuccessfull
+    return; 
+
   BOOST_LOG_TRIVIAL(debug) << "Closing display " << driver_name;
   PtDspyError err = m_CloseFunc(image);
   if(err)

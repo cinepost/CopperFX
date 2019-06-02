@@ -24,6 +24,8 @@ public:
 
     virtual antlrcpp::Any visitLine(IFDParser::LineContext *context) = 0;
 
+    virtual antlrcpp::Any visitBgeo(IFDParser::BgeoContext *context) = 0;
+
     virtual antlrcpp::Any visitSetenv(IFDParser::SetenvContext *context) = 0;
 
     virtual antlrcpp::Any visitVersion(IFDParser::VersionContext *context) = 0;
@@ -35,8 +37,6 @@ public:
     virtual antlrcpp::Any visitEnd(IFDParser::EndContext *context) = 0;
 
     virtual antlrcpp::Any visitDetail(IFDParser::DetailContext *context) = 0;
-
-    virtual antlrcpp::Any visitDetail_instance(IFDParser::Detail_instanceContext *context) = 0;
 
     virtual antlrcpp::Any visitProperty(IFDParser::PropertyContext *context) = 0;
 
