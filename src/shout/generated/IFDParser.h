@@ -18,13 +18,7 @@ public:
     T__14 = 15, T__15 = 16, T__16 = 17, COMMENT = 18, OBJNAME = 19, TYPE = 20, 
     OBJECT = 21, VEX_VERSION = 22, VAR_NAME = 23, VALUE = 24, INTEGER = 25, 
     NUMBER = 26, STRING = 27, NO_QUOTED = 28, QUOTED = 29, CHARS = 30, BGEO_START = 31, 
-    WS = 32, BSON_VALUE = 33, BSON_KEY = 34, BSON_MAP = 35, BSON_ARRAY = 36, 
-    JID_NULL = 37, JID_MAP_BEGIN = 38, JID_MAP_END = 39, JID_ARRAY_BEGIN = 40, 
-    JID_ARRAY_END = 41, JID_BOOL = 42, JID_INT8 = 43, JID_INT16 = 44, JID_INT32 = 45, 
-    JID_INT64 = 46, JID_REAL16 = 47, JID_REAL32 = 48, JID_REAL64 = 49, JID_UINT8 = 50, 
-    JID_UINT16 = 51, JID_STRING = 52, JID_FALSE = 53, JID_TRUE = 54, JID_TOKENDEF = 55, 
-    JID_TOKENREF = 56, JID_TOKENUNDEF = 57, JID_UNIFORM_ARRAY = 58, JID_KEY_SEPARATOR = 59, 
-    JID_VALUE_SEPARATOR = 60, JID_MAGIC = 61
+    WS = 32
   };
 
   enum {
@@ -109,7 +103,6 @@ public:
     BgeoContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *BGEO_START();
-    antlr4::tree::TerminalNode *BSON_ARRAY();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;

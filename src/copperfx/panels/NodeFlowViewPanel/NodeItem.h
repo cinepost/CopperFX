@@ -37,7 +37,8 @@ class NodeItem : public QGraphicsItem {
 
     QSizeF size() const;
     const OpNode *opNode() const;
-    const QVector<NodeSocketItem*> *socketItems() const;
+    const QVector<NodeSocketItem*>& inputSocketItems() const;
+    const QVector<NodeSocketItem*>& outputSocketItems() const;
 
 	private:
     QRectF boundingRect() const override;
@@ -58,7 +59,8 @@ class NodeItem : public QGraphicsItem {
 
   	QSizeF _size = QSizeF(60,20);
 
-    QVector<NodeSocketItem*> _socket_items;
+    QVector<NodeSocketItem*> _input_socket_items;
+    QVector<NodeSocketItem*> _output_socket_items;
 };
 
 }}

@@ -15,8 +15,6 @@ class GeometryOpData: public OpDataBase {
 		GeometryOpData(){};
 
 		const std::string& name() const override;
-		const std::string& typeName() const override;
-		const unsigned int version() const override;
 
 		void saveToFile(const std::string& filename, const unsigned int version) const override;
     void loadFromFile(const std::string& filename, const unsigned int version) override;
@@ -31,6 +29,9 @@ class GeometryOpData: public OpDataBase {
 		
 	private:
 		std::vector<Point3d> _points;
+
+	private:
+		static std::string _ui_name;
 };
 
 }

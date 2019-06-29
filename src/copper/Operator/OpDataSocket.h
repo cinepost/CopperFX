@@ -5,16 +5,21 @@
 #include <vector>
 #include <type_traits>
 
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_io.hpp>
+#include <boost/uuid/string_generator.hpp>
+
 #include <flags/flags.hpp>
 
 #include "copper/Plugin/PluginApi.h"
 #include "copper/OpData/OpDataBase.h"
+#include "copper/Util/IndexableObject.h"
 
 namespace copper {
 
 class OpNode;
 
-class OpDataSocket {
+class OpDataSocket: public IndexableObject {
 	friend class OpDataSocketTemplate;
 
 	public:
@@ -23,12 +28,12 @@ class OpDataSocket {
 		bool isInput() const;
 		bool isOutput() const;
 		bool isMultiInput() const;
-		bool connect(const OpDataSocket *socket);
-		std::vector<const OpDataSocket*> connections() const;
+		bool connect(OpDataSocket *socket);
+		const std::vector<OpDataSocketGUID>& inputGUIDs() const;
 		static bool canConnect(const OpDataSocket* socket_1, const OpDataSocket* socket_2);
 
 	public:
-		unsigned int dataTypeUUID() const;
+		boost::uuids::uuid dataTypeUUID() const;
 
 	protected:
 		// direct OpDataSocket construction prohibited. Only OpDataSocketTemplate factory methon can make it
@@ -36,12 +41,14 @@ class OpDataSocket {
 
 	private:
 		unsigned int _id;
-		unsigned int _data_type_uuid;
+		boost::uuids::uuid _data_type_uuid;
+		unsigned int _data_type_version;
 		OpNode *_op_node = nullptr;
+		OpNodeGUID _op_node_guid;
 		bool _is_input;
 		bool _is_multi_input;
 
-		std::vector<const OpDataSocket*> 	_connections;
+		std::vector<OpDataSocketGUID> _input_guids;
 };
 
 }

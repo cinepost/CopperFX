@@ -119,7 +119,7 @@ add_subdirectory( src/copper ) # main copper library
 # copper apps
 add_subdirectory( src/copperfx )   # gui application
 #add_subdirectory( src/copperpy )   # commandline / embedded python interpreter
-add_subdirectory( src/shout ) # renderer
+#add_subdirectory( src/shout ) # renderer
 
 install(
 	DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/cfs 

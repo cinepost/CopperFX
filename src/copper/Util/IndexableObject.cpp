@@ -5,15 +5,19 @@
 namespace copper {
 
 IndexableObject::IndexableObject() {
-	_id = IndexableObject::getNextID();
+	_guid = IndexableObject::getNextGUID();
 }
 
 IndexableObject::IndexableObject(const IndexableObject &iobject) {
-	_id = IndexableObject::getNextID();
+	_guid = IndexableObject::getNextGUID();
 }
 
-obj_id_t IndexableObject::getNextID() {
-  static std::atomic<obj_id_t> ID{0};  
+obj_guid_t IndexableObject::GUID() const {
+	return _guid;
+}
+
+obj_guid_t IndexableObject::getNextGUID() {
+  static std::atomic<obj_guid_t> ID{0};  
   return ++ID; 
 }
 

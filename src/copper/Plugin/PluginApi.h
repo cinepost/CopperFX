@@ -9,9 +9,7 @@ namespace copper {
 
 class BOOST_SYMBOL_VISIBLE BaseAPI {
   public:
-  	virtual const std::string& name() const = 0; // plugin instance name used for display purposes
-  	virtual const std::string& typeName() const = 0; // plugin instance type name
-  	virtual const unsigned int version() const = 0; // plugin instance version
+  	virtual const std::string& name() const = 0; // plugin instance name used for UI display purposes
   	virtual ~BaseAPI() {}
 
   private:

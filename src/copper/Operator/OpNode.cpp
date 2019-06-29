@@ -149,8 +149,8 @@ void OpNode::addOpNode(OpNode *op_node) {
 	_children[op_node->name()] = op_node;
 }
 
-OpNode *OpNode::node(obj_id_t id) {
-	auto search = _children_by_id.find(id);
+OpNode *OpNode::node(OpNodeGUID guid) {
+	auto search = _children_by_id.find(guid);
 	if ( search == _children_by_id.end()) return nullptr;
 	return search->second;
 }

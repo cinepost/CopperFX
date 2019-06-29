@@ -45,17 +45,32 @@ void NodeFlowScene::buildSceneAt(const std::string &op_node_path) {
 	
 	// create node items
 	for(auto&& op_node: op_node_level->children()) {
-		_node_items.append(new NodeItem(this, op_node, NodeItem::Flags::SOCKETS_HORIZONTAL));
+		NodeItem *node_item = new NodeItem(this, op_node, NodeItem::Flags::SOCKETS_HORIZONTAL);
+		_node_items.append(node_item);
+
+		for(auto input_socket_item : node_item->inputSocketItems()) {
+			_input_socket_items_map.insert(socket_item->opDataSocket()->GUID(), input_socket_item);
+		}
+
+		for(auto output_socket_item : node_item->outputSocketItems()) {
+			_output_socket_items_map.insert(socket_item->opDataSocket()->GUID(), output_socket_item);
+		}
 	}
 
-	// create connection items
-	NodeItem *node_item;
-	NodeSocketItem *soket_from;
-	for (int i = 0; i < _node_items.size(); ++i) {
-		node_item = _node_items.at(i);
-		
+	// create connection items 
+	for(auto socket_input_item: _input_socket_items_map.values()) {
+		for(OpDataSocketGUID socket_item_guid: socket_input_item->opDataSocket()->inputGUIDs()) {
+			NodeConnectionItem *connection_item = new NodeConnectionItem(this, socket_input_item, _output_socket_items_map[socket_item_guid]);
+		}
 	}
+
+
 	BOOST_LOG_TRIVIAL(debug) << "Node Flow Scene built at: " << op_node_path;
+}
+
+
+const QVector<NodeItem*>& NodeFlowScene::nodeItems() const {
+	return _node_items;
 }
 
 

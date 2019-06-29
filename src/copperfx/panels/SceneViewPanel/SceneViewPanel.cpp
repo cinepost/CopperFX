@@ -13,6 +13,8 @@
 
 namespace copper { namespace ui {
 
+std::string SceneViewPanel::_ui_name = "Scene View";
+
 SceneViewPanel::SceneViewPanel() {
 	_gl_widget = new SceneViewPanelGLWidget();
 	QLayout *layout = new QVBoxLayout;
@@ -31,15 +33,7 @@ SceneViewPanel::~SceneViewPanel() {
 }
 
 const std::string& SceneViewPanel::name() const{
-  return "Scene View";
-}
-
-const std::string& SceneViewPanel::typeName() const{
-  return "scene_view";
-}
-
-const unsigned int SceneViewPanel::version() const{
-	return 0;
+  return SceneViewPanel::_ui_name;
 }
 
 // factory methods

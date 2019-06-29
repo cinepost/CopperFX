@@ -60,7 +60,7 @@ public:
   }
 
   virtual antlrcpp::Any visitBgeo(IFDParser::BgeoContext *ctx) override {
-    std::cout << "visitBgeo:" << ctx->BSON_ARRAY()->getText() << std::endl;
+    std::cout << "visitBgeo:" << ctx->getText() << std::endl;
     return visitChildren(ctx);
   }
 

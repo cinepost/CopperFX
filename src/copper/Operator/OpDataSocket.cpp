@@ -9,9 +9,13 @@
 
 namespace copper {
 
+boost::uuids::string_generator gen;
+
 OpDataSocket::OpDataSocket() {
 	_op_node = nullptr;
 	_id = 0;
+	_input_guids.clear();
+	_data_type_uuid = gen("{01234567-89ab-cdef-0123-456789abcdef}");
 }
 
 OpDataSocket::~OpDataSocket() {}
@@ -47,34 +51,51 @@ bool OpDataSocket::isOutput() const {
 }
 
 bool OpDataSocket::canConnect(const OpDataSocket* socket_1, const OpDataSocket* socket_2) {
-	if (!socket_1 || !socket_2) return false;
-	// TODO: check if it's the same node sockets then return false
-	if (socket_1->dataTypeUUID() != socket_2->dataTypeUUID()) return false;
-
-	return true;
-}
-
-bool OpDataSocket::connect(const OpDataSocket *socket) {
-	if ((this->isInput() && socket->isInput()) || (this->isOutput() && socket->isOutput())) {
-		BOOST_LOG_TRIVIAL(error) << "OpDataSocket can not connect socket of the same type !";
+	if (!socket_1 || !socket_2) {
+		// one of socket pointers is null
+		BOOST_LOG_TRIVIAL(debug) << "OpDataSocket fatal connection error !";
 		return false;
 	}
-
-	if ( std::find(_connections.begin(), _connections.end(), socket) != _connections.end() ) {
-		// already connected
-  	BOOST_LOG_TRIVIAL(warning) << "OpDataSocket already connected !";
-	} else {
-  	_connections.push_back(socket);
+	if ((socket_1->GUID() == socket_2->GUID()) || (socket_1->_op_node_guid == socket_2->_op_node_guid)) {
+		// same socket or same node sockets
+		BOOST_LOG_TRIVIAL(debug) << "OpDataSocket can't be connected to itself !";
+		return false;
 	}
-
+	if (socket_1->dataTypeUUID() != socket_2->dataTypeUUID()) {
+		// different data types
+		BOOST_LOG_TRIVIAL(debug) << "OpDataSocket can't be connected to different data type socket without converters available !";
+		return false;
+	}
+	if ((socket_1->isInput() && socket_2->isInput()) || (socket_1->isOutput() && socket_2->isOutput())) {
+		// both inputs or outputs
+		BOOST_LOG_TRIVIAL(debug) << "OpDataSocket's can't be both inputs or outputs !";
+		return false;
+	}	
 	return true;
 }
 
-std::vector<const OpDataSocket*> OpDataSocket::connections() const {
-	return _connections;
+bool OpDataSocket::connect(OpDataSocket *socket) {
+	if (!OpDataSocket::canConnect(this, socket)) return false;
+
+	if (!isInput()) return socket->connect(this); // always do like this: input.connect(output)
+
+	if ( std::find(_input_guids.begin(), _input_guids.end(), socket->GUID()) != _input_guids.end() ) {
+		// already connected. if it's not a multi input, remove old connection first
+		if (!isMultiInput()) {
+  		BOOST_LOG_TRIVIAL(debug) << "OpDataSocket already connected, removing old input.";
+  		_input_guids.clear();
+  	}
+	}
+
+  _input_guids.push_back(socket->GUID());
+	return true;
 }
 
-unsigned int OpDataSocket::dataTypeUUID() const {
+const std::vector<OpDataSocketGUID>& OpDataSocket::inputGUIDs() const {
+	return _input_guids;
+}
+
+boost::uuids::uuid OpDataSocket::dataTypeUUID() const {
 	return _data_type_uuid;
 }
 

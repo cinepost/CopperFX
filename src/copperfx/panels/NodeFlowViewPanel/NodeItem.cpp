@@ -93,22 +93,30 @@ void NodeItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
 
 void NodeItem::addSocket(const OpDataSocket *opdata_socket) {
   NodeSocketItem *node_socket_item = new NodeSocketItem(this, opdata_socket);
-  _socket_items.append(node_socket_item);
-
-  // update sockets positions
-  for(auto socket_item : _socket_items) {
-    if(socket_item->isInput()) {
-      socket_item->setPos(0, -10);
-    } else {
-      socket_item->setPos(0, 10);
-    }
+  if(node_socket_item->isInput()) {
+    _input_socket_items.append(node_socket_item);
+  } else {
+    _output_socket_items.append(node_socket_item);
   }
 
+  // update sockets positions
+  for(auto socket_item : _input_socket_items) {
+      socket_item->setPos(0, -10);
+  }
+  
+  for(auto socket_item : _output_socket_items) {
+      socket_item->setPos(0, 10);
+  }
 }
 
 
-const QVector<NodeSocketItem*> *NodeItem::socketItems() const {
-  return &_socket_items;
+const QVector<NodeSocketItem*>&  NodeItem::inputSocketItems() const {
+  return _input_socket_items;
+}
+
+
+const QVector<NodeSocketItem*>&  NodeItem::outputSocketItems() const {
+  return _output_socket_items;
 }
 
 

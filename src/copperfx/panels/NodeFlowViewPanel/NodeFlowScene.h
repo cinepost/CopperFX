@@ -6,6 +6,8 @@
 #include <QtCore/QUuid>
 #include <QtWidgets/QGraphicsScene>
 
+#include "copper/Util/IndexableObject.h"
+
 #include "NodeItem.h"
 
 
@@ -23,6 +25,7 @@ class NodeFlowScene : public QGraphicsScene {
 	public:
 		void buildSceneAt(const std::string &op_node_path);
 		const std::string& sceneLevelPath() const;
+		const QVector<NodeItem*>& nodeItems() const;
 
 	public:
 		void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
@@ -40,6 +43,9 @@ class NodeFlowScene : public QGraphicsScene {
 
 		QVector<NodeItem*> _node_items;
 		QVector<NodeConnectionItem*> _connection_items;
+
+		QMap<OpDataSocketGUID, NodeSocketItem *> _input_socket_items_map;
+		QMap<OpDataSocketGUID, NodeSocketItem *> _output_socket_items_map;
 };
 
 }}

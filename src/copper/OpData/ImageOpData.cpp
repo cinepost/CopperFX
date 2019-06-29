@@ -3,16 +3,10 @@
 
 namespace copper {
 
+std::string ImageOpData::_ui_name = "Image";
+
 const std::string& ImageOpData::name() const {
-	return "Image";
-}
-
-const std::string& ImageOpData::typeName() const {
-	return "image";
-}
-
-const unsigned int ImageOpData::version() const {
-	return 0;
+	return ImageOpData::_ui_name;
 }
 
 void ImageOpData::saveToFile(const std::string& filename, const unsigned int version) const { }

@@ -9,18 +9,27 @@
 #include <boost/log/core.hpp>
 #include <boost/log/trivial.hpp>
 
+#include <boost/multi_index_container.hpp>
+#include <boost/multi_index/ordered_index.hpp>
+#include <boost/multi_index/member.hpp>
+#include <boost/multi_index/composite_key.hpp>
+
 #include <boost/signals2.hpp>
 	
 #include "copper/OpData/OpDataBase.h"
+#include "copper/Operator/OpDataSocket.h"
 #include "copper/Operator/OpBase.h"
 #include "copper/Plugin/AbstractFactory.h"
 #include "copper/Util/Singleton.h"
+#include "copper/Util/IndexableObject.h"
 
 #include "copper/Operator/OpNode.h"
 #include "copper/Operator/OpTable.h"
 
 
 namespace copper {
+
+namespace bmi = boost::multi_index;
 
 typedef AbstractFactory<OpDataBase> OpDataFactory;
 
@@ -48,7 +57,7 @@ class Engine: public Singleton<Engine> {
 
 		OpNode *root();
 		OpNode *node(std::string node_path);
-		OpNode *node(obj_id_t id);
+		OpNode *node(OpNodeGUID guid);
 
 		float time();
 		void setTime(float time);
@@ -64,7 +73,7 @@ class Engine: public Singleton<Engine> {
 
 	// signal handlers
 	private:
-		OpNode* onCreateOpNode(const std::string &op_node_type_name, const std::string &op_node_path, const std::string &node_name = "");
+		OpNode* onCreateOpNode(const std::string &op_node_type_name, const std::string &parent_node_path, const std::string &node_name = "");
 		bool    onConnectOpNodes(unsigned int input_index, const std::string &input_op_node_path, unsigned int output_index, const std::string &output_op_node_path);
 
 	private:
@@ -72,6 +81,10 @@ class Engine: public Singleton<Engine> {
 
 		// animation related
 		float _time, _frame, _fps;
+
+		// maps for op nodes and data sockets
+		std::map<OpDataSocketGUID, OpDataSocket *> _op_data_sockets_map;
+		std::map<OpNodeGUID, OpNode *> _op_nodes_map;
 
 		// Factories 
 		OpDataFactory _opdata_factory;

@@ -17,8 +17,6 @@ class NodeFlowViewPanel : public PanelBase {
 
   public:
     const std::string& name() const override;
-    const std::string& typeName() const override;
-    const unsigned int version() const override;
 
   private:
   	NodeFlowView *_node_flow_view_widget;
@@ -27,6 +25,9 @@ class NodeFlowViewPanel : public PanelBase {
     // factory methods
     static std::string myTypeName();
     static PanelBase *myConstructor();
+
+  private:
+    static std::string _ui_name;
 
 };
 

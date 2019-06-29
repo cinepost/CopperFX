@@ -11,7 +11,7 @@ file: line*;
 line: version | declare | setenv | start | end | property | detail | image | geomerty | time | bgeo | raytrace | quit | COMMENT;
 
 bgeo
-   : BGEO_START BSON_ARRAY
+   : BGEO_START .*? ~'ray_end' //{_input->LA(1)!='ray_end'}?
    ;
 
 setenv
@@ -115,7 +115,7 @@ CHARS
    ;
 
 BGEO_START
-   : JID_MAGIC VALID_BGEO
+   : '\u007f' VALID_BGEO
    ;
 
 fragment VALID_BGEO

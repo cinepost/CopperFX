@@ -15,6 +15,8 @@
 
 namespace copper { namespace ui {
 
+std::string NodeFlowViewPanel::_ui_name = "Node Flow";
+
 NodeFlowViewPanel::NodeFlowViewPanel() {
 	_node_flow_view_widget = new NodeFlowView(this, "/");
   //_node_flow_view_widget->setScene(new NodeFlowScene()); // test scene
@@ -36,15 +38,7 @@ NodeFlowViewPanel::~NodeFlowViewPanel() {
 }
 
 const std::string& NodeFlowViewPanel::name() const{
-  return "Node Flow";
-}
-
-const std::string& NodeFlowViewPanel::typeName() const{
-  return "node_flow_view";
-}
-
-const unsigned int NodeFlowViewPanel::version() const{
-	return 0;
+  return NodeFlowViewPanel::_ui_name;
 }
 
 // factory methods

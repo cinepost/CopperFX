@@ -21,7 +21,7 @@ class OpBase;
 class OpNodeTemplate;
 
 typedef std::unordered_map<std::string, OpNode *>   opnode_by_path_hashmap_t;
-typedef std::unordered_map<obj_id_t, OpNode *> opnode_by_id_hashmap_t;
+typedef std::unordered_map<OpNodeGUID, OpNode *> opnode_by_id_hashmap_t;
 
 class OpNode : public IndexableObject, public NetworkBoxItem {
 	friend class Engine;
@@ -33,7 +33,7 @@ class OpNode : public IndexableObject, public NetworkBoxItem {
 		OpNode 	*parent();
 		OpNode 	*root();
 		OpNode 	*node(const std::string &node_path);
-		OpNode 	*node(obj_id_t id);
+		OpNode 	*node(OpNodeGUID guid);
 
 		const std::string& name() const;
 		const std::string path() const;

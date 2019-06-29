@@ -91,8 +91,8 @@ OpNode *Engine::node(std::string node_path) {
 	return _root->node(node_path);
 }
 
-OpNode *Engine::node(obj_id_t id) {
-  return _root->node(id);
+OpNode *Engine::node(OpNodeGUID guid) {
+  return _root->node(guid);
 }
 
 float Engine::time() { return _time; }
@@ -105,7 +105,7 @@ float Engine::fps() { return _fps; }
 void Engine::setFps(float fps){ _fps = fps; }
 
 // engine signals handlers
-OpNode *Engine::onCreateOpNode(const std::string &op_node_type_name, const std::string &op_node_path, const std::string &node_name) {
+OpNode *Engine::onCreateOpNode(const std::string &op_node_type_name, const std::string &parent_node_path, const std::string &node_name) {
   BOOST_LOG_TRIVIAL(debug) << "Creating OpNode of type: " << op_node_type_name;
 
   OpNodeTemplate *op_tmpl = _op_table.getOpNodeTemplate(op_node_type_name);
@@ -115,13 +115,24 @@ OpNode *Engine::onCreateOpNode(const std::string &op_node_type_name, const std::
     return nullptr;
   }
 
-  OpNode *op_node = node(op_node_path);
+  OpNode *parent_node = node(parent_node_path); // parent node for the new one
+  if(!parent_node) {
+    BOOST_LOG_TRIVIAL(error) << "Unable to get parent node: \"" << parent_node_path << "\"";
+    return nullptr;
+  }
 
-  OpNode *new_node = op_tmpl->createOpNode(op_node, op_node->buildBase1NodeName(op_node_type_name));
-  op_node->addOpNode(new_node);
-  BOOST_LOG_TRIVIAL(debug) << "OpNode of type " << op_node_type_name << " named \"" << new_node->name() << "\" created at " << op_node->path();
+  OpNode *new_node = op_tmpl->createOpNode(parent_node, parent_node->buildBase1NodeName(op_node_type_name));
+  if(!new_node) {
+    BOOST_LOG_TRIVIAL(error) << "Unable to create node of type: \"" << op_node_type_name << "\"";
+    return nullptr;
+  }
 
-  EngineSignals::getInstance().signalOpNetworkChanged(op_node->path()); // notify that op_node changed
+  parent_node->addOpNode(new_node);
+  _op_nodes_map.emplace(new_node->GUID(), new_node); // put created node to map
+
+  BOOST_LOG_TRIVIAL(debug) << "OpNode of type " << op_node_type_name << " named \"" << new_node->name() << "\" created at " << parent_node->path();
+
+  EngineSignals::getInstance().signalOpNetworkChanged(parent_node->path()); // notify that parent_node changed
 
   BOOST_LOG_TRIVIAL(debug) << "OpNode created path: " << new_node->path();
   return new_node;
@@ -129,8 +140,9 @@ OpNode *Engine::onCreateOpNode(const std::string &op_node_type_name, const std::
 
 bool Engine::onConnectOpNodes(unsigned int input_index, const std::string &input_op_node_path, unsigned int output_index, const std::string &output_op_node_path) {
   BOOST_LOG_TRIVIAL(debug) << "Connecting output socket " << output_index << " of node " << output_op_node_path << " to input socket " << input_index << " of node " << input_op_node_path;
-  
+
   OpNode *input_node = node(input_op_node_path);
+
   if(input_node == nullptr)return false;
 
   OpNode *output_node = node(output_op_node_path);
