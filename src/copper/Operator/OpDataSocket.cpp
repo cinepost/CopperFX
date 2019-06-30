@@ -74,17 +74,13 @@ bool OpDataSocket::canConnect(const OpDataSocket* socket_1, const OpDataSocket* 
 	return true;
 }
 
-bool OpDataSocket::connect(OpDataSocket *socket) {
-	if (!OpDataSocket::canConnect(this, socket)) return false;
+bool OpDataSocket::setInput(const OpDataSocket *socket) {
+	if (!isInput()) return false; // only input socket can be connected
+	if (!OpDataSocket::canConnect(this, socket)) return false; // additional checks
 
-	if (!isInput()) return socket->connect(this); // always do like this: input.connect(output)
-
-	if ( std::find(_input_guids.begin(), _input_guids.end(), socket->GUID()) != _input_guids.end() ) {
-		// already connected. if it's not a multi input, remove old connection first
-		if (!isMultiInput()) {
-  		BOOST_LOG_TRIVIAL(debug) << "OpDataSocket already connected, removing old input.";
-  		_input_guids.clear();
-  	}
+	if (!isMultiInput()) {
+		// this is not multi input socket so clear old connection first
+		_input_guids.clear();
 	}
 
   _input_guids.push_back(socket->GUID());

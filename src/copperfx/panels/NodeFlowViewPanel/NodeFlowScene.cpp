@@ -48,12 +48,12 @@ void NodeFlowScene::buildSceneAt(const std::string &op_node_path) {
 		NodeItem *node_item = new NodeItem(this, op_node, NodeItem::Flags::SOCKETS_HORIZONTAL);
 		_node_items.append(node_item);
 
-		for(auto input_socket_item : node_item->inputSocketItems()) {
-			_input_socket_items_map.insert(socket_item->opDataSocket()->GUID(), input_socket_item);
+		for(auto socket_item : node_item->inputSocketItems()) {
+			_input_socket_items_map.insert(socket_item->opDataSocket()->GUID(), socket_item);
 		}
 
-		for(auto output_socket_item : node_item->outputSocketItems()) {
-			_output_socket_items_map.insert(socket_item->opDataSocket()->GUID(), output_socket_item);
+		for(auto socket_item : node_item->outputSocketItems()) {
+			_output_socket_items_map.insert(socket_item->opDataSocket()->GUID(), socket_item);
 		}
 	}
 

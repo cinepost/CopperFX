@@ -95,6 +95,7 @@ QPainterPath NodeSocketItem::shape() const {
 
 void NodeSocketItem::hoverEnterEvent(QGraphicsSceneHoverEvent *event) {
   //setToolTip(_opdata_socket->dataTypeName().c_str());
+  setToolTip("Socket GUID: " + QString::number(opDataSocket()->GUID()));
   _hovered = true;
   //QGraphicsItem::hoverEnterEvent(event);
 }
@@ -133,9 +134,7 @@ const OpDataSocket *NodeSocketItem::opDataSocket() const {
 
 
 bool NodeSocketItem::canConnect(NodeSocketItem *_temp_socket_from, NodeSocketItem *_temp_socket_to) {
-  if (!_temp_socket_from || !_temp_socket_to || (_temp_socket_from == _temp_socket_to)) return false;
-  if (_temp_socket_from->_is_input == _temp_socket_to->_is_input) return false;
-  if (_temp_socket_from->_parent == _temp_socket_to->_parent) return false;
+  if (!_temp_socket_from || !_temp_socket_to) return false;
   return OpDataSocket::canConnect(_temp_socket_from->opDataSocket(), _temp_socket_to->opDataSocket());
 }
 

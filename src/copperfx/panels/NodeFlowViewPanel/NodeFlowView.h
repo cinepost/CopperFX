@@ -54,10 +54,10 @@ class NodeFlowView : public QGraphicsView {
   	QPointF _clickPos;
 
   private:
-    NodeSocketItem      *_temp_socket_from = nullptr;
-    NodeSocketItem      *_temp_socket_to = nullptr;
-    NodeConnectionItem  *_temp_connection_item = nullptr;
-    NodeFlowScene       *_node_flow_scene = nullptr;
+    NodeSocketItem      *_temp_socket_from;
+    NodeSocketItem      *_temp_socket_to;
+    NodeConnectionItem  *_temp_connection_item;
+    NodeFlowScene       *_node_flow_scene;
 
 };
 

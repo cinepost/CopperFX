@@ -33,6 +33,11 @@ NodeFlowView::NodeFlowView(QWidget *parent, const std::string &op_network_path):
 
   _node_flow_scene = nullptr;
 
+  _temp_socket_from = nullptr;
+  _temp_socket_to = nullptr;
+  _temp_connection_item = nullptr;
+  _node_flow_scene = nullptr;
+
   setDragMode(QGraphicsView::NoDrag);
   setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 
@@ -52,7 +57,7 @@ NodeFlowView::NodeFlowView(QWidget *parent, const std::string &op_network_path):
 
   setViewport(new QOpenGLWidget());
 
-  _temp_connection_item = nullptr;
+  _temp_connection_item = Q_NULLPTR;
 
   // view op network
   viewNetwork(op_network_path);
@@ -215,18 +220,25 @@ void NodeFlowView::mouseMoveEvent(QMouseEvent *event) {
 void NodeFlowView::mouseReleaseEvent(QMouseEvent *event) {
   // process sockets connection if it's there
   if(_temp_connection_item) {
+
     // delete temporary connection item
     delete _temp_connection_item;
 
     // check if coonection is allowed then fire signal to engine
     if(NodeSocketItem::canConnect(_temp_socket_from, _temp_socket_to)) {
       // connect temp item to socket items
-      //_node_flow_scene->addConnectionItem(new NodeConnectionItem(_temp_socket_from, _temp_socket_to));
       const OpDataSocket *socket_from = _temp_socket_from->opDataSocket();
       const OpDataSocket *socket_to = _temp_socket_to->opDataSocket();
       const OpNode *node_from = _temp_socket_from->nodeItem()->opNode();
       const OpNode *node_to = _temp_socket_to->nodeItem()->opNode();
-      EngineSignals::getInstance().signalConnectOpNodes(socket_from->idx(), node_from->path(), socket_to->idx(), node_to->path());
+
+      // ensure node/sockets passed in right order
+      if (!socket_to->isInput()) {
+        std::swap(socket_to, socket_from);
+        std::swap(node_to, node_from);
+      }
+
+      EngineSignals::getInstance().signalConnectOpNodes(socket_to->idx(), node_to->path(), socket_from->idx(), node_from->path());
     }
 
     _temp_connection_item = nullptr;

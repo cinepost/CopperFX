@@ -165,7 +165,7 @@ bool Engine::onConnectOpNodes(unsigned int input_index, const std::string &input
     return false;
   }
 
-  if (!input_socket->connect(output_socket)) return false;
+  if (!input_socket->setInput(output_socket)) return false;
 
   EngineSignals::getInstance().signalOpNetworkChanged(input_node->parent()->path());
   return true;

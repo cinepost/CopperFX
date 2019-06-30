@@ -28,7 +28,7 @@ class OpDataSocket: public IndexableObject {
 		bool isInput() const;
 		bool isOutput() const;
 		bool isMultiInput() const;
-		bool connect(OpDataSocket *socket);
+		bool setInput(const OpDataSocket *socket);
 		const std::vector<OpDataSocketGUID>& inputGUIDs() const;
 		static bool canConnect(const OpDataSocket* socket_1, const OpDataSocket* socket_2);
 
