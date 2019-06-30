@@ -52,27 +52,16 @@ OpNode *OpNodeTemplate::createOpNode(OpNode *parent_op_node, const std::string &
 
 	OpNode *op_node = new OpNode(parent_op_node, this, new_node_name);
 
-	// TODO: add all necessary check to validate sockets
-
+	// install operator
 	op_node->_operator = _opConstructor();
 	
 	for(auto& input_template: _input_socket_templates) {
-		op_node->_inputs.push_back(input_template.createOpDataSocket());
+		op_node->_inputs.push_back(input_template.createOpDataSocket(op_node));
 	}
 
 	for(auto& output_template: _output_socket_templates) {
-		op_node->_outputs.push_back(output_template.createOpDataSocket());
+		op_node->_outputs.push_back(output_template.createOpDataSocket(op_node));
 	}
-	/*
-	op_node->_inputs = _inputs;
-	for(auto input: op_node->_inputs) {
-		input._op_node = op_node;
-	}
-	op_node->_outputs = _outputs;
-	for(auto output: op_node->_inputs) {
-		output._op_node = op_node;
-	}
-	*/
 
 	return op_node;
 }

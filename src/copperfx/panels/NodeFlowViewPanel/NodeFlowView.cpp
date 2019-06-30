@@ -190,6 +190,7 @@ void NodeFlowView::mouseMoveEvent(QMouseEvent *event) {
       _temp_socket_to->setHoverFlag(NodeSocketItem::HoverFlag::NoHover);
       _temp_socket_to = nullptr;
     }
+
     if (_temp_connection_item) {
       // update temp connection item
       _temp_connection_item->setPosTo(mapToScene(event->pos()));

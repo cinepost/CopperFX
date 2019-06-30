@@ -11,8 +11,8 @@ namespace copper {
 
 boost::uuids::string_generator gen;
 
-OpDataSocket::OpDataSocket() {
-	_op_node = nullptr;
+OpDataSocket::OpDataSocket(OpNode *op_node){
+	_op_node = op_node;
 	_id = 0;
 	_input_guids.clear();
 	_data_type_uuid = gen("{01234567-89ab-cdef-0123-456789abcdef}");
@@ -56,9 +56,13 @@ bool OpDataSocket::canConnect(const OpDataSocket* socket_1, const OpDataSocket* 
 		BOOST_LOG_TRIVIAL(debug) << "OpDataSocket fatal connection error !";
 		return false;
 	}
-	if ((socket_1->GUID() == socket_2->GUID()) || (socket_1->_op_node_guid == socket_2->_op_node_guid)) {
+	if (socket_1->GUID() == socket_2->GUID()) {
 		// same socket or same node sockets
 		BOOST_LOG_TRIVIAL(debug) << "OpDataSocket can't be connected to itself !";
+		return false;
+	}
+	if (socket_1->opNodeGUID() == socket_2->opNodeGUID()) {
+		BOOST_LOG_TRIVIAL(debug) << "OpDataSocket of the same opnode can not be connected !";
 		return false;
 	}
 	if (socket_1->dataTypeUUID() != socket_2->dataTypeUUID()) {
@@ -85,6 +89,10 @@ bool OpDataSocket::setInput(const OpDataSocket *socket) {
 
   _input_guids.push_back(socket->GUID());
 	return true;
+}
+
+OpNodeGUID OpDataSocket::opNodeGUID() const {
+	return _op_node->GUID();
 }
 
 const std::vector<OpDataSocketGUID>& OpDataSocket::inputGUIDs() const {

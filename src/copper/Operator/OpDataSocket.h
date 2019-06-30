@@ -30,6 +30,7 @@ class OpDataSocket: public IndexableObject {
 		bool isMultiInput() const;
 		bool setInput(const OpDataSocket *socket);
 		const std::vector<OpDataSocketGUID>& inputGUIDs() const;
+		OpNodeGUID opNodeGUID() const;
 		static bool canConnect(const OpDataSocket* socket_1, const OpDataSocket* socket_2);
 
 	public:
@@ -37,7 +38,7 @@ class OpDataSocket: public IndexableObject {
 
 	protected:
 		// direct OpDataSocket construction prohibited. Only OpDataSocketTemplate factory methon can make it
-		OpDataSocket();
+		OpDataSocket(OpNode *op_node);
 
 	private:
 		unsigned int _id;

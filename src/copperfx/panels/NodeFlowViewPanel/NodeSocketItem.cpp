@@ -23,7 +23,7 @@ NodeSocketItem::NodeSocketItem(NodeItem *parent, const OpDataSocket *opdata_sock
 
   _opdata_socket = opdata_socket;
 
-  setFlag(QGraphicsItem::ItemDoesntPropagateOpacityToChildren, true);
+  setFlag(QGraphicsItem::ItemDoesntPropagateOpacityToChildren, false);
   setFlag(QGraphicsItem::ItemIsMovable, false);
   setFlag(QGraphicsItem::ItemIsFocusable, true);
   setFlag(QGraphicsItem::ItemIsSelectable, false);

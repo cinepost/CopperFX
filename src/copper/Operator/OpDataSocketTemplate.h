@@ -24,7 +24,7 @@ enum class OpDataSocketTemplateFlags {
 class OpDataSocketTemplate {
 	public:
 		OpDataSocketTemplate(unsigned int idx, OpDataSocketTemplateFlags flags);
-		OpDataSocket *createOpDataSocket();
+		OpDataSocket *createOpDataSocket(OpNode *op_node);
 
 	protected:
 		unsigned int _idx;
