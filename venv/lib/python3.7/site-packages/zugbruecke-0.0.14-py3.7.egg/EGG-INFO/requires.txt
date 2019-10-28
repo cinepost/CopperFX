@@ -1,0 +1,9 @@
+
+[dev]
+pytest
+python-language-server
+setuptools
+Sphinx
+sphinx_rtd_theme
+twine
+wheel

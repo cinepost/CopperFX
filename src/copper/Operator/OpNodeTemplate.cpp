@@ -10,25 +10,25 @@
 namespace copper {
 
 OpNodeTemplate::OpNodeTemplate(
-	unsigned int version,
-	std::string type_name,
-	std::string ui_name,
+	OpTypeInfo type_info,
 	opConstructor op_contructor,
 	OpDataSocketTemplateList input_socket_templates,
 	OpDataSocketTemplateList output_socket_templates, 
 	OpNodeTemplate::Flags flags ) {
 
-	_version  = version;
-	_type_name = type_name; 
-	_ui_name = ui_name;
+	_type_info = type_info; 
 	_opConstructor = op_contructor; 
 	_input_socket_templates = input_socket_templates;
 	_output_socket_templates = output_socket_templates;
 	_flags = flags;
 }
 
+const OpTypeInfo& OpNodeTemplate::typeInfo() const {
+	return _type_info;
+}
+
 const std::string& OpNodeTemplate::typeName() const {
-	return _type_name;
+	return _type_info.type_name;
 }
 
 opConstructor OpNodeTemplate::constructor() const {
@@ -47,7 +47,7 @@ OpNode *OpNodeTemplate::createOpNode(OpNode *parent_op_node, const std::string &
 	std::string new_node_name = name;
 	
 	if (name == "") {
-		new_node_name = _type_name;
+		new_node_name = _type_info.type_name;
 	}
 
 	OpNode *op_node = new OpNode(parent_op_node, this, new_node_name);

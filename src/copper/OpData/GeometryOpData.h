@@ -6,6 +6,7 @@
 #include <map>
 
 #include "copper/OpData/OpDataBase.h"
+#include "copper/OpData/OpDataTable.h"
 #include "copper/Prims/Point.h"
 
 namespace copper {
@@ -24,8 +25,8 @@ class GeometryOpData: public OpDataBase {
     Point3d 							*createPoint();
 
     // factory methods
-    static std::string myTypeName();
 		static OpDataBase *myConstructor();
+		static void registerDataType(OpDataTable *op_data_table);
 		
 	private:
 		std::vector<Point3d> _points;

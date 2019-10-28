@@ -6,6 +6,7 @@
 #include <map>
 
 #include "copper/OpData/OpDataBase.h"
+#include "copper/OpData/OpDataTable.h"
 
 namespace copper {
 
@@ -20,8 +21,8 @@ class ImageOpData: public OpDataBase {
     void loadFromFile(const std::string& filename, const unsigned int version) override;
 		
     // factory methods
-    static std::string myTypeName();
     static OpDataBase *myConstructor();
+    static void registerDataType(OpDataTable *op_data_table);
 
 	private:
 		static std::string _ui_name;

@@ -13,6 +13,8 @@
 
 namespace copper {
 
+typedef TypeInfo OpTypeInfo;
+
 class OpNode;
 class OpDataBase;
 class OpDataSocketBase;
@@ -38,15 +40,14 @@ class OpNodeTemplate {
 
 	public:
 		OpNodeTemplate(
-			unsigned int version, 							/// operator version
-			std::string type_name, 							/// internal operator name
-			std::string ui_name, 								/// name used in ui
+			TypeInfo type_info,
 			opConstructor op_contructor,   			/// operator factory method for operator instance construction
 			OpDataSocketTemplateList input_socket_templates,		/// operator data inputs
 			OpDataSocketTemplateList output_socket_templates, 	/// operator data outputs 
 			OpNodeTemplate::Flags flags
 		);
 
+		const OpTypeInfo& typeInfo() const;
 		const std::string& typeName() const;
 		opConstructor constructor() const;
 		const OpDataSocketTemplateList *inputs() const;
@@ -56,9 +57,7 @@ class OpNodeTemplate {
 		OpNode *createOpNode(OpNode *parent_op_node, const std::string &name = "");
 
 	private:
-		unsigned int _version;
-		std::string _type_name;
-		std::string _ui_name;
+		TypeInfo _type_info;
 		opConstructor _opConstructor;
 		OpDataSocketTemplateList _input_socket_templates;
 		OpDataSocketTemplateList _output_socket_templates;

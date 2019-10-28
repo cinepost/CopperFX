@@ -8,3 +8,6 @@
 [submodule "third_party/enum-flags"]
 	path = third_party/enum-flags
 	url = https://github.com/grisumbras/enum-flags
+[submodule "third_party/zugbruecke"]
+	path = third_party/zugbruecke
+	url = https://github.com/pleiszenburg/zugbruecke.git

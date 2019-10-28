@@ -3,7 +3,7 @@
 
 namespace copper {
 
-std::string GeometryOpData::_ui_name = "Image";
+std::string GeometryOpData::_ui_name = "Geometry";
 
 const std::string& GeometryOpData::name() const {
 	return GeometryOpData::_ui_name;
@@ -26,12 +26,27 @@ Point3d *GeometryOpData::createPoint() {
 }
 
 // factory methods
-std::string GeometryOpData::myTypeName() {
-    return "geometry";
-}
-
 OpDataBase *GeometryOpData::myConstructor() {
     return new GeometryOpData();
+}
+
+void GeometryOpData::registerDataType(OpDataTable *op_data_table) {
+	TypeInfo info {
+		"geo",
+		"Geometry",
+		0,
+		boost::uuids::string_generator()("{dc4f6d0e-12e1-4273-a9d5-8bcf146e09dd}"),
+	};
+
+  op_data_table->registerOpDataType(
+    info,                          /// data type info
+    GeometryOpData::myConstructor  /// op constructor
+  );
+
+  op_data_table->registerOpDataType(
+    info,                          /// data type info
+    GeometryOpData::myConstructor  /// op constructor
+  );
 }
 
 }

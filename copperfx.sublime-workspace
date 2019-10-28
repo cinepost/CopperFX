@@ -4,8 +4,56 @@
 		"selected_items":
 		[
 			[
+				"OpNode",
+				"OpNodeGUID"
+			],
+			[
+				"is",
+				"isMultiInput"
+			],
+			[
+				"node",
+				"node_from"
+			],
+			[
+				"sock",
+				"socket_from"
+			],
+			[
+				"inpu",
+				"input_socket"
+			],
+			[
+				"op_",
+				"op_node_path"
+			],
+			[
 				"new",
-				"new_panel"
+				"new_node_item"
+			],
+			[
+				"socket",
+				"socket_1"
+			],
+			[
+				"_op",
+				"_op_node"
+			],
+			[
+				"so",
+				"socket_1"
+			],
+			[
+				"OpDa",
+				"OpDataSocket"
+			],
+			[
+				"Scne",
+				"SceneViewPanel"
+			],
+			[
+				"NodeF",
+				"NodeFlowViewPanel"
 			],
 			[
 				"fla",
@@ -164,10 +212,6 @@
 				"OpDataSocketTemplate"
 			],
 			[
-				"OpDa",
-				"OpDataSocketBase"
-			],
-			[
 				"OpD",
 				"OpDataSocketBase"
 			],
@@ -194,10 +238,6 @@
 			[
 				"_s",
 				"_socket_items"
-			],
-			[
-				"node",
-				"node_item"
 			],
 			[
 				"_te",
@@ -268,10 +308,6 @@
 				"conn_item"
 			],
 			[
-				"op_",
-				"op_node"
-			],
-			[
 				"op",
 				"op_node"
 			],
@@ -304,10 +340,6 @@
 				"opdata_type_name"
 			],
 			[
-				"_op",
-				"_opdata_type_name"
-			],
-			[
 				"da",
 				"dataTypeName"
 			],
@@ -316,16 +348,8 @@
 				"socket_1"
 			],
 			[
-				"so",
-				"socket_2"
-			],
-			[
 				"_sock",
 				"_socket_from"
-			],
-			[
-				"sock",
-				"socket_item"
 			],
 			[
 				"ou",
@@ -338,10 +362,6 @@
 			[
 				"signal",
 				"signals2"
-			],
-			[
-				"is",
-				"isInput"
 			],
 			[
 				"op_n",
@@ -494,26 +514,6 @@
 			[
 				"Ri",
 				"Ri_Module"
-			],
-			[
-				"Sce",
-				"Scene_Reader"
-			],
-			[
-				"if",
-				"iface"
-			],
-			[
-				"RIB",
-				"RIB_File_Interface"
-			],
-			[
-				"R",
-				"RIB_File_Interface"
-			],
-			[
-				"file",
-				"filename"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "CMakeLists.txt",
 			"settings":
 			{
-				"buffer_size": 4066,
+				"buffer_size": 4067,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -854,7 +854,6 @@
 			"settings":
 			{
 				"buffer_size": 3189,
-				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -881,7 +880,7 @@
 			"file": "src/copper/Operator/OpDataSocket.h",
 			"settings":
 			{
-				"buffer_size": 1036,
+				"buffer_size": 1333,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -890,7 +889,7 @@
 			"file": "src/copper/Operator/OpDataSocket.cpp",
 			"settings":
 			{
-				"buffer_size": 1980,
+				"buffer_size": 2868,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -917,7 +916,7 @@
 			"file": "src/copper/Operator/OpNode.cpp",
 			"settings":
 			{
-				"buffer_size": 4636,
+				"buffer_size": 4642,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -926,7 +925,7 @@
 			"file": "src/copper/Util/IndexableObject.cpp",
 			"settings":
 			{
-				"buffer_size": 366,
+				"buffer_size": 441,
 				"encoding": "UTF-8",
 				"line_ending": "Unix",
 				"name": "#ifndef INDEXABLE_OBJECT_H"
@@ -1062,7 +1061,7 @@
 			"file": "src/copper/Util/IndexableObject.h",
 			"settings":
 			{
-				"buffer_size": 313,
+				"buffer_size": 429,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1071,7 +1070,7 @@
 			"file": "src/copper/Operator/OpNode.h",
 			"settings":
 			{
-				"buffer_size": 2123,
+				"buffer_size": 2129,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1114,7 +1113,7 @@
 			"file": "src/copper/Plugin/PluginApi.h",
 			"settings":
 			{
-				"buffer_size": 529,
+				"buffer_size": 373,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1220,7 +1219,7 @@
 			"file": "src/copperfx/panels/NodeFlowViewPanel/NodeFlowViewPanel.h",
 			"settings":
 			{
-				"buffer_size": 634,
+				"buffer_size": 580,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1293,7 +1292,7 @@
 			"file": "src/copperfx/panels/NodeFlowViewPanel/NodeFlowScene.cpp",
 			"settings":
 			{
-				"buffer_size": 2688,
+				"buffer_size": 3270,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1329,7 +1328,7 @@
 			"file": "src/copper/operators/BoxGeometryOp/BoxGeometryOp.cpp",
 			"settings":
 			{
-				"buffer_size": 1624,
+				"buffer_size": 1622,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1338,7 +1337,7 @@
 			"file": "src/copper/Operator/OpDataSocketTemplate.h",
 			"settings":
 			{
-				"buffer_size": 747,
+				"buffer_size": 762,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1356,7 +1355,7 @@
 			"file": "src/copper/Operator/OpDataSocketTemplate.cpp",
 			"settings":
 			{
-				"buffer_size": 688,
+				"buffer_size": 710,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1365,7 +1364,7 @@
 			"file": "src/copper/Operator/OpNodeTemplate.cpp",
 			"settings":
 			{
-				"buffer_size": 1874,
+				"buffer_size": 1648,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1383,7 +1382,7 @@
 			"file": "src/copper/OpData/GeometryOpData.cpp",
 			"settings":
 			{
-				"buffer_size": 937,
+				"buffer_size": 856,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1401,7 +1400,7 @@
 			"file": "src/copper/OpData/GeometryOpData.h",
 			"settings":
 			{
-				"buffer_size": 887,
+				"buffer_size": 834,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1410,7 +1409,7 @@
 			"file": "src/copper/OpData/OpDataBase.h",
 			"settings":
 			{
-				"buffer_size": 580,
+				"buffer_size": 400,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1419,7 +1418,7 @@
 			"file": "src/copper/OpData/ImageOpData.cpp",
 			"settings":
 			{
-				"buffer_size": 611,
+				"buffer_size": 536,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1428,7 +1427,7 @@
 			"file": "src/copper/OpData/ImageOpData.h",
 			"settings":
 			{
-				"buffer_size": 787,
+				"buffer_size": 639,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1604,7 +1603,7 @@
 			"file": "src/copperfx/panels/SceneViewPanel/SceneViewPanel.cpp",
 			"settings":
 			{
-				"buffer_size": 1057,
+				"buffer_size": 978,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1613,7 +1612,7 @@
 			"file": "src/copperfx/panels/SceneViewPanel/SceneViewPanel.h",
 			"settings":
 			{
-				"buffer_size": 702,
+				"buffer_size": 648,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1648,7 +1647,7 @@
 			"file": "src/copper/Engine.cpp",
 			"settings":
 			{
-				"buffer_size": 5243,
+				"buffer_size": 5676,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1657,7 +1656,7 @@
 			"file": "src/copperfx/panels/NodeFlowViewPanel/NodeFlowView.h",
 			"settings":
 			{
-				"buffer_size": 1699,
+				"buffer_size": 1659,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1666,7 +1665,7 @@
 			"file": "src/copperfx/panels/NodeFlowViewPanel/NodeFlowView.cpp",
 			"settings":
 			{
-				"buffer_size": 8825,
+				"buffer_size": 9028,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1685,7 +1684,7 @@
 			"file": "src/copperfx/panels/NodeFlowViewPanel/NodeSocketItem.cpp",
 			"settings":
 			{
-				"buffer_size": 5032,
+				"buffer_size": 4908,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1703,7 +1702,7 @@
 			"file": "src/copperfx/panels/NodeFlowViewPanel/NodeItem.h",
 			"settings":
 			{
-				"buffer_size": 1559,
+				"buffer_size": 1684,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1730,7 +1729,7 @@
 			"file": "src/copperfx/panels/NodeFlowViewPanel/NodeItem.cpp",
 			"settings":
 			{
-				"buffer_size": 3659,
+				"buffer_size": 3895,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1739,7 +1738,7 @@
 			"file": "src/copperfx/panels/NodeFlowViewPanel/NodeFlowScene.h",
 			"settings":
 			{
-				"buffer_size": 1123,
+				"buffer_size": 1350,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1748,7 +1747,7 @@
 			"file": "src/copperfx/panels/NodeFlowViewPanel/NodeFlowViewPanel.cpp",
 			"settings":
 			{
-				"buffer_size": 1360,
+				"buffer_size": 1277,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1757,7 +1756,7 @@
 			"file": "src/copper/Engine.h",
 			"settings":
 			{
-				"buffer_size": 2121,
+				"buffer_size": 2583,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1816,6 +1815,7 @@
 		"/Users/max/dev/CopperFX/build",
 		"/Users/max/dev/CopperFX/cmake",
 		"/Users/max/dev/CopperFX/src",
+		"/Users/max/dev/CopperFX/src/cfs",
 		"/Users/max/dev/CopperFX/src/copper",
 		"/Users/max/dev/CopperFX/src/copper/GPU",
 		"/Users/max/dev/CopperFX/src/copper/OpData",
@@ -1824,6 +1824,7 @@
 		"/Users/max/dev/CopperFX/src/copper/operators/BoxGeometryOp",
 		"/Users/max/dev/CopperFX/src/copper/OpParameter",
 		"/Users/max/dev/CopperFX/src/copper/Plugin",
+		"/Users/max/dev/CopperFX/src/copper/Prims",
 		"/Users/max/dev/CopperFX/src/copper/Sys",
 		"/Users/max/dev/CopperFX/src/copper/Util",
 		"/Users/max/dev/CopperFX/src/copper_pymodules",
@@ -1835,10 +1836,18 @@
 		"/Users/max/dev/CopperFX/src/copperfx/Plugin",
 		"/Users/max/dev/CopperFX/src/copperfx/resources",
 		"/Users/max/dev/CopperFX/src/copperfx/Ui",
-		"/Users/max/dev/CopperFX/src/copperpy"
+		"/Users/max/dev/CopperFX/src/copperpy",
+		"/Users/max/dev/CopperFX/src/generated",
+		"/Users/max/dev/CopperFX/src/shout",
+		"/Users/max/dev/CopperFX/src/shout/display_drivers",
+		"/Users/max/dev/CopperFX/src/shout/display_drivers/SDLDisplayDriver",
+		"/Users/max/dev/CopperFX/src/shout/shout_cmd",
+		"/Users/max/dev/CopperFX/src/shout/shout_lib",
+		"/Users/max/dev/CopperFX/src/shout/shout_lib/SCN"
 	],
 	"file_history":
 	[
+		"/Users/max/dev/CopperFX/src/copper/Plugin/AbstractFactoryOld.h",
 		"/Users/max/dev/CopperFX/src/shout/display_drivers/HoudiniDisplayDriver/HoudiniDisplay.cpp",
 		"/Users/max/dev/CopperFX/src/shout/display_drivers/HoudiniDisplayDriver/HoudiniDisplay.h",
 		"/Users/max/dev/CopperFX/contrib/mantra/test.ifd",
@@ -1965,8 +1974,7 @@
 		"/Users/max/dev/CopperFX/include/copper/OP/OP_Node.h",
 		"/Users/max/dev/CopperFX/src/copperfx/GUI_SceneViewPanel.cpp",
 		"/Users/max/dev/CopperFX/src/copperfx/GUI_PanelManager.cpp",
-		"/Users/max/dev/CopperFX/include/copperfx/GUI/GUI_PanelManager.h",
-		"/Users/max/dev/CopperFX/src/copperfx/GUI_PanelRegistry.cpp"
+		"/Users/max/dev/CopperFX/include/copperfx/GUI/GUI_PanelManager.h"
 	],
 	"find":
 	{
@@ -1986,6 +1994,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"later",
 			"x",
 			"SDLOpenGL",
 			"OpDataSocket",
@@ -2045,7 +2054,7 @@
 	"groups":
 	[
 		{
-			"selected": 36,
+			"selected": 130,
 			"sheets":
 			[
 				{
@@ -2054,15 +2063,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4066,
+						"buffer_size": 4067,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3501,
-								3501
+								3902,
+								3902
 							]
 						],
 						"settings":
@@ -2081,7 +2090,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 48,
+					"stack_index": 24,
 					"type": "text"
 				},
 				{
@@ -2114,7 +2123,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 47,
+					"stack_index": 80,
 					"type": "text"
 				},
 				{
@@ -2145,7 +2154,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 46,
+					"stack_index": 79,
 					"type": "text"
 				},
 				{
@@ -2178,7 +2187,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 29,
+					"stack_index": 66,
 					"type": "text"
 				},
 				{
@@ -2211,7 +2220,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 28,
+					"stack_index": 65,
 					"type": "text"
 				},
 				{
@@ -2245,7 +2254,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 30,
+					"stack_index": 67,
 					"type": "text"
 				},
 				{
@@ -2279,7 +2288,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 34,
+					"stack_index": 71,
 					"type": "text"
 				},
 				{
@@ -2312,7 +2321,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 31,
+					"stack_index": 68,
 					"type": "text"
 				},
 				{
@@ -2344,7 +2353,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 36,
+					"stack_index": 73,
 					"type": "text"
 				},
 				{
@@ -2377,7 +2386,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 37,
+					"stack_index": 74,
 					"type": "text"
 				},
 				{
@@ -2408,7 +2417,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 35,
+					"stack_index": 72,
 					"type": "text"
 				},
 				{
@@ -2439,7 +2448,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 51,
+					"stack_index": 82,
 					"type": "text"
 				},
 				{
@@ -2472,7 +2481,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 49,
+					"stack_index": 81,
 					"type": "text"
 				},
 				{
@@ -2503,7 +2512,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 25,
+					"stack_index": 62,
 					"type": "text"
 				},
 				{
@@ -2538,7 +2547,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 127,
+					"stack_index": 128,
 					"type": "text"
 				},
 				{
@@ -2572,7 +2581,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 130,
+					"stack_index": 131,
 					"type": "text"
 				},
 				{
@@ -2606,7 +2615,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 128,
+					"stack_index": 129,
 					"type": "text"
 				},
 				{
@@ -2641,7 +2650,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 121,
+					"stack_index": 122,
 					"type": "text"
 				},
 				{
@@ -2677,7 +2686,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 125,
+					"stack_index": 126,
 					"type": "text"
 				},
 				{
@@ -2712,7 +2721,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 123,
+					"stack_index": 124,
 					"type": "text"
 				},
 				{
@@ -2746,7 +2755,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 90,
+					"stack_index": 93,
 					"type": "text"
 				},
 				{
@@ -2784,7 +2793,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 131,
+					"stack_index": 132,
 					"type": "text"
 				},
 				{
@@ -2823,7 +2832,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 93,
+					"stack_index": 96,
 					"type": "text"
 				},
 				{
@@ -2858,7 +2867,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 119,
+					"stack_index": 120,
 					"type": "text"
 				},
 				{
@@ -2895,7 +2904,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 88,
+					"stack_index": 91,
 					"type": "text"
 				},
 				{
@@ -2932,7 +2941,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 114,
+					"stack_index": 115,
 					"type": "text"
 				},
 				{
@@ -2972,7 +2981,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 87,
+					"stack_index": 90,
 					"type": "text"
 				},
 				{
@@ -3010,7 +3019,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 95,
+					"stack_index": 98,
 					"type": "text"
 				},
 				{
@@ -3044,7 +3053,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 118,
+					"stack_index": 119,
 					"type": "text"
 				},
 				{
@@ -3078,7 +3087,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 129,
+					"stack_index": 130,
 					"type": "text"
 				},
 				{
@@ -3197,10 +3206,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 51,
 					"type": "text"
 				},
 				{
@@ -3223,6 +3232,9 @@
 						"settings":
 						{
 							"SL.19.region_keys":
+							[
+							],
+							"SL.198.region_keys":
 							[
 							],
 							"SL.20.region_keys":
@@ -3251,7 +3263,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 35,
 					"type": "text"
 				},
 				{
@@ -3298,7 +3310,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 60,
+					"stack_index": 85,
 					"type": "text"
 				},
 				{
@@ -3320,6 +3332,9 @@
 						],
 						"settings":
 						{
+							"SL.200.region_keys":
+							[
+							],
 							"SL.24.region_keys":
 							[
 							],
@@ -3336,13 +3351,13 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 133,
+					"stack_index": 34,
 					"type": "text"
 				},
 				{
 					"buffer": 36,
 					"file": "src/copper/Plugin/AbstractFactory.h",
-					"semi_transient": false,
+					"semi_transient": true,
 					"settings":
 					{
 						"buffer_size": 3189,
@@ -3352,37 +3367,13 @@
 						"selection":
 						[
 							[
-								567,
-								582
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"SL.169.region_keys":
-							[
-							],
-							"SL.28.region_keys":
-							[
-							],
-							"SL.29.region_keys":
-							[
-							],
-							"SL.47.region_keys":
-							[
-							],
-							"SL.49.region_keys":
-							[
-							],
-							"SL.50.region_keys":
-							[
-							],
-							"SL.55.region_keys":
-							[
-							],
-							"SL.71.region_keys":
-							[
-							],
-							"SL.92.region_keys":
+							"SL.305.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax",
@@ -3390,10 +3381,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 676.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 33,
 					"type": "text"
 				},
 				{
@@ -3415,6 +3406,9 @@
 						],
 						"settings":
 						{
+							"SL.202.region_keys":
+							[
+							],
 							"SL.311.region_keys":
 							[
 							],
@@ -3431,7 +3425,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 77,
+					"stack_index": 36,
 					"type": "text"
 				},
 				{
@@ -3468,7 +3462,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 76,
+					"stack_index": 89,
 					"type": "text"
 				},
 				{
@@ -3477,20 +3471,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1036,
+						"buffer_size": 1333,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								814,
-								814
+								846,
+								846
 							]
 						],
 						"settings":
 						{
 							"SL.170.region_keys":
+							[
+							],
+							"SL.204.region_keys":
 							[
 							],
 							"SL.30.region_keys":
@@ -3521,7 +3518,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 43,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -3530,20 +3527,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1980,
+						"buffer_size": 2868,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1928,
-								1928
+								258,
+								261
 							]
 						],
 						"settings":
 						{
 							"SL.180.region_keys":
+							[
+							],
+							"SL.205.region_keys":
 							[
 							],
 							"SL.42.region_keys":
@@ -3556,7 +3556,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 44,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
@@ -3592,7 +3592,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 124,
+					"stack_index": 125,
 					"type": "text"
 				},
 				{
@@ -3639,7 +3639,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 59,
+					"stack_index": 84,
 					"type": "text"
 				},
 				{
@@ -3648,20 +3648,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4636,
+						"buffer_size": 4642,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3709,
-								3709
+								3715,
+								3715
 							]
 						],
 						"settings":
 						{
 							"SL.174.region_keys":
+							[
+							],
+							"SL.208.region_keys":
 							[
 							],
 							"SL.33.region_keys":
@@ -3689,7 +3692,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 56,
+					"stack_index": 23,
 					"type": "text"
 				},
 				{
@@ -3698,19 +3701,22 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 366,
+						"buffer_size": 441,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								16,
-								16
+								371,
+								371
 							]
 						],
 						"settings":
 						{
+							"SL.209.region_keys":
+							[
+							],
 							"SL.46.region_keys":
 							[
 							],
@@ -3721,7 +3727,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 53,
+					"stack_index": 30,
 					"type": "text"
 				},
 				{
@@ -3753,7 +3759,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 38,
+					"stack_index": 75,
 					"type": "text"
 				},
 				{
@@ -3781,7 +3787,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 42,
+					"stack_index": 78,
 					"type": "text"
 				},
 				{
@@ -3812,7 +3818,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 52,
+					"stack_index": 83,
 					"type": "text"
 				},
 				{
@@ -3844,7 +3850,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 26,
+					"stack_index": 63,
 					"type": "text"
 				},
 				{
@@ -3877,7 +3883,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 20,
+					"stack_index": 57,
 					"type": "text"
 				},
 				{
@@ -3909,7 +3915,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 27,
+					"stack_index": 64,
 					"type": "text"
 				},
 				{
@@ -3942,7 +3948,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 19,
+					"stack_index": 56,
 					"type": "text"
 				},
 				{
@@ -3971,7 +3977,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 21,
+					"stack_index": 58,
 					"type": "text"
 				},
 				{
@@ -4003,7 +4009,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 22,
+					"stack_index": 59,
 					"type": "text"
 				},
 				{
@@ -4035,7 +4041,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 23,
+					"stack_index": 60,
 					"type": "text"
 				},
 				{
@@ -4063,7 +4069,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 24,
+					"stack_index": 61,
 					"type": "text"
 				},
 				{
@@ -4095,7 +4101,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 33,
+					"stack_index": 70,
 					"type": "text"
 				},
 				{
@@ -4128,7 +4134,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 32,
+					"stack_index": 69,
 					"type": "text"
 				},
 				{
@@ -4157,7 +4163,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 40,
+					"stack_index": 76,
 					"type": "text"
 				},
 				{
@@ -4166,20 +4172,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 313,
+						"buffer_size": 429,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								279,
-								279
+								172,
+								172
 							]
 						],
 						"settings":
 						{
 							"SL.125.region_keys":
+							[
+							],
+							"SL.224.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
@@ -4188,7 +4197,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 54,
+					"stack_index": 31,
 					"type": "text"
 				},
 				{
@@ -4197,20 +4206,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2123,
+						"buffer_size": 2129,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1988,
-								1988
+								858,
+								858
 							]
 						],
 						"settings":
 						{
 							"SL.175.region_keys":
+							[
+							],
+							"SL.225.region_keys":
 							[
 							],
 							"SL.34.region_keys":
@@ -4238,7 +4250,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 55,
+					"stack_index": 22,
 					"type": "text"
 				},
 				{
@@ -4263,6 +4275,9 @@
 							"SL.176.region_keys":
 							[
 							],
+							"SL.226.region_keys":
+							[
+							],
 							"SL.35.region_keys":
 							[
 							],
@@ -4284,7 +4299,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 79,
+					"stack_index": 48,
 					"type": "text"
 				},
 				{
@@ -4306,6 +4321,9 @@
 						],
 						"settings":
 						{
+							"SL.227.region_keys":
+							[
+							],
 							"SL.314.region_keys":
 							[
 							],
@@ -4321,7 +4339,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 80,
+					"stack_index": 44,
 					"type": "text"
 				},
 				{
@@ -4401,15 +4419,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 529,
+						"buffer_size": 373,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								301,
-								301
+								240,
+								240
 							]
 						],
 						"settings":
@@ -4418,6 +4436,9 @@
 							[
 							],
 							"SL.179.region_keys":
+							[
+							],
+							"SL.230.region_keys":
 							[
 							],
 							"SL.38.region_keys":
@@ -4450,7 +4471,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 42,
 					"type": "text"
 				},
 				{
@@ -4491,7 +4512,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 92,
+					"stack_index": 95,
 					"type": "text"
 				},
 				{
@@ -4524,7 +4545,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 116,
+					"stack_index": 117,
 					"type": "text"
 				},
 				{
@@ -4565,7 +4586,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 112,
+					"stack_index": 113,
 					"type": "text"
 				},
 				{
@@ -4603,7 +4624,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 113,
+					"stack_index": 114,
 					"type": "text"
 				},
 				{
@@ -4645,7 +4666,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 91,
+					"stack_index": 94,
 					"type": "text"
 				},
 				{
@@ -4682,7 +4703,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 110,
+					"stack_index": 111,
 					"type": "text"
 				},
 				{
@@ -4716,7 +4737,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 120,
+					"stack_index": 121,
 					"type": "text"
 				},
 				{
@@ -4761,7 +4782,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 94,
+					"stack_index": 97,
 					"type": "text"
 				},
 				{
@@ -4792,6 +4813,9 @@
 							"SL.212.region_keys":
 							[
 							],
+							"SL.239.region_keys":
+							[
+							],
 							"SL.75.region_keys":
 							[
 							],
@@ -4801,7 +4825,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -4826,6 +4850,9 @@
 							"SL.133.region_keys":
 							[
 							],
+							"SL.240.region_keys":
+							[
+							],
 							"SL.324.region_keys":
 							[
 							],
@@ -4838,7 +4865,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -4854,13 +4881,16 @@
 						"selection":
 						[
 							[
-								319,
-								319
+								301,
+								301
 							]
 						],
 						"settings":
 						{
 							"SL.134.region_keys":
+							[
+							],
+							"SL.241.region_keys":
 							[
 							],
 							"SL.323.region_keys":
@@ -4878,7 +4908,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 47,
 					"type": "text"
 				},
 				{
@@ -4887,20 +4917,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 634,
+						"buffer_size": 580,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								352,
-								352
+								537,
+								537
 							]
 						],
 						"settings":
 						{
 							"SL.135.region_keys":
+							[
+							],
+							"SL.242.region_keys":
 							[
 							],
 							"SL.327.region_keys":
@@ -4920,7 +4953,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 40,
 					"type": "text"
 				},
 				{
@@ -4951,6 +4984,9 @@
 							"SL.213.region_keys":
 							[
 							],
+							"SL.243.region_keys":
+							[
+							],
 							"SL.79.region_keys":
 							[
 							],
@@ -4960,7 +4996,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 46,
 					"type": "text"
 				},
 				{
@@ -4993,7 +5029,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 115,
+					"stack_index": 116,
 					"type": "text"
 				},
 				{
@@ -5032,7 +5068,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 111,
+					"stack_index": 112,
 					"type": "text"
 				},
 				{
@@ -5073,7 +5109,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 74,
+					"stack_index": 88,
 					"type": "text"
 				},
 				{
@@ -5114,7 +5150,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 70,
+					"stack_index": 86,
 					"type": "text"
 				},
 				{
@@ -5150,7 +5186,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 117,
+					"stack_index": 118,
 					"type": "text"
 				},
 				{
@@ -5186,7 +5222,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 89,
+					"stack_index": 92,
 					"type": "text"
 				},
 				{
@@ -5195,20 +5231,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2688,
+						"buffer_size": 3270,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1672,
-								1672
+								1910,
+								1910
 							]
 						],
 						"settings":
 						{
 							"SL.101.region_keys":
+							[
+							],
+							"SL.250.region_keys":
 							[
 							],
 							"SL.309.region_keys":
@@ -5227,7 +5266,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 78,
+					"stack_index": 20,
 					"type": "text"
 				},
 				{
@@ -5258,6 +5297,9 @@
 							"SL.220.region_keys":
 							[
 							],
+							"SL.251.region_keys":
+							[
+							],
 							"SL.87.region_keys":
 							[
 							],
@@ -5269,7 +5311,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 50,
 					"type": "text"
 				},
 				{
@@ -5300,7 +5342,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 108,
+					"stack_index": 32,
 					"type": "text"
 				},
 				{
@@ -5328,6 +5370,9 @@
 							"SL.236.region_keys":
 							[
 							],
+							"SL.253.region_keys":
+							[
+							],
 							"SL.89.region_keys":
 							[
 							],
@@ -5342,7 +5387,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 75,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -5351,15 +5396,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1624,
+						"buffer_size": 1622,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1172,
-								1172
+								670,
+								670
 							]
 						],
 						"settings":
@@ -5368,6 +5413,9 @@
 							[
 							],
 							"SL.237.region_keys":
+							[
+							],
+							"SL.254.region_keys":
 							[
 							],
 							"SL.90.region_keys":
@@ -5384,7 +5432,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 68,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -5393,20 +5441,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 747,
+						"buffer_size": 762,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								322,
-								347
+								574,
+								589
 							]
 						],
 						"settings":
 						{
 							"SL.106.region_keys":
+							[
+							],
+							"SL.255.region_keys":
 							[
 							],
 							"SL.315.region_keys":
@@ -5428,7 +5479,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 45,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -5453,36 +5504,7 @@
 							"SL.178.region_keys":
 							[
 							],
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 71,
-					"type": "text"
-				},
-				{
-					"buffer": 92,
-					"file": "src/copper/Operator/OpDataSocketTemplate.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 688,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								354,
-								354
-							]
-						],
-						"settings":
-						{
-							"SL.177.region_keys":
+							"SL.256.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax",
@@ -5492,7 +5514,42 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 61,
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 92,
+					"file": "src/copper/Operator/OpDataSocketTemplate.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 710,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								376,
+								376
+							]
+						],
+						"settings":
+						{
+							"SL.177.region_keys":
+							[
+							],
+							"SL.257.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -5501,20 +5558,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1874,
+						"buffer_size": 1648,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1528,
-								1528
+								1619,
+								1619
 							]
 						],
 						"settings":
 						{
 							"SL.107.region_keys":
+							[
+							],
+							"SL.258.region_keys":
 							[
 							],
 							"SL.316.region_keys":
@@ -5533,7 +5593,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 63,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -5564,7 +5624,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 41,
+					"stack_index": 77,
 					"type": "text"
 				},
 				{
@@ -5573,20 +5633,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 937,
+						"buffer_size": 856,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								189,
-								189
+								195,
+								195
 							]
 						],
 						"settings":
 						{
 							"SL.228.region_keys":
+							[
+							],
+							"SL.260.region_keys":
 							[
 							],
 							"SL.87.region_keys":
@@ -5604,7 +5667,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 66,
+					"stack_index": 37,
 					"type": "text"
 				},
 				{
@@ -5635,7 +5698,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 109,
+					"stack_index": 26,
 					"type": "text"
 				},
 				{
@@ -5644,20 +5707,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 887,
+						"buffer_size": 834,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								323,
-								323
+								798,
+								798
 							]
 						],
 						"settings":
 						{
 							"SL.231.region_keys":
+							[
+							],
+							"SL.262.region_keys":
 							[
 							],
 							"SL.88.region_keys":
@@ -5675,7 +5741,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 67,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -5684,20 +5750,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 580,
+						"buffer_size": 400,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								453,
-								453
+								182,
+								182
 							]
 						],
 						"settings":
 						{
 							"SL.181.region_keys":
+							[
+							],
+							"SL.263.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
@@ -5706,7 +5775,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 69,
+					"stack_index": 43,
 					"type": "text"
 				},
 				{
@@ -5715,20 +5784,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 611,
+						"buffer_size": 536,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								177,
-								177
+								61,
+								105
 							]
 						],
 						"settings":
 						{
 							"SL.183.region_keys":
+							[
+							],
+							"SL.264.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
@@ -5737,7 +5809,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 64,
+					"stack_index": 38,
 					"type": "text"
 				},
 				{
@@ -5746,20 +5818,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 787,
+						"buffer_size": 639,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								499,
-								499
+								578,
+								606
 							]
 						],
 						"settings":
 						{
 							"SL.184.region_keys":
+							[
+							],
+							"SL.265.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
@@ -5768,7 +5843,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 65,
+					"stack_index": 39,
 					"type": "text"
 				},
 				{
@@ -5802,6 +5877,9 @@
 							"SL.221.region_keys":
 							[
 							],
+							"SL.266.region_keys":
+							[
+							],
 							"SL.97.region_keys":
 							[
 							],
@@ -5810,10 +5888,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 59.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 49,
 					"type": "text"
 				},
 				{
@@ -5850,7 +5928,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 104,
+					"stack_index": 107,
 					"type": "text"
 				},
 				{
@@ -5887,7 +5965,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 103,
+					"stack_index": 106,
 					"type": "text"
 				},
 				{
@@ -5903,8 +5981,8 @@
 						"selection":
 						[
 							[
-								761,
-								761
+								3757,
+								3769
 							]
 						],
 						"settings":
@@ -5913,6 +5991,9 @@
 							[
 							],
 							"SL.115.region_keys":
+							[
+							],
+							"SL.269.region_keys":
 							[
 							],
 							"SL.306.region_keys":
@@ -5929,7 +6010,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 39,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -5964,7 +6045,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 105,
+					"stack_index": 108,
 					"type": "text"
 				},
 				{
@@ -5999,7 +6080,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 102,
+					"stack_index": 105,
 					"type": "text"
 				},
 				{
@@ -6031,7 +6112,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 106,
+					"stack_index": 109,
 					"type": "text"
 				},
 				{
@@ -6064,7 +6145,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 107,
+					"stack_index": 110,
 					"type": "text"
 				},
 				{
@@ -6100,7 +6181,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 97,
+					"stack_index": 100,
 					"type": "text"
 				},
 				{
@@ -6139,7 +6220,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 100,
+					"stack_index": 103,
 					"type": "text"
 				},
 				{
@@ -6181,7 +6262,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 55,
 					"type": "text"
 				},
 				{
@@ -6215,7 +6296,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 101,
+					"stack_index": 104,
 					"type": "text"
 				},
 				{
@@ -6251,7 +6332,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 126,
+					"stack_index": 127,
 					"type": "text"
 				},
 				{
@@ -6288,7 +6369,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 54,
 					"type": "text"
 				},
 				{
@@ -6325,7 +6406,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 96,
+					"stack_index": 99,
 					"type": "text"
 				},
 				{
@@ -6368,7 +6449,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 53,
 					"type": "text"
 				},
 				{
@@ -6401,7 +6482,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 50,
+					"stack_index": 25,
 					"type": "text"
 				},
 				{
@@ -6443,7 +6524,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 98,
+					"stack_index": 101,
 					"type": "text"
 				},
 				{
@@ -6452,15 +6533,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1057,
+						"buffer_size": 978,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								487,
-								545
+								805,
+								805
 							]
 						],
 						"settings":
@@ -6474,6 +6555,9 @@
 							"SL.177.region_keys":
 							[
 							],
+							"SL.284.region_keys":
+							[
+							],
 							"SL.296.region_keys":
 							[
 							],
@@ -6485,7 +6569,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 45,
 					"type": "text"
 				},
 				{
@@ -6494,15 +6578,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 702,
+						"buffer_size": 648,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								427,
-								427
+								594,
+								594
 							]
 						],
 						"settings":
@@ -6516,6 +6600,9 @@
 							"SL.178.region_keys":
 							[
 							],
+							"SL.285.region_keys":
+							[
+							],
 							"SL.328.region_keys":
 							[
 							],
@@ -6527,7 +6614,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 41,
 					"type": "text"
 				},
 				{
@@ -6560,7 +6647,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 132,
+					"stack_index": 133,
 					"type": "text"
 				},
 				{
@@ -6592,7 +6679,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 99,
+					"stack_index": 102,
 					"type": "text"
 				},
 				{
@@ -6632,7 +6719,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 52,
 					"type": "text"
 				},
 				{
@@ -6641,15 +6728,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5243,
+						"buffer_size": 5676,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2690,
-								2690
+								5295,
+								5295
 							]
 						],
 						"settings":
@@ -6672,6 +6759,9 @@
 							"SL.227.region_keys":
 							[
 							],
+							"SL.289.region_keys":
+							[
+							],
 							"SL.68.region_keys":
 							[
 							],
@@ -6686,7 +6776,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 57,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
@@ -6695,15 +6785,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1699,
+						"buffer_size": 1659,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								886,
-								886
+								1621,
+								1621
 							]
 						],
 						"settings":
@@ -6720,6 +6810,9 @@
 							"SL.241.region_keys":
 							[
 							],
+							"SL.290.region_keys":
+							[
+							],
 							"syntax": "Packages/C++/C++.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
@@ -6728,7 +6821,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 86,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
@@ -6737,15 +6830,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8825,
+						"buffer_size": 9028,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7108,
-								7144
+								6249,
+								6249
 							]
 						],
 						"settings":
@@ -6762,6 +6855,9 @@
 							"SL.240.region_keys":
 							[
 							],
+							"SL.291.region_keys":
+							[
+							],
 							"syntax": "Packages/C++/C++.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
@@ -6770,7 +6866,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 84,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -6805,7 +6901,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 72,
+					"stack_index": 87,
 					"type": "text"
 				},
 				{
@@ -6814,15 +6910,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5032,
+						"buffer_size": 4908,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1128,
-								1128
+								644,
+								644
 							]
 						],
 						"settings":
@@ -6839,6 +6935,9 @@
 							"SL.138.region_keys":
 							[
 							],
+							"SL.293.region_keys":
+							[
+							],
 							"SL.333.region_keys":
 							[
 							],
@@ -6850,7 +6949,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 62,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
@@ -6866,8 +6965,8 @@
 						"selection":
 						[
 							[
-								612,
-								612
+								2397,
+								2397
 							]
 						],
 						"settings":
@@ -6887,6 +6986,9 @@
 							"SL.187.region_keys":
 							[
 							],
+							"SL.294.region_keys":
+							[
+							],
 							"SL.334.region_keys":
 							[
 							],
@@ -6898,7 +7000,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 19,
 					"type": "text"
 				},
 				{
@@ -6907,15 +7009,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1559,
+						"buffer_size": 1684,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1447,
-								1447
+								1582,
+								1602
 							]
 						],
 						"settings":
@@ -6923,7 +7025,13 @@
 							"SL.127.region_keys":
 							[
 							],
+							"SL.184.region_keys":
+							[
+							],
 							"SL.214.region_keys":
+							[
+							],
+							"SL.295.region_keys":
 							[
 							],
 							"syntax": "Packages/C++/C++.sublime-syntax",
@@ -6934,7 +7042,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 81,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -6950,8 +7058,8 @@
 						"selection":
 						[
 							[
-								1188,
-								1210
+								360,
+								360
 							]
 						],
 						"settings":
@@ -6968,6 +7076,9 @@
 							"SL.140.region_keys":
 							[
 							],
+							"SL.296.region_keys":
+							[
+							],
 							"SL.396.region_keys":
 							[
 							],
@@ -6979,7 +7090,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 73,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
@@ -7007,13 +7118,16 @@
 							"SL.210.region_keys":
 							[
 							],
+							"SL.297.region_keys":
+							[
+							],
 							"syntax": "Packages/C++/C++.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 85,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
@@ -7022,15 +7136,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3659,
+						"buffer_size": 3895,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2737,
-								2737
+								2961,
+								2961
 							]
 						],
 						"settings":
@@ -7044,6 +7158,9 @@
 							"SL.141.region_keys":
 							[
 							],
+							"SL.298.region_keys":
+							[
+							],
 							"SL.398.region_keys":
 							[
 							],
@@ -7055,7 +7172,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 82,
+					"stack_index": 28,
 					"type": "text"
 				},
 				{
@@ -7064,15 +7181,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1123,
+						"buffer_size": 1350,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1036,
-								1036
+								546,
+								590
 							]
 						],
 						"settings":
@@ -7086,6 +7203,9 @@
 							"SL.142.region_keys":
 							[
 							],
+							"SL.299.region_keys":
+							[
+							],
 							"SL.330.region_keys":
 							[
 							],
@@ -7095,7 +7215,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 83,
+					"stack_index": 27,
 					"type": "text"
 				},
 				{
@@ -7104,15 +7224,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1360,
+						"buffer_size": 1277,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1042,
-								1042
+								337,
+								337
 							]
 						],
 						"settings":
@@ -7132,6 +7252,9 @@
 							"SL.297.region_keys":
 							[
 							],
+							"SL.300.region_keys":
+							[
+							],
 							"syntax": "Packages/C++/C++.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
@@ -7140,7 +7263,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 29,
 					"type": "text"
 				},
 				{
@@ -7149,15 +7272,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2121,
+						"buffer_size": 2583,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1403,
-								1403
+								1705,
+								1705
 							]
 						],
 						"settings":
@@ -7186,6 +7309,9 @@
 							"SL.228.region_keys":
 							[
 							],
+							"SL.301.region_keys":
+							[
+							],
 							"SL.69.region_keys":
 							[
 							],
@@ -7199,7 +7325,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 58,
+					"stack_index": 21,
 					"type": "text"
 				},
 				{
@@ -7238,7 +7364,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 122,
+					"stack_index": 123,
 					"type": "text"
 				}
 			]

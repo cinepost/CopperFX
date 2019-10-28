@@ -57,8 +57,8 @@ void Engine::init() {
 
     // Register internally defined opdata
     BOOST_LOG_TRIVIAL(debug) << "Registering internal opdata types ...";
-    _opdata_factory.registerType( GeometryOpData::myTypeName, GeometryOpData::myConstructor );
-    _opdata_factory.registerType( ImageOpData::myTypeName, ImageOpData::myConstructor );
+    GeometryOpData::registerDataType(&_op_data_table);
+    ImageOpData::registerDataType(&_op_data_table);
     BOOST_LOG_TRIVIAL(debug) << "Internal opdata types registration done.";
 
     // Register internally defined operators
@@ -75,8 +75,8 @@ void Engine::init() {
   }  
 }
 
-OpDataFactory *Engine::dataFactory() { 
-  return &_opdata_factory;
+OpDataTable *Engine::dataTypesTable() { 
+  return &_op_data_table;
 }
 
 OpTable *Engine::opTable() {

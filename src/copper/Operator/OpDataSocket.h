@@ -7,11 +7,13 @@
 
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_io.hpp>
+#include <boost/uuid/random_generator.hpp>
 #include <boost/uuid/string_generator.hpp>
 
 #include <flags/flags.hpp>
 
 #include "copper/Plugin/PluginApi.h"
+#include "copper/Plugin/TypeInfo.h"
 #include "copper/OpData/OpDataBase.h"
 #include "copper/Util/IndexableObject.h"
 
@@ -38,12 +40,12 @@ class OpDataSocket: public IndexableObject {
 
 	protected:
 		// direct OpDataSocket construction prohibited. Only OpDataSocketTemplate factory methon can make it
-		OpDataSocket(OpNode *op_node);
+		OpDataSocket(OpNode *op_node, const TypeInfo &data_type_info);
 
 	private:
 		unsigned int _id;
-		boost::uuids::uuid _data_type_uuid;
-		unsigned int _data_type_version;
+		boost::uuids::uuid 	_data_type_uuid;
+		unsigned int 				_data_type_version;
 		OpNode *_op_node = nullptr;
 		OpNodeGUID _op_node_guid;
 		bool _is_input;

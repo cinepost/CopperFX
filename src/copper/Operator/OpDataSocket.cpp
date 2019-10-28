@@ -9,13 +9,13 @@
 
 namespace copper {
 
-boost::uuids::string_generator gen;
-
-OpDataSocket::OpDataSocket(OpNode *op_node){
+OpDataSocket::OpDataSocket(OpNode *op_node, const TypeInfo &data_type_info){
 	_op_node = op_node;
 	_id = 0;
 	_input_guids.clear();
-	_data_type_uuid = gen("{01234567-89ab-cdef-0123-456789abcdef}");
+
+	_data_type_uuid = data_type_info.type_uuid;
+	_data_type_version = data_type_info.version;
 }
 
 OpDataSocket::~OpDataSocket() {}

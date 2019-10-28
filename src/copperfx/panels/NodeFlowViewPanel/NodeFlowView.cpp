@@ -144,10 +144,10 @@ void NodeFlowView::contextMenuEvent(QContextMenuEvent *event) {
     QAction *op_action;
 
     // build opnodes creation menu actions
-    for (auto & op_node_type_name : Engine::getInstance().opTable()->registeredTypeNames()) {
-      op_action = op_menu->addAction(op_node_type_name.c_str());
+    for (auto & op_type_info : Engine::getInstance().opTable()->registeredOperators()) {
+      op_action = op_menu->addAction(op_type_info.ui_name.c_str());
       op_action->setActionGroup(op_group);
-      connect(op_action, &QAction::triggered, this, [=]() { EngineSignals::getInstance().signalCreateOpNode(op_node_type_name, "/", ""); });
+      connect(op_action, &QAction::triggered, this, [=]() { EngineSignals::getInstance().signalCreateOpNode(op_type_info.type_name, "/", ""); });
     }
 
     main_menu.exec(event->globalPos());

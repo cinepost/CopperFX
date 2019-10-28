@@ -17,21 +17,21 @@
 #include <boost/signals2.hpp>
 	
 #include "copper/OpData/OpDataBase.h"
+#include "copper/OpData/OpDataTable.h"
 #include "copper/Operator/OpDataSocket.h"
 #include "copper/Operator/OpBase.h"
+#include "copper/Operator/OpNode.h"
+#include "copper/Operator/OpTable.h"
 #include "copper/Plugin/AbstractFactory.h"
 #include "copper/Util/Singleton.h"
 #include "copper/Util/IndexableObject.h"
-
-#include "copper/Operator/OpNode.h"
-#include "copper/Operator/OpTable.h"
 
 
 namespace copper {
 
 namespace bmi = boost::multi_index;
 
-typedef AbstractFactory<OpDataBase> OpDataFactory;
+//typedef AbstractFactory<OpDataBase> OpDataFactory;
 
 class OpNode;
 
@@ -68,7 +68,7 @@ class Engine: public Singleton<Engine> {
 		float fps();
 		void setFps(float fps);
 
-		OpDataFactory *dataFactory();
+		OpDataTable *dataTypesTable();
 		OpTable *opTable();
 
 	// signal handlers
@@ -86,9 +86,9 @@ class Engine: public Singleton<Engine> {
 		std::map<OpDataSocketGUID, OpDataSocket *> _op_data_sockets_map;
 		std::map<OpNodeGUID, OpNode *> _op_nodes_map;
 
-		// Factories 
-		OpDataFactory _opdata_factory;
-		OpTable _op_table;
+		// Plugin tables/factories 
+		OpTable 		_op_table;
+		OpDataTable _op_data_table;
 
 		bool _initialized;
 

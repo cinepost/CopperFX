@@ -5,6 +5,7 @@
 #include <map>
 
 #include "copper/Plugin/PluginApi.h"
+#include "copper/Plugin/TypeInfo.h"
 #include "copper/OpData/OpDataBase.h"
 
 
