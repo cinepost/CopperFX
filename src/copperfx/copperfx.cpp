@@ -22,7 +22,6 @@ namespace logging = boost::log;
 namespace sinks = boost::log::sinks;
 
 using namespace copper;
-namespace ui = copper::ui;
 
 ui::LogWindow *logWindow = nullptr;
 

@@ -12,27 +12,30 @@
 namespace copper {
 
 class GeometryOpData: public OpDataBase {
-	public:
-		GeometryOpData(){};
+    public:
+        GeometryOpData(){};
 
-		const std::string& name() const override;
+        const std::string& name() const override;
 
-		void saveToFile(const std::string& filename, const unsigned int version) const override;
-    void loadFromFile(const std::string& filename, const unsigned int version) override;
+        void saveToFile(const std::string& filename, const unsigned int version) const override;
+        void loadFromFile(const std::string& filename, const unsigned int version) override;
 
-    std::vector<Point3d>  *points();
-    std::vector<Point3d>  *points() const;
-    Point3d 							*createPoint();
+        std::vector<Point3d>  *points();
+        std::vector<Point3d>  *points() const;
+        Point3d               *createPoint();
 
-    // factory methods
-		static OpDataBase *myConstructor();
-		static void registerDataType(OpDataTable *op_data_table);
-		
-	private:
-		std::vector<Point3d> _points;
+        // opdata type info
+        static TypeInfo opDataTypeInfo();
 
-	private:
-		static std::string _ui_name;
+        // factory methods
+        static OpDataBase *myConstructor();
+        static void registerDataType(OpDataTable *op_data_table);
+        
+    private:
+        std::vector<Point3d> _points;
+
+    private:
+        static std::string _ui_name;
 };
 
 }

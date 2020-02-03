@@ -13,14 +13,15 @@ find_package( Boost COMPONENTS log REQUIRED )
 include_directories( ${Boost_INCLUDE_DIRS} )
 
 # we will use static libs
-add_definitions(-DBOOST_LOG_DYN_LINK)
+add_definitions( -DBOOST_LOG_DYN_LINK )
 
 add_library( copper_lib SHARED ${SOURCES} ${HEADERS} )
 
 target_link_libraries( 
 	copper_lib 
 	box_geo_op
-	${OpenCL_LIBRARY} dl Boost::log
+	dl Boost::log
+	${OpenCL_LIBRARY}
 )
 
 if(APPLE)
@@ -35,7 +36,7 @@ if(APPLE)
   endif()
 
 elseif(UNIX)
-	install( TARGETS copper_lib DESTINATION "lib" )
+	install( TARGETS copper_lib DESTINATION ${CMAKE_INSTALL_PREFIX}/lib )
 endif()
 
 # copper built ins

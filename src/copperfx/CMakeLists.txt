@@ -1,3 +1,5 @@
+include( QtCommon )
+
 file( GLOB CPP_FILES 
   ./Ui/*.cpp
   ./*.cpp
@@ -21,7 +23,7 @@ include_directories(
 add_definitions(-DBOOST_LOG_DYN_LINK)
 
 # Qt5
-list(APPEND CMAKE_PREFIX_PATH "/home/max/Qt5.9.1/5.9.1/gcc_64")
+#list(APPEND CMAKE_PREFIX_PATH "/home/max/Qt5.9.1/5.9.1/gcc_64")
 
 if(POLICY CMP0071)
   cmake_policy(SET CMP0071 NEW)
@@ -36,27 +38,9 @@ set(CMAKE_AUTORCC ON)
 
 add_project_meta(META_FILES_TO_INCLUDE)
 
-find_package( Qt5Core REQUIRED )
-find_package( Qt5Svg REQUIRED )
-find_package( Qt5Gui REQUIRED )
-find_package( Qt5Widgets CONFIG REQUIRED )
+find_package( Qt5 COMPONENTS Core Svg Gui Widgets REQUIRED )
+set(CMAKE_CXX_FLAGS "${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
 
-get_target_property(QtCore_location Qt5::Core LOCATION)
-get_target_property(QtWidgets_location Qt5::Widgets LOCATION)
-
-include_directories(
-  ${Qt5Core_location} 
-  ${QtWidgets_location}
-  ${QtGui_location}
-  ${QtSvg_location}
-)
-
-include_directories(
-  ${Qt5Widgets_INCLUDES}
-  ${Qt5Core_INCLUDES}
-  ${Qt5Gui_INCLUDES}
-  ${Qt5Svg_INCLUDES}
-)
 
 if(APPLE)
   set( APP_ICON_NAME copperfx_icon.icns )
@@ -76,7 +60,7 @@ add_executable(
   ${RCC_SOURCES}
 )
 
-qt5_use_modules( copperfx Core Gui Widgets Svg )
+#qt5_use_modules( copperfx Core Gui Widgets Svg )
 
 if(APPLE)
   set_target_properties(
@@ -93,11 +77,12 @@ target_link_libraries (
   scene_view
   node_flow_view
   Boost::log
-  Qt5::Core
-  Qt5::Widgets
-  Qt5::Gui
-  Qt5::Svg
 )
+#  Qt5::Core
+#  Qt5::Widgets
+#  Qt5::Gui
+#  Qt5::Svg
+#)
 
 if(APPLE)
   install( TARGETS copperfx DESTINATION ${CMAKE_INSTALL_PREFIX} )

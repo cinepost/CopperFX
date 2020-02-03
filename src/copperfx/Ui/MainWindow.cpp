@@ -7,7 +7,7 @@
 namespace copper { namespace ui {
 
 MainWindow::MainWindow(QWidget *parent) {
-    // register workspaces
+  // register workspaces
   _workspaces.push_back(new Workspace);
 
   setCentralWidget(_workspaces.back());
@@ -138,6 +138,7 @@ void MainWindow::createActions() {
   QMenu *editMenu = menuBar()->addMenu(tr("&Edit"));
   QToolBar *editToolBar = addToolBar(tr("Edit"));
 #ifndef QT_NO_CLIPBOARD
+  /*
   const QIcon cutIcon = QIcon::fromTheme("edit-cut", QIcon(":/icons/cut"));
   QAction *cutAct = new QAction(cutIcon, tr("Cu&t"), this);
   cutAct->setShortcuts(QKeySequence::Cut);
@@ -171,7 +172,7 @@ void MainWindow::createActions() {
   QMenu *workspaceMenu = windowMenu->addMenu(tr("&Workspace"));
 
   menuBar()->addSeparator();
-
+  */
 #endif // !QT_NO_CLIPBOARD
 
   QMenu *helpMenu = menuBar()->addMenu(tr("&Help"));
@@ -183,10 +184,12 @@ void MainWindow::createActions() {
   aboutQtAct->setStatusTip(tr("Show the Qt library's About box"));
 
 #ifndef QT_NO_CLIPBOARD
+  /*
   cutAct->setEnabled(false);
   copyAct->setEnabled(false);
   connect(textEdit, &QPlainTextEdit::copyAvailable, cutAct, &QAction::setEnabled);
   connect(textEdit, &QPlainTextEdit::copyAvailable, copyAct, &QAction::setEnabled);
+  */
 #endif // !QT_NO_CLIPBOARD
 }
 

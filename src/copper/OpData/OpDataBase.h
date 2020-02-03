@@ -9,7 +9,7 @@
 #include <boost/uuid/string_generator.hpp>
 
 #include "copper/Plugin/PluginApi.h"
-
+#include "copper/Plugin/TypeInfo.h"
 
 namespace copper {
 
@@ -18,6 +18,17 @@ class OpDataBase: public BaseAPI {
   	virtual void saveToFile(const std::string& filename, const unsigned int version) const = 0;
   	virtual void loadFromFile(const std::string& filename, const unsigned int version) = 0;
 };
+
+/*
+ * helpers to get type info from opdata class
+ */
+
+#define OP_DATA_TYPE_INFO(T) __opDataTypeInfo<T>()
+
+template <class T>
+inline TypeInfo __opDataTypeInfo() {
+    return T::opDataTypeInfo();
+}
 
 }
 

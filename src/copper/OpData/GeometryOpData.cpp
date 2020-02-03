@@ -25,27 +25,25 @@ Point3d *GeometryOpData::createPoint() {
 	return &this->_points.back();
 }
 
+// opdata type info
+TypeInfo GeometryOpData::opDataTypeInfo() {
+	return TypeInfo {
+		"geo",
+		"Geometry",
+		0,
+		boost::uuids::string_generator()("{dc4f6d0e-12e1-4273-a9d5-8bcf146e09dd}")
+	};
+}
+
 // factory methods
 OpDataBase *GeometryOpData::myConstructor() {
     return new GeometryOpData();
 }
 
 void GeometryOpData::registerDataType(OpDataTable *op_data_table) {
-	TypeInfo info {
-		"geo",
-		"Geometry",
-		0,
-		boost::uuids::string_generator()("{dc4f6d0e-12e1-4273-a9d5-8bcf146e09dd}"),
-	};
-
   op_data_table->registerOpDataType(
-    info,                          /// data type info
-    GeometryOpData::myConstructor  /// op constructor
-  );
-
-  op_data_table->registerOpDataType(
-    info,                          /// data type info
-    GeometryOpData::myConstructor  /// op constructor
+    GeometryOpData::opDataTypeInfo(),   /// data type info
+    GeometryOpData::myConstructor  		/// op constructor
   );
 }
 

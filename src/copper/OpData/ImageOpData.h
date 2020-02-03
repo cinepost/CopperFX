@@ -18,11 +18,14 @@ class ImageOpData: public OpDataBase {
 		const std::string& name() const override;
 
 		void saveToFile(const std::string& filename, const unsigned int version) const override;
-    void loadFromFile(const std::string& filename, const unsigned int version) override;
+    	void loadFromFile(const std::string& filename, const unsigned int version) override;
 		
-    // factory methods
-    static OpDataBase *myConstructor();
-    static void registerDataType(OpDataTable *op_data_table);
+    	// opdata type info
+    	static TypeInfo opDataTypeInfo();
+
+    	// factory methods
+    	static OpDataBase *myConstructor();
+    	static void registerDataType(OpDataTable *op_data_table);
 
 	private:
 		static std::string _ui_name;

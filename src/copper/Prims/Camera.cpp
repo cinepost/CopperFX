@@ -26,7 +26,7 @@ void Camera::buildUpVector(Vector3d ground_normal) {
 
 Matrix4d Camera::getTransform() {
 	return Matrix4d::lookAt(_position, _target, _up);
-};
+}
 
 Vector3d Camera::up(){
 	return _up;

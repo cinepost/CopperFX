@@ -25,7 +25,7 @@ PyObject* HOU_Geometry::points() {
 	}
 
     return l->ptr();
-};
+}
 
 HOU_Point *HOU_Geometry::createPoint() {
 	return new HOU_Point(_geo->points()->size(), _geo->createPoint(), this);

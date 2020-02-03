@@ -4,14 +4,14 @@ file( GLOB SOURCES
 )
 
 # find python libs
-find_package( PythonLibs 2.7 REQUIRED )
+find_package( PythonLibs 3.7 REQUIRED )
 include_directories( ${PYTHON_INCLUDE_DIRS} )
 
 # find boost libs
 if(APPLE)
- find_package( Boost COMPONENTS python27 REQUIRED )
+ find_package( Boost COMPONENTS python37 REQUIRED )
 else()
- find_package( Boost COMPONENTS python-py27 REQUIRED )
+ find_package( Boost COMPONENTS python REQUIRED )
 endif()
 
 include_directories( ${Boost_INCLUDE_DIRS} )

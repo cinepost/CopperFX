@@ -37,43 +37,14 @@ OpBase *BoxGeometryOp::myConstructor() {
 	return new BoxGeometryOp();
 }
 
-void BoxGeometryOp::registerOperator(OpTable *op_table) {
-  TypeInfo input_data_type {
-    "geo",
-    "Geometry",
-    0,
-    boost::uuids::string_generator()("{dc4f6d0e-12e1-4273-a9d5-8bcf146e09dd}"),
-  };
-
+void BoxGeometryOp::registerOperator(OpTable *op_table) {  
   OpDataSocketTemplateList input_socket_templates;  /// operator node inputs
-  input_socket_templates.emplace_back(OpDataSocketTemplate(0, input_data_type, OpDataSocketTemplateFlags::INPUT_SOCKET));
-
-  TypeInfo output_data_type {
-    "geo",
-    "Geometry",
-    0,
-    boost::uuids::string_generator()("{dc4f6d0e-12e1-4273-a9d5-8bcf146e09dd}"),
-  };
+  input_socket_templates.emplace_back(OpDataSocketTemplate(0, OP_DATA_TYPE_INFO(GeometryOpData), OpDataSocketTemplateFlags::INPUT_SOCKET));
 
   OpDataSocketTemplateList outputs_socket_templates;  /// operator node outputs
-  outputs_socket_templates.emplace_back(OpDataSocketTemplate(0, output_data_type, OpDataSocketTemplateFlags::OUTPUT_SOCKET));
+  outputs_socket_templates.emplace_back(OpDataSocketTemplate(0,  OP_DATA_TYPE_INFO(GeometryOpData), OpDataSocketTemplateFlags::OUTPUT_SOCKET));
 
-  OpTypeInfo info_1(
-    "box",  // type name
-    "Box",  // ui name
-    1,      // version
-    boost::uuids::string_generator()("{4c25ee76-72d3-4a2f-a8cc-2207fa3aca11}") // uuid
-  );
-
-  op_table->registerOpNodeTemplate(new OpNodeTemplate(
-    info_1,
-    BoxGeometryOp::myConstructor, /// op constructor
-    input_socket_templates,
-    outputs_socket_templates,
-    OpNodeTemplate::Flags::OP_FLAG_GENERATOR
-  ));
-
-  OpTypeInfo info_0(
+  OpTypeInfo up_type_info(
     "box",  // type name
     "Box",  // ui name
     0,      // version
@@ -81,22 +52,7 @@ void BoxGeometryOp::registerOperator(OpTable *op_table) {
   );
 
   op_table->registerOpNodeTemplate(new OpNodeTemplate(
-    info_0,
-    BoxGeometryOp::myConstructor, /// op constructor
-    input_socket_templates,
-    outputs_socket_templates,
-    OpNodeTemplate::Flags::OP_FLAG_GENERATOR
-  ));
-
-  OpTypeInfo info_2(
-    "box",  // type name
-    "Box",  // ui name
-    2,      // version
-    boost::uuids::string_generator()("{4c25ee76-72d3-4a2f-a8cc-2207fa3aca11}") // uuid
-  );
-
-  op_table->registerOpNodeTemplate(new OpNodeTemplate(
-    info_2,
+    up_type_info,
     BoxGeometryOp::myConstructor, /// op constructor
     input_socket_templates,
     outputs_socket_templates,

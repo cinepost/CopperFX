@@ -11,3 +11,6 @@
 [submodule "third_party/zugbruecke"]
 	path = third_party/zugbruecke
 	url = https://github.com/pleiszenburg/zugbruecke.git
+[submodule "third_party/tinyobjloader"]
+	path = third_party/tinyobjloader
+	url = https://github.com/syoyo/tinyobjloader.git

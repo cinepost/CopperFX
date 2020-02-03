@@ -39,7 +39,7 @@ elseif(UNIX)
 endif()
 
 # Include Qt basic functions
-include( QtCommon )
+#include( QtCommon )
 
 # Include config targets
 include ( CopperConfigTargets )
@@ -108,17 +108,19 @@ set(ANTLR4CPP_JAR_LOCATION ${PROJECT_SOURCE_DIR}/third_party/antlr-4.7.1-complet
 # Now setup targets
 
 # thirt party libs
-add_subdirectory("third_party/antlr4/runtime/Cpp")
+#add_subdirectory("third_party/antlr4/runtime/Cpp")
 
 # copper libs
 add_subdirectory( src/copper ) # main copper library
 
 # copper python modules
-#add_subdirectory( src/copper_pymodules ) # copper python modules
+add_subdirectory( src/copper_pymodules ) # copper python modules
 
 # copper apps
 add_subdirectory( src/copperfx )   # gui application
 #add_subdirectory( src/copperpy )   # commandline / embedded python interpreter
+
+# addiional components
 #add_subdirectory( src/shout ) # renderer
 
 install(

@@ -13,7 +13,7 @@ namespace copper {
 
 PluginManager::PluginManager(const boost::filesystem::path& plugins_directory)
   : _plugins_directory(plugins_directory) {
-  
+
   loadAll();
 }
 
@@ -54,7 +54,7 @@ void PluginManager::loadAll() {
 //]
 
 bool PluginManager::loadPluginLib(const boost::filesystem::path& plugin_file_path) {
-
+    return true;
 }
 
 //[plugcpp_plugins_collector_insert_plugin
